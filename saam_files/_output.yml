@@ -14,7 +14,7 @@ bookdown::gitbook:
     fontsettings:
       theme: white
       family: sans
-      size: 5
+      size: 6
     search: no
     sharing: null
     info: true
