@@ -7,7 +7,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">SAAM (Songs, Albums, Artists, Miscellaneous) Database</a></li>
       after: |
-        <li><a href="./" target="blank">Sam Macdonald</a></li>
+        <li><a href="https://smakdonald.github.io/">Sam Macdonald</a></li>
     toolbar: fixed
     edit: null
     download: ["pdf", "epub", "docx"]
