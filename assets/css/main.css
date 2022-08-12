@@ -2454,12 +2454,12 @@ input, select, textarea {
 			padding-top: 2em;
 		}
 
-	#maintwo {
+	#main2 {
 		margin-bottom: 0;
 		margin-left: 2.5em;
 	}
 
-		#main section:first-of-type {
+		#main2 section:first-of-type {
 			padding-top: 2em;
 		}
 
