@@ -68,16 +68,16 @@
 											<ul>
 												<li>
 													Photography: 
-													<span id="dots">...</span><span id="more">
 													Following the IFSC Boulder Worldcup I attended in May 2022 I realized that all the pictures I took on my phone were, shall we say, not good. 
 													I have since gotten my hands on a camera and would like to hone my skills as a photographer. 
 													So far that has manifested in several dozen pictures of my cats and a few dead batteries, but I remain optimistic.
 													</span></p>
-													<button onclick="myFunction()" id="myBtn">Read more</button>
+													
 												</li>
 												
 												<li>
-													Spanish: I hated languages in school. 
+													Spanish: 
+													I hated languages in school. 
 													I took four years of French in high school before placing into the lowest possible course offered at Willamette.
 													I'd only taken French in the first place because Italian wasn't offered and I thought my brother would be able to help me with my homework (he did not), so I decided to give Spanish a shot instead.
 													After a semester I was convinced that languages were just not for me, and the language requirement at Willamette soon became one of my least favorite parts about college.
@@ -88,15 +88,28 @@
 												</li>
 												
 												<li>
-													Guitar: I considered buying a guitar during the pandemic before ultimately deciding against it. 
+													Guitar: 
+													I considered buying a guitar during the pandemic before ultimately deciding against it. 
 													I've always wanted to learn, but I recognized that I wasn't in a place where I could dedicate the time and energy needed to practice.
 													Absolutely none of that has changed, but due to unforseen circumstances I am now in posession of a very nice accoustic guitar and would like to learn a few songs. 
 													Wonderwall, here I come.
 												</li>
+											</ul>
+										</p>
 
-												
-
-												
+										<button class="collapsible">Open Section 1</button>
+										<div class="content">
+										  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+										<button class="collapsible">Open Section 2</button>
+										<div class="content">
+										  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+										<button class="collapsible">Open Section 3</button>
+										<div class="content">
+										  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										</div>
+															
 
 									<hr class="major" />
 
@@ -448,21 +461,20 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
-				function myFunction() {
-				  var dots = document.getElementById("dots");
-				  var moreText = document.getElementById("more");
-				  var btnText = document.getElementById("myBtn");
-				
-				  if (dots.style.display === "none") {
-				    dots.style.display = "inline";
-				    btnText.innerHTML = "Read more"; 
-				    moreText.style.display = "none";
-				  } else {
-				    dots.style.display = "none";
-				    btnText.innerHTML = "Read less"; 
-				    moreText.style.display = "inline";
-				  }
-				}
+			var coll = document.getElementsByClassName("collapsible");
+			var i;
+			
+			for (i = 0; i < coll.length; i++) {
+			  coll[i].addEventListener("click", function() {
+			    this.classList.toggle("active");
+			    var content = this.nextElementSibling;
+			    if (content.style.maxHeight){
+			      content.style.maxHeight = null;
+			    } else {
+			      content.style.maxHeight = content.scrollHeight + "px";
+			    } 
+			  });
+			}
 			</script>
 
 	</body>
