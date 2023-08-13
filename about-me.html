@@ -10,6 +10,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			#more {display: none;}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -56,6 +59,7 @@
 											I also rock climb at the <a href="https://www.mwclimbing.com/">local gym</a>, volunteer at the local high school, and teach algebra at the local penitentiary. 
 											I make up for this by refusing to eat or buy local under any circumstances. 
 											Life is all about balance.
+											<span id="dots">...</span><span id="more">
 										</p>
 									
 										<p>
@@ -84,6 +88,9 @@
 													Absolutely none of that has changed, but due to unforseen circumstances I am now in posession of a very nice accoustic guitar and would like to learn a few songs. 
 													Wonderwall, here I come.
 												</li>
+
+												</span></p>
+												<button onclick="myFunction()" id="myBtn">Read more</button>
 
 									<hr class="major" />
 
@@ -434,6 +441,23 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				function myFunction() {
+				  var dots = document.getElementById("dots");
+				  var moreText = document.getElementById("more");
+				  var btnText = document.getElementById("myBtn");
+				
+				  if (dots.style.display === "none") {
+				    dots.style.display = "inline";
+				    btnText.innerHTML = "Read more"; 
+				    moreText.style.display = "none";
+				  } else {
+				    dots.style.display = "none";
+				    btnText.innerHTML = "Read less"; 
+				    moreText.style.display = "inline";
+				  }
+				}
+			</script>
 
 	</body>
 </html>
