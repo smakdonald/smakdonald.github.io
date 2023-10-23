@@ -520,104 +520,7 @@
 
 									</div>
 									
-								</div>
-
-								<div class="tab">
-						<button class="tablinks" onclick="openCity(event, 'by-time')">Chronologically</button>
-						<button class="tablinks" onclick="openCity(event, 'a-by-a')">Alphabetically by Author</button>
-						<button class="tablinks" onclick="openCity(event, 'sum-22')">Summer 2022</button>
-						<button class="tablinks" onclick="openCity(event, 'f-22')">Fall 2022</button>
-						<button class="tablinks" onclick="openCity(event, 's-23')">Spring 2023</button>
-						<button class="tablinks" onclick="openCity(event, 'sum-23')">Summer 2023</button>
-					</div>
-					
-					<!-- Tab content -->
-					<div id="by-time" class="tabcontent" style="display: none;">
-					  <h3>Chronologically</h3>
-						<ul>
-							<li>
-								<p>
-									"Sam is by far the best TA I have had this semester. Is almost always available to give help and responds to questions very quickly."
-									<br>
-									- Calculus I Student
-								</p>
-							</li>
-							
-						</ul>
-					</div>
-					
-					<div id="a-by-a" class="tabcontent" style="display: none;">
-					  <h3>Alphabetically by Author</h3>
-						<ul>
-							<li>
-							  <p>
-										"Sam's abailabilty and willingness to help has been top notch. Give this man a raise and make him head of the department."
-										<br>
-										- Calculus II Student
-									</p>
-								</li>
-	
-							</ul>
-					</div>
-					
-					<div id="sum-22" class="tabcontent" style="display: none;">
-					  <h3>Summer 2022</h3>
-						<ul>
-							<li>
-						  	<p>
-									"Mr. Macdonald was a great teacher. I felt welcomed to ask questions and I could tell that he really cared about his students understanding the material."
-									<br>
-									- Trigonometry Student
-								</p>
-							</li>
-						</ul>
-					</div> 
-
-					<div id="f-22" class="tabcontent" style="display: none;">
-					  <h3>Fall 2022</h3>
-						<ul>
-							<li>
-					  		<p>
-									"I have never had an instructor who so willing gave his best each and every class. Sam went above and beyond my expectations in being available to offer assistance in our course work and answer questions. My success in this course is primarily because of his dedication to giving every opportunity to succeed."
-									<br>
-									- Intermediate Algebra Student
-								</p>
-							</li>
-							
-
-						</ul>
-					</div> 
-
-					<div id="s-23" class="tabcontent" style="display: none;">
-					  <h3>Spring 2023</h3>
-						<ul>
-							<li>
-						  	<p>
-									"I've never felt truly comfortable in a math classroom until I entered this one."
-									<br>
-									- College Algebra Student
-								</p>
-							</li>
-							
-
-						</ul>
-					</div> 
-
-					<div id="sum-23" class="tabcontent" style="display: none;">
-					  <h3>Summer 2023</h3>
-						<ul>
-							<li>
-					  		<p>
-									"The strength of this course comes from the teachers. Their ability to help us through our struggles makes the material easier to interpret. You changed my view of math and education as a whole."
-									<br>
-									- RTC Intermediate Algebra Student
-								</p>
-							</li>
-							
-		
-						</ul>
-					</div> 
-									
+								</div>									
 								
 								<div id="author" class="tabcontent" style="display: none;">
 
@@ -1616,22 +1519,21 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
-		<script>
-	function openCity(evt, cityName) {
-	  var i, tabcontent, tablinks;
-	  tabcontent = document.getElementsByClassName("tabcontent");
-	  for (i = 0; i < tabcontent.length; i++) {
-	    tabcontent[i].style.display = "none";
-	  }
-	  tablinks = document.getElementsByClassName("tablinks");
-	  for (i = 0; i < tablinks.length; i++) {
-	    tablinks[i].className = tablinks[i].className.replace(" active", "");
-	  }
-	  document.getElementById(cityName).style.display = "block";
-	  evt.currentTarget.className += " active";
-	}
-	</script>
+			<script>
+				function openCity(evt, cityName) {
+				  var i, tabcontent, tablinks;
+				  tabcontent = document.getElementsByClassName("tabcontent");
+				  for (i = 0; i < tabcontent.length; i++) {
+				    tabcontent[i].style.display = "none";
+				  }
+				  tablinks = document.getElementsByClassName("tablinks");
+				  for (i = 0; i < tablinks.length; i++) {
+				    tablinks[i].className = tablinks[i].className.replace(" active", "");
+				  }
+				  document.getElementById(cityName).style.display = "block";
+				  evt.currentTarget.className += " active";
+				}
+			</script>
 
 	</body>
 </html>
