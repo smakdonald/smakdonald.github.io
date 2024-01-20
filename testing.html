@@ -1,1 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Type Chart</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Pokémon Type Chart</h2>
+
+  <label for="firstType">Select Pokémon Type:</label>
+  <select id="firstType">
+    <option value="Bug">Bug</option>
+    <option value="Dark">Dark</option>
+    <option value="Dragon">Dragon</option>
+    <option value="Electric">Electric</option>
+    <option value="Fairy">Fairy</option>
+    <option value="Fighting">Fighting</option>
+    <option value="Fire">Fire</option>
+    <option value="Flying">Flying</option>
+    <option value="Ghost">Ghost</option>
+    <option value="Grass">Grass</option>
+    <option value="Ground">Ground</option>
+    <option value="Ice">Ice</option>
+    <option value="Normal">Normal</option>
+    <option value="Poison">Poison</option>
+    <option value="Psychic">Psychic</option>
+    <option value="Rock">Rock</option>
+    <option value="Steel">Steel</option>
+    <option value="Water">Water</option>
+  </select>
+  
+  <br>
+
+  <label for="secondType">Second Pokémon Type:</label>
+  <select id="secondType" name="secondType">
+    <option value="Bug">Bug</option>
+    <option value="Dark">Dark</option>
+    <option value="Dragon">Dragon</option>
+    <option value="Electric">Electric</option>
+    <option value="Fairy">Fairy</option>
+    <option value="Fighting">Fighting</option>
+    <option value="Fire">Fire</option>
+    <option value="Flying">Flying</option>
+    <option value="Ghost">Ghost</option>
+    <option value="Grass">Grass</option>
+    <option value="Ground">Ground</option>
+    <option value="Ice">Ice</option>
+    <option value="Normal">Normal</option>
+    <option value="Poison">Poison</option>
+    <option value="Psychic">Psychic</option>
+    <option value="Rock">Rock</option>
+    <option value="Steel">Steel</option>
+    <option value="Water">Water</option>
+  </select>
+  
+  <br>
+
+  <button onclick="displayCellContent()">Display Cell Content</button>
+
+  <h2>Selected Cell Content</h2>
+  <table id="selectedCellTable">
+    <!-- Table content will be generated here -->
+  </table>
+
+  <script>
+    function displayCellContent() {
+      // Get the selected type from the dropdown
+      var firstType = document.getElementById("firstType").value;
+      var secondType = document.getElementById("secondType").value;
+
+      // Get the column index based on the selected type
+      var columnIndex1 = getColumnIndex(firstType);
+      var columnIndex2 = getColumnIndex(secondType);
+      
+      var rowIndices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]; 
+      
+      var pokemonTypes = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying', 'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
+      
+      // Get the cell value in the third row and the selected column
+      var table = document.getElementById("typeChart");
+      
+      var tableContent = `
+      `;
+     
+      for (var i = 0; i < rowIndices.length; i++) {
+      	var rowType = pokemonTypes[i];
+        var row = table.rows[rowIndices[i]];
+        var cell1 = row.cells[columnIndex1];
+        var cell2 = row.cells[columnIndex2];
+        var cellValue = parseFloat(cell1.innerHTML) * parseFloat(cell2.innerHTML);
+
+        tableContent += `
+          <tr>
+            <td>${rowType}</td>
+            <td>${cellValue}</td>
+          </tr>
+        `;
+      }
+
+      // Display the multiplied value in a new table
+      var selectedCellTable = document.getElementById("selectedCellTable");
+      selectedCellTable.innerHTML = tableContent;
+    }
+
+    function getColumnIndex(type) {
+      // Get the column index based on the selected type
+      var table = document.getElementById("typeChart");
+      for (var i = 0; i < table.rows[0].cells.length; i++) {
+        if (table.rows[0].cells[i].innerHTML === type) {
+          return i;
+        }
+      }
+      return -1; // Return -1 if the type is not found (handle as needed)
+    }
+  </script>
+  
+  <h2>Pokémon Type Chart</h2>
+
+  <table border="1" class="dataframe" id="typeChart">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Type</th>
+      <th>Bug</th>
+      <th>Dark</th>
+      <th>Dragon</th>
+      <th>Electric</th>
+      <th>Fighting</th>
+      <th>Fairy</th>
+      <th>Fire</th>
+      <th>Flying</th>
+      <th>Ghost</th>
+      <th>Grass</th>
+      <th>Ground</th>
+      <th>Ice</th>
+      <th>Normal</th>
+      <th>Poison</th>
+      <th>Psychic</th>
+      <th>Rock</th>
+      <th>Steel</th>
+      <th>Water</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Bug</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Dark</th>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Dragon</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Electric</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Fairy</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Fighting</th>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Fire</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>Flying</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Ghost</th>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Grass</th>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Ground</th>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Ice</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>Normal</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Poison</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Psychic</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Rock</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Steel</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>0.5</td>
+    </tr>
+    <tr>
+      <th>Water</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
 
