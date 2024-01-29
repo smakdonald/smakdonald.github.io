@@ -58,167 +58,461 @@
 								<option value="Water">Water</option>
 							  </select>
 
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th> # </th> <th> Name </th> <th> Type </th> <th> Power </th> <th> Accuracy </th> <th> PP </th> <th> Effect </th> <th> Change(s) </th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-										      <td>41</td>
-										      <td>Twineedle</td>
-										      <td>Bug</td>
-										      <td>40</td>
-										      <td>100%</td>
-										      <td>20</td>
-										      <td>NaN</td>
-										      <td>+15 Damage</td>
-										</tr>
-										<tr>
-										      <td>42</td>
-										      <td>Pin Missile</td>
-										      <td>Bug</td>
-										      <td>20</td>
-										      <td>95%</td>
-										      <td>20</td>
-										      <td>Hit 2-5 Times</td>
-										      <td>+6 Damage, +10% Accuracy</td>
-    										</tr>
-										<tr>
-										      <td>81</td>
-										      <td>String Shot</td>
-										      <td>Bug</td>
-										      <td>—</td>
-										      <td>100%</td>
-										      <td>40</td>
-										      <td>-1 Speed</td>
-										      <td>NaN</td>
-										</tr>
-										<tr>
-										      <td>141</td>
-										      <td>Leech Life</td>
-										      <td>Bug</td>
-										      <td>50</td>
-										      <td>100%</td>
-										      <td>10</td>
-										      <td>Absorb 50%</td>
-										      <td>+30 Damage</td>
-    										</tr>
+							
 
-										<tr>
-										      <td>169</td>
-										      <td>Spider Web</td>
-										      <td>Bug</td>
-										      <td>—</td>
-										      <td>—%</td>
-										      <td>10</td>
-										      <td>Can't Escape</td>
-										      <td>NaN</td>
-										</tr>
+						<div class="table-wrapper">
+							<table id="selectedCellTable">
+								<!-- Table content will be generated here -->
+							</table>
 
-										<tr>
-										      <td>210</td>
-										      <td>Fury Cutter</td>
-										      <td>Bug</td>
-										      <td>20</td>
-										      <td>95%</td>
-										      <td>20</td>
-										      <td>NaN</td>
-										      <td>+10 Damage</td>
-										</tr>
+							
+							<table id="Bug-Table">
+								<thead>
+									<tr>
+										<th> # </th> 
+										<th> Name </th> 
+										<th> Type </th> 
+										<th> Power </th> 
+										<th> Accuracy </th> 
+										<th> PP </th> 
+										<th> Effect </th> 
+										<th> Change(s) </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>41</td>
+										<td>Twineedle</td>
+										<td>Bug</td>
+										<td>40</td>
+										<td>100%</td>
+										<td>20</td>
+										<td>NaN</td>
+										<td>+15 Damage</td>
+									</tr>
+									<tr>
+									      <td>42</td>
+									      <td>Pin Missile</td>
+									      <td>Bug</td>
+									      <td>20</td>
+									      <td>95%</td>
+									      <td>20</td>
+									      <td>Hit 2-5 Times</td>
+									      <td>+6 Damage, +10% Accuracy</td>
+									</tr>
+									<tr>
+									      <td>81</td>
+									      <td>String Shot</td>
+									      <td>Bug</td>
+									      <td>—</td>
+									      <td>100%</td>
+									      <td>40</td>
+									      <td>-1 Speed</td>
+									      <td>NaN</td>
+									</tr>
+									<tr>
+									      <td>141</td>
+									      <td>Leech Life</td>
+									      <td>Bug</td>
+									      <td>50</td>
+									      <td>100%</td>
+									      <td>10</td>
+									      <td>Absorb 50%</td>
+									      <td>+30 Damage</td>
+									</tr>
 
-										<tr>
-										      <td>224</td>
-										      <td>Megahorn</td>
-										      <td>Bug</td>
-										      <td>120</td>
-										      <td>85%</td>
-										      <td>10</td>
-										      <td>NaN</td>
-										      <td>NaN</td>
-										</tr>
+									<tr>
+									      <td>169</td>
+									      <td>Spider Web</td>
+									      <td>Bug</td>
+									      <td>—</td>
+									      <td>—%</td>
+									      <td>10</td>
+									      <td>Can't Escape</td>
+									      <td>NaN</td>
+									</tr>
 
-										<tr>
-										      <td>294</td>
-										      <td>Tail Glow</td>
-										      <td>Bug</td>
-										      <td>—</td>
-										      <td>—%</td>
-										      <td>5</td>
-										      <td>NaN</td>
-										      <td>-15 PP</td>
-										</tr>
+									<tr>
+									      <td>210</td>
+									      <td>Fury Cutter</td>
+									      <td>Bug</td>
+									      <td>20</td>
+									      <td>95%</td>
+									      <td>20</td>
+									      <td>NaN</td>
+									      <td>+10 Damage</td>
+									</tr>
 
-										<tr>
-										      <td>318</td>
-										      <td>Silver Wind</td>
-										      <td>Bug</td>
-										      <td>60</td>
-										      <td>100%</td>
-										      <td>5</td>
-										      <td>NaN</td>
-										      <td>NaN</td>
-    										</tr>
+									<tr>
+									      <td>224</td>
+									      <td>Megahorn</td>
+									      <td>Bug</td>
+									      <td>120</td>
+									      <td>85%</td>
+									      <td>10</td>
+									      <td>NaN</td>
+									      <td>NaN</td>
+									</tr>
 
-										<tr>
-										      <td>324</td>
-										      <td>Signal Beam</td>
-										      <td>Bug</td>
-										      <td>75</td>
-										      <td>100%</td>
-										      <td>15</td>
-										      <td>NaN</td>
-										      <td>NaN</td>
-										</tr>
+									<tr>
+									      <td>294</td>
+									      <td>Tail Glow</td>
+									      <td>Bug</td>
+									      <td>—</td>
+									      <td>—%</td>
+									      <td>5</td>
+									      <td>NaN</td>
+									      <td>-15 PP</td>
+									</tr>
 
-										 <tr>
-										      <td>404</td>
-										      <td>X-Scissor</td>
-										      <td>Bug</td>
-										      <td>80</td>
-										      <td>100%</td>
-										      <td>15</td>
-										      <td>High Crit Ratio</td>
-										      <td>NaN</td>
-										</tr>
-										
-										    <tr>
-										      <td>405</td>
-										      <td>Bug Buzz</td>
-										      <td>Bug</td>
-										      <td>90</td>
-										      <td>100%</td>
-										      <td>10</td>
-										      <td>NaN</td>
-										      <td>NaN</td>
-										</tr>
+									<tr>
+									      <td>318</td>
+									      <td>Silver Wind</td>
+									      <td>Bug</td>
+									      <td>60</td>
+									      <td>100%</td>
+									      <td>5</td>
+									      <td>NaN</td>
+									      <td>NaN</td>
+									</tr>
 
-										<tr>
-										      <td>483</td>
-										      <td>Quiver Dance</td>
-										      <td>Bug</td>
-										      <td>—</td>
-										      <td>—%</td>
-										      <td>20</td>
-										      <td>NaN</td>
-										      <td>NaN</td>
-										</tr>
+									<tr>
+									      <td>324</td>
+									      <td>Signal Beam</td>
+									      <td>Bug</td>
+									      <td>75</td>
+									      <td>100%</td>
+									      <td>15</td>
+									      <td>NaN</td>
+									      <td>NaN</td>
+									</tr>
 
-										<tr>
-										      <td>1000</td>
-										      <td>Scythe Storm</td>
-										      <td>Bug</td>
-										      <td>120</td>
-										      <td>100</td>
-										      <td>5</td>
-										      <td>Thrash</td>
-										      <td>NaN</td>
-										</tr>
-									</tbody>
-								</table>
-							 </div>
+									 <tr>
+									      <td>404</td>
+									      <td>X-Scissor</td>
+									      <td>Bug</td>
+									      <td>80</td>
+									      <td>100%</td>
+									      <td>15</td>
+									      <td>High Crit Ratio</td>
+									      <td>NaN</td>
+									</tr>
+									
+									    <tr>
+									      <td>405</td>
+									      <td>Bug Buzz</td>
+									      <td>Bug</td>
+									      <td>90</td>
+									      <td>100%</td>
+									      <td>10</td>
+									      <td>NaN</td>
+									      <td>NaN</td>
+									</tr>
+
+									<tr>
+									      <td>483</td>
+									      <td>Quiver Dance</td>
+									      <td>Bug</td>
+									      <td>—</td>
+									      <td>—%</td>
+									      <td>20</td>
+									      <td>NaN</td>
+									      <td>NaN</td>
+									</tr>
+
+									<tr>
+									      <td>1000</td>
+									      <td>Scythe Storm</td>
+									      <td>Bug</td>
+									      <td>120</td>
+									      <td>100</td>
+									      <td>5</td>
+									      <td>Thrash</td>
+									      <td>NaN</td>
+									</tr>
+								</tbody>
+							</table>
+
+							<table id="Dark-Table">
+								<thead>
+									<tr>
+										<th> # </th> 
+										<th> Name </th> 
+										<th> Type </th> 
+										<th> Power </th> 
+										<th> Accuracy </th> 
+										<th> PP </th> 
+										<th> Effect </th> 
+										<th> Change(s) </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>43</td>
+										<td>Leer</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>30</td>
+										<td>100% -1 Defense</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>44</td>
+										<td>Bite</td>
+										<td>Dark</td>
+										<td>60</td>
+										<td>100%</td>
+										<td>25</td>
+										<td>30% Flinch</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>45</td>
+										<td>Growl</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>40</td>
+										<td>100% -1 Attack</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>50</td>
+										<td>Disable</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>20</td>
+										<td>NaN</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>99</td>
+										<td>Rage</td>
+										<td>Dark</td>
+										<td>20</td>
+										<td>100%</td>
+										<td>20</td>
+										<td>NaN</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>137</td>
+										<td>Glare</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>30</td>
+										<td>NaN</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>162</td>
+										<td>Super Fang</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>90%</td>
+										<td>10</td>
+										<td>NaN</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>168</td>
+										<td>Thief</td>
+										<td>Dark</td>
+										<td>50</td>
+										<td>100%</td>
+										<td>25</td>
+										<td>Steal Item</td>
+										<td>+10 Damage</td>
+									</tr>
+									
+									<tr>
+										<td>184</td>
+										<td>Scary Face</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>10</td>
+										<td>NaN</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>185</td>
+										<td>Feint Attack</td>
+										<td>Dark</td>
+										<td>60</td>
+										<td>—%</td>
+										<td>20</td>
+										<td>NaN</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>207</td>
+										<td>Swagger</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>85%</td>
+										<td>15</td>
+										<td>NaN</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>212</td>
+										<td>Mean Look</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>—%</td>
+										<td>5</td>
+										<td>NaN</td>
+										<td>Type Change</td>
+									</tr>
+									
+									<tr>
+										<td>228</td>
+										<td>Pursuit</td>
+										<td>Dark</td>
+										<td>40</td>
+										<td>100%</td>
+										<td>20</td>
+										<td>Doubled if Escaping</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>242</td>
+										<td>Crunch</td>
+										<td>Dark</td>
+										<td>80</td>
+										<td>100%</td>
+										<td>15</td>
+										<td>NaN</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>259</td>
+										<td>Torment</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>15</td>
+										<td>NaN</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>260</td>
+										<td>Flatter</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>15</td>
+										<td>NaN</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>269</td>
+										<td>Taunt</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>20</td>
+										<td>NaN</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>282</td>
+										<td>Knock Off</td>
+										<td>Dark</td>
+										<td>65</td>
+										<td>100%</td>
+										<td>20</td>
+										<td>NaN</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>313</td>
+										<td>Fake Tears</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>100%</td>
+										<td>20</td>
+										<td>100% -2 SpDef</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>371</td>
+										<td>Payback</td>
+										<td>Dark</td>
+										<td>50</td>
+										<td>100%</td>
+										<td>10</td>
+										<td>Revenge</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>399</td>
+										<td>Dark Pulse</td>
+										<td>Dark</td>
+										<td>80</td>
+										<td>100%</td>
+										<td>15</td>
+										<td>NaN</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>400</td>
+										<td>Night Slash</td>
+										<td>Dark</td>
+										<td>70</td>
+										<td>100%</td>
+										<td>15</td>
+										<td>High Crit Ratio</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>417</td>
+										<td>Nasty Plot</td>
+										<td>Dark</td>
+										<td>—</td>
+										<td>—%</td>
+										<td>20</td>
+										<td>100% +2 SpAtk</td>
+										<td>NaN</td>
+									</tr>
+									
+									<tr>
+										<td>1000</td>
+										<td>Moonsault</td>
+										<td>Dark</td>
+										<td>120</td>
+										<td>100</td>
+										<td>15</td>
+										<td>Recoil</td>
+										<td>NaN</td>
+									</tr>
+								</tbody>
+							</table>
+						 </div>
 					</section>
 				</div>
 			</div>
