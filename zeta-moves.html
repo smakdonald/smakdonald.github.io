@@ -1174,7 +1174,7 @@
 								</tbody>
 							</table>
 
-							<table id="Fire-Table">
+							<table id="Fire-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -1362,7 +1362,7 @@
 								</tbody>
 							</table>
 
-							<table id="Flying-Table">
+							<table id="Flying-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -1530,7 +1530,7 @@
 								</tbody>
 							</table>
 
-							<table id="Ghost-Table">
+							<table id="Ghost-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -1688,7 +1688,7 @@
 								</tbody>
 							</table>
 
-							<table id="Grass-Table">
+							<table id="Grass-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -1976,7 +1976,7 @@
 								</tbody>
 							</table>
 
-							<table id="Ground-Table">
+							<table id="Ground-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -2124,7 +2124,7 @@
 								</tbody>
 							</table>
 
-							<table id="Ice-Table">
+							<table id="Ice-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -2292,7 +2292,7 @@
 								</tbody>
 							</table>
 
-							<table id="Normal-Table">
+							<table id="Normal-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -3010,7 +3010,7 @@
 								</tbody>
 							</table>
 
-							<table id="Poison-Table">
+							<table id="Poison-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -3148,7 +3148,7 @@
 								</tbody>
 							</table>
 
-							<table id="Psychic-Table">
+							<table id="Psychic-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -3416,7 +3416,7 @@
 								</tbody>
 							</table>
 
-							<table id="Rock-Table">
+							<table id="Rock-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -3564,7 +3564,7 @@
 								</tbody>
 							</table>
 
-							<table id="Steel-Table">
+							<table id="Steel-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -3732,7 +3732,7 @@
 								</tbody>
 							</table>
 
-							<table id="Water-Table">
+							<table id="Water-Table" style="display: none;">
 								<thead>
 									<tr>
 										<th> # </th> 
@@ -4026,21 +4026,6 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-		<script>
-			function openCity(evt, cityName) {
-				var i, tabcontent, tablinks;
-				tabcontent = document.getElementsByClassName("tabcontent");
-				for (i = 0; i < tabcontent.length; i++) {
-				tabcontent[i].style.display = "none";
-				}
-				tablinks = document.getElementsByClassName("tablinks");
-				for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-				}
-				document.getElementById(cityName).style.display = "block";
-				evt.currentTarget.className += " active";
-			}
-		</script>
 		<script>
 		    function displaySelectedTable() {
 		      var selectedTableId = document.getElementById("tableSelector").value;
