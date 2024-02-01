@@ -15,6 +15,22 @@
 					width: 300px; /* Adjust the desired width */
 					height: 450px; /* Adjust the desired height */
 				}
+			/* Some basic styling for demonstration purposes */
+		        table {
+		            border-collapse: collapse;
+		            width: 100%;
+		        }
+		        th, td {
+		            border: 1px solid #ddd;
+		            padding: 8px;
+		            text-align: left;
+		        }
+		        th {
+		            background-color: #f2f2f2;
+		        }
+		        .hidden-text {
+		            display: none;
+		        }
 	    	</style>
 	</head>
 
@@ -57,6 +73,33 @@
 								<option value="Steel-Table">Steel</option>
 								<option value="Water-Table">Water</option>
 							  </select>
+
+
+						<table>
+						    <thead>
+						        <tr>
+						            <th>Name</th>
+						            <th>Action</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						        <tr>
+						            <td>John</td>
+						            <td>
+						                <button onclick="revealText('johnText')">Reveal Text</button>
+						                <p id="johnText" class="hidden-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>
+						            </td>
+						        </tr>
+						        <tr>
+						            <td>Anna</td>
+						            <td>
+						                <button onclick="revealText('annaText')">Reveal Text</button>
+						                <p id="annaText" class="hidden-text">Phasellus et lectus at urna dignissim consectetur. Morbi malesuada neque et arcu rhoncus, nec cursus enim ultrices. Nulla facilisi. Sed eu lorem nec est commodo sollicitudin. Integer accumsan magna ac eros placerat, vel gravida elit dignissim.</p>
+						            </td>
+						        </tr>
+						        <!-- Add more rows as needed -->
+						    </tbody>
+						</table>
 
 							
 
@@ -4108,5 +4151,16 @@
 		      }
 		    }
 		  </script>
+
+		<script>
+		    function revealText(id) {
+		        var textElement = document.getElementById(id);
+		        if (textElement.style.display === "none") {
+		            textElement.style.display = "block";
+		        } else {
+		            textElement.style.display = "none";
+		        }
+		    }
+</script>
 	</body>
 </html>
