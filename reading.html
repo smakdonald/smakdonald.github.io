@@ -77,17 +77,17 @@
 							
 			    			 	<thead>
 								<tr>
-									<th onclick="sortTable(0)">Order <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(1)">Cover <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(2)">Title <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(3)">Author Last <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(4)">Author First<span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(5)">Year <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(6)">Series <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(7)">Series # <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(8)">Format <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(9)">Length <span class="sortable-arrow"></span></th>
-									<th onclick="sortTable(10)">Words <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(0)" oncontextmenu="return showContextMenu(event, 0)">Order <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(1)" oncontextmenu="return showContextMenu(event, 1)">Cover <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(2)" oncontextmenu="return showContextMenu(event, 2)">Title <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(3)" oncontextmenu="return showContextMenu(event, 3)">Author Last <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(4)" oncontextmenu="return showContextMenu(event, 4)">Author First<span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(5)" oncontextmenu="return showContextMenu(event, 5)">Year <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(6)" oncontextmenu="return showContextMenu(event, 6)">Series <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(7)" oncontextmenu="return showContextMenu(event, 7)">Series # <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(8)" oncontextmenu="return showContextMenu(event, 8)">Format <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(9)" oncontextmenu="return showContextMenu(event, 9)">Length <span class="sortable-arrow"></span></th>
+									<th onclick="sortTable(10) oncontextmenu="return showContextMenu(event, 10)"">Words <span class="sortable-arrow"></span></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -2281,6 +2281,37 @@
 		            arrows[j].classList.remove("ascending", "descending");
 		        }
 		        arrows[columnIndex].classList.add(dir === "asc" ? "ascending" : "descending");
+		    }
+		</script>
+
+		<script>
+		    function showContextMenu(event, columnIndex) {
+		        event.preventDefault(); // Prevent default right-click menu
+		        var table = document.getElementById("sortable-table");
+		        var cells = table.querySelectorAll("td:nth-child(" + (columnIndex + 1) + "), th:nth-child(" + (columnIndex + 1) + ")");
+		        var isColumnVisible = cells[0].style.display !== "none";
+		        
+		        // Create context menu
+		        var contextMenu = document.createElement("div");
+		        contextMenu.innerHTML = "Hide Column";
+		        contextMenu.style.position = "absolute";
+		        contextMenu.style.left = event.clientX + "px";
+		        contextMenu.style.top = event.clientY + "px";
+		        contextMenu.style.background = "#fff";
+		        contextMenu.style.padding = "5px";
+		        contextMenu.style.border = "1px solid #ddd";
+		        contextMenu.style.cursor = "pointer";
+		
+		        // Hide or show column on click
+		        contextMenu.onclick = function() {
+		            for (var i = 0; i < cells.length; i++) {
+		                cells[i].style.display = isColumnVisible ? "none" : "";
+		            }
+		            document.body.removeChild(contextMenu); // Remove context menu after action
+		        };
+		
+		        document.body.appendChild(contextMenu); // Append context menu to body
+		        return false; // Prevent default behavior
 		    }
 		</script>
 	</body>
