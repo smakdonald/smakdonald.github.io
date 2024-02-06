@@ -2285,41 +2285,75 @@
 		</script>
 
 		<script>
+		    var originalDisplay = {}; // Object to store original display property of each column
+		    
 		    function showContextMenu(event, columnIndex) {
-			event.preventDefault(); // Prevent default right-click menu
-			var table = document.getElementById("sortable-table");
-			var cells = table.querySelectorAll("td:nth-child(" + (columnIndex + 1) + "), th:nth-child(" + (columnIndex + 1) + ")");
-			var isColumnVisible = cells[0].style.display !== "none";
-			
-			// Create context menu
-			var contextMenu = document.createElement("div");
-			contextMenu.innerHTML = "Hide Column";
-			contextMenu.style.position = "absolute";
-			contextMenu.style.left = event.clientX + "px";
-			contextMenu.style.top = event.clientY + "px";
-			contextMenu.style.background = "#fff";
-			contextMenu.style.padding = "5px";
-			contextMenu.style.border = "1px solid #ddd";
-			contextMenu.style.cursor = "pointer";
+		        event.preventDefault(); // Prevent default right-click menu
+		        var table = document.getElementById("sortable-table");
+		        var cells = table.querySelectorAll("td:nth-child(" + (columnIndex + 1) + "), th:nth-child(" + (columnIndex + 1) + ")");
+		        var isColumnVisible = cells[0].style.display !== "none";
+		        
+		        // Create context menu
+		        var contextMenu = document.createElement("div");
+		        contextMenu.innerHTML = "Hide Column";
+		        contextMenu.style.position = "absolute";
+		        contextMenu.style.left = event.clientX + "px";
+		        contextMenu.style.top = event.clientY + "px";
+		        contextMenu.style.background = "#fff";
+		        contextMenu.style.padding = "5px";
+		        contextMenu.style.border = "1px solid #ddd";
+		        contextMenu.style.cursor = "pointer";
 		
-			// Hide or show column on click
-			contextMenu.onclick = function() {
-			    for (var i = 0; i < cells.length; i++) {
-				cells[i].style.display = isColumnVisible ? "none" : "";
-			    }
-			    document.body.removeChild(contextMenu); // Remove context menu after action
-			};
+		        // Hide or show column on click
+		        contextMenu.onclick = function() {
+		            for (var i = 0; i < cells.length; i++) {
+		                if (isColumnVisible) {
+		                    originalDisplay[columnIndex] = cells[i].style.display;
+		                    cells[i].style.display = "none";
+		                } else {
+		                    cells[i].style.display = originalDisplay[columnIndex] || "";
+		                }
+		            }
+		            document.body.removeChild(contextMenu); // Remove context menu after action
+		            updateRestoreButtonVisibility(); // Update visibility of restore button
+		        };
 		
-			document.body.appendChild(contextMenu); // Append context menu to body
-			
-			// Remove context menu when clicking anywhere else on the page
-			document.addEventListener('click', function(event) {
-			    if (!contextMenu.contains(event.target)) {
-				document.body.removeChild(contextMenu);
-			    }
-			});
-			
-			return false; // Prevent default behavior
+		        document.body.appendChild(contextMenu); // Append context menu to body
+		        
+		        // Remove context menu when clicking anywhere else on the page
+		        document.addEventListener('click', function(event) {
+		            if (!contextMenu.contains(event.target)) {
+		                document.body.removeChild(contextMenu);
+		            }
+		        });
+		        
+		        return false; // Prevent default behavior
+		    }
+		
+		    function updateRestoreButtonVisibility() {
+		        var table = document.getElementById("sortable-table");
+		        var columns = table.querySelectorAll("th, td");
+		        var hiddenColumns = Array.from(columns).filter(column => column.style.display === "none");
+		
+		        var restoreButton = document.getElementById("restoreButton");
+		        if (hiddenColumns.length > 0) {
+		            if (!restoreButton.querySelector("button")) {
+		                var restoreBtn = document.createElement("button");
+		                restoreBtn.textContent = "Restore Columns";
+		                restoreBtn.onclick = function() {
+		                    hiddenColumns.forEach(column => {
+		                        var columnIndex = column.cellIndex;
+		                        for (var i = 0; i < columns.length; i += table.rows.length) {
+		                            columns[i + columnIndex].style.display = "";
+		                        }
+		                    });
+		                    restoreButton.removeChild(restoreBtn);
+		                };
+		                restoreButton.appendChild(restoreBtn);
+		            }
+		        } else {
+		            restoreButton.innerHTML = ""; // Clear restore button if no columns are hidden
+		        }
 		    }
 		</script>
 	</body>
