@@ -2286,32 +2286,40 @@
 
 		<script>
 		    function showContextMenu(event, columnIndex) {
-		        event.preventDefault(); // Prevent default right-click menu
-		        var table = document.getElementById("sortable-table");
-		        var cells = table.querySelectorAll("td:nth-child(" + (columnIndex + 1) + "), th:nth-child(" + (columnIndex + 1) + ")");
-		        var isColumnVisible = cells[0].style.display !== "none";
-		        
-		        // Create context menu
-		        var contextMenu = document.createElement("div");
-		        contextMenu.innerHTML = "Hide Column";
-		        contextMenu.style.position = "absolute";
-		        contextMenu.style.left = event.clientX + "px";
-		        contextMenu.style.top = event.clientY + "px";
-		        contextMenu.style.background = "#fff";
-		        contextMenu.style.padding = "5px";
-		        contextMenu.style.border = "1px solid #ddd";
-		        contextMenu.style.cursor = "pointer";
+			event.preventDefault(); // Prevent default right-click menu
+			var table = document.getElementById("sortable-table");
+			var cells = table.querySelectorAll("td:nth-child(" + (columnIndex + 1) + "), th:nth-child(" + (columnIndex + 1) + ")");
+			var isColumnVisible = cells[0].style.display !== "none";
+			
+			// Create context menu
+			var contextMenu = document.createElement("div");
+			contextMenu.innerHTML = "Hide Column";
+			contextMenu.style.position = "absolute";
+			contextMenu.style.left = event.clientX + "px";
+			contextMenu.style.top = event.clientY + "px";
+			contextMenu.style.background = "#fff";
+			contextMenu.style.padding = "5px";
+			contextMenu.style.border = "1px solid #ddd";
+			contextMenu.style.cursor = "pointer";
 		
-		        // Hide or show column on click
-		        contextMenu.onclick = function() {
-		            for (var i = 0; i < cells.length; i++) {
-		                cells[i].style.display = isColumnVisible ? "none" : "";
-		            }
-		            document.body.removeChild(contextMenu); // Remove context menu after action
-		        };
+			// Hide or show column on click
+			contextMenu.onclick = function() {
+			    for (var i = 0; i < cells.length; i++) {
+				cells[i].style.display = isColumnVisible ? "none" : "";
+			    }
+			    document.body.removeChild(contextMenu); // Remove context menu after action
+			};
 		
-		        document.body.appendChild(contextMenu); // Append context menu to body
-		        return false; // Prevent default behavior
+			document.body.appendChild(contextMenu); // Append context menu to body
+			
+			// Remove context menu when clicking anywhere else on the page
+			document.addEventListener('click', function(event) {
+			    if (!contextMenu.contains(event.target)) {
+				document.body.removeChild(contextMenu);
+			    }
+			});
+			
+			return false; // Prevent default behavior
 		    }
 		</script>
 	</body>
