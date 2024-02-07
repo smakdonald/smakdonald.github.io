@@ -20,14 +20,35 @@
 </head>
 <body>
 
-  <div class="image-container">
-    <img src="images/Book Covers/Jimenez-Spear.jpg">
-    <img src="images/Book Covers/Jimenez-Spear.jpg">
-    <img src="images/Book Covers/Colfer-Eternity-Code.jpg">
-    <img src="images/Book Covers/Jimenez-Spear.jpg">
-    <img src="images/Book Covers/Jimenez-Spear.jpg">
-    <img src="images/Book Covers/Colfer-Eternity-Code.jpg">
-  </div>
+  <button id="randomize-button">Randomize</button>
+
+<div class="image-container">
+  <img src="images/Book Covers/Jimenez-Spear.jpg" alt="Image 2" title="The Spear Cuts Through Water">
+  <img src="images/Book Covers/Colfer-Artemis-Fowl.jpg" alt="Image 3" title="Artemis Fowl">
+  <img src="images/Book Covers/Colfer-Arctic-Incident.jpg" alt="Image 4" title="The Arctic Indident">
+  <img src="images/Book Covers/Colfer-Eternity-Code.jpg" alt="Image 5" title="The Eternity Code">
+  <img src="image3.jpg" alt="Image 6" title="Title 6">
+  <img src="image1.jpg" alt="Image 1" title="Title 1">
+</div>
+
+  <script>
+    window.addEventListener('load', function() {
+  var imageContainer = document.querySelector('.image-container');
+  var images = Array.from(imageContainer.querySelectorAll('img'));
+  var randomizeButton = document.getElementById('randomize-button');
+
+  randomizeButton.addEventListener('click', function() {
+    images.sort(function() {
+      return 0.5 - Math.random();
+    });
+
+    images.forEach(function(image) {
+      imageContainer.appendChild(image);
+    });
+  });
+});
+
+  </script>
 
 </body>
 </html>
