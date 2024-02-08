@@ -71,10 +71,11 @@
 
   <div class="image-container" id="entryList"></div>
 
+<p>
+<br>
+</p>
 
- <table id="selectedCellTable">
-    <!-- Table content will be generated here -->
-</table>
+ <div class="image-container" id="selectedCellTable"></div>
 
   <script>
     window.addEventListener('load', function() {
@@ -119,16 +120,13 @@
     entryList.appendChild(entryElement);
     
     tableContent += `
-          <tr>
-            <td>${Content2}</td>
-          </tr>
+		${Content2}
         `;
     
- 
-      
     var selectedCellTable = document.getElementById("selectedCellTable");
       selectedCellTable.innerHTML = tableContent;
       
+     
   }
 </script>
 
