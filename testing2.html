@@ -48,25 +48,63 @@
   <img src="images/Book Covers/Weeks-Blinding-Knife.webp" alt="" title="1">
 </div>
 
+  <table id="myTable">
+  <tbody>
+    <tr>
+      <td>Anders-All-the-Birds.jpg</td> <td>All the Birds in the Sky</td> 
+    </tr>
+    <tr>
+      <td>Weeks-Blinding-Knife.webp</td> <td>The Blinding Knife</td> 
+    </tr>
+    <tr>
+      <td>Anders-All-the-Birds.jpg</td> <td>All the Birds in the Sky</td> 
+    </tr>
+    <tr>
+      <td>Weeks-Blinding-Knife.webp</td> <td>The Blinding Knife</td> 
+    </tr>
+  </tbody>
+</table>
+
+  <div class="image-container" id="entryList"></div>
+
 
   <script>
     window.addEventListener('load', function() {
-  var imageContainer = document.querySelector('.image-container');
-  var images = Array.from(imageContainer.querySelectorAll('img'));
-  var randomizeButton = document.getElementById('randomize-button');
-
-  randomizeButton.addEventListener('click', function() {
-    images.sort(function() {
-      return 0.5 - Math.random();
+      var imageContainer = document.querySelector('.image-container');
+      var images = Array.from(imageContainer.querySelectorAll('img'));
+      var randomizeButton = document.getElementById('randomize-button');
+    
+      randomizeButton.addEventListener('click', function() {
+        images.sort(function() {
+          return 0.5 - Math.random();
+        });
+    
+        images.forEach(function(image) {
+          imageContainer.appendChild(image);
+        });
+      });
     });
-
-    images.forEach(function(image) {
-      imageContainer.appendChild(image);
-    });
-  });
-});
-
   </script>
+
+  <script>
+  // Get the table
+  var table = document.getElementById("myTable");
+
+  // Get the entry list container
+  var entryList = document.getElementById("entryList");
+
+  // Loop through the rows of the table
+  for (var i = 1; i < table.rows.length; i++) {
+    // Get the content of the cell in the first column of the current row
+    var entry = table.rows[i].cells[0];
+    // Modify the text content of the cell (for example, add a prefix)
+    entry.textContent = '<img src="images/Book Covers/"' + entry.textContent'" alt="1" title="2">';
+    // Create a new paragraph element to display the modified entry and append it to the entry list container
+    var entryElement = document.createElement("p");
+    entryElement.textContent = entry.textContent;
+    entryList.appendChild(entryElement);
+  }
+</script>
 
 </body>
 </html>
