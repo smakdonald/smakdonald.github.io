@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokémon Type Chart</title>
+	<title>Reading</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
   <style>
     .image-container {
       display: flex;
@@ -27,165 +28,230 @@
 
   </style>
 </head>
-<body>
+<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Sam Macdonald</strong> Turner of Pages</a>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin-in"><span class="label">Linked In</span></a></li>
+							<li><a href="https://github.com/smakdonald" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://open.spotify.com/user/thesam.mac" class="icon brands fa-spotify"><span class="label">Spotify</span></a></li>
+						</ul>
+					</header>
+					<!-- Content -->
+					<section><header class="main"><h1>Reading</h1></header>
 
-<button onclick="sortImages()">Sort Alphabetically by Title</button>
-<button onclick="titleImages()">Sort Chronologically</button>
-	<!--
+					<hr class="major" />
 
-<div class="image-container">
-  <img src="images/Book Covers/Chambers-Prayer.jpg" alt="" title="23">
-  <img src="images/Book Covers/Wells-Artificial-Condition.png" alt="" title="22">
-  <img src="images/Book Covers/Jemesin-Emergency-Skin.png" alt="" title="21">
-  <img src="images/Book Covers/Weir-Martian.jpg " alt="" title="20">
-  <img src="images/Book Covers/Jimenez-Spear.jpg" alt="" title="19">
-  <img src="images/Book Covers/Sanderson-Frugal-Wizard.jpg" alt="" title="18">
-  <img src="images/Book Covers/Colfer-Eternity-Code.jpg " alt="" title="17">
-  <img src="images/Book Covers/Yang-Black-Tides-of-Heaven.jpg" alt="" title="16">
-  <img src="images/Book Covers/Leckie-Ancillary-Sword.jpg" alt="" title="15">
-  <img src="images/Book Covers/Colfer-Arctic-Incident.jpg" alt="" title="14">
-  <img src="images/Book Covers/Corey-Leviathan-Falls.jpg" alt="" title="13">
-  <img src="images/Book Covers/Pratchett-Mort.jpg " alt="" title="12">
-  <img src="images/Book Covers/Hobb-Assassins-Quest.jpg" alt="" title="11">
-  <img src="images/Book Covers/Novik-Golden-Enclaves.jpeg" alt="" title="10">
-  <img src="images/Book Covers/Colfer-Artemis-Fowl.jpg" alt="" title="9">
-  <img src="images/Book Covers/Sanderon_Tress.webp" alt="" title="8">
-  <img src="images/Book Covers/Riordon-Son-of-Neptune.jpg" alt="" title="7">
-  <img src="images/Book Covers/Tolkein-Hobbit.jpg" alt="" title="6">
-  <img src="images/Book Covers/Riordon-Lost-Hero.jpg" alt="" title="5">
-  <img src="images/Book Covers/Vo-Empress.jpg" alt="" title="4">
-  <img src="images/Book Covers/Jacques-Redwall.webp" alt="" title="3">
-  <img src="images/Book Covers/Anders-All-the-Birds.jpg" alt="" title="2">
-  <img src="images/Book Covers/Weeks-Blinding-Knife.webp" alt="" title="1">
-</div>
-
--->
+					<button onclick="sortImages()">Sort Alphabetically by Title</button>
+					<button onclick="titleImages()">Sort Chronologically</button>
+					<!--
+				
+					<div class="image-container">
+					  <img src="images/Book Covers/Chambers-Prayer.jpg" alt="" title="23">
+					  <img src="images/Book Covers/Wells-Artificial-Condition.png" alt="" title="22">
+					  <img src="images/Book Covers/Jemesin-Emergency-Skin.png" alt="" title="21">
+					  <img src="images/Book Covers/Weir-Martian.jpg " alt="" title="20">
+					  <img src="images/Book Covers/Jimenez-Spear.jpg" alt="" title="19">
+					  <img src="images/Book Covers/Sanderson-Frugal-Wizard.jpg" alt="" title="18">
+					  <img src="images/Book Covers/Colfer-Eternity-Code.jpg " alt="" title="17">
+					  <img src="images/Book Covers/Yang-Black-Tides-of-Heaven.jpg" alt="" title="16">
+					  <img src="images/Book Covers/Leckie-Ancillary-Sword.jpg" alt="" title="15">
+					  <img src="images/Book Covers/Colfer-Arctic-Incident.jpg" alt="" title="14">
+					  <img src="images/Book Covers/Corey-Leviathan-Falls.jpg" alt="" title="13">
+					  <img src="images/Book Covers/Pratchett-Mort.jpg " alt="" title="12">
+					  <img src="images/Book Covers/Hobb-Assassins-Quest.jpg" alt="" title="11">
+					  <img src="images/Book Covers/Novik-Golden-Enclaves.jpeg" alt="" title="10">
+					  <img src="images/Book Covers/Colfer-Artemis-Fowl.jpg" alt="" title="9">
+					  <img src="images/Book Covers/Sanderon_Tress.webp" alt="" title="8">
+					  <img src="images/Book Covers/Riordon-Son-of-Neptune.jpg" alt="" title="7">
+					  <img src="images/Book Covers/Tolkein-Hobbit.jpg" alt="" title="6">
+					  <img src="images/Book Covers/Riordon-Lost-Hero.jpg" alt="" title="5">
+					  <img src="images/Book Covers/Vo-Empress.jpg" alt="" title="4">
+					  <img src="images/Book Covers/Jacques-Redwall.webp" alt="" title="3">
+					  <img src="images/Book Covers/Anders-All-the-Birds.jpg" alt="" title="2">
+					  <img src="images/Book Covers/Weeks-Blinding-Knife.webp" alt="" title="1">
+					</div>
+				
+					-->
 	
 
-  <table id="myTable">
-  <tbody>
-	<tr>
-		<td>Chambers-Prayer.jpg</td>
-		<td>A Prayer for the Crown-Shy</td> <td>Chambers</td> <td>Becky</td> <td>2022</td> <td>Monk and Robot</td> <td>2</td> <td>Read</td> <td>Novella</td> <td></td>
-	</tr>
-	<tr>
-		<td>Wells-Artificial-Condition.png</td>
-		<td>Artificial Condition</td> <td>Wells</td> <td>Martha</td> <td>2018</td> <td>The Murderbot Diaries</td> <td>2</td> <td>Audiobook</td> <td>Novella</td> <td></td>
-	</tr>
-	<tr>
-		<td>Jemesin-Emergency-Skin.png</td>
-		<td>Emergency Skin</td> <td>Jemesin</td> <td>N.K.</td> <td>2019</td> <td>–</td> <td>–</td> <td>Audiobook</td> <td>Novelette</td> <td></td>
-	</tr>
-	<tr>
-		<td>Weir-Martian.jpg</td>
-		<td>The Martian</td> <td>Weir</td> <td>Andy</td> <td>2011</td> <td>–</td> <td>–</td> <td>Audiobook</td> <td>Novel</td> <td>104,588</td>
-	</tr>
-	<tr>
-		<td>
-			Jimenez-Spear.jpg
-		</td>
-		<td>The Spear Cuts Through Water</td> <td>Jimenez</td> <td>Simon</td> <td>2022</td> <td>–</td> <td>–</td> <td>Book</td> <td>Novel</td> <td></td>
-	</tr>
-	<tr>
-		<td>
-			Sanderson-Frugal-Wizard.jpg
-		</td>
-		<td>The Frugal Wizard's Handbook for Surviving Medieval England</td> <td>Sanderson</td> <td>Brandon</td> <td>2023</td> <td>–</td> <td>–</td> <td>Book</td> <td>Novel</td> <td></td>
-	</tr>
-	<tr>
-		<td>
-			Colfer-Eternity-Code.jpg
-		</td>
-		<td>The Eternity Code</td> <td>Colfer</td> <td>Eoin</td> <td>2003</td> <td>Artemis Fowl</td> <td>3</td> <td>Audiobook</td> <td>Novel</td> <td>66,357</td>
-	</tr>
-	<tr>
-		<td>
-			Yang-Black-Tides-of-Heaven.jpg
-		</td>
-		<td>The Black Tides of Heaven</td> <td>Yang</td> <td>Neon</td> <td>2017</td> <td>Tensorate Series</td> <td>1</td> <td>Book</td> <td>Novella</td> <td></td>
-	</tr>
-	<tr>
-		<td>
-			Leckie-Ancillary-Sword.jpg
-		</td>
-		<td>Ancillary Sword</td> <td>Leckie</td> <td>Ann</td> <td></td> <td>Imperial Radch</td> <td>2</td> <td>Book</td> <td>Novel</td> <td></td>
-	</tr>
-	<tr>
-		<td>
-			Colfer-Arctic-Incident.jpg
-		</td>
-		<td>The Arctic Incident</td> <td>Colfer</td> <td>Eoin</td> <td>2002</td> <td>Artemis Fowl</td> <td>2</td> <td>Audiobook</td> <td>Novel</td> <td>58,517</td>
-	</tr>
-	<tr>
-		<td>
-			Corey-Leviathan-Falls.jpg
-		</td>
-		<td>Leviathan Falls</td> <td>Corey</td> <td>James S.A.</td> <td>2021</td> <td>The Expanse</td> <td>9</td> <td>Book</td> <td>Novel</td> <td>163,430</td>
-	</tr>
-	<tr>
-		<td>
-			Pratchett-Mort.jpg
-		</td>
-		<td>Mort</td> <td>Pratchett</td> <td>Terry</td> <td>1987</td> <td>Discworld</td> <td>4</td> <td>Audiobook</td> <td>Novel</td> <td>64,815</td>
-	</tr>
-	<tr>
-		<td>
-			Hobb-Assassins-Quest.jpg
-		</td>
-		<td>Assassin's Quest</td> <td>Hobb</td> <td>Robin</td> <td>1997</td> <td>Farseer Trilogy</td> <td>3</td> <td>Book</td> <td>Novel</td> <td>326,830</td>
-	</tr>
-	<tr>
-		<td>
-			Novik-Golden-Enclaves.jpeg
-		</td>
-		<td>The Golden Enclaves</td> <td>Novik</td> <td>Naomi</td> <td>2022</td> <td>Scholomance Trilogy</td> <td>3</td> <td>Book</td> <td>Novel</td> <td></td>
-	</tr>
-	<tr>
-		<td>
-			Colfer-Artemis-Fowl.jpg
-		</td>
-		<td>Artemis Fowl</td> <td>Colfer</td> <td>Eoin</td> <td>2001</td> <td>Artemis Fowl</td> <td>1</td> <td>Audiobook</td> <td>Novel</td> <td>56,684</td>
-	</tr>
-	<tr>
-		<td>
-			Sanderon_Tress.webp
-		</td>
-		<td>Tress of the Emerald Sea</td> <td>Sanderson</td> <td>Brandon</td> <td>2023</td> <td>–</td> <td>–</td> <td>Read Aloud</td> <td>Novel</td> <td></td>
-	</tr>
-	<tr>
-		<td>
-			Riordon-Son-of-Neptune.jpg
-		</td>
-		<td>The Son of Neptune</td> <td>Riordon</td> <td>Rick</td> <td>2011</td> <td>Heroes of Olympus</td> <td>2</td> <td>Book</td> <td>Novel</td> <td>117,160</td>
-	</tr>
-	<tr>
-		<td>
-			Tolkein-Hobbit.jpg
-		</td>
-		<td>The Hobbit</td> <td>Tolkein</td> <td>J.R.R.</td> <td>1937</td> <td>The Lord of the Rings</td> <td>0</td> <td>Audiobook</td> <td>Novel</td> <td>95,022</td>
-	</tr>
-	<tr>
-		<td>
-			Riordon-Lost-Hero.jpg
-		</td>
-		<td>The Lost Hero</td> <td>Riordon</td> <td>Rick</td> <td>2011</td> <td>Heroes of Olympus</td> <td>1</td> <td>Book</td> <td>Novel</td> <td>144,130</td>
-	</tr>
-    <tr>
-      <td>Vo-Empress.jpg</td> <td>The Empress of Salt and Fortune</td> 
-    </tr>
-    <tr>
-      <td>Jacques-Redwall.webp</td> <td>Redwall</td> 
-    </tr>
-    <tr>
-      <td>Anders-All-the-Birds.jpg</td> <td>All the Birds in the Sky</td> 
-    </tr>
-    <tr>
-      <td>Weeks-Blinding-Knife.webp</td> <td>The Blinding Knife</td> 
-    </tr>
-  </tbody>
-</table>
+					  <table id="myTable">
+					  <tbody>
+						<tr>
+							<td>Chambers-Prayer.jpg</td>
+							<td>A Prayer for the Crown-Shy</td> <td>Chambers</td> <td>Becky</td> <td>2022</td> <td>Monk and Robot</td> <td>2</td> <td>Read</td> <td>Novella</td> <td></td>
+						</tr>
+						<tr>
+							<td>Wells-Artificial-Condition.png</td>
+							<td>Artificial Condition</td> <td>Wells</td> <td>Martha</td> <td>2018</td> <td>The Murderbot Diaries</td> <td>2</td> <td>Audiobook</td> <td>Novella</td> <td></td>
+						</tr>
+						<tr>
+							<td>Jemesin-Emergency-Skin.png</td>
+							<td>Emergency Skin</td> <td>Jemesin</td> <td>N.K.</td> <td>2019</td> <td>–</td> <td>–</td> <td>Audiobook</td> <td>Novelette</td> <td></td>
+						</tr>
+						<tr>
+							<td>Weir-Martian.jpg</td>
+							<td>The Martian</td> <td>Weir</td> <td>Andy</td> <td>2011</td> <td>–</td> <td>–</td> <td>Audiobook</td> <td>Novel</td> <td>104,588</td>
+						</tr>
+						<tr>
+							<td>
+								Jimenez-Spear.jpg
+							</td>
+							<td>The Spear Cuts Through Water</td> <td>Jimenez</td> <td>Simon</td> <td>2022</td> <td>–</td> <td>–</td> <td>Book</td> <td>Novel</td> <td></td>
+						</tr>
+						<tr>
+							<td>
+								Sanderson-Frugal-Wizard.jpg
+							</td>
+							<td>The Frugal Wizard's Handbook for Surviving Medieval England</td> <td>Sanderson</td> <td>Brandon</td> <td>2023</td> <td>–</td> <td>–</td> <td>Book</td> <td>Novel</td> <td></td>
+						</tr>
+						<tr>
+							<td>
+								Colfer-Eternity-Code.jpg
+							</td>
+							<td>The Eternity Code</td> <td>Colfer</td> <td>Eoin</td> <td>2003</td> <td>Artemis Fowl</td> <td>3</td> <td>Audiobook</td> <td>Novel</td> <td>66,357</td>
+						</tr>
+						<tr>
+							<td>
+								Yang-Black-Tides-of-Heaven.jpg
+							</td>
+							<td>The Black Tides of Heaven</td> <td>Yang</td> <td>Neon</td> <td>2017</td> <td>Tensorate Series</td> <td>1</td> <td>Book</td> <td>Novella</td> <td></td>
+						</tr>
+						<tr>
+							<td>
+								Leckie-Ancillary-Sword.jpg
+							</td>
+							<td>Ancillary Sword</td> <td>Leckie</td> <td>Ann</td> <td></td> <td>Imperial Radch</td> <td>2</td> <td>Book</td> <td>Novel</td> <td></td>
+						</tr>
+						<tr>
+							<td>
+								Colfer-Arctic-Incident.jpg
+							</td>
+							<td>The Arctic Incident</td> <td>Colfer</td> <td>Eoin</td> <td>2002</td> <td>Artemis Fowl</td> <td>2</td> <td>Audiobook</td> <td>Novel</td> <td>58,517</td>
+						</tr>
+						<tr>
+							<td>
+								Corey-Leviathan-Falls.jpg
+							</td>
+							<td>Leviathan Falls</td> <td>Corey</td> <td>James S.A.</td> <td>2021</td> <td>The Expanse</td> <td>9</td> <td>Book</td> <td>Novel</td> <td>163,430</td>
+						</tr>
+						<tr>
+							<td>
+								Pratchett-Mort.jpg
+							</td>
+							<td>Mort</td> <td>Pratchett</td> <td>Terry</td> <td>1987</td> <td>Discworld</td> <td>4</td> <td>Audiobook</td> <td>Novel</td> <td>64,815</td>
+						</tr>
+						<tr>
+							<td>
+								Hobb-Assassins-Quest.jpg
+							</td>
+							<td>Assassin's Quest</td> <td>Hobb</td> <td>Robin</td> <td>1997</td> <td>Farseer Trilogy</td> <td>3</td> <td>Book</td> <td>Novel</td> <td>326,830</td>
+						</tr>
+						<tr>
+							<td>
+								Novik-Golden-Enclaves.jpeg
+							</td>
+							<td>The Golden Enclaves</td> <td>Novik</td> <td>Naomi</td> <td>2022</td> <td>Scholomance Trilogy</td> <td>3</td> <td>Book</td> <td>Novel</td> <td></td>
+						</tr>
+						<tr>
+							<td>
+								Colfer-Artemis-Fowl.jpg
+							</td>
+							<td>Artemis Fowl</td> <td>Colfer</td> <td>Eoin</td> <td>2001</td> <td>Artemis Fowl</td> <td>1</td> <td>Audiobook</td> <td>Novel</td> <td>56,684</td>
+						</tr>
+						<tr>
+							<td>
+								Sanderon_Tress.webp
+							</td>
+							<td>Tress of the Emerald Sea</td> <td>Sanderson</td> <td>Brandon</td> <td>2023</td> <td>–</td> <td>–</td> <td>Read Aloud</td> <td>Novel</td> <td></td>
+						</tr>
+						<tr>
+							<td>
+								Riordon-Son-of-Neptune.jpg
+							</td>
+							<td>The Son of Neptune</td> <td>Riordon</td> <td>Rick</td> <td>2011</td> <td>Heroes of Olympus</td> <td>2</td> <td>Book</td> <td>Novel</td> <td>117,160</td>
+						</tr>
+						<tr>
+							<td>
+								Tolkein-Hobbit.jpg
+							</td>
+							<td>The Hobbit</td> <td>Tolkein</td> <td>J.R.R.</td> <td>1937</td> <td>The Lord of the Rings</td> <td>0</td> <td>Audiobook</td> <td>Novel</td> <td>95,022</td>
+						</tr>
+						<tr>
+							<td>
+								Riordon-Lost-Hero.jpg
+							</td>
+							<td>The Lost Hero</td> <td>Riordon</td> <td>Rick</td> <td>2011</td> <td>Heroes of Olympus</td> <td>1</td> <td>Book</td> <td>Novel</td> <td>144,130</td>
+						</tr>
+						<tr>
+						  <td>Vo-Empress.jpg</td> <td>The Empress of Salt and Fortune</td> 
+						</tr>
+						<tr>
+						  <td>Jacques-Redwall.webp</td> <td>Redwall</td> 
+						</tr>
+						<tr>
+						  <td>Anders-All-the-Birds.jpg</td> <td>All the Birds in the Sky</td> 
+						</tr>
+						<tr>
+						  <td>Weeks-Blinding-Knife.webp</td> <td>The Blinding Knife</td> 
+						</tr>
+					  </tbody>
+					</table>
 
- <div class="image-container" id="selectedCellTable"></div>
+ 					<div class="image-container" id="selectedCellTable"></div>
+
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<div class="inner">
+					<!-- Menu -->
+					<nav id="menu"><header class="major"><h2>Menu</h2></header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="teaching.html">Teaching</a></li>
+							<li><a href="cv.html">Curriculum Vitae</a></li>
+							<li><a href="rj.html">Prison Education</a></li>
+							<li><a href="OERs.html">Mathematics OERs</a></li>
+							<li>
+								<span class="opener">Personal</span>
+								<ul>
+									<li><a href="about-me.html">About Me</a></li>
+									<li><a href="music.html">Music Hours (SAAM) </a></li>
+									<li><a href="climb.html">Climbing</a></li>
+									<li><a href="reading.html">Reading</a></li>
+									<li><a href="write.html">Writing</a></li>
+									<li><a href="art.html">Artwork</a></li>
+									<li><a href="cats.html">Cats</a></li>
+									<li><a href="soon.html">Storage</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<!-- Section -->
+					<section><header class="major"><h2>Get in touch</h2></header>
+
+						<ul class="contact">
+							<li class="icon solid fa-envelope">
+								<a href="mailto:smacdonald5@huskers.unl.edu">smacdonald5@huskers.unl.edu</a>
+							</li>
+
+							<li class="icon solid fa-school">
+								Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a>
+							</li>
+						</ul>
+					</section>
+					<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+				</div>
+			</div>
+		</div>
 
   <script>
     window.addEventListener('load', function() {
