@@ -11,9 +11,14 @@
       justify-content: space-between;
     }
 
-    .image-container img {
-      width: calc(33.33% - 10px); /* Adjust the width as needed */
-      margin-bottom: 20px; /* Add some space between rows */
+    .image-item {
+      width: calc(33.33% - 10px);
+      margin-bottom: 20px;
+    }
+
+    .image-item img {
+      max-width: 100%;
+      height: auto;
     }
 
     #myTable {
@@ -218,17 +223,31 @@
     
     
     tableContent += `
-		${Content}
+    	<div class = image-item>
+			${Content}
+        </div>
+        
         `;
-    
- 
       
     var selectedCellTable = document.getElementById("selectedCellTable");
       selectedCellTable.innerHTML = tableContent;
-      
-     
   }
 </script>
+
+<script>
+    function sortImages() {
+      const imageContainer = document.getElementById('selectedCellTable');
+      const imageItems = Array.from(imageContainer.querySelectorAll('.image-item'));
+
+      imageItems.sort((a, b) => {
+        const altA = a.querySelector('img').alt.toLowerCase();
+        const altB = b.querySelector('img').alt.toLowerCase();
+        return altA.localeCompare(altB);
+      });
+
+      imageItems.forEach(item => imageContainer.appendChild(item));
+    }
+ </script>
 
 </body>
 </html>
