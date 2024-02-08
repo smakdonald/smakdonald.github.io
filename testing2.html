@@ -108,19 +108,10 @@
   // Loop through the rows of the table
   for (var i = 0; i < table.rows.length; i++) {
     var entry = table.rows[i].cells[0];
-    var Content = '"images/Book Covers/"' + entry.textContent + '"';
-    var Content2 = '<img src="images/Book Covers/' + entry.textContent + '" alt="" title="8">';
-    
-    // Create a new paragraph element to display the modified entry and append it to the entry list container
-    var entryElement = document.createElement("img");
-    entryElement.src = Content;
-    entryElement.alt = "hi";
-    entryElement.title = "2";
-    entryElement.textContent = Content;
-    entryList.appendChild(entryElement);
-    
+    var Content = '<img src="images/Book Covers/' + entry.textContent + '" alt="" title="8">';
+        
     tableContent += `
-		${Content2}
+		${Content}
         `;
     
     var selectedCellTable = document.getElementById("selectedCellTable");
