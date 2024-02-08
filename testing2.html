@@ -55,10 +55,10 @@
   <table id="myTable">
   <tbody>
     <tr>
-      <td>Vo-Empress.jpg</td> <td>All the Birds in the Sky</td> 
+      <td>Vo-Empress.jpg</td> <td>The Empress of Salt and Fortune</td> 
     </tr>
     <tr>
-      <td>Jacques-Redwall.webp</td> <td>The Blinding Knife</td> 
+      <td>Jacques-Redwall.webp</td> <td>Redwall</td> 
     </tr>
     <tr>
       <td>Anders-All-the-Birds.jpg</td> <td>All the Birds in the Sky</td> 
@@ -107,13 +107,17 @@
 
   // Loop through the rows of the table
   for (var i = 0; i < table.rows.length; i++) {
-    var entry = table.rows[i].cells[0];
-    var Content = '<img src="images/Book Covers/' + entry.textContent + '" alt="" title="8">';
-        
+    var path = table.rows[i].cells[0];
+    var title = table.rows[i].cells[1];
+    var Content = 'img src="images/Book Covers/' + path.textContent + '" alt="' + title.textContent + '" title="' + i + '">';
+    
+    
     tableContent += `
 		${Content}
         `;
     
+ 
+      
     var selectedCellTable = document.getElementById("selectedCellTable");
       selectedCellTable.innerHTML = tableContent;
       
