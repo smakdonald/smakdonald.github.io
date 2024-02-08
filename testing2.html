@@ -194,16 +194,7 @@
       var imageContainer = document.querySelector('.image-container');
       var images = Array.from(imageContainer.querySelectorAll('img'));
       var randomizeButton = document.getElementById('randomize-button');
-    
-      randomizeButton.addEventListener('click', function() {
-        images.sort(function() {
-          return 0.5 - Math.random();
-        });
-    
-        images.forEach(function(image) {
-          imageContainer.appendChild(image);
-        });
-      });
+      var sortButton = document.getElementById('sort');
     });
   </script>
 
@@ -221,7 +212,7 @@
   for (var i = 0; i < table.rows.length; i++) {
     var path = table.rows[i].cells[0];
     var title = table.rows[i].cells[1];
-    var Content = '<img src="images/Book Covers/' + path.textContent + '" alt="' + title.textContent + '" title="' + i + '">';
+    var Content = '<img src="images/Book Covers/' + path.textContent + '" alt="' + title.textContent + '"title="' + i + '">';
     
     
     tableContent += `
@@ -230,7 +221,7 @@
         </div>
         
         `;
-      
+   
     var selectedCellTable = document.getElementById("selectedCellTable");
       selectedCellTable.innerHTML = tableContent;
   }
@@ -249,6 +240,27 @@
 
       imageItems.forEach(item => imageContainer.appendChild(item));
     }
+    
+    function titleImages() {
+    const imageContainer = document.getElementById('selectedCellTable');
+    const imageItems = Array.from(imageContainer.querySelectorAll('.image-item'));
+
+    imageItems.sort((a, b) => {
+      const altA = a.querySelector('img').title.toLowerCase();
+      const altB = b.querySelector('img').title.toLowerCase();
+
+      // Check if the alt attributes are numbers
+      if (!isNaN(altA) && !isNaN(altB)) {
+        // If both are numbers, sort numerically
+        return Number(altA) - Number(altB);
+      } else {
+        // Otherwise, sort alphabetically
+        return altA.localeCompare(altB);
+      }
+    });
+
+    imageItems.forEach(item => imageContainer.appendChild(item));
+  }
  </script>
 
 </body>
