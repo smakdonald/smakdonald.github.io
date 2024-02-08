@@ -237,31 +237,28 @@
   </script>
 
   <script>
-  // Get the table
-  var table = document.getElementById("myTable");
+  
+  var table = document.getElementById("myTable");	// Get the table
   
   var tableContent = `
       `;
+ 							// Create a blank text container that the Content will go into
+  var entryList = document.getElementById("entryList"); // Get the entry list container
 
-  // Get the entry list container
-  var entryList = document.getElementById("entryList");
-
-  // Loop through the rows of the table
-  for (var i = 0; i < table.rows.length; i++) {
-    var path = table.rows[i].cells[0];
-    var title = table.rows[i].cells[1];
+  for (var i = 0; i < table.rows.length; i++) {		// Loop through the rows of the table
+    var path = table.rows[i].cells[0];			// Take the first entry of each row (the path for the image file)
+    var title = table.rows[i].cells[1];			// Take the second entry of each row (the title of the book)
     var Content = '<img src="images/Book Covers/' + path.textContent + '" alt="' + title.textContent + '"title="' + i + '">';
+    							// Write the content of the <img> element so that it becomes the image
     
-    
-    tableContent += `
+    tableContent += `					
     	<div class = image-item>
 			${Content}
         </div>
-        
-        `;
+        `;						// Write the text that will be added to <div class=image-container> 
    
     var selectedCellTable = document.getElementById("selectedCellTable");
-      selectedCellTable.innerHTML = tableContent;
+      selectedCellTable.innerHTML = tableContent;	// Find the correct <div class=image-container> and add content
   }
 </script>
 
