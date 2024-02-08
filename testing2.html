@@ -93,6 +93,9 @@
   <script>
   // Get the table
   var table = document.getElementById("myTable");
+  
+  var tableContent = `
+      `;
 
   // Get the entry list container
   var entryList = document.getElementById("entryList");
@@ -101,12 +104,27 @@
   for (var i = 0; i < table.rows.length; i++) {
     var entry = table.rows[i].cells[0];
     var Content = '"images/Book Covers/"' + entry.textContent + '"';
+    var Content2 = '<img src="images/Book Covers/' + entry.textContent + '" alt="" title="8">';
     
     // Create a new paragraph element to display the modified entry and append it to the entry list container
     var entryElement = document.createElement("img");
     entryElement.src = Content;
-    entryElement.alt = "helo";
+    entryElement.alt = "hi";
+    entryElement.title = "2";
+    entryElement.textContent = Content;
     entryList.appendChild(entryElement);
+    
+    tableContent += `
+          <tr>
+            <td>${Content2}</td>
+          </tr>
+        `;
+    
+ 
+      
+    var selectedCellTable = document.getElementById("selectedCellTable");
+      selectedCellTable.innerHTML = tableContent;
+      
   }
 </script>
 
