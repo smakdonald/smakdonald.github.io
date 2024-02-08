@@ -100,7 +100,7 @@
   // Loop through the rows of the table
   for (var i = 0; i < table.rows.length; i++) {
     var entry = table.rows[i].cells[0];
-    var Content = '<img src="images/Book Covers/"' + entry.textContent + '" alt="1" title="2">';
+    var Content = '"images/Book Covers/"' + entry.textContent + '"';
     
     // Create a new paragraph element to display the modified entry and append it to the entry list container
     var entryElement = document.createElement("img");
