@@ -99,13 +99,13 @@
 
   // Loop through the rows of the table
   for (var i = 0; i < table.rows.length; i++) {
-    // Get the content of the cell in the first column of the current row
     var entry = table.rows[i].cells[0];
-    // Modify the text content of the cell (for example, add a prefix)
-    entry.textContent = '<img src="images/Book Covers/"' + entry.textContent + '" alt="1" title="2">';
+    var Content = '<img src="images/Book Covers/"' + entry.textContent + '" alt="1" title="2">';
+    
     // Create a new paragraph element to display the modified entry and append it to the entry list container
-    var entryElement = document.createElement("p");
-    entryElement.textContent = entry.textContent;
+    var entryElement = document.createElement("img");
+    entryElement.src = Content;
+    entryElement.alt = "hi";
     entryList.appendChild(entryElement);
   }
 </script>
