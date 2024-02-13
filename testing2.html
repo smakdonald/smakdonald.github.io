@@ -230,14 +230,17 @@
 <script>
 	var table = document.getElementById("myTable");						// Get the table
 	var tableContent = ``;												// Create a blank text container that the Content will go into						
-	var entryList = document.getElementById("entryList"); 				// Get the entry list container
+	//var entryList = document.getElementById("entryList"); 				// Get the entry list container
 	for (var i = 0; i < table.rows.length; i++) {						// Loop through the rows of the table
 		var path = table.rows[i].cells[0];								// Take the first entry of each row (the path for the image file)
     	var title = table.rows[i].cells[1];								// Take the second entry of each row (the title of the book)
-    	var Content = 	'<img src="images/Book Covers/' 
+		var author_last = table.rows[i].cells[2];
+		var author_first = table.rows[i].cells[3];
+		var published = table.rows[i].cells[4];
+    	var Content = 	'<img src="images/Book Covers/'			
 						+ path.textContent 
-						+ '" alt="' 
-						+ title.textContent 
+						+ '" alt="' 									 
+						+ title.textContent 							// The alt text, which is the title of the book.
 						+ '"title="' 
 						+ i 
 						+ '">';
