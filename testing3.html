@@ -218,17 +218,10 @@
 		</div><!-- End Sidebar -->
 	</div><!-- End Wrapper -->
 	
-<script>
-	window.addEventListener('load', function() {
-      		var imageContainer = document.querySelector('.image-container');
-      		var images = Array.from(imageContainer.querySelectorAll('img'));
-      		var randomizeButton = document.getElementById('randomize-button');
-      		var sortButton = document.getElementById('sort');
-    	});
-</script>
+
 
 <script>
-	window.addEventListener('load', function images()() {
+	function images() {
 		var table = document.getElementById("myTable");						// Get the table
 		var tableContent = ``;												// Create a blank text container that the Content will go into						
 		for (var i = 0; i < table.rows.length; i++) {						// Loop through the rows of the table
@@ -254,7 +247,7 @@
 	    	var selectedCellTable = document.getElementById("selectedCellTable");
 	      	selectedCellTable.innerHTML = tableContent;						// Find the correct <div class=image-container> and add content
 	 	 }
-	})
+	}
 </script>
 
 <script>
@@ -308,6 +301,10 @@
 		});
 	   	imageItems.forEach(item => imageContainer.appendChild(item));
 	}
+</script>
+
+<script>
+	window.addEventListener('load', images());
 </script>
 
 </body>
