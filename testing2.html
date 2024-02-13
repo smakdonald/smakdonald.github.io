@@ -229,34 +229,34 @@
 
 <script>
 	var table = document.getElementById("myTable");						// Get the table
-	var tableContent = ``;									// Create a blank text container that the Content will go into						
-	var entryList = document.getElementById("entryList"); 					// Get the entry list container
+	var tableContent = ``;												// Create a blank text container that the Content will go into						
+	var entryList = document.getElementById("entryList"); 				// Get the entry list container
 	for (var i = 0; i < table.rows.length; i++) {						// Loop through the rows of the table
-		var path = table.rows[i].cells[0];						// Take the first entry of each row (the path for the image file)
-    		var title = table.rows[i].cells[1];						// Take the second entry of each row (the title of the book)
-    		var Content = '<img src="images/Book Covers/' + path.textContent + '" alt="' + title.textContent + '"title="' + i + '">';
-    												// Write the content of the <img> element so that it becomes the image
-    		tableContent += `					
-    			<div class = image-item>
-				${Content}
-        		</div>
-        		`;									// Write the text that will be added to <div class=image-container> 
+		var path = table.rows[i].cells[0];								// Take the first entry of each row (the path for the image file)
+    	var title = table.rows[i].cells[1];								// Take the second entry of each row (the title of the book)
+    	var Content = '<img src="images/Book Covers/' + path.textContent + '" alt="' + title.textContent + '"title="' + i + '">';
+    																	// Write the content of the <img> element so that it becomes the image
+		tableContent += `					
+			<div class = image-item>
+			${Content}
+			</div>
+		`;																// Write the text that will be added to <div class=image-container> 
    
-    		var selectedCellTable = document.getElementById("selectedCellTable");
-      		selectedCellTable.innerHTML = tableContent;					// Find the correct <div class=image-container> and add content
+    	var selectedCellTable = document.getElementById("selectedCellTable");
+      	selectedCellTable.innerHTML = tableContent;						// Find the correct <div class=image-container> and add content
  	 }
 </script>
 
 <script>
 	function sortImages() {
-      		const imageContainer = document.getElementById('selectedCellTable'); 		// Get the correct division 
-      		const imageItems = Array.from(imageContainer.querySelectorAll('.image-item')); 	// Take all the elements that are of the 'image-item' type and put them in an array
+      	const imageContainer = document.getElementById('selectedCellTable'); 			// Get the correct division 
+      	const imageItems = Array.from(imageContainer.querySelectorAll('.image-item')); 	// Take all the elements that are of the 'image-item' type and put them in an array
 
-	      	imageItems.sort((a, b) => {
-	        	const altA = a.querySelector('img').alt.toLowerCase();
-	        	const altB = b.querySelector('img').alt.toLowerCase();
-	        	return altA.localeCompare(altB);
-	      	});
+	    imageItems.sort((a, b) => {
+	        const altA = a.querySelector('img').alt.toLowerCase();
+	        const altB = b.querySelector('img').alt.toLowerCase();
+	        return altA.localeCompare(altB);
+	    	});
 
       		imageItems.forEach(item => imageContainer.appendChild(item));
     	}
@@ -266,11 +266,11 @@
 		const imageItems = Array.from(imageContainer.querySelectorAll('.image-item'));
 	
 		imageItems.sort((a, b) => {
-	      		const altA = a.querySelector('img').title.toLowerCase();
-	      		const altB = b.querySelector('img').title.toLowerCase();
+	      	const altA = a.querySelector('img').title.toLowerCase();
+	      	const altB = b.querySelector('img').title.toLowerCase();
 	
-	      		// Check if the alt attributes are numbers
-	      		if (!isNaN(altA) && !isNaN(altB)) {
+	      	// Check if the alt attributes are numbers
+	      	if (!isNaN(altA) && !isNaN(altB)) {
 				// If both are numbers, sort numerically
 				return Number(altA) - Number(altB);
 			} 
@@ -279,7 +279,6 @@
 				return altA.localeCompare(altB);
 	      		}
 		});
-	
 	   	imageItems.forEach(item => imageContainer.appendChild(item));
 	}
 </script>
