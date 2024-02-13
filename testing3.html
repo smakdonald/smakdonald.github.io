@@ -228,32 +228,55 @@
 </script>
 
 <script>
-	var table = document.getElementById("myTable");						// Get the table
-	var tableContent = ``;												// Create a blank text container that the Content will go into						
-	//var entryList = document.getElementById("entryList"); 				// Get the entry list container
-	for (var i = 0; i < table.rows.length; i++) {						// Loop through the rows of the table
-		var path = table.rows[i].cells[0];								// Take the first entry of each row (the path for the image file)
-    	var title = table.rows[i].cells[1];								// Take the second entry of each row (the title of the book)
-		var author_last = table.rows[i].cells[2];
-		var author_first = table.rows[i].cells[3];
-		var published = table.rows[i].cells[4];
-    	var Content = 	'<img src="images/Book Covers/'			
-						+ path.textContent 
-						+ '" alt="' 									 
-						+ title.textContent 							// The alt text, which is the title of the book.
-						+ '"title="' 
-						+ i 
-						+ '">';
-    																	// Write the content of the <img> element so that it becomes the image
-		tableContent += `					
-			<div class = image-item>
-			${Content}
-			</div>
-		`;																// Write the text that will be added to <div class=image-container> 
-   
-    	var selectedCellTable = document.getElementById("selectedCellTable");
-      	selectedCellTable.innerHTML = tableContent;						// Find the correct <div class=image-container> and add content
- 	 }
+	function images() {
+		var table = document.getElementById("myTable");						// Get the table
+		var tableContent = ``;												// Create a blank text container that the Content will go into						
+		//var entryList = document.getElementById("entryList"); 				// Get the entry list container
+		for (var i = 0; i < table.rows.length; i++) {						// Loop through the rows of the table
+			var path = table.rows[i].cells[0];								// Take the first entry of each row (the path for the image file)
+	    	var title = table.rows[i].cells[1];								// Take the second entry of each row (the title of the book)
+			var author_last = table.rows[i].cells[2];
+			var author_first = table.rows[i].cells[3];
+			var published = table.rows[i].cells[4];
+	    	var Content = 	'<img src="images/Book Covers/'			
+							+ path.textContent 
+							+ '" alt="' 									 
+							+ title.textContent 							// The alt text, which is the title of the book.
+							+ '"title="' 
+							+ i 
+							+ '">';
+	    																	// Write the content of the <img> element so that it becomes the image
+			tableContent += `					
+				<div class = image-item>
+				${Content}
+				</div>
+			`;																// Write the text that will be added to <div class=image-container> 
+	   
+	    	var selectedCellTable = document.getElementById("selectedCellTable");
+	      	selectedCellTable.innerHTML = tableContent;						// Find the correct <div class=image-container> and add content
+	 	 }
+	}
+</script>
+
+<script>
+
+  // Get all rows of the table
+	function sort(column) {
+		const table = document.getElementById('myTable');
+		const tableRows = document.querySelectorAll("#myTable tr");
+	
+		// Convert NodeList to array using Array.from
+		const rowsArray = Array.from(tableRows);
+	
+		// Sort the array by the content of the first cell in each row
+		rowsArray.sort((a, b) => {
+			const aValue = a.cells[column].textContent;
+			const bValue = b.cells[column].textContent;
+			return aValue.localeCompare(bValue);
+	  	});
+	  	rowsArray.forEach(item => table.appendChild(item));
+		images()
+	}
 </script>
 
 <script>
