@@ -5,303 +5,284 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-  <style>
-    .image-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
+<style>
+	.image-container {
+      		display: flex;
+      		flex-wrap: wrap;
+      		justify-content: space-between;
+    	}
 
-    .image-item {
-      width: calc(33.33% - 10px);
-      margin-bottom: 20px;
-    }
-
-    .image-item img {
-      max-width: 100%;
-	  width: 300px; /* Adjust the desired width */
-	  height: 450px; /* Adjust the desired height */
-    }
-
-    #myTable {
-      display: none;  /* Set display property to none to make the table invisible */
-    }
-
-  </style>
+    	.image-item {
+      		width: calc(33.33% - 10px);
+      		margin-bottom: 20px;
+    	}
+    	.image-item img {
+      		max-width: 100%;
+	  	width: 300px; /* Adjust the desired width */
+	  	height: 450px; /* Adjust the desired height */
+    	}
+    	#myTable {
+      		display: none;  /* Set display property to none to make the table invisible */
+    	}
+</style>
 </head>
 <body class="is-preload">
+	<div id="wrapper"><!-- Wrapper -->
+		<div id="main"><!-- Main -->
+			<div class="inner"><!-- Inner -->	
+				<header id="header">
+					<a href="index.html" class="logo"><strong>Sam Macdonald</strong> Turner of Pages</a>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin-in"><span class="label">Linked In</span></a></li>
+						<li><a href="https://github.com/smakdonald" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://open.spotify.com/user/thesam.mac" class="icon brands fa-spotify"><span class="label">Spotify</span></a></li>
+					</ul>
+				</header>
+				<!-- Content -->
+				<section><!-- Reading Section -->
+					<header class="main"><h1>Reading</h1></header>
+
+					<hr class="major" />
+
+					<button onclick="sortImages()">Sort Alphabetically by Title</button>
+					<button onclick="titleImages()">Sort Chronologically</button>
+
+					<table id="myTable">
+						<tbody>
+							<!-- Books Read in 2024 -->
+							<tr><td>Vo-When-the-Tiger.jpg</td>		<td>When the Tiger Came Down the Mountain</td> 				<td>Vo</td> 		<td>Nghi</td> 		<td>2020</td> <td>Singing Hills Cycle</td> 	<td>2</td> <td>Read</td> 	<td>Novella</td> 	<td></td></tr>
+							<tr> <td>LeGuin-Tombs-of-Atuan.jpg</td> 	<td>The Tombs of Atuan</td> 						<td>Le Guin</td> 	<td>Ursula K.</td> 	<td>1971</td> <td>Earthsea Cycle</td> 		<td>2</td> <td>Read</td> 	<td>Novel</td> 		<td>45,939</td> </tr>
+							<tr><td>Wells-Exit-Strategy.jpg</td>		<td>Exit Strategy</td> 							<td>Wells</td> 		<td>Martha</td> 	<td>2018</td> <td>The Murderbot Diaries</td> 	<td>4</td> <td>Audiobook</td> 	<td>Novella</td> 	<td></td></tr>
+							<tr><td>Chiang-Stories.jpeg</td>		<td>Stories of Your Life and Others</td> 				<td>Chiang</td> 	<td>Ted</td> 		<td>2002</td> <td>–</td> 			<td>–</td> <td>Book</td> 	<td>Short Stories</td> 	<td></td></tr>
+							<tr><td>Leckie-Ancillary-Mercy.jpg</td>		<td>Ancillary Mercy</td> 						<td>Leckie</td> 	<td>Ann</td> 		<td>2015</td> <td>Imperial Radch</td> 		<td>3</td> <td>Book</td> 	<td>Novel</td> 		<td></td></tr>
+							<tr><td>Wells-Rogue-Protocol.jpg</td>		<td>Rogue Protocol</td> 						<td>Wells</td> 		<td>Martha</td> 	<td>2018</td> <td>The Murderbot Diaries</td> 	<td>3</td> <td>Audiobook</td> 	<td>Novella</td> 	<td></td></tr>
+							<tr><td>Chambers-Prayer.jpg</td>		<td>A Prayer for the Crown-Shy</td> 					<td>Chambers</td> 	<td>Becky</td> 		<td>2022</td> <td>Monk and Robot</td> 		<td>2</td> <td>Read</td> 	<td>Novella</td> 	<td></td></tr>
+							<tr><td>Wells-Artificial-Condition.png</td>	<td>Artificial Condition</td> 						<td>Wells</td> 		<td>Martha</td> 	<td>2018</td> <td>The Murderbot Diaries</td> 	<td>2</td> <td>Audiobook</td> 	<td>Novella</td> 	<td></td></tr>
+							<tr><td>Jemesin-Emergency-Skin.png</td>		<td>Emergency Skin</td> 						<td>Jemesin</td> 	<td>N.K.</td> 		<td>2019</td> <td>–</td> 			<td>–</td> <td>Audiobook</td> 	<td>Novelette</td> 	<td></td></tr>
+							<tr><td>Weir-Martian.jpg</td>			<td>The Martian</td> 							<td>Weir</td> 		<td>Andy</td> 		<td>2011</td> <td>–</td> 			<td>–</td> <td>Audiobook</td> 	<td>Novel</td> 		<td>104,588</td></tr>
+							<tr><td>Jimenez-Spear.jpg</td>			<td>The Spear Cuts Through Water</td> 					<td>Jimenez</td> 	<td>Simon</td> 		<td>2022</td> <td>–</td> 			<td>–</td> <td>Book</td> 	<td>Novel</td> 		<td></td></tr>
+							<tr><td>Sanderson-Frugal-Wizard.jpg</td>	<td>The Frugal Wizard's Handbook for Surviving Medieval England</td> 	<td>Sanderson</td> 	<td>Brandon</td> 	<td>2023</td> <td>–</td> 			<td>–</td> <td>Book</td> 	<td>Novel</td> 		<td></td></tr>
+							<tr><td>Colfer-Eternity-Code.jpg</td>		<td>The Eternity Code</td> 						<td>Colfer</td> 	<td>Eoin</td> 		<td>2003</td> <td>Artemis Fowl</td> 		<td>3</td> <td>Audiobook</td> 	<td>Novel</td> 		<td>66,357</td></tr>
+							<tr><td>Yang-Black-Tides-of-Heaven.jpg</td>	<td>The Black Tides of Heaven</td> 					<td>Yang</td> 		<td>Neon</td> 		<td>2017</td> <td>Tensorate Series</td> 	<td>1</td> <td>Book</td> 	<td>Novella</td> 	<td></td></tr>
+							<tr><td>Leckie-Ancillary-Sword.jpg</td>		<td>Ancillary Sword</td> 						<td>Leckie</td> 	<td>Ann</td> 		<td>2014</td> <td>Imperial Radch</td> 		<td>2</td> <td>Book</td> 	<td>Novel</td> 		<td></td></tr>
+							<tr><td>Colfer-Arctic-Incident.jpg</td>		<td>The Arctic Incident</td> 						<td>Colfer</td> 	<td>Eoin</td> 		<td>2002</td> <td>Artemis Fowl</td> 		<td>2</td> <td>Audiobook</td> 	<td>Novel</td> 		<td>58,517</td></tr>
+							<tr><td>Corey-Leviathan-Falls.jpg</td>		<td>Leviathan Falls</td> 						<td>Corey</td> 		<td>James S.A.</td> 	<td>2021</td> <td>The Expanse</td> 		<td>9</td> <td>Book</td> 	<td>Novel</td> 		<td>163,430</td></tr>
+							<tr><td>Pratchett-Mort.jpg</td>			<td>Mort</td> 								<td>Pratchett</td> 	<td>Terry</td> 		<td>1987</td> <td>Discworld</td> 		<td>4</td> <td>Audiobook</td> 	<td>Novel</td> 		<td>64,815</td></tr>
+							<tr><td>Hobb-Assassins-Quest.jpg</td>		<td>Assassin's Quest</td> 						<td>Hobb</td> 		<td>Robin</td> 		<td>1997</td> <td>Farseer Trilogy</td> 		<td>3</td> <td>Book</td> 	<td>Novel</td> 		<td>326,830</td></tr>
+							<tr><td>Novik-Golden-Enclaves.jpeg</td>		<td>The Golden Enclaves</td> 						<td>Novik</td> 		<td>Naomi</td> 		<td>2022</td> <td>Scholomance Trilogy</td> 	<td>3</td> <td>Book</td> 	<td>Novel</td> 		<td></td></tr>
+							<tr><td>Colfer-Artemis-Fowl.jpg</td>		<td>Artemis Fowl</td> 							<td>Colfer</td> 	<td>Eoin</td> 		<td>2001</td> <td>Artemis Fowl</td> 		<td>1</td> <td>Audiobook</td> 	<td>Novel</td> 		<td>56,684</td></tr>
+							<tr><td>Sanderon_Tress.webp</td>		<td>Tress of the Emerald Sea</td> 					<td>Sanderson</td> 	<td>Brandon</td> 	<td>2023</td> <td>–</td> 			<td>–</td> <td>Read Aloud</td> 	<td>Novel</td> 		<td></td></tr>
+							<tr><td>Riordon-Son-of-Neptune.jpg</td>		<td>The Son of Neptune</td> 						<td>Riordon</td> 	<td>Rick</td> 		<td>2011</td> <td>Heroes of Olympus</td> 	<td>2</td> <td>Book</td> 	<td>Novel</td> 		<td>117,160</td></tr>
+							<tr><td>Tolkein-Hobbit.jpg</td>			<td>The Hobbit</td> 							<td>Tolkein</td> 	<td>J.R.R.</td> 	<td>1937</td> <td>The Lord of the Rings</td>	<td>0</td> <td>Audiobook</td> 	<td>Novel</td> 		<td>95,022</td></tr>
+							<tr><td>Riordon-Lost-Hero.jpg</td>		<td>The Lost Hero</td> 							<td>Riordon</td> 	<td>Rick</td> 		<td>2011</td> <td>Heroes of Olympus</td> 	<td>1</td> <td>Book</td> 	<td>Novel</td> 		<td>144,130</td></tr>
+							<tr><td>Vo-Empress.jpg</td>			<td>The Empress of Salt and Fortune</td> 				<td>Vo</td> 		<td>Nghi</td> 		<td>2020</td> <td>Singing Hills Cycle</td> 	<td>1</td> <td>Read</td> 	<td>Novella</td> 	<td>21,205</td></tr>
+							<tr><td>Jacques-Redwall.webp</td>		<td>Redwall</td> 							<td>Jacques</td> 	<td>Brian</td> 		<td>1986</td> <td>Redwall</td> 			<td>1</td> <td>Audiobook</td> 	<td>Novel</td> 		<td>101,289</td></tr>
+							<tr><td>Anders-All-the-Birds.jpg</td>		<td>All the Birds in the Sky</td> 					<td>Anders</td> 	<td>Charlie Jane</td> 	<td>2016</td> <td>–</td> 			<td>–</td> <td>Read</td> 	<td>Novel</td> 		<td></td></tr>
+							<tr><td>Weeks-Blinding-Knife.webp</td>		<td>The Blinding Knife</td> 						<td>Weeks</td> 		<td>Brent</td> 		<td>2012</td> <td>Lightbringer</td> 		<td>2</td> <td>Read</td> 	<td>Novel</td> 		<td>235,000</td></tr>
+							<!-- Books Read in 2023 -->
+							<tr><td>Chambers-Psalm.jpg</td> <td>A Psalm for the Wild-Built</td> <td>Chambers</td> <td>Becky</td> <td>2021</td> <td>Monk and Robot</td> <td>1</td> <td>Read</td> <td>Novella</td> <td></td> </tr>
+							<tr><td>Leckie-Ancillary-Justice.jpg</td> <td>Ancillary Justice</td> <td>Leckie</td> <td>Ann</td> <td>2013</td> <td>Imperial Radch</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Pratchett-Equal-Rites.jpg</td> <td>Equal Rites</td> <td>Pratchett</td> <td>Terry</td> <td>1987</td> <td>Discworld</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>66,990</td> </tr>
+							<tr><td>Weeks-Black-Prism.jpg</td> <td>The Black Prism</td> <td>Weeks</td> <td>Brent</td> <td>2010</td> <td>Lightbringer</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>205,000</td> </tr>
+							<tr><td>LeGuin-Forest.jpg</td> <td>The Word for World is Forest</td> <td>Le Guin</td> <td>Ursula K.</td> <td>1972</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novella</td> <td></td> </tr>
+							<tr><td>Pratchett-Light-Fantastic.jpg</td> <td>The Light Fantastic</td> <td>Pratchett</td> <td>Terry</td> <td>1986</td> <td>Discworld</td> <td>2</td> <td>Audiobook</td> <td>Novel</td> <td>60,030</td> </tr>
+							<tr><td>Novik-Last-Graduate.jpg</td> <td>The Last Graduate</td> <td>Novik</td> <td>Naomi</td> <td>2021</td> <td>Scholomance Trilogy</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Pratchett-Color-of-Magic.jpg</td> <td>The Color of Magic</td> <td>Pratchett</td> <td>Terry</td> <td>1983</td> <td>Discworld</td> <td>2</td> <td>Audiobook</td> <td>Novel</td> <td>60,175</td> </tr>
+							<tr><td>Pullman-Golden-Compass.jpg</td> <td>The Golden Compass</td> <td>Pullman</td> <td>Philip</td> <td>1995</td> <td>His Dark Materials</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>112,815</td> </tr>
+							<tr><td>Adams-Hitchhiker.jpg</td> <td>The Hitchhiker's Guide to the Galaxy</td> <td>Adams</td> <td>Richard</td> <td>1979</td> <td>The Hitchhiker's Guide to the Galaxy</td> <td>1</td> <td>Audiobook</td> <td>Novel</td> <td>46,333</td> </tr>
+							<tr><td>Novik-Deadly-Education.jpg</td> <td>A Deadly Education</td> <td>Novik</td> <td>Naomi</td> <td>2020</td> <td>Scholomance Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Vandermeer-Authority.jpg</td> <td>Authority</td> <td>Jeff</td> <td>VanderMeer</td> <td>2014</td> <td>Southern Reach Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Paolini-Murtagh.jpg</td> <td>Murtagh</td> <td>Paolini</td> <td>Christopher</td> <td>2023</td> <td>–</td> <td>–</td> <td>Audiobook</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Nix-Sabriel.jpg</td> <td>Sabriel</td> <td>Nix</td> <td>Garth</td> <td></td> <td>Abhorsen</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>LeGuin-Earthsea.jpg</td> <td>A Wizard of Earthsea</td> <td>Le Guin</td> <td>Ursula K.</td> <td>1968</td> <td>Earthsea Cycle</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>56,533</td> </tr>
+							<tr><td>Corey-Tiamat.jpg</td> <td>Tiamat's Wrath</td> <td>Corey</td> <td>James S.A.</td> <td>2019</td> <td>The Expanse</td> <td>8</td> <td>Read</td> <td>Novel</td> <td>164,751</td> </tr>
+							<tr><td>Yarros-Iron-Flame.jpg</td> <td>Iron Flame</td> <td>Yarros</td> <td>Rebecca</td> <td>2023</td> <td>Fourth Wing</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Clarke-Piranesi.jpeg</td> <td>Piranesi</td> <td>Clarke</td> <td>Susanna</td> <td>2020</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>64,790</td> </tr>
+							<tr><td>Corey-Persepolis.jpg</td> <td>Persepolis Rising</td> <td>Corey</td> <td>James S.A.</td> <td>2017</td> <td>The Expanse</td> <td>7</td> <td>Read</td> <td>Novel</td> <td>169,596</td> </tr>
+							<tr><td>Collins-Songbirds.jpg</td> <td>The Ballad of Songbirds and Snakes</td> <td>Collins</td> <td>Suzanne</td> <td>2020</td> <td>The Hunger Games</td> <td>0</td> <td>Audiobook</td> <td>Novel</td> <td>99,750</td> </tr>
+							<tr><td>Mandel-Station-11.jpg</td> <td>Station 11</td> <td>Mandel</td> <td>Emily St. John</td> <td>2014</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>97,293</td> </tr>
+							<tr><td>Bradbury-Farenheit-451.jpg</td> <td>Farenheit 451</td> <td>Bradbury</td> <td>Ray</td> <td>1953</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>46,118</td> </tr>
+							<tr><td>Hobb-Royal-Assassin.jpg</td> <td>Royal Assassin</td> <td>Hobb</td> <td>Robin</td> <td>1996</td> <td>The Farseer Trilogy</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>150,510</td> </tr>
+							<tr><td>Hobb-Assassins-Apprentice.jpg</td> <td>Assassin's Apprentice</td> <td>Hobb</td> <td>Robin</td> <td>1995</td> <td>The Farseer Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>254,765</td> </tr>
+							<tr><td>Muir-Nona.jpg</td> <td>Nona the Ninth</td> <td>Muir</td> <td>Tamsyn</td> <td>2022</td> <td>The Locked Tomb</td> <td>3</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Muir-Harrow.jpg</td> <td>Harrow the Ninth</td> <td>Muir</td> <td>Tamsyn</td> <td>2020</td> <td>The Locked Tomb</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Gaiman-Ocean.jpg</td> <td>The Ocean at the End of the Lane</td> <td>Gaiman</td> <td>Neil</td> <td>2013</td> <td>–</td> <td>–</td> <td>Read</td> <td></td> <td>53,984</td> </tr>
+							<tr><td>Kuang-Babel.jpg</td> <td>Babel: An Arcane History</td> <td>Kuang</td> <td>R.F.</td> <td>2022</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Wells-All-Systems-Red.jpg</td> <td>All Systems Red</td> <td>Wells</td> <td>Martha</td> <td>2017</td> <td>The Murderbot Diaries</td> <td>1</td> <td>Read</td> <td>Novella</td> <td></td> </tr>
+							<tr><td>Vandermeer-Annihilation.jpg</td> <td>Annihilation</td> <td>VanderMeer</td> <td>Jeff</td> <td>2014</td> <td>Southern Reach Trilogy</td> <td>1</td> <td>Read</td> <td></td> <td></td> </tr>
+							<tr><td>Jemesin-The-City-We-Became.jpg</td> <td>The City We Became</td> <td>Jemesin</td> <td>N.K.</td> <td>2020</td> <td>Great Cities Series</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Sanderson-Lost-Metal.jpg</td> <td>The Lost Metal</td> <td>Sanderson</td> <td>Brandon</td> <td>2022</td> <td>Mistborn: Era II</td> <td>4</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Sanderson-Secret-History.jpg</td> <td>Mistborn: Secret History</td> <td>Sanderson</td> <td>Brandon</td> <td></td> <td>–</td> <td>–</td> <td>Read</td> <td>Novella</td> <td></td> </tr>
+							<tr><td>Sanderson-Bands-of-Mourning.jpg</td> <td>Bands of Mourning</td> <td>Sanderson</td> <td>Brandon</td> <td>2016</td> <td>Mistborn: Era II</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>127,456</td> </tr>
+							<tr><td>Schwab-Conjuring-of-Light.jpg</td> <td>A Conjuring of Light</td> <td>Schwab</td> <td>V.E.</td> <td>2017</td> <td>Shades of Magic series</td> <td>3</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Tan-Daughter-Goddess.jpg</td> <td>Daughter of the Moon Goddess</td> <td>Tan</td> <td>Sue Lynn</td> <td></td> <td>The Celestial Kingdom</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Sanderson_Shadows-of-Self.jpg</td> <td>Shadows of Self</td> <td>Sanderson</td> <td>Brandon</td> <td>2015</td> <td>Mistborn: Era II</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>110,019</td> </tr>
+							<tr><td>Schwab_GoS.jpg</td> <td>A Gathering of Shadows</td> <td>Schwab</td> <td>V.E.</td> <td>2016</td> <td>Shades of Magic series</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Yarros_FourthWing.jpg</td> <td>Fourth Wing</td> <td>Yarros</td> <td>Rebecca</td> <td>2023</td> <td>Fourth Wing</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>184,490</td> </tr>
+							<tr><td>Schwab_DSoM.jpg</td> <td>A Darker Shade of Magic</td> <td>Schwab</td> <td>V.E.</td> <td>2015</td> <td>Shades of Magic Series</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>99,285</td> </tr>
+							<tr><td>Corey_BablyonsAshes.jpg</td> <td>Babylon's Ashes</td> <td>Corey</td> <td>James S.A.</td> <td></td> <td>The Expanse</td> <td>6</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Sanderson_Alloy-of-Law.webp</td> <td>The Alloy of Law</td> <td>Sanderson</td> <td>Brandon</td> <td>2011</td> <td>Mistborn: Era II</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>94,652</td> </tr>
+							<tr><td>Sanderon_Tress.webp</td> <td>Tress of the Emerald Sea</td> <td>Sanderson</td> <td>Brandon</td> <td>2023</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Brown_MorningStar.jpg</td> <td>Morning Star</td> <td>Pierce</td> <td>Brown</td> <td>2016</td> <td>Red Rising<</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>140,940</td> </tr>
+							<tr><td>Brown_GoldenSon.jpg</td> <td>Golden Son</td> <td>Pierce</td> <td>Brown</td> <td>2015</td> <td>Red Rising</td> <td><2/td> <td>Read</td> <td>Novel</td> <td>165,735</td> </tr>
+							<tr><td>Muir_Gideon.jpg</td> <td>Gideon the Ninth</td> <td>Muir</td> <td>Tamsyn</td> <td>2019</td> <td>The Locked Tomb</td> <td>2019</td> <td><Read/td> <td>Novel</td> <td></td> </tr>
+							<tr><td>Brown_RedRising.webp</td> <td>Red Rising</td> <td>Pierce</td> <td>Brown</td> <td>2014</td> <td>Red Rising<</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>140,940</td> </tr>
+							<tr><td>Lee_JadeLegacy.jpg</td> <td>Jade Legacy</td> <td>Lee</td> <td>Fonda</td> <td>2021</td> <td>The Green Bone Saga</td> <td>3</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
+							<!-- Books Read in 2022 -->
+							<tr><td>Zevin_Tomorrow.jpg</td><td>Tomorrow and Tomorrow and Tomorrow </td> <td>Gabrielle</td> <td>Zavin</td> <td></td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td></tr>
+							<tr><td>Ross_1.jpg</td><td>A River Enchanted </td> <td>Ross</td> <td>Rebecca</td> <td></td> <td>The Elements of Cadence</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td></tr>
+							<tr><td>Jemisin_StoneSky.jpg</td><td>The Stone Sky </td> <td>Jemesin</td> <td>N.K.</td> <td>2017</td> <td>The Broken Earth Trilogy</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>124,120</td></tr>
+							<tr><td>Corey_NemesisGames.jpg</td><td>Nemesis Games </td> <td>Corey</td> <td>James S.A.</td> <td>2015</td> <td>The Expanse</td> <td>5</td> <td>Read</td> <td>Novel</td> <td>162,050</td></tr>
+							<tr><td>Riordon_LO.gif</td><td>The Last Olympian </td> <td>Riordon</td> <td>Rick</td> <td>2009</td> <td>Percy Jackon</td> <td>5</td> <td>Read</td> <td>Novel</td> <td>96,570</td></tr>
+							<tr><td>Riordon_BotL.jpg</td><td>The Battle of the Labyrinth </td> <td>Riordon</td> <td>Rick</td> <td>2008</td> <td>Percy Jackon</td> <td>4</td> <td>Read</td> <td>Novel</td> <td>91,640</td></tr>
+							<tr><td>Riordon_TC.jpg</td><td>The Titan's Curse </td> <td>Riordon</td> <td>Rick</td> <td>2007</td> <td>Percy Jackon</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>76,560</td></tr>
+							<tr><td>Riordon_SoM.jpg</td><td>The Sea of Monsters </td> <td>Riordon</td> <td>Rick</td> <td>2006</td> <td>Percy Jackon</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>69,020</td></tr>
+							<tr><td>Riordon_LT.jpg</td><td>The Lightning Thief </td> <td>Riordon</td> <td>Rick</td> <td>2005</td> <td>Percy Jackon</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>87,290</td></tr>
+							<tr><td>Jemisin_ObeliskGate.jpg</td><td>The Obelisk Gate </td> <td>Jemesin</td> <td>N.K.</td> <td>2016</td> <td>The Broken Earth Trilogy</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>115,885</td></tr>
+							<tr><td>Islington_1.jpg</td><td>The Shadow of What was Lost </td> <td>Islington</td> <td>James</td> <td>2014</td> <td>The Licanius Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>221,560</td></tr>
+							<tr><td>Corey_Corey_CibolaBurn.jpg</td><td>Cibola Burn </td> <td>Corey</td> <td>James S.A.</td> <td>2014</td> <td>The Expanse</td> <td>4</td> <td>Read</td> <td>Novel</td> <td>171,604</td></tr>
+							<tr><td>Jemisin_FifthSeason.jpg</td><td>The Fifth Season </td> <td>Jemesin</td> <td>N.K.</td> <td>2015</td> <td>The Broken Earth Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>134,415</td></tr>
+							<tr><td>Corey_AbaddonsGate.jpg</td><td>Abaddon's Gate </td> <td>Corey</td> <td>James S.A.</td> <td>2013</td> <td>The Expanse</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>165,310</td></tr>
+							<tr><td>Corey_CalibansWar.jpg</td><td>Calaban's War </td> <td>Corey</td> <td>James S.A.</td> <td>2012</td> <td>The Expanse</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>171,811</td></tr>
+							<tr><td>MG_TimeWar.jpg</td><td>This is How You Lose the Time War </td> <td>El-Mohtar & Gladstone</td> <td>Amal & Max</td> <td>2019</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novella</td> <td></td></tr>
+							<tr><td>Weir_PHM.jpg</td><td>Project Hail Mary </td> <td>Weir</td> <td>Andy</td> <td>2021</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>150,326</td></tr>
+							<tr><td>Lee_JadeWar.jpg</td><td>Jade War </td> <td>Lee</td> <td>Fonda</td> <td>2019</td> <td>The Jade Bone Saga</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td></tr>
+							<!-- Books Read in 2021 -->
+							<tr><td>Kuang_BurningGod.jpg</td><td>The Burning God</td> <td>Kuang</td> <td>R.F.</td> <td>2020</td> <td>The Poppy War Trilogy</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>194,470</td></tr>
+							<tr><td>Abercrombie_WOC.webp</td><td>The Wisdom of Crowds</td> <td>Abercrombe</td> <td>Joe</td> <td>2021</td> <td>The Age of Madness</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>205,920</td></tr>
+							<tr><td>Lee_JadeCity.jpg</td><td>Jade City</td> <td>Lee</td> <td>Fonda</td> <td>2017</td> <td>The Jade Bone Saga</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td></tr>
+							<tr><td>Abercrombie_TWP.webp</td><td>The Trouble with Peace</td> <td>Abercrombe</td> <td>Joe</td> <td>2020</td> <td>The Age of Madness</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>199,680</td></tr>
+							<tr><td>Kuang_DragonRepublic.jpg</td><td>The Dragon Republic</td> <td>Kuang</td> <td>R.F.</td> <td>2019</td> <td>The Poppy War Trilogy</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>206,770</td></tr>
+							<tr><td>Herbert_Dune.jpg</td><td>Dune</td> <td>Herbert</td> <td>Frank</td> <td>1963</td> <td>Dune</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>187,240</td></tr>
+							<tr><td>Corey_LeviathanWakes.jpg</td><td>Leviathan Wakes</td> <td>Corey</td> <td>James S.A.</td> <td>2011</td> <td>The Expanse</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>166,666</td></tr>
+							<tr><td>Abercrombie_ALH.webp</td><td>A Little Hatred</td> <td>Abercrombe</td> <td>Joe</td> <td>2019</td> <td>The Age of Madness</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>187,200</td></tr>
+							<tr><td>Sanderson_Warbreaker.webp</td><td>Warbreaker</td> <td>Sanderson</td> <td>Brandon</td> <td>2009</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>196,014</td></tr>
+							<tr><td>Brooks_WWZ.jpg</td><td>World War Z</td> <td>Brooks</td> <td>Max</td> <td>2006</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td></tr>
+							<tr><td>Flynn_SharpObjects.jpg</td><td>Sharp Objects</td> <td>Flynn</td> <td>Gillian</td> <td>2006</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>80,565</td></tr>
+							<tr><td>Kuang_PoppyWar.jpg</td><td>The Poppy War</td> <td>Kuang</td> <td>R.F.</td> <td>2018</td> <td>The Poppy War Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>164,865</td></tr>
+							<!-- Books Read in 2020 -->
+							<tr><td>Rothfuss_WMF.jpg</td><td>The Wise Man's Fear</td> <td>Rothfuss</td> <td>Patrick</td> <td>2011</td> <td>The Kingkiller Chronicles</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>397,179</td></tr>
+							<tr><td>Abercrombie_LAoK.jpg</td><td>Last Argument of Kings</td> <td>Abercrombe</td> <td>Joe</td> <td>2008</td> <td>The First Law Trilogy</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>234,100</td></tr>
+							<tr><td>Abercrombie_BtaH.jpg</td><td>Before They are Hanged</td> <td>Abercrombe</td> <td>Joe</td> <td>2007</td> <td>The First Law Trilogy</td> <td>2</td> <td>Read</td> <td><Novel/td> <td>198,300</td></tr>
+							<tr><td>Sanderson_RoW.webp</td><td>Rhythm of War</td> <td>Sanderson</td> <td>Brandon</td> <td>2020></td> <td>The Stormlight Archive</td> <td>4</td> <td>Read</td> <td>Novel</td> <td>459,629</td></tr>
+							<tr><td>Rothfuss_NotW.jpg</td><td>The Name of the Wind</td> <td>Rothfuss</td> <td>Patrick</td> <td>2006</td> <td>The Kingkiller Chronicles</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>255,986</td></tr>
+							<tr><td>Abercrombie_BI.jpg</td><td>The Blade Itself</td> <td>Abercrombe</td> <td>Joe</td> <td>2006</td> <td>The First Law Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>191,200</td></tr>
+							<tr><td>Sanderson_Oathbringer.webp</td><td>Oathbringer</td> <td>Sanderson</td> <td>Brandon</td> <td>2017</td> <td>The Stormlight Archive</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>454,440</td></tr>
+							<tr><td>Sanderson_WoR.webp</td><td>Words of Radiance</td> <td>Sanderson</td> <td>Brandon</td> <td>2014</td> <td>The Stormlight Archive</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>398,238</td></tr>
+							<tr><td>Sanderson_WoKi.webp</td><td>The Way of Kings</td> <td>Sanderson</td> <td>Brandon</td> <td>2010</td> <td>The Stormlight Archive</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>386,470</td></tr>
+							<tr><td>Sanderson_HoA.webp</td><td>The Hero of Ages</td> <td>Sanderson</td> <td>Brandon</td> <td>2008</td> <td>Mistborn - Era I</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>225,372</td></tr>
+							<tr><td>Sanderson_WoA.webp</td><td>The Well of Ascension</td> <td>Sanderson</td> <td>Brandon</td> <td>2007</td> <td>Mistborn - Era I</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>244,371</td></tr>
+							<tr><td>Sanderson_Mistborn.webp</td><td>Mistborn</td> <td>Sanderson</td> <td>Brandon</td> <td>2006</td> <td>Mistborn - Era I</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>210,103</td></tr>
+						</tbody>
+					</table>
+					<div class="image-container" id="selectedCellTable"></div>
+				</section><!-- End Reading Section -->
+			</div><!-- End of Inner -->
+		</div><!-- End of Main -->
 		
-		<div id="wrapper"><!-- Wrapper -->
-			
-			<div id="main"><!-- Main -->
-				<div class="inner"><!-- Inner -->
-					
-					<header id="header">
-						<a href="index.html" class="logo"><strong>Sam Macdonald</strong> Turner of Pages</a>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin-in"><span class="label">Linked In</span></a></li>
-							<li><a href="https://github.com/smakdonald" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://open.spotify.com/user/thesam.mac" class="icon brands fa-spotify"><span class="label">Spotify</span></a></li>
-						</ul>
-					</header>
-					<!-- Content -->
-					<section><!-- Reading Section -->
-						<header class="main"><h1>Reading</h1></header>
-
-						<hr class="major" />
-
-						<button onclick="sortImages()">Sort Alphabetically by Title</button>
-						<button onclick="titleImages()">Sort Chronologically</button>
-
-						<table id="myTable">
-							<tbody>
-								<!-- Books Read in 2024 -->
-								<tr><td>Vo-When-the-Tiger.jpg</td><td>When the Tiger Came Down the Mountain</td> <td>Vo</td> <td>Nghi</td> <td>2020</td> <td>Singing Hills Cycle</td> <td>2</td> <td>Read</td> <td>Novella</td> <td></td></tr>
-								<tr> <td>LeGuin-Tombs-of-Atuan.jpg</td> <td>The Tombs of Atuan</td> <td>Le Guin</td> <td>Ursula K.</td> <td>1971</td> <td>Earthsea Cycle</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>45,939</td> </tr>
-								<tr><td>Wells-Exit-Strategy.jpg</td><td>Exit Strategy</td> <td>Wells</td> <td>Martha</td> <td>2018</td> <td>The Murderbot Diaries</td> <td>4</td> <td>Audiobook</td> <td>Novella</td> <td></td></tr>
-								<tr><td>Chiang-Stories.jpeg</td><td>Stories of Your Life and Others</td> <td>Chiang</td> <td>Ted</td> <td>2002</td> <td>–</td> <td>–</td> <td>Book</td> <td>Short Stories</td> <td></td></tr>
-								<tr><td>Leckie-Ancillary-Mercy.jpg</td><td>Ancillary Mercy</td> <td>Leckie</td> <td>Ann</td> <td>2015</td> <td>Imperial Radch</td> <td>3</td> <td>Book</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Wells-Rogue-Protocol.jpg</td><td>Rogue Protocol</td> <td>Wells</td> <td>Martha</td> <td>2018</td> <td>The Murderbot Diaries</td> <td>3</td> <td>Audiobook</td> <td>Novella</td> <td></td></tr>
-								<tr><td>Chambers-Prayer.jpg</td><td>A Prayer for the Crown-Shy</td> <td>Chambers</td> <td>Becky</td> <td>2022</td> <td>Monk and Robot</td> <td>2</td> <td>Read</td> <td>Novella</td> <td></td></tr>
-								<tr><td>Wells-Artificial-Condition.png</td><td>Artificial Condition</td> <td>Wells</td> <td>Martha</td> <td>2018</td> <td>The Murderbot Diaries</td> <td>2</td> <td>Audiobook</td> <td>Novella</td> <td></td></tr>
-								<tr><td>Jemesin-Emergency-Skin.png</td><td>Emergency Skin</td> <td>Jemesin</td> <td>N.K.</td> <td>2019</td> <td>–</td> <td>–</td> <td>Audiobook</td> <td>Novelette</td> <td></td></tr>
-								<tr><td>Weir-Martian.jpg</td><td>The Martian</td> <td>Weir</td> <td>Andy</td> <td>2011</td> <td>–</td> <td>–</td> <td>Audiobook</td> <td>Novel</td> <td>104,588</td></tr>
-								<tr><td>Jimenez-Spear.jpg</td><td>The Spear Cuts Through Water</td> <td>Jimenez</td> <td>Simon</td> <td>2022</td> <td>–</td> <td>–</td> <td>Book</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Sanderson-Frugal-Wizard.jpg</td><td>The Frugal Wizard's Handbook for Surviving Medieval England</td> <td>Sanderson</td> <td>Brandon</td> <td>2023</td> <td>–</td> <td>–</td> <td>Book</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Colfer-Eternity-Code.jpg</td><td>The Eternity Code</td> <td>Colfer</td> <td>Eoin</td> <td>2003</td> <td>Artemis Fowl</td> <td>3</td> <td>Audiobook</td> <td>Novel</td> <td>66,357</td></tr>
-								<tr><td>Yang-Black-Tides-of-Heaven.jpg</td><td>The Black Tides of Heaven</td> <td>Yang</td> <td>Neon</td> <td>2017</td> <td>Tensorate Series</td> <td>1</td> <td>Book</td> <td>Novella</td> <td></td></tr>
-								<tr><td>Leckie-Ancillary-Sword.jpg</td><td>Ancillary Sword</td> <td>Leckie</td> <td>Ann</td> <td>2014</td> <td>Imperial Radch</td> <td>2</td> <td>Book</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Colfer-Arctic-Incident.jpg</td><td>The Arctic Incident</td> <td>Colfer</td> <td>Eoin</td> <td>2002</td> <td>Artemis Fowl</td> <td>2</td> <td>Audiobook</td> <td>Novel</td> <td>58,517</td></tr>
-								<tr><td>Corey-Leviathan-Falls.jpg</td><td>Leviathan Falls</td> <td>Corey</td> <td>James S.A.</td> <td>2021</td> <td>The Expanse</td> <td>9</td> <td>Book</td> <td>Novel</td> <td>163,430</td></tr>
-								<tr><td>Pratchett-Mort.jpg</td><td>Mort</td> <td>Pratchett</td> <td>Terry</td> <td>1987</td> <td>Discworld</td> <td>4</td> <td>Audiobook</td> <td>Novel</td> <td>64,815</td></tr>
-								<tr><td>Hobb-Assassins-Quest.jpg</td><td>Assassin's Quest</td> <td>Hobb</td> <td>Robin</td> <td>1997</td> <td>Farseer Trilogy</td> <td>3</td> <td>Book</td> <td>Novel</td> <td>326,830</td></tr>
-								<tr><td>Novik-Golden-Enclaves.jpeg</td><td>The Golden Enclaves</td> <td>Novik</td> <td>Naomi</td> <td>2022</td> <td>Scholomance Trilogy</td> <td>3</td> <td>Book</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Colfer-Artemis-Fowl.jpg</td><td>Artemis Fowl</td> <td>Colfer</td> <td>Eoin</td> <td>2001</td> <td>Artemis Fowl</td> <td>1</td> <td>Audiobook</td> <td>Novel</td> <td>56,684</td></tr>
-								<tr><td>Sanderon_Tress.webp</td><td>Tress of the Emerald Sea</td> <td>Sanderson</td> <td>Brandon</td> <td>2023</td> <td>–</td> <td>–</td> <td>Read Aloud</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Riordon-Son-of-Neptune.jpg</td><td>The Son of Neptune</td> <td>Riordon</td> <td>Rick</td> <td>2011</td> <td>Heroes of Olympus</td> <td>2</td> <td>Book</td> <td>Novel</td> <td>117,160</td></tr>
-								<tr><td>Tolkein-Hobbit.jpg</td><td>The Hobbit</td> <td>Tolkein</td> <td>J.R.R.</td> <td>1937</td> <td>The Lord of the Rings</td> <td>0</td> <td>Audiobook</td> <td>Novel</td> <td>95,022</td></tr>
-								<tr><td>Riordon-Lost-Hero.jpg</td><td>The Lost Hero</td> <td>Riordon</td> <td>Rick</td> <td>2011</td> <td>Heroes of Olympus</td> <td>1</td> <td>Book</td> <td>Novel</td> <td>144,130</td></tr>
-								<tr><td>Vo-Empress.jpg</td><td>The Empress of Salt and Fortune</td> <td>Vo</td> <td>Nghi</td> <td>2020</td> <td>Singing Hills Cycle</td> <td>1</td> <td>Read</td> <td>Novella</td> <td>21,205</td></tr>
-								<tr><td>Jacques-Redwall.webp</td><td>Redwall</td> <td>Jacques</td> <td>Brian</td> <td>1986</td> <td>Redwall</td> <td>1</td> <td>Audiobook</td> <td>Novel</td> <td>101,289</td></tr>
-								<tr><td>Anders-All-the-Birds.jpg</td><td>All the Birds in the Sky</td> <td>Anders</td> <td>Charlie Jane</td> <td>2016</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Weeks-Blinding-Knife.webp</td><td>The Blinding Knife</td> <td>Weeks</td> <td>Brent</td> <td>2012</td> <td>Lightbringer</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>235,000</td></tr>
-								<!-- Books Read in 2023 -->
-								<tr> <td>Chambers-Psalm.jpg</td> <td>A Psalm for the Wild-Built</td> <td>Chambers</td> <td>Becky</td> <td>2021</td> <td>Monk and Robot</td> <td>1</td> <td>Read</td> <td>Novella</td> <td></td> </tr>
-								<tr> <td>Leckie-Ancillary-Justice.jpg</td> <td>Ancillary Justice</td> <td>Leckie</td> <td>Ann</td> <td>2013</td> <td>Imperial Radch</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Pratchett-Equal-Rites.jpg</td> <td>Equal Rites</td> <td>Pratchett</td> <td>Terry</td> <td>1987</td> <td>Discworld</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>66,990</td> </tr>
-								<tr> <td>Weeks-Black-Prism.jpg</td> <td>The Black Prism</td> <td>Weeks</td> <td>Brent</td> <td>2010</td> <td>Lightbringer</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>205,000</td> </tr>
-								<tr> <td>LeGuin-Forest.jpg</td> <td>The Word for World is Forest</td> <td>Le Guin</td> <td>Ursula K.</td> <td>1972</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novella</td> <td></td> </tr>
-								<tr> <td>Pratchett-Light-Fantastic.jpg</td> <td>The Light Fantastic</td> <td>Pratchett</td> <td>Terry</td> <td>1986</td> <td>Discworld</td> <td>2</td> <td>Audiobook</td> <td>Novel</td> <td>60,030</td> </tr>
-								<tr> <td>Novik-Last-Graduate.jpg</td> <td>The Last Graduate</td> <td>Novik</td> <td>Naomi</td> <td>2021</td> <td>Scholomance Trilogy</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Pratchett-Color-of-Magic.jpg</td> <td>The Color of Magic</td> <td>Pratchett</td> <td>Terry</td> <td>1983</td> <td>Discworld</td> <td>2</td> <td>Audiobook</td> <td>Novel</td> <td>60,175</td> </tr>
-								<tr> <td>Pullman-Golden-Compass.jpg</td> <td>The Golden Compass</td> <td>Pullman</td> <td>Philip</td> <td>1995</td> <td>His Dark Materials</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>112,815</td> </tr>
-								<tr> <td>Adams-Hitchhiker.jpg</td> <td>The Hitchhiker's Guide to the Galaxy</td> <td>Adams</td> <td>Richard</td> <td>1979</td> <td>The Hitchhiker's Guide to the Galaxy</td> <td>1</td> <td>Audiobook</td> <td>Novel</td> <td>46,333</td> </tr>
-								<tr> <td>Novik-Deadly-Education.jpg</td> <td>A Deadly Education</td> <td>Novik</td> <td>Naomi</td> <td>2020</td> <td>Scholomance Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Vandermeer-Authority.jpg</td> <td>Authority</td> <td>Jeff</td> <td>VanderMeer</td> <td>2014</td> <td>Southern Reach Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Paolini-Murtagh.jpg</td> <td>Murtagh</td> <td>Paolini</td> <td>Christopher</td> <td>2023</td> <td>–</td> <td>–</td> <td>Audiobook</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Nix-Sabriel.jpg</td> <td>Sabriel</td> <td>Nix</td> <td>Garth</td> <td></td> <td>Abhorsen</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>LeGuin-Earthsea.jpg</td> <td>A Wizard of Earthsea</td> <td>Le Guin</td> <td>Ursula K.</td> <td>1968</td> <td>Earthsea Cycle</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>56,533</td> </tr>
-								<tr> <td>Corey-Tiamat.jpg</td> <td>Tiamat's Wrath</td> <td>Corey</td> <td>James S.A.</td> <td>2019</td> <td>The Expanse</td> <td>8</td> <td>Read</td> <td>Novel</td> <td>164,751</td> </tr>
-								<tr> <td>Yarros-Iron-Flame.jpg</td> <td>Iron Flame</td> <td>Yarros</td> <td>Rebecca</td> <td>2023</td> <td>Fourth Wing</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Clarke-Piranesi.jpeg</td> <td>Piranesi</td> <td>Clarke</td> <td>Susanna</td> <td>2020</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>64,790</td> </tr>
-								<tr> <td>Corey-Persepolis.jpg</td> <td>Persepolis Rising</td> <td>Corey</td> <td>James S.A.</td> <td>2017</td> <td>The Expanse</td> <td>7</td> <td>Read</td> <td>Novel</td> <td>169,596</td> </tr>
-								<tr> <td>Collins-Songbirds.jpg</td> <td>The Ballad of Songbirds and Snakes</td> <td>Collins</td> <td>Suzanne</td> <td>2020</td> <td>The Hunger Games</td> <td>0</td> <td>Audiobook</td> <td>Novel</td> <td>99,750</td> </tr>
-								<tr> <td>Mandel-Station-11.jpg</td> <td>Station 11</td> <td>Mandel</td> <td>Emily St. John</td> <td>2014</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>97,293</td> </tr>
-								<tr> <td>Bradbury-Farenheit-451.jpg</td> <td>Farenheit 451</td> <td>Bradbury</td> <td>Ray</td> <td>1953</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>46,118</td> </tr>
-								<tr> <td>Hobb-Royal-Assassin.jpg</td> <td>Royal Assassin</td> <td>Hobb</td> <td>Robin</td> <td>1996</td> <td>The Farseer Trilogy</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>150,510</td> </tr>
-								<tr> <td>Hobb-Assassins-Apprentice.jpg</td> <td>Assassin's Apprentice</td> <td>Hobb</td> <td>Robin</td> <td>1995</td> <td>The Farseer Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>254,765</td> </tr>
-								<tr> <td>Muir-Nona.jpg</td> <td>Nona the Ninth</td> <td>Muir</td> <td>Tamsyn</td> <td>2022</td> <td>The Locked Tomb</td> <td>3</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Muir-Harrow.jpg</td> <td>Harrow the Ninth</td> <td>Muir</td> <td>Tamsyn</td> <td>2020</td> <td>The Locked Tomb</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Gaiman-Ocean.jpg</td> <td>The Ocean at the End of the Lane</td> <td>Gaiman</td> <td>Neil</td> <td>2013</td> <td>–</td> <td>–</td> <td>Read</td> <td></td> <td>53,984</td> </tr>
-								<tr> <td>Kuang-Babel.jpg</td> <td>Babel: An Arcane History</td> <td>Kuang</td> <td>R.F.</td> <td>2022</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Wells-All-Systems-Red.jpg</td> <td>All Systems Red</td> <td>Wells</td> <td>Martha</td> <td>2017</td> <td>The Murderbot Diaries</td> <td>1</td> <td>Read</td> <td>Novella</td> <td></td> </tr>
-								<tr> <td>Vandermeer-Annihilation.jpg</td> <td>Annihilation</td> <td>VanderMeer</td> <td>Jeff</td> <td>2014</td> <td>Southern Reach Trilogy</td> <td>1</td> <td>Read</td> <td></td> <td></td> </tr>
-								<tr> <td>Jemesin-The-City-We-Became.jpg</td> <td>The City We Became</td> <td>Jemesin</td> <td>N.K.</td> <td>2020</td> <td>Great Cities Series</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Sanderson-Lost-Metal.jpg</td> <td>The Lost Metal</td> <td>Sanderson</td> <td>Brandon</td> <td>2022</td> <td>Mistborn: Era II</td> <td>4</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Sanderson-Secret-History.jpg</td> <td>Mistborn: Secret History</td> <td>Sanderson</td> <td>Brandon</td> <td></td> <td>–</td> <td>–</td> <td>Read</td> <td>Novella</td> <td></td> </tr>
-								<tr> <td>Sanderson-Bands-of-Mourning.jpg</td> <td>Bands of Mourning</td> <td>Sanderson</td> <td>Brandon</td> <td>2016</td> <td>Mistborn: Era II</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>127,456</td> </tr>
-								<tr> <td>Schwab-Conjuring-of-Light.jpg</td> <td>A Conjuring of Light</td> <td>Schwab</td> <td>V.E.</td> <td>2017</td> <td>Shades of Magic series</td> <td>3</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Tan-Daughter-Goddess.jpg</td> <td>Daughter of the Moon Goddess</td> <td>Tan</td> <td>Sue Lynn</td> <td></td> <td>The Celestial Kingdom</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Sanderson_Shadows-of-Self.jpg</td> <td>Shadows of Self</td> <td>Sanderson</td> <td>Brandon</td> <td>2015</td> <td>Mistborn: Era II</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>110,019</td> </tr>
-								<tr> <td>Schwab_GoS.jpg</td> <td>A Gathering of Shadows</td> <td>Schwab</td> <td>V.E.</td> <td>2016</td> <td>Shades of Magic series</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Yarros_FourthWing.jpg</td> <td>Fourth Wing</td> <td>Yarros</td> <td>Rebecca</td> <td>2023</td> <td>Fourth Wing</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>184,490</td> </tr>
-								<tr> <td>Schwab_DSoM.jpg</td> <td>A Darker Shade of Magic</td> <td>Schwab</td> <td>V.E.</td> <td>2015</td> <td>Shades of Magic Series</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>99,285</td> </tr>
-								<tr> <td>Corey_BablyonsAshes.jpg</td> <td>Babylon's Ashes</td> <td>Corey</td> <td>James S.A.</td> <td></td> <td>The Expanse</td> <td>6</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Sanderson_Alloy-of-Law.webp</td> <td>The Alloy of Law</td> <td>Sanderson</td> <td>Brandon</td> <td>2011</td> <td>Mistborn: Era II</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>94,652</td> </tr>
-								<tr> <td>Sanderon_Tress.webp</td> <td>Tress of the Emerald Sea</td> <td>Sanderson</td> <td>Brandon</td> <td>2023</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Brown_MorningStar.jpg</td> <td>Morning Star</td> <td>Pierce</td> <td>Brown</td> <td>2016</td> <td>Red Rising<</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>140,940</td> </tr>
-								<tr> <td>Brown_GoldenSon.jpg</td> <td>Golden Son</td> <td>Pierce</td> <td>Brown</td> <td>2015</td> <td>Red Rising</td> <td><2/td> <td>Read</td> <td>Novel</td> <td>165,735</td> </tr>
-								<tr> <td>Muir_Gideon.jpg</td> <td>Gideon the Ninth</td> <td>Muir</td> <td>Tamsyn</td> <td>2019</td> <td>The Locked Tomb</td> <td>2019</td> <td><Read/td> <td>Novel</td> <td></td> </tr>
-								<tr> <td>Brown_RedRising.webp</td> <td>Red Rising</td> <td>Pierce</td> <td>Brown</td> <td>2014</td> <td>Red Rising<</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>140,940</td> </tr>
-								<tr> <td>Lee_JadeLegacy.jpg</td> <td>Jade Legacy</td> <td>Lee</td> <td>Fonda</td> <td>2021</td> <td>The Green Bone Saga</td> <td>3</td> <td>Read</td> <td>Novel</td> <td></td> </tr>
-								<!-- Books Read in 2022 -->
-								<tr><td>Zevin_Tomorrow.jpg</td><td>Tomorrow and Tomorrow and Tomorrow </td> <td>Gabrielle</td> <td>Zavin</td> <td></td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Ross_1.jpg</td><td>A River Enchanted </td> <td>Ross</td> <td>Rebecca</td> <td></td> <td>The Elements of Cadence</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Jemisin_StoneSky.jpg</td><td>The Stone Sky </td> <td>Jemesin</td> <td>N.K.</td> <td>2017</td> <td>The Broken Earth Trilogy</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>124,120</td></tr>
-								<tr><td>Corey_NemesisGames.jpg</td><td>Nemesis Games </td> <td>Corey</td> <td>James S.A.</td> <td>2015</td> <td>The Expanse</td> <td>5</td> <td>Read</td> <td>Novel</td> <td>162,050</td></tr>
-								<tr><td>Riordon_LO.gif</td><td>The Last Olympian </td> <td>Riordon</td> <td>Rick</td> <td>2009</td> <td>Percy Jackon</td> <td>5</td> <td>Read</td> <td>Novel</td> <td>96,570</td></tr>
-								<tr><td>Riordon_BotL.jpg</td><td>The Battle of the Labyrinth </td> <td>Riordon</td> <td>Rick</td> <td>2008</td> <td>Percy Jackon</td> <td>4</td> <td>Read</td> <td>Novel</td> <td>91,640</td></tr>
-								<tr><td>Riordon_TC.jpg</td><td>The Titan's Curse </td> <td>Riordon</td> <td>Rick</td> <td>2007</td> <td>Percy Jackon</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>76,560</td></tr>
-								<tr><td>Riordon_SoM.jpg</td><td>The Sea of Monsters </td> <td>Riordon</td> <td>Rick</td> <td>2006</td> <td>Percy Jackon</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>69,020</td></tr>
-								<tr><td>Riordon_LT.jpg</td><td>The Lightning Thief </td> <td>Riordon</td> <td>Rick</td> <td>2005</td> <td>Percy Jackon</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>87,290</td></tr>
-								<tr><td>Jemisin_ObeliskGate.jpg</td><td>The Obelisk Gate </td> <td>Jemesin</td> <td>N.K.</td> <td>2016</td> <td>The Broken Earth Trilogy</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>115,885</td></tr>
-								<tr><td>Islington_1.jpg</td><td>The Shadow of What was Lost </td> <td>Islington</td> <td>James</td> <td>2014</td> <td>The Licanius Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>221,560</td></tr>
-								<tr><td>Corey_Corey_CibolaBurn.jpg</td><td>Cibola Burn </td> <td>Corey</td> <td>James S.A.</td> <td>2014</td> <td>The Expanse</td> <td>4</td> <td>Read</td> <td>Novel</td> <td>171,604</td></tr>
-								<tr><td>Jemisin_FifthSeason.jpg</td><td>The Fifth Season </td> <td>Jemesin</td> <td>N.K.</td> <td>2015</td> <td>The Broken Earth Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>134,415</td></tr>
-								<tr><td>Corey_AbaddonsGate.jpg</td><td>Abaddon's Gate </td> <td>Corey</td> <td>James S.A.</td> <td>2013</td> <td>The Expanse</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>165,310</td></tr>
-								<tr><td>Corey_CalibansWar.jpg</td><td>Calaban's War </td> <td>Corey</td> <td>James S.A.</td> <td>2012</td> <td>The Expanse</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>171,811</td></tr>
-								<tr><td>MG_TimeWar.jpg</td><td>This is How You Lose the Time War </td> <td>El-Mohtar & Gladstone</td> <td>Amal & Max</td> <td>2019</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novella</td> <td></td></tr>
-								<tr><td>Weir_PHM.jpg</td><td>Project Hail Mary </td> <td>Weir</td> <td>Andy</td> <td>2021</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>150,326</td></tr>
-								<tr><td>Lee_JadeWar.jpg</td><td>Jade War </td> <td>Lee</td> <td>Fonda</td> <td>2019</td> <td>The Jade Bone Saga</td> <td>2</td> <td>Read</td> <td>Novel</td> <td></td></tr>
-								<!-- Books Read in 2021 -->
-								<tr><td>Kuang_BurningGod.jpg</td><td>The Burning God</td> <td>Kuang</td> <td>R.F.</td> <td>2020</td> <td>The Poppy War Trilogy</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>194,470</td></tr>
-								<tr><td>Abercrombie_WOC.webp</td><td>The Wisdom of Crowds</td> <td>Abercrombe</td> <td>Joe</td> <td>2021</td> <td>The Age of Madness</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>205,920</td></tr>
-								<tr><td>Lee_JadeCity.jpg</td><td>Jade City</td> <td>Lee</td> <td>Fonda</td> <td>2017</td> <td>The Jade Bone Saga</td> <td>1</td> <td>Read</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Abercrombie_TWP.webp</td><td>The Trouble with Peace</td> <td>Abercrombe</td> <td>Joe</td> <td>2020</td> <td>The Age of Madness</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>199,680</td></tr>
-								<tr><td>Kuang_DragonRepublic.jpg</td><td>The Dragon Republic</td> <td>Kuang</td> <td>R.F.</td> <td>2019</td> <td>The Poppy War Trilogy</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>206,770</td></tr>
-								<tr><td>Herbert_Dune.jpg</td><td>Dune</td> <td>Herbert</td> <td>Frank</td> <td>1963</td> <td>Dune</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>187,240</td></tr>
-								<tr><td>Corey_LeviathanWakes.jpg</td><td>Leviathan Wakes</td> <td>Corey</td> <td>James S.A.</td> <td>2011</td> <td>The Expanse</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>166,666</td></tr>
-								<tr><td>Abercrombie_ALH.webp</td><td>A Little Hatred</td> <td>Abercrombe</td> <td>Joe</td> <td>2019</td> <td>The Age of Madness</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>187,200</td></tr>
-								<tr><td>Sanderson_Warbreaker.webp</td><td>Warbreaker</td> <td>Sanderson</td> <td>Brandon</td> <td>2009</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>196,014</td></tr>
-								<tr><td>Brooks_WWZ.jpg</td><td>World War Z</td> <td>Brooks</td> <td>Max</td> <td>2006</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td></td></tr>
-								<tr><td>Flynn_SharpObjects.jpg</td><td>Sharp Objects</td> <td>Flynn</td> <td>Gillian</td> <td>2006</td> <td>–</td> <td>–</td> <td>Read</td> <td>Novel</td> <td>80,565</td></tr>
-								<tr><td>Kuang_PoppyWar.jpg</td><td>The Poppy War</td> <td>Kuang</td> <td>R.F.</td> <td>2018</td> <td>The Poppy War Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>164,865</td></tr>
-								<!-- Books Read in 2020 -->
-								<tr><td>Rothfuss_WMF.jpg</td><td>The Wise Man's Fear</td> <td>Rothfuss</td> <td>Patrick</td> <td>2011</td> <td>The Kingkiller Chronicles</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>397,179</td></tr>
-								<tr><td>Abercrombie_LAoK.jpg</td><td>Last Argument of Kings</td> <td>Abercrombe</td> <td>Joe</td> <td>2008</td> <td>The First Law Trilogy</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>234,100</td></tr>
-								<tr><td>Abercrombie_BtaH.jpg</td><td>Before They are Hanged</td> <td>Abercrombe</td> <td>Joe</td> <td>2007</td> <td>The First Law Trilogy</td> <td>2</td> <td>Read</td> <td><Novel/td> <td>198,300</td></tr>
-								<tr><td>Sanderson_RoW.webp</td><td>Rhythm of War</td> <td>Sanderson</td> <td>Brandon</td> <td>2020></td> <td>The Stormlight Archive</td> <td>4</td> <td>Read</td> <td>Novel</td> <td>459,629</td></tr>
-								<tr><td>Rothfuss_NotW.jpg</td><td>The Name of the Wind</td> <td>Rothfuss</td> <td>Patrick</td> <td>2006</td> <td>The Kingkiller Chronicles</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>255,986</td></tr>
-								<tr><td>Abercrombie_BI.jpg</td><td>The Blade Itself</td> <td>Abercrombe</td> <td>Joe</td> <td>2006</td> <td>The First Law Trilogy</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>191,200</td></tr>
-								<tr><td>Sanderson_Oathbringer.webp</td><td>Oathbringer</td> <td>Sanderson</td> <td>Brandon</td> <td>2017</td> <td>The Stormlight Archive</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>454,440</td></tr>
-								<tr><td>Sanderson_WoR.webp</td><td>Words of Radiance</td> <td>Sanderson</td> <td>Brandon</td> <td>2014</td> <td>The Stormlight Archive</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>398,238</td></tr>
-								<tr><td>Sanderson_WoKi.webp</td><td>The Way of Kings</td> <td>Sanderson</td> <td>Brandon</td> <td>2010</td> <td>The Stormlight Archive</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>386,470</td></tr>
-								<tr><td>Sanderson_HoA.webp</td><td>The Hero of Ages</td> <td>Sanderson</td> <td>Brandon</td> <td>2008</td> <td>Mistborn - Era I</td> <td>3</td> <td>Read</td> <td>Novel</td> <td>225,372</td></tr>
-								<tr><td>Sanderson_WoA.webp</td><td>The Well of Ascension</td> <td>Sanderson</td> <td>Brandon</td> <td>2007</td> <td>Mistborn - Era I</td> <td>2</td> <td>Read</td> <td>Novel</td> <td>244,371</td></tr>
-								<tr><td>Sanderson_Mistborn.webp</td><td>Mistborn</td> <td>Sanderson</td> <td>Brandon</td> <td>2006</td> <td>Mistborn - Era I</td> <td>1</td> <td>Read</td> <td>Novel</td> <td>210,103</td></tr>
-							</tbody>
-						</table>
- 						<div class="image-container" id="selectedCellTable"></div>
-					</section><!-- End Reading Section -->
-				</div><!-- End of Inner -->
-			</div><!-- End of Main -->
-		
-			<div id="sidebar"><!-- Sidedar -->
-				<div class="inner"><!-- Inner Sidebar -->
-					<!-- Menu -->
-					<nav id="menu"><header class="major"><h2>Menu</h2></header>
-						<ul>
-							<li><a href="index.html">Homepage</a></li>
-							<li><a href="teaching.html">Teaching</a></li>
-							<li><a href="cv.html">Curriculum Vitae</a></li>
-							<li><a href="rj.html">Prison Education</a></li>
-							<li><a href="OERs.html">Mathematics OERs</a></li>
-							<li>
-								<span class="opener">Personal</span>
-								<ul>
-									<li><a href="about-me.html">About Me</a></li>
-									<li><a href="music.html">Music Hours (SAAM) </a></li>
-									<li><a href="climb.html">Climbing</a></li>
-									<li><a href="reading.html">Reading</a></li>
-									<li><a href="write.html">Writing</a></li>
-									<li><a href="art.html">Artwork</a></li>
-									<li><a href="cats.html">Cats</a></li>
-									<li><a href="soon.html">Storage</a></li>
-								</ul>
-							</li>
-						</ul>
-					</nav>
-					<!-- Section -->
-					<section><header class="major"><h2>Get in touch</h2></header>
-
-						<ul class="contact">
-							<li class="icon solid fa-envelope">
-								<a href="mailto:smacdonald5@huskers.unl.edu">smacdonald5@huskers.unl.edu</a>
-							</li>
-
-							<li class="icon solid fa-school">
-								Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a>
-							</li>
-						</ul>
-					</section>
-					<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
-				</div><!-- End Inner Sidebar -->
-			</div><!-- End Sidebar -->
-		</div><!-- End Wrapper -->
+		<div id="sidebar"><!-- Sidedar -->
+			<div class="inner"><!-- Inner Sidebar -->
+				<nav id="menu"><header class="major"><h2>Menu</h2></header><!-- Menu -->
+					<ul>
+						<li><a href="index.html">Homepage</a></li>
+						<li><a href="teaching.html">Teaching</a></li>
+						<li><a href="cv.html">Curriculum Vitae</a></li>
+						<li><a href="rj.html">Prison Education</a></li>
+						<li><a href="OERs.html">Mathematics OERs</a></li>
+						<li><span class="opener">Personal</span>
+							<ul>
+								<li><a href="about-me.html">About Me</a></li>
+								<li><a href="music.html">Music Hours (SAAM)</a></li>
+								<li><a href="climb.html">Climbing</a></li>
+								<li><a href="reading.html">Reading</a></li>
+								<li><a href="write.html">Writing</a></li>
+								<li><a href="art.html">Artwork</a></li>
+								<li><a href="cats.html">Cats</a></li>
+								<li><a href="soon.html">Storage</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav><!-- End Menu -->
+				
+				<section><header class="major"><h2>Get in touch</h2></header><!-- Contact Section -->
+					<ul class="contact">
+						<li class="icon solid fa-envelope"> <a href="mailto:smacdonald5@huskers.unl.edu">UNL Email</a> </li>
+						<li class="icon solid fa-school"> Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a></li>
+					</ul>
+				</section><!-- End Contact Section -->
+				
+				<footer id="footer"><!-- Footer -->
+					<p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer>
+			</div><!-- End Inner Sidebar -->
+		</div><!-- End Sidebar -->
+	</div><!-- End Wrapper -->
 	
-  <script>
-    window.addEventListener('load', function() {
-      var imageContainer = document.querySelector('.image-container');
-      var images = Array.from(imageContainer.querySelectorAll('img'));
-      var randomizeButton = document.getElementById('randomize-button');
-      var sortButton = document.getElementById('sort');
-    });
-  </script>
-
-  <script>
-  
-  var table = document.getElementById("myTable");	// Get the table
-  
-  var tableContent = `
-      `;
- 							// Create a blank text container that the Content will go into
-  var entryList = document.getElementById("entryList"); // Get the entry list container
-
-  for (var i = 0; i < table.rows.length; i++) {		// Loop through the rows of the table
-    var path = table.rows[i].cells[0];			// Take the first entry of each row (the path for the image file)
-    var title = table.rows[i].cells[1];			// Take the second entry of each row (the title of the book)
-    var Content = '<img src="images/Book Covers/' + path.textContent + '" alt="' + title.textContent + '"title="' + i + '">';
-    							// Write the content of the <img> element so that it becomes the image
-    
-    tableContent += `					
-    	<div class = image-item>
-			${Content}
-        </div>
-        `;						// Write the text that will be added to <div class=image-container> 
-   
-    var selectedCellTable = document.getElementById("selectedCellTable");
-      selectedCellTable.innerHTML = tableContent;	// Find the correct <div class=image-container> and add content
-  }
+<script>
+	window.addEventListener('load', function() {
+      		var imageContainer = document.querySelector('.image-container');
+      		var images = Array.from(imageContainer.querySelectorAll('img'));
+      		var randomizeButton = document.getElementById('randomize-button');
+      		var sortButton = document.getElementById('sort');
+    	});
 </script>
 
 <script>
-    function sortImages() {
-      const imageContainer = document.getElementById('selectedCellTable');
-      const imageItems = Array.from(imageContainer.querySelectorAll('.image-item'));
+	var table = document.getElementById("myTable");						// Get the table
+	var tableContent = ``;									// Create a blank text container that the Content will go into						
+	var entryList = document.getElementById("entryList"); 					// Get the entry list container
+	for (var i = 0; i < table.rows.length; i++) {						// Loop through the rows of the table
+		var path = table.rows[i].cells[0];						// Take the first entry of each row (the path for the image file)
+    		var title = table.rows[i].cells[1];						// Take the second entry of each row (the title of the book)
+    		var Content = '<img src="images/Book Covers/' + path.textContent + '" alt="' + title.textContent + '"title="' + i + '">';
+    												// Write the content of the <img> element so that it becomes the image
+    		tableContent += `					
+    			<div class = image-item>
+				${Content}
+        		</div>
+        		`;									// Write the text that will be added to <div class=image-container> 
+   
+    		var selectedCellTable = document.getElementById("selectedCellTable");
+      		selectedCellTable.innerHTML = tableContent;					// Find the correct <div class=image-container> and add content
+ 	 }
+</script>
 
-      imageItems.sort((a, b) => {
-        const altA = a.querySelector('img').alt.toLowerCase();
-        const altB = b.querySelector('img').alt.toLowerCase();
-        return altA.localeCompare(altB);
-      });
+<script>
+	function sortImages() {
+      		const imageContainer = document.getElementById('selectedCellTable'); 		// Get the correct division 
+      		const imageItems = Array.from(imageContainer.querySelectorAll('.image-item')); 	// Take all the elements that are of the 'image-item' type and put them in an array
 
-      imageItems.forEach(item => imageContainer.appendChild(item));
-    }
+	      	imageItems.sort((a, b) => {
+	        	const altA = a.querySelector('img').alt.toLowerCase();
+	        	const altB = b.querySelector('img').alt.toLowerCase();
+	        	return altA.localeCompare(altB);
+	      	});
+
+      		imageItems.forEach(item => imageContainer.appendChild(item));
+    	}
     
-    function titleImages() {
-    const imageContainer = document.getElementById('selectedCellTable');
-    const imageItems = Array.from(imageContainer.querySelectorAll('.image-item'));
-
-    imageItems.sort((a, b) => {
-      const altA = a.querySelector('img').title.toLowerCase();
-      const altB = b.querySelector('img').title.toLowerCase();
-
-      // Check if the alt attributes are numbers
-      if (!isNaN(altA) && !isNaN(altB)) {
-        // If both are numbers, sort numerically
-        return Number(altA) - Number(altB);
-      } else {
-        // Otherwise, sort alphabetically
-        return altA.localeCompare(altB);
-      }
-    });
-
-    imageItems.forEach(item => imageContainer.appendChild(item));
-  }
- </script>
+	function titleImages() {
+		const imageContainer = document.getElementById('selectedCellTable');
+		const imageItems = Array.from(imageContainer.querySelectorAll('.image-item'));
+	
+		imageItems.sort((a, b) => {
+	      		const altA = a.querySelector('img').title.toLowerCase();
+	      		const altB = b.querySelector('img').title.toLowerCase();
+	
+	      		// Check if the alt attributes are numbers
+	      		if (!isNaN(altA) && !isNaN(altB)) {
+				// If both are numbers, sort numerically
+				return Number(altA) - Number(altB);
+			} 
+			else {
+				// Otherwise, sort alphabetically
+				return altA.localeCompare(altB);
+	      		}
+		});
+	
+	   	imageItems.forEach(item => imageContainer.appendChild(item));
+	}
+</script>
 
 </body>
 </html>
