@@ -11,6 +11,37 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://kit.fontawesome.com/9983334911.js" crossorigin="anonymous"></script>
+		<style>
+			.table-of-contents {
+			    width: 200px;
+			    background-color: #f3f3f3;
+			    padding: 20px;
+			}
+			
+			.table-of-contents ul {
+			    list-style: none;
+			    padding: 0;
+			}
+			
+			.table-of-contents ul ul {
+			    display: none;
+			    margin-left: 15px;
+			}
+			
+			.table-of-contents ul ul.active {
+			    display: block;
+			}
+			
+			.table-of-contents a {
+			    display: block;
+			    text-decoration: none;
+			    color: #333;
+			}
+			
+			.table-of-contents a:hover {
+			    color: #ff9900;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -36,6 +67,37 @@
 									<header class="main">
 										<h1>Pokémon Zeta Emerald</h1>
 									</header>
+
+									<nav class="table-of-contents">
+							            <ul>
+							                <li><a href="#">Pokédex</a>
+							                    <ul>
+							                        <li><a href="#">The Zeta Pokedex</a></li>
+													<li><a href="#">Added Pokemon</a></li>
+							                        <li><a href="#">New Evolutions</a></li>
+													<li><a href="#">Unobtainable Pokemon</a></li>
+							                    </ul>
+							                </li>
+							                <li><a href="#">Region and Characters</a>
+							                    <ul>
+							                        <li><a href="#">The New Hoenn Region</a></li>
+							                        <li><a href="#">Gym Leaders</a></li>
+													<li><a href="#">Elite Four</a></li>
+													<li><a href="#">Rubeus, Safira, & Emery</a></li>
+													<li><a href="#">Team Magma, Team Aqua, & Team Flora</a></li>
+							                    </ul>
+							                </li>
+											<li><a href="#">Moves and Items</a>
+							                    <ul>
+							                        <li><a href="#">Attackdex</a></li>
+							                        <li><a href="#">Move Changes & Updates</a></li>
+													<li><a href="#">Added Moves</a></li>
+													<li><a href="#">New Moves</a></li>
+													<li><a href="#">TMs and HMs</a></li>
+							                    </ul>
+							                </li>
+							            </ul>
+							        </nav>
 
 									<a href="zeta-moves.html">Moves</a>
 									<a href="zeta-pokedex.html">Pokémon and Stats</a>
@@ -1413,6 +1475,18 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+			    document.addEventListener("DOMContentLoaded", function() {
+			        const chapters = document.querySelectorAll('.table-of-contents > ul > li');
+			
+			        chapters.forEach(chapter => {
+			            chapter.addEventListener('click', function() {
+			                const sections = this.querySelector('ul');
+			                sections.classList.toggle('active');
+			            });
+			        });
+			    });
+    		</script>
 
 	</body>
 </html>
