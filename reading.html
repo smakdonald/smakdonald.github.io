@@ -1,30 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
 	<title>Reading</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-<style>
-	.image-container {
-      		display: flex;
-      		flex-wrap: wrap;
-      		justify-content: space-between;
-    	}
-
-    	.image-item {
-      		width: calc(33.33% - 10px);
-      		margin-bottom: 20px;
-    	}
-    	.image-item img {
-      		max-width: 100%;
-	  	width: 300px; /* Adjust the desired width */
-	  	height: 450px; /* Adjust the desired height */
-    	}
-    	#myTable {
-      		display: none;  /* Set display property to none to make the table invisible */
-    	}
-</style>
+	<script src="https://kit.fontawesome.com/9983334911.js" crossorigin="anonymous"></script>
+	<style>
+		.image-container {
+	      		display: flex;
+	      		flex-wrap: wrap;
+	      		justify-content: space-between;
+	    	}
+	    	.image-item {
+	      		width: calc(33.33% - 10px);
+	      		margin-bottom: 20px;
+	    	}
+	    	.image-item img {
+	      		max-width: 100%;
+		  	width: 300px; /* Adjust the desired width */
+		  	height: 450px; /* Adjust the desired height */
+	    	}
+	    	#myTable {
+	      		display: none;  /* Set display property to none to make the table invisible */
+	    	}
+	</style>
 </head>
 <body class="is-preload">
 	<div id="wrapper"><!-- Wrapper -->
@@ -232,59 +232,58 @@
 	
 
 
-<script>
-	function images() {
-		var table = document.getElementById("myTable");						// Get the table
-		var tableContent = ``;												// Create a blank text container that the Content will go into						
-		for (var i = 0; i < table.rows.length; i++) {						// Loop through the rows of the table
-			var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
-	    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
-	    	var Content = 	'<img src="images/Book Covers/'+ path.textContent + '" alt="'+ title.textContent + '"title="' + path.textContent + '">';
-	    																	// Write the content of the <img> element so that it becomes the image
-			tableContent += `					
-				<div class = image-item>
-				${Content}
-				</div>
-			`;																// Write the text that will be added to <div class=image-container> 
-	   
-	    	var selectedCellTable = document.getElementById("selectedCellTable");
-	      	selectedCellTable.innerHTML = tableContent;						// Find the correct <div class=image-container> and add content
-	 	 }
-	}
-</script>
-
-<script>
-	function sortSelect() {
-		sort(document.getElementById("tableSelector").value)
-	}
-  // Get all rows of the table
-	function sort(column) {
-		const table = document.getElementById('myTable');
-		const tableRows = document.querySelectorAll("#myTable tr");
+	<script>
+		function images() {
+			var table = document.getElementById("myTable");						// Get the table
+			var tableContent = ``;												// Create a blank text container that the Content will go into						
+			for (var i = 0; i < table.rows.length; i++) {						// Loop through the rows of the table
+				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
+		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
+		    	var Content = 	'<img src="images/Book Covers/'+ path.textContent + '" alt="'+ title.textContent + '"title="' + path.textContent + '">';
+		    																	// Write the content of the <img> element so that it becomes the image
+				tableContent += `					
+					<div class = image-item>
+					${Content}
+					</div>
+				`;																// Write the text that will be added to <div class=image-container> 
+		   
+		    	var selectedCellTable = document.getElementById("selectedCellTable");
+		      	selectedCellTable.innerHTML = tableContent;						// Find the correct <div class=image-container> and add content
+		 	 }
+		}
+	</script>
 	
-		// Convert NodeList to array using Array.from
-		const rowsArray = Array.from(tableRows);
+	<script>
+		function sortSelect() {
+			sort(document.getElementById("tableSelector").value)
+		}
+	  // Get all rows of the table
+		function sort(column) {
+			const table = document.getElementById('myTable');
+			const tableRows = document.querySelectorAll("#myTable tr");
+		
+			// Convert NodeList to array using Array.from
+			const rowsArray = Array.from(tableRows);
+		
+			// Sort the array by the content of the first cell in each row
+			rowsArray.sort((a, b) => {
+				const altA = a.cells[column].textContent;
+				const altB = b.cells[column].textContent;
+				if (!isNaN(altA) && !isNaN(altB)) {		// Check if the alt attributes are numbers
+					return Number(altA) - Number(altB); // If both are numbers, sort numerically
+				} 
+				else {
+					return altA.localeCompare(altB); 	// Otherwise, sort alphabetically
+		      		}
+				return altA.localeCompare(altB);
+		  	});
+		  	rowsArray.forEach(item => table.appendChild(item));
+			images()
+		}
+	</script>
 	
-		// Sort the array by the content of the first cell in each row
-		rowsArray.sort((a, b) => {
-			const altA = a.cells[column].textContent;
-			const altB = b.cells[column].textContent;
-			if (!isNaN(altA) && !isNaN(altB)) {		// Check if the alt attributes are numbers
-				return Number(altA) - Number(altB); // If both are numbers, sort numerically
-			} 
-			else {
-				return altA.localeCompare(altB); 	// Otherwise, sort alphabetically
-	      		}
-			return altA.localeCompare(altB);
-	  	});
-	  	rowsArray.forEach(item => table.appendChild(item));
-		images()
-	}
-</script>
-
-<script>
-	window.addEventListener('load', images());
-</script>
-
+	<script>
+		window.addEventListener('load', images());
+	</script>
 </body>
 </html>
