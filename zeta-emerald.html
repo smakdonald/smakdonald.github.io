@@ -44,1446 +44,1255 @@
 		</style>
 	</head>
 	<body class="is-preload">
-
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Sam Macdonald</strong> Amateur Pokémon Fanatic </a>
-									<ul class="icons">
-										<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin-in"><span class="label">Linked In</span></a></li>
-										<li><a href="https://github.com/smakdonald" class="icon brands fa-github"><span class="label">Github</span></a></li>
-										<li><a href="https://open.spotify.com/user/thesam.mac" class="icon brands fa-spotify"><span class="label">Spotify</span></a></li>
-									</ul>
-								</header>
-
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>Pokémon Zeta Emerald</h1>
-									</header>
-
-									<nav class="table-of-contents">
-							            <ul>
-							                <li><a href="#">Pokédex</a>
-							                    <ul>
-							                        <li><a href="zeta-pokedex.html">The Zeta Pokedex</a></li>
-													<li><a href="#">Added Pokemon</a></li>
-							                        <li><a href="#">New Evolutions</a></li>
-													<li><a href="#">Unobtainable Pokemon</a></li>
-							                    </ul>
-							                </li>
-							                <li><a href="#">Region and Characters</a>
-							                    <ul>
-							                        <li><a href="#">The New Hoenn Region</a></li>
-							                        <li><a href="#">Gym Leaders</a></li>
-													<li><a href="#">Elite Four</a></li>
-													<li><a href="#">Rubeus, Safira, & Emery</a></li>
-													<li><a href="#">Team Magma, Team Aqua, & Team Flora</a></li>
-							                    </ul>
-							                </li>
-											<li><a href="#">Moves and Items</a>
-							                    <ul>
-							                        <li><a href="zeta-moves.html">Attackdex</a></li>
-							                        <li><a href="#">Move Changes & Updates</a></li>
-													<li><a href="#">Added Moves</a></li>
-													<li><a href="#">New Moves</a></li>
-													<li><a href="#">TMs and HMs</a></li>
-							                    </ul>
-							                </li>
-							            </ul>
-							        </nav>
-
-									<label for="firstType">Select Route:</label>
-										<select id="location" onchange="displayCellContent()">
-										<option value="Route 101">Route 101</option>
-										<option value="Route 102">Route 102</option>
-										<option value="Route 103">Route 103</option>
-										<option value="Route 104">Route 104</option>
-										<option value="Route 105">Route 105</option>
-										<option value="Route 106">Route 106</option>
-										<option value="Route 107">Route 107</option>
-										<option value="Route 108">Route 108</option>
-										<option value="Route 109">Route 109</option>
-										<option value="Route 110">Route 110</option>
-										<option value="Route 111">Route 111</option>
-										<option value="Route 112">Route 112</option>
-										<option value="Route 113">Route 113</option>
-										<option value="Route 114">Route 114</option>
-										<option value="Route 115">Route 115</option>
-										<option value="Route 116">Route 116</option>
-										<option value="Route 117">Route 117</option>
-										<option value="Route 118">Route 118</option>
-										<option value="Route 119">Route 119</option>
-										<option value="Route 120">Route 120</option>
-										<option value="Route 121">Route 121</option>
-										<option value="Route 122">Route 122</option>
-										<option value="Route 123">Route 123</option>
-										<option value="Route 124">Route 124</option>
-										<option value="Route 125">Route 125</option>
-										<option value="Route 126">Route 126</option>
-										<option value="Route 127">Route 127</option>
-										<option value="Route 128">Route 128</option>
-										<option value="Route 129">Route 129</option>
-										<option value="Route 130">Route 130</option>
-										<option value="Route 131">Route 131</option>
-										<option value="Route 132">Route 132</option>
-										<option value="Route 133">Route 133</option>
-										<option value="Route 134">Route 134</option>
-									  </select>
-									
-									<label for="firstType">Select Location:</label>
-										<select id="location" onchange="displayCellContent()">
-											<option value="Route 111">Ever Grande City</option>
-											<option value="Route 107">Fallarbor Town</option>
-											<option value="Route 109">Fortree City</option>
-											<option value="Route 106">Lavaridge Town</option>
-											<option value="Route 101">Littleroot Town</option>
-											<option value="Route 103">Mauville City</option>
-											<option value="Route 110">Mossdeep City</option>
-											<option value="Route 102">Oldale Town</option>
-											<option value="Route 112">Pacifidlog Town</option>
-											<option value="Route 105">Petalburg City</option>
-											<option value="Route 104">Rustboro City</option>
-											<option value="Route 108">Slateport City</option>
-											<option value="Route 113">Stootpolis City</option>
-											<option value="Route 114">Verdanturf Town</option>
-									  	</select>
-
-									<table border="1" class="dataframe" id="typeChart">
-										<colgroup>
-											<col style="width: 8%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-											<col style="width: 7%;">
-										</colgroup>
-									  <thead>
-									    <tr style="text-align: right;">
-									      <th>Location</th> 
-									      <th>20%</th> <th>20%</th> <th>10%</th> <th>10%</th> <th>10%</th> <th>10%</th> <th>5%</th> <th>5%</th> <th>4%</th> <th>4%</th> <th>1%</th> <th>1%</th>
-									    </tr>
-									  </thead>
-									  <tbody>
-									    <tr>
-										<th>Littleroot Town</th>
-										<td>Lotad<br> <img src="images/Pokemon Images/Lotad.png" alt="" width="64" height="64"/></td> 
-										<td>Seedot <br> <img src="images/Pokemon Images/Seedot.png" alt="" width="64" height="64"/></td>
-										<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
-										<td>Weedle <br> <img src="images/Pokemon Images/Weedle.png" alt="" width="64" height="64"/></td>
-										<td>Hoothoot <br> <img src="images/Pokemon Images/Hoothoot.png" alt="" width="64" height="64"/></td>
-										<td>Meowth <br> <img src="images/Pokemon Images/Meowth-Galar.png" alt="" width="64" height="64"/></td>
-										<td>Ledyba <br> <img src="images/Pokemon Images/Ledyba.png" alt="" width="64" height="64"/></td>
-										<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
-										<td>Ralts <br> <img src="images/Pokemon Images/Ralts.png" alt="" width="64" height="64"/></td>
-										<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
-										<td>Caterpie <br> <img src="images/Pokemon Images/Caterpie-Hoenn.png" alt="" width="64" height="64"/></td>
-										<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-										<th>Route 101</th>
-										<td>Zigzagoon <br> <img src="images/Pokemon Images/Zigzagoon.png" alt="" width="64" height="64"/></td>
-										<td>Poochyena <br> <img src="images/Pokemon Images/Poochyena.png" alt="" width="64" height="64"/></td>
-										<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
-										<td>Weedle <br> <img src="images/Pokemon Images/Weedle.png" alt="" width="64" height="64"/></td>
-										<td>Hoothoot <br> <img src="images/Pokemon Images/Hoothoot.png" alt="" width="64" height="64"/></td>
-										<td>Meowth <br> <img src="images/Pokemon Images/Meowth-Galar.png" alt="" width="64" height="64"/></td>
-										<td>Spinarak <br> <img src="images/Pokemon Images/Spinarak.png" alt="" width="64" height="64"/></td>
-										<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
-										<td>Ralts <br> <img src="images/Pokemon Images/Ralts.png" alt="" width="64" height="64"/></td>
-										<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
-										<td>Caterpie <br> <img src="images/Pokemon Images/Caterpie.png" alt="" width="64" height="64"/></td>
-										<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-										<th>Oldale Town</th>
-										<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
-										<td>Caterpie <br> <img src="images/Pokemon Images/Caterpie-Hoenn.png" alt="" width="64" height="64"/></td>
-										<td>Skitty <br> <img src="images/Pokemon Images/Skitty.png" alt="" width="64" height="64"/></td>
-										<td>Surskit <br> <img src="images/Pokemon Images/Surskit.png" alt="" width="64" height="64"/></td>
-										<td>Zigzagoon <br> <img src="images/Pokemon Images/Zigzagoon.png" alt="" width="64" height="64"/></td>
-										<td>Poochyena <br> <img src="images/Pokemon Images/Poochyena.png" alt="" width="64" height="64"/></td>
-										<td>Nincada <br> <img src="images/Pokemon Images/Nincada.png" alt="" width="64" height="64"/></td>
-										<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
-										<td>Lotad <br> <img src="images/Pokemon Images/Lotad.png" alt="" width="64" height="64"/></td>
-										<td>Seedot <br> <img src="images/Pokemon Images/Seedot.png" alt="" width="64" height="64"/></td>
-										<td>Lotad <br> <img src="images/Pokemon Images/Lotad.png" alt="" width="64" height="64"/></td>
-										<td>Seedot <br> <img src="images/Pokemon Images/Seedot.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-										<th>Altering Cave</th>
-										<td>Zagzigoon <br> <img src="images/Pokemon Images/Zigzagoon-Galar.png" alt="" width="64" height="64"/></td> 
-										<td>Geohmdude <br> <img src="images/Pokemon Images/Geodude-Alola.png" alt="" width="64" height="64"/></td> 
-										<td>Ghoubone <br> <img src="images/Pokemon Images/Cubone-Hoenn.png" alt="" width="64" height="64"/></td> 
-										<td>Snowshrew <br> <img src="images/Pokemon Images/Sandshrew-Alola.png" alt="" width="64" height="64"/></td> 
-										<td>Vulpice <br> <img src="images/Pokemon Images/Vulpix-Alola.png" alt="" width="64" height="64"/></td> 
-										<td>Growlava <br> <img src="images/Pokemon Images/Growlithe-Hisui.png" alt="" width="64" height="64"/></td> 
-										<td>Gooper <br> <img src="images/Pokemon Images/Wooper-Paldea.png" alt="" width="64" height="64"/></td> 
-										<td>Toedscool <br> <img src="images/Pokemon Images/Toedscool.png" alt="" width="64" height="64"/></td> 
-										<td>Gooper <br> <img src="images/Pokemon Images/Wooper-Paldea.png" alt="" width="64" height="64"/></td> 
-										<td>Toedscool <br> <img src="images/Pokemon Images/Toedscool.png" alt="" width="64" height="64"/></td> 
-										<td>Snowshrew <br> <img src="images/Pokemon Images/Sandshrew-Alola.png" alt="" width="64" height="64"/></td> 
-										<td>Vulpice <br> <img src="images/Pokemon Images/Vulpix-Alola.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-									      	<th>Route 110</th>
-										<td>Electrike <br> <img src="images/Pokemon Images/Electrike.png" alt="" width="64" height="64"/></td> 
-										<td>Gulpin <br> <img src="images/Pokemon Images/Gulpin.png" alt="" width="64" height="64"/></td> 
-										<td>Oddish <br> <img src="images/Pokemon Images/Oddish.png" alt="" width="64" height="64"/></td> 
-										<td>Natu <br> <img src="images/Pokemon Images/Natu.png" alt="" width="64" height="64"/></td> 
-										<td>Mareep <br> <img src="images/Pokemon Images/Mareep.png" alt="" width="64" height="64"/></td> 
-										<td>Surskit <br> <img src="images/Pokemon Images/Surskit.png" alt="" width="64" height="64"/></td> 
-										<td>Zigzagoon <br> <img src="images/Pokemon Images/Zigzagoon.png" alt="" width="64" height="64"/></td> 
-										<td>Poochyena <br> <img src="images/Pokemon Images/Poochyena.png" alt="" width="64" height="64"/></td> 
-										<td>Minun <br> <img src="images/Pokemon Images/Minun.png" alt="" width="64" height="64"/></td> 
-										<td>Plusle <br> <img src="images/Pokemon Images/Plusle.png" alt="" width="64" height="64"/></td> 
-										<td>Minun <br> <img src="images/Pokemon Images/Minun.png" alt="" width="64" height="64"/></td> 
-										<td>Plusle <br> <img src="images/Pokemon Images/Plusle.png" alt="" width="64" height="64"/></td>									    </tr>
-									    <tr>
-										<th>Mauville City</th>
-										<td>Pidgey <br> <img src="images/Pokemon Images/Pidgey.png" alt="" width="64" height="64"/></td> 
-										<td>Snubbull <br> <img src="images/Pokemon Images/Snubbull.png" alt="" width="64" height="64"/></td> 
-										<td>Machop <br> <img src="images/Pokemon Images/Machop.png" alt="" width="64" height="64"/></td> 
-										<td>Zigzagoon <br> <img src="images/Pokemon Images/Zigzagoon.png" alt="" width="64" height="64"/></td> 
-										<td>Poochyena <br> <img src="images/Pokemon Images/Poochyena.png" alt="" width="64" height="64"/></td> 
-										<td>Skitty <br> <img src="images/Pokemon Images/Skitty.png" alt="" width="64" height="64"/></td> 
-										<td>Illumise <br> <img src="images/Pokemon Images/Illumise.png" alt="" width="64" height="64"/></td> 
-										<td>Volbeat <br> <img src="images/Pokemon Images/Volbeat.png" alt="" width="64" height="64"/></td> 
-										<td>Doduo <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
-										<td>Pidgey <br> <img src="images/Pokemon Images/Pidgey.png" alt="" width="64" height="64"/></td> 
-										<td>Doduo <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
-										<td>Pidgey <br> <img src="images/Pokemon Images/Pidgey.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-									      <th>New Mauville</th>
-										<td> <br> <img src="images/Pokemon Images/Magnemite.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Voltorb.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Duskull.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Shuppet.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Plusle.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Minun.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Duskull.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Shuppet.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Nosepass.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Geodude-Alola.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Geodude-Alola.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Beldum.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-									      	<th>Daycare</th>
-										<td> <br> <img src="images/Pokemon Images/Pichu.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Igglybuff.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Azurill.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Budew.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Bonsly.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Chingling.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Azurill.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Budew.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Bonsly.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Chingling.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wynaut.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wynaut.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-										<th>Slateport City</th>
-										<td> <br> <img src="images/Pokemon Images/Ledyba.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spinarak.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wooper.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Psyduck.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Swablu.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Lotad.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Shroomish.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Hoothoot.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Barboach.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Roselia.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Barboach.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Tropius.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-									      	<th>Route 109</th>
-										<td> <br> <img src="images/Pokemon Images/Spheal.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Marill.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wingull.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Krabby.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Skitty.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wingull.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Tentacool.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wailmer.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Clamperl.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wailmer.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Clamperl.png" alt="" width="64" height="64"/></td>
-									    </tr>
-									    <tr>
-									      	<th>Abandoned Ship</th>
-										<td> <br> <img src="images/Pokemon Images/Chinchou.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wingull.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Corsola-Galar.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Remoraid.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Duskull.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Shuppet.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Staryu.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spheal.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Clamperl.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spheal.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Clamperl.png" alt="" width="64" height="64"/></td>
-									    </tr>
-											<tr>
-									      	<th>Route 108</th>
-										<td> <br> <img src="images/Pokemon Images/Corphish.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Wingull.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Exeggcute.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Sunkern.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Seedot.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Exeggcute.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Krabby.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Nincada.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Shuckle.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Nincada.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Shuckle.png" alt="" width="64" height="64"/></td>
-									    </tr>
-											<tr>
-									      	<th>Route 107</th>
-										<td> <br> <img src="images/Pokemon Images/Aipom.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Rhyhorn.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Phanpy.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Natu.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Girafarig.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Oddish.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Pikachu.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Pinsir.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Heracross.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Pinsir.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Heracross.png" alt="" width="64" height="64"/></td>
-									    </tr>
-											<tr>
-									      	<th>Route 106</th>
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td>
-									  	</tr>
-											<tr>
-									      	<th>Granite Cave 1F</th>
-										<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Geodude.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Meditite.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Meditite.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td>
-									</tr>
-									<tr>
-									      	<th>Granite Cave 1F-2</th>
-										<td> <br> <img src="images/Pokemon Images/Meditite.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Geodude.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Aron.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Geodude.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Nosepass.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td>
-									</tr>
-									<tr>
-									      	<th>Granite Cave B1F</th>
-										<td> <br> <img src="images/Pokemon Images/Geodude.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Aron.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Sableye.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Mawile.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Sableye.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Onix.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Onix.png" alt="" width="64" height="64"/></td>
-									    </tr>
-											<tr>
-									      	<th>Granite Cave B2F</th>
-										<td> <br> <img src="images/Pokemon Images/Onix.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Aron.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Sableye.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Mawile.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Mawile.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td>
-									    </tr>
-											<tr>
-									      	<th>Dewford Town</th>
-										<td> <br> <img src="images/Pokemon Images/Houndour.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Spoink.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Sandshrew.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Machop.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Rhyhorn.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Gligar.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Growlithe-Hisui.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Sudowoodo.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Gligar.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Sudowoodo.png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/Absol.png" alt="" width="64" height="64"/></td>
-									    </tr>
-											<tr>
-									      	<th></th>
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td> 
-										<td> <br> <img src="images/Pokemon Images/
-												 .png" alt="" width="64" height="64"/></td>
-									    </tr>
-									  </tbody>
-									</table>
-
-									<h2>Gym 1: Wattson</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Wattson.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Plusle
-															<br> <img src="images/Pokemon Images/Plusle.png" alt="" width="64" height="64"/>
-															<br> 14
-														</th> 
-														<th>Minun
-															<br> <img src="images/Pokemon Images/Minun.png" alt="" width="64" height="64"/>
-															<br> 14
-														</th> 
-														<th>Chinchou 
-															<br> <img src="images/Pokemon Images/Chinchou.png" alt="" width="64" height="64"/>
-															<br> 13
-														</th> 
-														<th>Electrike 
-															<br> <img src="images/Pokemon Images/Electrike.png" alt="" width="64" height="64"/>
-															<br> 13
-														</th> 
-														<th>Volbeat 
-															<br> <img src="images/Pokemon Images/Volbeat.png" alt="" width="64" height="64"/>
-															<br> 15
-														</th> 
-														<th>Illumise 
-															<br> <img src="images/Pokemon Images/Illumise.png" alt="" width="64" height="64"/>
-															<br> 15
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Shock Wave</td> 
-														<td>Shock Wave</td> 
-														<td>Shock Wave</td> 
-														<td>Shock Wave</td> 
-														<td>Shock Wave</td> 
-														<td>Shock Wave</td> 
-													</tr>
-													<tr>
-										                            	<td>Helping Hand </td> 
-														<td>Helping Hand </td>
-														<td>Water Gun</td>
-														<td>Swift</td> 
-														<td>Confuse Ray</td> 
-														<td>Charm</td> 
-													</tr>
-													<tr>
-										                            	<td>Covet</td> 
-														<td>Covet</td>
-														<td>Thunder Wave</td> 
-														<td>Howl</td> 
-														<td>Quick Attack</td> 
-														<td>Quick Attack</td> 
-													</tr>
-													<tr>
-										                            	<td>Wish</td> 
-														<td>Encore</td>
-														<td>Amnesia</td> 
-														<td>Thunder Wave</td> 
-														<td>Moonlight</td> 
-														<td>Moonlight</td> 
-													</tr>
-												</tbody>
-											</table>
-                   								 </div>
-
-                  							<h2>Gym 2: Sidney</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Sidney.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Mightyena
-															<br> <img src="images/Pokemon Images/Mightyena.png" alt="" width="64" height="64"/>
-															<br> 20
-														</th> 
-														<th>Lanoone
-															<br> <img src="images/Pokemon Images/Linoone-Galar.png" alt="" width="64" height="64"/>
-															<br> 20
-														</th> 
-														<th>Nuzleaf
-															<br> <img src="images/Pokemon Images/Nuzleaf.png" alt="" width="64" height="64"/>
-															<br> 19
-														</th> 
-														<th>Carvanha
-															<br> <img src="images/Pokemon Images/Carvanha.png" alt="" width="64" height="64"/>
-															<br> 19
-														</th> 
-														<th>Houndour
-															<br> <img src="images/Pokemon Images/Houndour.png" alt="" width="64" height="64"/>
-															<br> 19
-														</th> 
-														<th>Absol
-															<br> <img src="images/Pokemon Images/Absol.png" alt="" width="64" height="64"/>
-															<br> 21
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Thief</td> 
-														<td>Thief</td> 
-														<td>Thief</td> 
-														<td>Thief</td> 
-														<td>Thief</td> 
-														<td>Thief</td>
-													</tr>
-													<tr>
-                            											<td>Poison Fang</td> 
-														<td>Fury Swipes</td> 
-														<td>Bullet Seed</td> 
-														<td>Aqua Jet</td> 
-														<td>Fire Spin</td> 
-														<td>Slash</td>
-													</tr>
-													<tr>
-                           											<td>Iron Tail</td> 
-														<td>Pin Missile</td> 
-														<td>Extrasensory</td> 
-														<td>Scary Face</td> 
-														<td>Pursuit</td>
-														<td>Aerial Ace</td>
-													</tr>
-													<tr>
-                            											<td>Pursuit</td> 
-														<td>Scary Face</td> 
-														<td>Fake Out</td> 
-														<td>Water Pulse</td> 
-														<td>Will-o-wisp</td>
-														<td>Quick Attack</td>
-													</tr>
-												</tbody>
-											</table>
-								                    </div>
-								
-								        <h2>Gym 3: Roxanne</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Roxanne.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Clodsire
-															<br> <img src="images/Pokemon Images/Clodsire.png" alt="" width="64" height="64"/>
-															<br> 24
-														</th> 
-														<th>Quagsire
-															<br> <img src="images/Pokemon Images/Quagsire.png" alt="" width="64" height="64"/>
-															<br> 24
-														</th> 
-														<th>Relicanth
-															<br> <img src="images/Pokemon Images/Relicanth.png" alt="" width="64" height="64"/>
-															<br> 24
-														</th> 
-														<th>Sudowoodo
-															<br> <img src="images/Pokemon Images/Sudowoodo.png" alt="" width="64" height="64"/>
-															<br> 24
-														</th> 
-														<th>Magcargo
-															<br> <img src="images/Pokemon Images/Magcargo.png" alt="" width="64" height="64"/>
-															<br> 25
-														</th> 
-														<th>Probopass
-															<br> <img src="images/Pokemon Images/Probopass.png" alt="" width="64" height="64"/>
-															<br> 25
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Rock Slide</td> 
-														<td>Rock Slide</td> 
-														<td>Rock Slide</td> 
-														<td>Rock Slide</td> 
-														<td>Rock Slide</td> 
-														<td>Power Gem</td>
-													</tr>
-													<tr>
-                            											<td>Mud Shot</td> 
-														<td>Mud Shot</td> 
-														<td>Aqua Tail</td> 
-														<td>Low Kick</td> 
-														<td>Flamethrower</td> 
-														<td>Thunderbolt</td>
-													</tr>
-													<tr>
-                           											<td>Poison Jab</td> 
-														<td>Ice Beam</td> 
-														<td>Bounce</td> 
-														<td>Giga Drain</td> 
-														<td>Fire Spin</td>
-														<td>Mesmer Eyes</td>
-													</tr>
-													<tr>
-                            											<td>Amnesia</td> 
-														<td>Amnesia</td> 
-														<td>Yawn</td> 
-														<td>Flail</td> 
-														<td>Yawn</td>
-														<td>Thunder Wave</td>
-													</tr>
-												</tbody>
-											</table>
-                    								</div>
-
-									<h2>Gym 4: Wally</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Wally.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Delcatty
-															<br> <img src="images/Pokemon Images/Delcatty.png" alt="" width="64" height="64"/>
-															<br> 29
-														</th> 
-														<th>Azumarill
-															<br> <img src="images/Pokemon Images/Azumarill.png" alt="" width="64" height="64"/>
-															<br> 30
-														</th> 
-														<th>Torkoal
-															<br> <img src="images/Pokemon Images/Torkoal.png" alt="" width="64" height="64"/>
-															<br> 30
-														</th> 
-														<th>Magneton
-															<br> <img src="images/Pokemon Images/Magneton.png" alt="" width="64" height="64"/>
-															<br> 30
-														</th> 
-														<th>Roserade
-															<br> <img src="images/Pokemon Images/Roserade.png" alt="" width="64" height="64"/>
-															<br> 30
-														</th> 
-														<th>Gallade
-															<br> <img src="images/Pokemon Images/Gallade.png" alt="" width="64" height="64"/>
-															<br> 31
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Headbutt</td> 
-														<td>Aqua Tail</td> 
-														<td>Eruption</td> 
-														<td>Discharge</td> 
-														<td>Giga Drain</td> 
-														<td>Psycho Cut</td>
-													</tr>
-													<tr>
-                            											<td>Wish</td> 
-														<td>Belly Drum</td> 
-														<td>Yawn</td> 
-														<td>Mesmer Eyes</td> 
-														<td>Sludge Bomb</td> 
-														<td>Drain Punch</td>
-													</tr>
-													<tr>
-                           											<td>Charm</td> 
-														<td>Return</td> 
-														<td>Return</td> 
-														<td>Sonicboom</td> 
-														<td>Leech Seed</td>
-														<td>Night Slash</td>
-													</tr>
-													<tr>
-                            											<td>Covet</td> 
-														<td>Aqua Jet</td> 
-														<td>Curse</td> 
-														<td>Thunderwave</td> 
-														<td>Grasswhistle</td>
-														<td>Swords Dance</td>
-													</tr>
-												</tbody>
-											</table>
-	                							</div>
-
-
-                  							<h2>Gym 5: Norman</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Norman.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Zangoose
-															<br> <img src="images/Pokemon Images/Zangoose.png" alt="" width="64" height="64"/>
-															<br> 35
-														</th> 
-														<th>Ursaring
-															<br> <img src="images/Pokemon Images/Ursaring.png" alt="" width="64" height="64"/>
-															<br> 35
-														</th> 
-														<th>Wigglytuff
-															<br> <img src="images/Pokemon Images/Wigglytuff.png" alt="" width="64" height="64"/>
-															<br> 34
-														</th> 
-														<th>Swellow
-															<br> <img src="images/Pokemon Images/Swellow.png" alt="" width="64" height="64"/>
-															<br> 34
-														</th> 
-														<th>Obstagoon
-															<br> <img src="images/Pokemon Images/Obstagoon.png" alt="" width="64" height="64"/>
-															<br> 36
-														</th> 
-														<th>Slaking
-															<br> <img src="images/Pokemon Images/Slaking.png" alt="" width="64" height="64"/>
-															<br> 36
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Façade</td> 
-														<td>Façade</td> 
-														<td>Façade</td> 
-														<td>Façade</td> 
-														<td>Façade</td> 
-														<td>Façade</td>
-													</tr>
-													<tr>
-                            											<td>Shadow Claw</td> 
-														<td>Brick Break</td> 
-														<td>Dazzling Gleam</td> 
-														<td>Brave Bird</td> 
-														<td>Night Slash</td> 
-														<td>Brick Break</td>
-													</tr>
-													<tr>
-                           											<td>Aerial Ace</td> 
-														<td>Rock Slide</td> 
-														<td>Flamethrower</td> 
-														<td>Steel Wing</td> 
-														<td>Cross Chop</td>
-														<td>Night Slash</td>
-													</tr>
-													<tr>
-                            											<td>Swords Dance</td> 
-														<td>Crunch</td> 
-														<td>Psychic</td> 
-														<td>Endeavor</td> 
-														<td>Pin Missile</td>
-														<td>Regal Blow</td>
-													</tr>
-												</tbody>
-											</table>
-                    								</div
-
-									<h2>Gym 6: Phoebe</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Phoebe.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Gengar <br> 	<img src="images/Pokemon Images/Gengar.png" alt="" width="64" height="64"/> 		<br> 39 </th> 
-														<th>Rapidash <br> 	<img src="images/Pokemon Images/Rapidash.png" alt="" width="64" height="64"/> 		<br> 39 </th> 
-														<th>Froslass <br> 	<img src="images/Pokemon Images/Froslass.png" alt="" width="64" height="64"/> 		<br> 39 </th> 
-														<th>Kecleon <br> 	<img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/> 		<br> 39 </th> 
-														<th>Marigeist <br> 	<img src="images/Pokemon Images/Banette-Mega.png" alt="" width="64" height="64"/> 	<br> 40 </th> 
-														<th>Dusknoir <br> 	<img src="images/Pokemon Images/Dusknoir.png" alt="" width="64" height="64"/> 		<br> 40 </th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Shadow Claw</td> 
-														<td>Shadow Ball</td> 
-														<td>Ominous Wind</td> 
-														<td>Shadow Claw</td> 
-														<td>Shadow Claw</td> 
-														<td>Shadow Punch</td>
-													</tr>
-													<tr>
-                            											<td>Brick Break</td> 
-														<td>Blaze Kick</td> 
-														<td>Ice Beam</td> 
-														<td>Slash</td> 
-														<td>Knock Off</td> 
-														<td>Ice Punch</td>
-													</tr>
-													<tr>
-                           											<td>Hypnosis</td> 
-														<td>Iron Tail</td> 
-														<td>Confuse Ray</td> 
-														<td>Focus Punch</td> 
-														<td>Will-o-wisp</td>
-														<td>Fire Punch</td>
-													</tr>
-													<tr>
-                            											<td>Destiny Bond</td> 
-														<td>Shadow Sneak</td> 
-														<td>Pain Split</td> 
-														<td>Shadow Sneak</td> 
-														<td>Shadow Sneak</td>
-														<td>Thunderpunch</td>
-													</tr>
-												</tbody>
-											</table>
-								                </div>
-
-                  							<h2>Gym 7: Tate & Liza</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Tate_and_Liza.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Lunatone
-															<br> <img src="images/Pokemon Images/Lunatone.png" alt="" width="64" height="64"/>
-															<br> 44
-														</th> 
-														<th>Solrock
-															<br> <img src="images/Pokemon Images/Solrock.png" alt="" width="64" height="64"/>
-															<br> 44
-														</th> 
-														<th>Xatu
-															<br> <img src="images/Pokemon Images/Xatu.png" alt="" width="64" height="64"/>
-															<br> 43
-														</th> 
-														<th>Golduck
-															<br> <img src="images/Pokemon Images/Golduck.png" alt="" width="64" height="64"/>
-															<br> 43
-														</th> 
-														<th>Wyrdeer
-															<br> <img src="images/Pokemon Images/Wyrdeer.png" alt="" width="64" height="64"/>
-															<br> 45
-														</th> 
-														<th>Farigiraf
-															<br> <img src="images/Pokemon Images/Farigiraf.png" alt="" width="64" height="64"/>
-															<br> 45
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Psychic</td> 
-														<td>Rock Slide</td> 
-														<td>Psychic</td> 
-														<td>Psychic</td> 
-														<td>Psychic</td> 
-														<td>Psychic</td> 
-													</tr>
-													<tr>
-                            											<td>Cosmic Power</td> 
-														<td>Morning Sun</td> 
-														<td>Drill Peck</td> 
-														<td>Bubblebeam</td> 
-														<td>Mega Kick</td> 
-														<td>Hyper Beam</td>
-													</tr>
-													<tr>
-                           											<td>Hypnosis</td> 
-														<td>Sunny Day</td> 
-														<td>Shadow Ball</td> 
-														<td>Ice Beam</td> 
-														<td>Megahorn</td>
-														<td>Energy Ball</td>
-													</tr>
-													<tr>
-                            											<td>Moonsault</td> 
-														<td>Solarbeam</td> 
-														<td>Giga Drain</td> 
-														<td>Cross Chop</td> 
-														<td>Shadow Ball</td>
-														<td>Nasty Plot</td>
-													</tr>
-												</tbody>
-											</table>
-								                    </div>
-
-								        <h2>Gym 8: Lucy</h2>  
-									<img src="images/Pokemon Images/Spr_E_Lucy.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Dragonair
-															<br> <img src="images/Pokemon Images/Dragonair.png" alt="" width="64" height="64"/>
-															<br> 48
-														</th> 
-														<th>Steelix
-															<br> <img src="images/Pokemon Images/Steelix.png" alt="" width="64" height="64"/>
-															<br> 48
-														</th> 
-														<th>Gliscor
-															<br> <img src="images/Pokemon Images/Gliscor.png" alt="" width="64" height="64"/>
-															<br> 48
-														</th> 
-														<th>Gyarados
-															<br> <img src="images/Pokemon Images/Gyarados.png" alt="" width="64" height="64"/>
-															<br> 49
-														</th> 
-														<th>Milotic
-															<br> <img src="images/Pokemon Images/Milotic.png" alt="" width="64" height="64"/>
-															<br> 49
-														</th> 
-														<th>Seviper
-															<br> <img src="images/Pokemon Images/Seviper.png" alt="" width="64" height="64"/>
-															<br> 50
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Aqua Tail</td> 
-														<td>Iron Tail</td> 
-														<td>Earthquake</td> 
-														<td>Aqua Tail</td> 
-														<td>Aqua Tail</td> 
-														<td>Poison Tail</td>
-													</tr>
-													<tr>
-                            											<td>Dazzling Gleam</td> 
-														<td>Earthquake</td> 
-														<td>X-Scissor</td> 
-														<td>Earthquake</td> 
-														<td>Dazzling Gleam</td> 
-														<td>Crunch</td>
-													</tr>
-													<tr>
-                           											<td>Dragonbreath</td> 
-														<td>Overheat</td> 
-														<td>Aqua Tail</td> 
-														<td>Dragonbreath</td> 
-														<td>Mirror Coat</td>
-														<td>Giga Drain</td>
-													</tr>
-													<tr>
-                            											<td>Iron Tail</td> 
-														<td>Aqua Tail</td> 
-														<td>Swords Dance</td> 
-														<td>Dragon Rage</td> 
-														<td>Recover</td>
-														<td>Flamethrower</td>
-													</tr>
-												</tbody>
-											</table>
-                    								</div>
-
-									<hr class="major" />
-
-									<h2>Elite 4: Mattie</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Mattie.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Exeggutor
-															<br> <img src="images/Pokemon Images/Exeggutor.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Ursaluna
-															<br> <img src="images/Pokemon Images/Ursaluna.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Cloyster
-															<br> <img src="images/Pokemon Images/Cloyster.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Victreebel
-															<br> <img src="images/Pokemon Images/Victreebel.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Lapras
-															<br> <img src="images/Pokemon Images/Lapras.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Tropius
-															<br> <img src="images/Pokemon Images/Tropius.png" alt="" width="64" height="64"/>
-															<br> 67
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                           											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-
-									<h2>Elite 4: Archie</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Archie.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Walrein
-															<br> <img src="images/Pokemon Images/Walrein.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Cursola
-															<br> <img src="images/Pokemon Images/Cursola.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Octillery
-															<br> <img src="images/Pokemon Images/Octillery.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Crobat
-															<br> <img src="images/Pokemon Images/Crobat.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Wailord
-															<br> <img src="images/Pokemon Images/Wailord.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Missilodon
-															<br> <img src="images/Pokemon Images/Sharpedo-Mega.png" alt="" width="64" height="64"/>
-															<br> 67
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                           											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-
-									<h2>Elite 4: Maxie</h2> 
-									<img src="images/Pokemon Images/Spr_RS_Maxie.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Aggron
-															<br> <img src="images/Pokemon Images/Aggron.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Claydol
-															<br> <img src="images/Pokemon Images/Claydol.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Steelix
-															<br> <img src="images/Pokemon Images/Steelix.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Donphan
-															<br> <img src="images/Pokemon Images/Donphan.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Volcanine
-															<br> <img src="images/Pokemon Images/Arcanine-Hisui.png" alt="" width="64" height="64"/>
-															<br> 65
-														</th> 
-														<th>Pompeiimal
-															<br> <img src="images/Pokemon Images/Camerupt-Mega.png" alt="" width="64" height="64"/>
-															<br> 67
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                           											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									
-
-									<h2>Elite 4: Wally</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Wally.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Exploud
-															<br> <img src="images/Pokemon Images/Exploud.png" alt="" width="64" height="64"/>
-															<br> 66
-														</th> 
-														<th>Milotic
-															<br> <img src="images/Pokemon Images/Milotic.png" alt="" width="64" height="64"/>
-															<br> 66
-														</th> 
-														<th>Roserade
-															<br> <img src="images/Pokemon Images/Roserade.png" alt="" width="64" height="64"/>
-															<br> 66
-														</th> 
-														<th>Ninetales
-															<br> <img src="images/Pokemon Images/Ninetales.png" alt="" width="64" height="64"/>
-															<br> 66
-														</th> 
-														<th>Magnezone
-															<br> <img src="images/Pokemon Images/Magnezone.png" alt="" width="64" height="64"/>
-															<br> 66
-														</th> 
-														<th>Gallade
-															<br> <img src="images/Pokemon Images/Gallade.png" alt="" width="64" height="64"/>
-															<br> 68
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                           											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-
-									<h2>Champion: Steven</h2>  
-									<img src="images/Pokemon Images/Spr_RS_Steven.png" alt="" width="64" height="64"/>
-
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Starmie
-															<br> <img src="images/Pokemon Images/Starmie.png" alt="" width="64" height="64"/>
-															<br> 68
-														</th> 
-														<th>Sablsleye
-															<br> <img src="images/Pokemon Images/Sableye-Mega.png" alt="" width="64" height="64"/>
-															<br> 68
-														</th> 
-														<th>Mawsprite
-															<br> <img src="images/Pokemon Images/Mawile-Mega.png" alt="" width="64" height="64"/>
-															<br> 68
-														</th> 
-														<th>Cradily
-															<br> <img src="images/Pokemon Images/Cradily.png" alt="" width="64" height="64"/>
-															<br> 68
-														</th> 
-														<th>Armaldo
-															<br> <img src="images/Pokemon Images/Armaldo.png" alt="" width="64" height="64"/>
-															<br> 68
-														</th> 
-														<th>Metagross
-															<br> <img src="images/Pokemon Images/Metagross.png" alt="" width="64" height="64"/>
-															<br> 70
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-													</tr>
-													<tr>
-                           											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-													<tr>
-                            											<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td> 
-														<td></td>
-														<td></td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-
-
-										
-
-								</section>
-
+		<div id="wrapper"><!-- Wrapper -->
+			<div id="main"><!-- Main -->
+				<div class="inner">
+					<header id="header"><!-- Header -->
+						<a href="index.html" class="logo"><strong>Sam Macdonald</strong> Amateur Pokémon Fanatic </a>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin-in"><span class="label">Linked In</span></a></li>
+							<li><a href="https://github.com/smakdonald" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://open.spotify.com/user/thesam.mac" class="icon brands fa-spotify"><span class="label">Spotify</span></a></li>
+						</ul>
+					</header>
 							
+					<section><!-- Content -->
+						<header class="main"><h1>Pokémon Zeta Emerald</h1></header>
 
-						</div>
-					</div>
-
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
+						<nav class="table-of-contents">
+							<ul>
+								<li><a href="#">Pokédex</a>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="teaching.html">Teaching</a></li>
-										<li><a href="cv.html">Curriculum Vitae</a></li>
-										<li><a href="rj.html">Prison Education</a></li>
-										<li><a href="OERs.html">Mathematics OERs</a></li>
-										<li>
-											<span class="opener">Personal</span>
-											<ul>
-												<li><a href="about-me.html">About Me</a></li>
-												<li><a href="music.html">Music Hours (SAAM) </a></li>
-												<li><a href="climb.html">Climbing</a></li>
-												<li><a href="reading.html">Reading</a></li>
-												<li><a href="write.html">Writing</a></li>
-												<li><a href="art.html">Artwork</a></li>
-												<li><a href="cats.html">Cats</a></li>
-												<li><a href="soon.html">Storage</a></li>
-											</ul>
-										</li>
+										<li><a href="zeta-pokedex.html">The Zeta Pokedex</a></li>
+										<li><a href="#">Added Pokemon</a></li>
+										<li><a href="#">New Evolutions</a></li>
+										<li><a href="#">Unobtainable Pokemon</a></li>
 									</ul>
-								</nav>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<ul class="contact">
-										<li class="icon solid fa-envelope">
-											<a href="mailto:smacdonald5@huskers.unl.edu">smacdonald5@huskers.unl.edu</a>
-										</li>
-										<li class="icon solid fa-school">
-											Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a>
-										</li>
+								</li>
+								<li><a href="#">Region and Characters</a>
+									<ul>
+										<li><a href="#">The New Hoenn Region</a></li>
+										<li><a href="#">Gym Leaders</a></li>
+										<li><a href="#">Elite Four</a></li>
+										<li><a href="#">Rubeus, Safira, & Emery</a></li>
+										<li><a href="#">Team Magma, Team Aqua, & Team Flora</a></li>
 									</ul>
-								</section>
+								</li>
+								<li><a href="#">Moves and Items</a>
+									<ul>
+										<li><a href="zeta-moves.html">Attackdex</a></li>
+										<li><a href="#">Move Changes & Updates</a></li>
+										<li><a href="#">Added Moves</a></li>
+										<li><a href="#">New Moves</a></li>
+										<li><a href="#">TMs and HMs</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
+						<label for="firstType">Select Route:</label>
+						<select id="location" onchange="displayCellContent()">
+							<option value="Route 101">Route 101</option>
+							<option value="Route 102">Route 102</option>
+							<option value="Route 103">Route 103</option>
+							<option value="Route 104">Route 104</option>
+							<option value="Route 105">Route 105</option>
+							<option value="Route 106">Route 106</option>
+							<option value="Route 107">Route 107</option>
+							<option value="Route 108">Route 108</option>
+							<option value="Route 109">Route 109</option>
+							<option value="Route 110">Route 110</option>
+							<option value="Route 111">Route 111</option>
+							<option value="Route 112">Route 112</option>
+							<option value="Route 113">Route 113</option>
+							<option value="Route 114">Route 114</option>
+							<option value="Route 115">Route 115</option>
+							<option value="Route 116">Route 116</option>
+							<option value="Route 117">Route 117</option>
+							<option value="Route 118">Route 118</option>
+							<option value="Route 119">Route 119</option>
+							<option value="Route 120">Route 120</option>
+							<option value="Route 121">Route 121</option>
+							<option value="Route 122">Route 122</option>
+							<option value="Route 123">Route 123</option>
+							<option value="Route 124">Route 124</option>
+							<option value="Route 125">Route 125</option>
+							<option value="Route 126">Route 126</option>
+							<option value="Route 127">Route 127</option>
+							<option value="Route 128">Route 128</option>
+							<option value="Route 129">Route 129</option>
+							<option value="Route 130">Route 130</option>
+							<option value="Route 131">Route 131</option>
+							<option value="Route 132">Route 132</option>
+							<option value="Route 133">Route 133</option>
+							<option value="Route 134">Route 134</option>
+							<option value="Route 111">Ever Grande City</option>
+							<option value="Route 107">Fallarbor Town</option>
+							<option value="Route 109">Fortree City</option>
+							<option value="Route 106">Lavaridge Town</option>
+							<option value="Route 101">Littleroot Town</option>
+							<option value="Route 103">Mauville City</option>
+							<option value="Route 110">Mossdeep City</option>
+							<option value="Route 102">Oldale Town</option>
+							<option value="Route 112">Pacifidlog Town</option>
+							<option value="Route 105">Petalburg City</option>
+							<option value="Route 104">Rustboro City</option>
+							<option value="Route 108">Slateport City</option>
+							<option value="Route 113">Stootpolis City</option>
+							<option value="Route 114">Verdanturf Town</option>
+						</select>
 
+						<table border="1" class="dataframe" id="typeChart">
+							<colgroup>
+								<col style="width: 8%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+								<col style="width: 7%;">
+							</colgroup>
+						  <thead>
+							<tr style="text-align: right;">
+							  <th>Location</th> 
+							  <th>20%</th> <th>20%</th> <th>10%</th> <th>10%</th> <th>10%</th> <th>10%</th> <th>5%</th> <th>5%</th> <th>4%</th> <th>4%</th> <th>1%</th> <th>1%</th>
+							</tr>
+						  </thead>
+						  <tbody>
+							<tr>
+								<th>Littleroot Town</th>
+								<td>Lotad<br> <img src="images/Pokemon Images/Lotad.png" alt="" width="64" height="64"/></td> 
+								<td>Seedot <br> <img src="images/Pokemon Images/Seedot.png" alt="" width="64" height="64"/></td>
+								<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
+								<td>Weedle <br> <img src="images/Pokemon Images/Weedle.png" alt="" width="64" height="64"/></td>
+								<td>Hoothoot <br> <img src="images/Pokemon Images/Hoothoot.png" alt="" width="64" height="64"/></td>
+								<td>Meowth <br> <img src="images/Pokemon Images/Meowth-Galar.png" alt="" width="64" height="64"/></td>
+								<td>Ledyba <br> <img src="images/Pokemon Images/Ledyba.png" alt="" width="64" height="64"/></td>
+								<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
+								<td>Ralts <br> <img src="images/Pokemon Images/Ralts.png" alt="" width="64" height="64"/></td>
+								<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
+								<td>Caterpie <br> <img src="images/Pokemon Images/Caterpie-Hoenn.png" alt="" width="64" height="64"/></td>
+								<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Route 101</th>
+								<td>Zigzagoon <br> <img src="images/Pokemon Images/Zigzagoon.png" alt="" width="64" height="64"/></td>
+								<td>Poochyena <br> <img src="images/Pokemon Images/Poochyena.png" alt="" width="64" height="64"/></td>
+								<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
+								<td>Weedle <br> <img src="images/Pokemon Images/Weedle.png" alt="" width="64" height="64"/></td>
+								<td>Hoothoot <br> <img src="images/Pokemon Images/Hoothoot.png" alt="" width="64" height="64"/></td>
+								<td>Meowth <br> <img src="images/Pokemon Images/Meowth-Galar.png" alt="" width="64" height="64"/></td>
+								<td>Spinarak <br> <img src="images/Pokemon Images/Spinarak.png" alt="" width="64" height="64"/></td>
+								<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
+								<td>Ralts <br> <img src="images/Pokemon Images/Ralts.png" alt="" width="64" height="64"/></td>
+								<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
+								<td>Caterpie <br> <img src="images/Pokemon Images/Caterpie.png" alt="" width="64" height="64"/></td>
+								<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Oldale Town</th>
+								<td>Wurmple <br> <img src="images/Pokemon Images/Wurmple.png" alt="" width="64" height="64"/></td>
+								<td>Caterpie <br> <img src="images/Pokemon Images/Caterpie-Hoenn.png" alt="" width="64" height="64"/></td>
+								<td>Skitty <br> <img src="images/Pokemon Images/Skitty.png" alt="" width="64" height="64"/></td>
+								<td>Surskit <br> <img src="images/Pokemon Images/Surskit.png" alt="" width="64" height="64"/></td>
+								<td>Zigzagoon <br> <img src="images/Pokemon Images/Zigzagoon.png" alt="" width="64" height="64"/></td>
+								<td>Poochyena <br> <img src="images/Pokemon Images/Poochyena.png" alt="" width="64" height="64"/></td>
+								<td>Nincada <br> <img src="images/Pokemon Images/Nincada.png" alt="" width="64" height="64"/></td>
+								<td>Taillow <br> <img src="images/Pokemon Images/Taillow.png" alt="" width="64" height="64"/></td>
+								<td>Lotad <br> <img src="images/Pokemon Images/Lotad.png" alt="" width="64" height="64"/></td>
+								<td>Seedot <br> <img src="images/Pokemon Images/Seedot.png" alt="" width="64" height="64"/></td>
+								<td>Lotad <br> <img src="images/Pokemon Images/Lotad.png" alt="" width="64" height="64"/></td>
+								<td>Seedot <br> <img src="images/Pokemon Images/Seedot.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Altering Cave</th>
+								<td>Zagzigoon <br> <img src="images/Pokemon Images/Zigzagoon-Galar.png" alt="" width="64" height="64"/></td> 
+								<td>Geohmdude <br> <img src="images/Pokemon Images/Geodude-Alola.png" alt="" width="64" height="64"/></td> 
+								<td>Ghoubone <br> <img src="images/Pokemon Images/Cubone-Hoenn.png" alt="" width="64" height="64"/></td> 
+								<td>Snowshrew <br> <img src="images/Pokemon Images/Sandshrew-Alola.png" alt="" width="64" height="64"/></td> 
+								<td>Vulpice <br> <img src="images/Pokemon Images/Vulpix-Alola.png" alt="" width="64" height="64"/></td> 
+								<td>Growlava <br> <img src="images/Pokemon Images/Growlithe-Hisui.png" alt="" width="64" height="64"/></td> 
+								<td>Gooper <br> <img src="images/Pokemon Images/Wooper-Paldea.png" alt="" width="64" height="64"/></td> 
+								<td>Toedscool <br> <img src="images/Pokemon Images/Toedscool.png" alt="" width="64" height="64"/></td> 
+								<td>Gooper <br> <img src="images/Pokemon Images/Wooper-Paldea.png" alt="" width="64" height="64"/></td> 
+								<td>Toedscool <br> <img src="images/Pokemon Images/Toedscool.png" alt="" width="64" height="64"/></td> 
+								<td>Snowshrew <br> <img src="images/Pokemon Images/Sandshrew-Alola.png" alt="" width="64" height="64"/></td> 
+								<td>Vulpice <br> <img src="images/Pokemon Images/Vulpix-Alola.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Route 110</th>
+								<td>Electrike <br> <img src="images/Pokemon Images/Electrike.png" alt="" width="64" height="64"/></td> 
+								<td>Gulpin <br> <img src="images/Pokemon Images/Gulpin.png" alt="" width="64" height="64"/></td> 
+								<td>Oddish <br> <img src="images/Pokemon Images/Oddish.png" alt="" width="64" height="64"/></td> 
+								<td>Natu <br> <img src="images/Pokemon Images/Natu.png" alt="" width="64" height="64"/></td> 
+								<td>Mareep <br> <img src="images/Pokemon Images/Mareep.png" alt="" width="64" height="64"/></td> 
+								<td>Surskit <br> <img src="images/Pokemon Images/Surskit.png" alt="" width="64" height="64"/></td> 
+								<td>Zigzagoon <br> <img src="images/Pokemon Images/Zigzagoon.png" alt="" width="64" height="64"/></td> 
+								<td>Poochyena <br> <img src="images/Pokemon Images/Poochyena.png" alt="" width="64" height="64"/></td> 
+								<td>Minun <br> <img src="images/Pokemon Images/Minun.png" alt="" width="64" height="64"/></td> 
+								<td>Plusle <br> <img src="images/Pokemon Images/Plusle.png" alt="" width="64" height="64"/></td> 
+								<td>Minun <br> <img src="images/Pokemon Images/Minun.png" alt="" width="64" height="64"/></td> 
+								<td>Plusle <br> <img src="images/Pokemon Images/Plusle.png" alt="" width="64" height="64"/></td>									    </tr>
+							<tr>
+								<th>Mauville City</th>
+								<td>Pidgey <br> <img src="images/Pokemon Images/Pidgey.png" alt="" width="64" height="64"/></td> 
+								<td>Snubbull <br> <img src="images/Pokemon Images/Snubbull.png" alt="" width="64" height="64"/></td> 
+								<td>Machop <br> <img src="images/Pokemon Images/Machop.png" alt="" width="64" height="64"/></td> 
+								<td>Zigzagoon <br> <img src="images/Pokemon Images/Zigzagoon.png" alt="" width="64" height="64"/></td> 
+								<td>Poochyena <br> <img src="images/Pokemon Images/Poochyena.png" alt="" width="64" height="64"/></td> 
+								<td>Skitty <br> <img src="images/Pokemon Images/Skitty.png" alt="" width="64" height="64"/></td> 
+								<td>Illumise <br> <img src="images/Pokemon Images/Illumise.png" alt="" width="64" height="64"/></td> 
+								<td>Volbeat <br> <img src="images/Pokemon Images/Volbeat.png" alt="" width="64" height="64"/></td> 
+								<td>Doduo <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
+								<td>Pidgey <br> <img src="images/Pokemon Images/Pidgey.png" alt="" width="64" height="64"/></td> 
+								<td>Doduo <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
+								<td>Pidgey <br> <img src="images/Pokemon Images/Pidgey.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>New Mauville</th>
+								<td> <br> <img src="images/Pokemon Images/Magnemite.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Voltorb.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Duskull.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Shuppet.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Plusle.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Minun.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Duskull.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Shuppet.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Nosepass.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Geodude-Alola.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Geodude-Alola.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Beldum.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Daycare</th>
+								<td> <br> <img src="images/Pokemon Images/Pichu.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Igglybuff.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Azurill.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Budew.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Bonsly.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Chingling.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Azurill.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Budew.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Bonsly.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Chingling.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wynaut.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wynaut.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Slateport City</th>
+								<td> <br> <img src="images/Pokemon Images/Ledyba.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spinarak.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wooper.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Psyduck.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Swablu.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Lotad.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Shroomish.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Hoothoot.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Barboach.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Roselia.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Barboach.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Tropius.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Route 109</th>
+								<td> <br> <img src="images/Pokemon Images/Spheal.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Marill.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wingull.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Krabby.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Skitty.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wingull.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Tentacool.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wailmer.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Clamperl.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wailmer.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Clamperl.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Abandoned Ship</th>
+								<td> <br> <img src="images/Pokemon Images/Chinchou.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wingull.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Corsola-Galar.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Remoraid.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Duskull.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Shuppet.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Staryu.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spheal.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Clamperl.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spheal.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Clamperl.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Route 108</th>
+								<td> <br> <img src="images/Pokemon Images/Corphish.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Wingull.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Exeggcute.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Sunkern.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Seedot.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Exeggcute.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Krabby.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Nincada.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Shuckle.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Nincada.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Shuckle.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Route 107</th>
+								<td> <br> <img src="images/Pokemon Images/Aipom.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Rhyhorn.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Phanpy.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Natu.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Doduo.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Girafarig.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Oddish.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Pikachu.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Pinsir.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Heracross.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Pinsir.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Heracross.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Route 106</th>
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Granite Cave 1F</th>
+								<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Geodude.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Meditite.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Meditite.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Granite Cave 1F-2</th>
+								<td> <br> <img src="images/Pokemon Images/Meditite.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Geodude.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Aron.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Geodude.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Nosepass.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Granite Cave B1F</th>
+								<td> <br> <img src="images/Pokemon Images/Geodude.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Aron.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Sableye.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Mawile.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Sableye.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Onix.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Onix.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Granite Cave B2F</th>
+								<td> <br> <img src="images/Pokemon Images/Onix.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Aron.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Sableye.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Mawile.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Abra.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Mawile.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Zubat.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spinda.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th>Dewford Town</th>
+								<td> <br> <img src="images/Pokemon Images/Houndour.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Spoink.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Sandshrew.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Machop.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Makuhita.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Rhyhorn.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Gligar.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Growlithe-Hisui.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Sudowoodo.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Gligar.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Sudowoodo.png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/Absol.png" alt="" width="64" height="64"/></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td> 
+								<td> <br> <img src="images/Pokemon Images/
+										 .png" alt="" width="64" height="64"/></td>
+							</tr>
+						  </tbody>
+						</table>
+
+						<h2>Gym 1: Wattson</h2> <img src="images/Pokemon Images/Spr_RS_Wattson.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Plusle 		<br> <img src="images/Pokemon Images/Plusle.png" alt="" width="64" height="64"/> 	<br> 14 </th> 
+										<th>Minun 		<br> <img src="images/Pokemon Images/Minun.png" alt="" width="64" height="64"/> 	<br> 14 </th> 
+										<th>Chinchou 	<br> <img src="images/Pokemon Images/Chinchou.png" alt="" width="64" height="64"/> 	<br> 13 </th> 
+										<th>Electrike 	<br> <img src="images/Pokemon Images/Electrike.png" alt="" width="64" height="64"/> <br> 13</th> 
+										<th>Volbeat 	<br> <img src="images/Pokemon Images/Volbeat.png" alt="" width="64" height="64"/> 	<br> 15</th> 
+										<th>Illumise 	<br> <img src="images/Pokemon Images/Illumise.png" alt="" width="64" height="64"/>	<br> 15</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Shock Wave</td> 
+										<td>Shock Wave</td> 
+										<td>Shock Wave</td> 
+										<td>Shock Wave</td> 
+										<td>Shock Wave</td> 
+										<td>Shock Wave</td> 
+									</tr>
+									<tr>
+										<td>Helping Hand </td> 
+										<td>Helping Hand </td>
+										<td>Water Gun</td>
+										<td>Swift</td> 
+										<td>Confuse Ray</td> 
+										<td>Charm</td> 
+									</tr>
+									<tr>
+										<td>Covet</td> 
+										<td>Covet</td>
+										<td>Thunder Wave</td> 
+										<td>Howl</td> 
+										<td>Quick Attack</td> 
+										<td>Quick Attack</td> 
+									</tr>
+									<tr>
+										<td>Wish</td> 
+										<td>Encore</td>
+										<td>Amnesia</td> 
+										<td>Thunder Wave</td> 
+										<td>Moonlight</td> 
+										<td>Moonlight</td> 
+									</tr>
+								</tbody>
+							</table>
 						</div>
-					</div>
 
+						<h2>Gym 2: Sidney</h2> <img src="images/Pokemon Images/Spr_RS_Sidney.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Mightyena 	<br> <img src="images/Pokemon Images/Mightyena.png" alt="" width="64" height="64"/> 	<br> 20 </th> 
+										<th>Lanoone 	<br> <img src="images/Pokemon Images/Linoone-Galar.png" alt="" width="64" height="64"/> <br> 20 </th> 
+										<th>Nuzleaf 	<br> <img src="images/Pokemon Images/Nuzleaf.png" alt="" width="64" height="64"/> 		<br> 19 </th> 
+										<th>Carvanha 	<br> <img src="images/Pokemon Images/Carvanha.png" alt="" width="64" height="64"/> 		<br> 19 </th> 
+										<th>Houndour 	<br> <img src="images/Pokemon Images/Houndour.png" alt="" width="64" height="64"/>		<br> 19 </th> 
+										<th>Absol 		<br> <img src="images/Pokemon Images/Absol.png" alt="" width="64" height="64"/> 		<br> 21</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Thief</td> 
+										<td>Thief</td> 
+										<td>Thief</td> 
+										<td>Thief</td> 
+										<td>Thief</td> 
+										<td>Thief</td>
+									</tr>
+									<tr>
+										<td>Poison Fang</td> 
+										<td>Fury Swipes</td> 
+										<td>Bullet Seed</td> 
+										<td>Aqua Jet</td> 
+										<td>Fire Spin</td> 
+										<td>Slash</td>
+									</tr>
+									<tr>
+										<td>Iron Tail</td> 
+										<td>Pin Missile</td> 
+										<td>Extrasensory</td> 
+										<td>Scary Face</td> 
+										<td>Pursuit</td>
+										<td>Aerial Ace</td>
+									</tr>
+									<tr>
+										<td>Pursuit</td> 
+										<td>Scary Face</td> 
+										<td>Fake Out</td> 
+										<td>Water Pulse</td> 
+										<td>Will-o-wisp</td>
+										<td>Quick Attack</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					
+						<h2>Gym 3: Roxanne</h2> <img src="images/Pokemon Images/Spr_RS_Roxanne.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Clodsire 	<br> <img src="images/Pokemon Images/Clodsire.png" alt="" width="64" height="64"/> 	<br> 24 </th> 
+										<th>Quagsire 	<br> <img src="images/Pokemon Images/Quagsire.png" alt="" width="64" height="64"/> 	<br> 24 </th> 
+										<th>Relicanth 	<br> <img src="images/Pokemon Images/Relicanth.png" alt="" width="64" height="64"/> <br> 24 </th> 
+										<th>Sudowoodo 	<br> <img src="images/Pokemon Images/Sudowoodo.png" alt="" width="64" height="64"/> <br> 24 </th> 
+										<th>Magcargo 	<br> <img src="images/Pokemon Images/Magcargo.png" alt="" width="64" height="64"/> 	<br> 25 </th> 
+										<th>Probopass 	<br> <img src="images/Pokemon Images/Probopass.png" alt="" width="64" height="64"/> <br> 25 </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Rock Slide</td> 
+										<td>Rock Slide</td> 
+										<td>Rock Slide</td> 
+										<td>Rock Slide</td> 
+										<td>Rock Slide</td> 
+										<td>Power Gem</td>
+									</tr>
+									<tr>
+														<td>Mud Shot</td> 
+										<td>Mud Shot</td> 
+										<td>Aqua Tail</td> 
+										<td>Low Kick</td> 
+										<td>Flamethrower</td> 
+										<td>Thunderbolt</td>
+									</tr>
+									<tr>
+													<td>Poison Jab</td> 
+										<td>Ice Beam</td> 
+										<td>Bounce</td> 
+										<td>Giga Drain</td> 
+										<td>Fire Spin</td>
+										<td>Mesmer Eyes</td>
+									</tr>
+									<tr>
+														<td>Amnesia</td> 
+										<td>Amnesia</td> 
+										<td>Yawn</td> 
+										<td>Flail</td> 
+										<td>Yawn</td>
+										<td>Thunder Wave</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h2>Gym 4: Wally</h2> <img src="images/Pokemon Images/Spr_RS_Wally.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Delcatty 	<br> <img src="images/Pokemon Images/Delcatty.png" alt="" width="64" height="64"/> 	<br> 29 </th> 
+										<th>Azumarill 	<br> <img src="images/Pokemon Images/Azumarill.png" alt="" width="64" height="64"/> <br> 30 </th> 
+										<th>Torkoal 	<br> <img src="images/Pokemon Images/Torkoal.png" alt="" width="64" height="64"/> 	<br> 30 </th> 
+										<th>Magneton 	<br> <img src="images/Pokemon Images/Magneton.png" alt="" width="64" height="64"/> 	<br> 30 </th> 
+										<th>Roserade 	<br> <img src="images/Pokemon Images/Roserade.png" alt="" width="64" height="64"/> 	<br> 30 </th> 
+										<th>Gallade 	<br> <img src="images/Pokemon Images/Gallade.png" alt="" width="64" height="64"/> 	<br> 31 </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr> <td>Headbutt</td> 	<td>Aqua Tail</td> 	<td>Eruption</td> 	<td>Discharge</td> 		<td>Giga Drain</td> 	<td>Psycho Cut</td> </tr>
+									<tr> <td>Wish</td> 		<td>Belly Drum</td> <td>Yawn</td> 		<td>Mesmer Eyes</td> 	<td>Sludge Bomb</td> 	<td>Drain Punch</td> </tr>
+									<tr> <td>Charm</td> 	<td>Return</td> 	<td>Return</td> 	<td>Sonicboom</td> 		<td>Leech Seed</td> 	<td>Night Slash</td> </tr>
+									<tr> <td>Covet</td> 	<td>Aqua Jet</td> 	<td>Curse</td> 		<td>Thunderwave</td> 	<td>Grasswhistle</td> 	<td>Swords Dance</td> </tr>
+								</tbody>
+							</table>
+						</div>
+
+
+						<h2>Gym 5: Norman</h2>  
+						<img src="images/Pokemon Images/Spr_RS_Norman.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Zangoose 	<br> <img src="images/Pokemon Images/Zangoose.png" alt="" width="64" height="64"/> 		<br> 35 </th> 
+										<th>Ursaring 	<br> <img src="images/Pokemon Images/Ursaring.png" alt="" width="64" height="64"/> 		<br> 35 </th> 
+										<th>Wigglytuff 	<br> <img src="images/Pokemon Images/Wigglytuff.png" alt="" width="64" height="64"/> 	<br> 34 </th> 
+										<th>Swellow 	<br> <img src="images/Pokemon Images/Swellow.png" alt="" width="64" height="64"/> 		<br> 34 </th> 
+										<th>Obstagoon 	<br> <img src="images/Pokemon Images/Obstagoon.png" alt="" width="64" height="64"/> 	<br> 36 </th> 
+										<th>Slaking 	<br> <img src="images/Pokemon Images/Slaking.png" alt="" width="64" height="64"/> 		<br> 36 </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Façade</td> 
+										<td>Façade</td> 
+										<td>Façade</td> 
+										<td>Façade</td> 
+										<td>Façade</td> 
+										<td>Façade</td>
+									</tr>
+									<tr>
+														<td>Shadow Claw</td> 
+										<td>Brick Break</td> 
+										<td>Dazzling Gleam</td> 
+										<td>Brave Bird</td> 
+										<td>Night Slash</td> 
+										<td>Brick Break</td>
+									</tr>
+									<tr>
+													<td>Aerial Ace</td> 
+										<td>Rock Slide</td> 
+										<td>Flamethrower</td> 
+										<td>Steel Wing</td> 
+										<td>Cross Chop</td>
+										<td>Night Slash</td>
+									</tr>
+									<tr>
+														<td>Swords Dance</td> 
+										<td>Crunch</td> 
+										<td>Psychic</td> 
+										<td>Endeavor</td> 
+										<td>Pin Missile</td>
+										<td>Regal Blow</td>
+									</tr>
+								</tbody>
+							</table>
+						</div
+
+						<h2>Gym 6: Phoebe</h2>  
+						<img src="images/Pokemon Images/Spr_RS_Phoebe.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Gengar 		<br> <img src="images/Pokemon Images/Gengar.png" alt="" width="64" height="64"/> 		<br> 39 </th> 
+										<th>Rapidash 	<br> <img src="images/Pokemon Images/Rapidash.png" alt="" width="64" height="64"/> 		<br> 39 </th> 
+										<th>Froslass 	<br> <img src="images/Pokemon Images/Froslass.png" alt="" width="64" height="64"/> 		<br> 39 </th> 
+										<th>Kecleon 	<br> <img src="images/Pokemon Images/Kecleon.png" alt="" width="64" height="64"/> 		<br> 39 </th> 
+										<th>Marigeist 	<br> <img src="images/Pokemon Images/Banette-Mega.png" alt="" width="64" height="64"/> 	<br> 40 </th> 
+										<th>Dusknoir 	<br> <img src="images/Pokemon Images/Dusknoir.png" alt="" width="64" height="64"/> 		<br> 40 </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Shadow Claw</td> 
+										<td>Shadow Ball</td> 
+										<td>Ominous Wind</td> 
+										<td>Shadow Claw</td> 
+										<td>Shadow Claw</td> 
+										<td>Shadow Punch</td>
+									</tr>
+									<tr>
+														<td>Brick Break</td> 
+										<td>Blaze Kick</td> 
+										<td>Ice Beam</td> 
+										<td>Slash</td> 
+										<td>Knock Off</td> 
+										<td>Ice Punch</td>
+									</tr>
+									<tr>
+													<td>Hypnosis</td> 
+										<td>Iron Tail</td> 
+										<td>Confuse Ray</td> 
+										<td>Focus Punch</td> 
+										<td>Will-o-wisp</td>
+										<td>Fire Punch</td>
+									</tr>
+									<tr>
+														<td>Destiny Bond</td> 
+										<td>Shadow Sneak</td> 
+										<td>Pain Split</td> 
+										<td>Shadow Sneak</td> 
+										<td>Shadow Sneak</td>
+										<td>Thunderpunch</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h2>Gym 7: Tate & Liza</h2>  
+						<img src="images/Pokemon Images/Spr_RS_Tate_and_Liza.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Lunatone 	<br> <img src="images/Pokemon Images/Lunatone.png" alt="" width="64" height="64"/> 	<br> 44 </th> 
+										<th>Solrock	 	<br> <img src="images/Pokemon Images/Solrock.png" alt="" width="64" height="64"/> 	<br> 44 </th> 
+										<th>Xatu 		<br> <img src="images/Pokemon Images/Xatu.png" alt="" width="64" height="64"/> 		<br> 43 </th> 
+										<th>Golduck 	<br> <img src="images/Pokemon Images/Golduck.png" alt="" width="64" height="64"/> 	<br> 43 </th> 
+										<th>Wyrdeer 	<br> <img src="images/Pokemon Images/Wyrdeer.png" alt="" width="64" height="64"/> 	<br> 45</th> 
+										<th>Farigiraf 	<br> <img src="images/Pokemon Images/Farigiraf.png" alt="" width="64" height="64"/> <br> 45 </th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Psychic</td> 
+										<td>Rock Slide</td> 
+										<td>Psychic</td> 
+										<td>Psychic</td> 
+										<td>Psychic</td> 
+										<td>Psychic</td> 
+									</tr>
+									<tr>
+														<td>Cosmic Power</td> 
+										<td>Morning Sun</td> 
+										<td>Drill Peck</td> 
+										<td>Bubblebeam</td> 
+										<td>Mega Kick</td> 
+										<td>Hyper Beam</td>
+									</tr>
+									<tr>
+													<td>Hypnosis</td> 
+										<td>Sunny Day</td> 
+										<td>Shadow Ball</td> 
+										<td>Ice Beam</td> 
+										<td>Megahorn</td>
+										<td>Energy Ball</td>
+									</tr>
+									<tr>
+														<td>Moonsault</td> 
+										<td>Solarbeam</td> 
+										<td>Giga Drain</td> 
+										<td>Cross Chop</td> 
+										<td>Shadow Ball</td>
+										<td>Nasty Plot</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h2>Gym 8: Lucy</h2>  
+						<img src="images/Pokemon Images/Spr_E_Lucy.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Dragonair
+											<br> <img src="images/Pokemon Images/Dragonair.png" alt="" width="64" height="64"/>
+											<br> 48
+										</th> 
+										<th>Steelix
+											<br> <img src="images/Pokemon Images/Steelix.png" alt="" width="64" height="64"/>
+											<br> 48
+										</th> 
+										<th>Gliscor
+											<br> <img src="images/Pokemon Images/Gliscor.png" alt="" width="64" height="64"/>
+											<br> 48
+										</th> 
+										<th>Gyarados
+											<br> <img src="images/Pokemon Images/Gyarados.png" alt="" width="64" height="64"/>
+											<br> 49
+										</th> 
+										<th>Milotic
+											<br> <img src="images/Pokemon Images/Milotic.png" alt="" width="64" height="64"/>
+											<br> 49
+										</th> 
+										<th>Seviper
+											<br> <img src="images/Pokemon Images/Seviper.png" alt="" width="64" height="64"/>
+											<br> 50
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Aqua Tail</td> 
+										<td>Iron Tail</td> 
+										<td>Earthquake</td> 
+										<td>Aqua Tail</td> 
+										<td>Aqua Tail</td> 
+										<td>Poison Tail</td>
+									</tr>
+									<tr>
+														<td>Dazzling Gleam</td> 
+										<td>Earthquake</td> 
+										<td>X-Scissor</td> 
+										<td>Earthquake</td> 
+										<td>Dazzling Gleam</td> 
+										<td>Crunch</td>
+									</tr>
+									<tr>
+													<td>Dragonbreath</td> 
+										<td>Overheat</td> 
+										<td>Aqua Tail</td> 
+										<td>Dragonbreath</td> 
+										<td>Mirror Coat</td>
+										<td>Giga Drain</td>
+									</tr>
+									<tr>
+														<td>Iron Tail</td> 
+										<td>Aqua Tail</td> 
+										<td>Swords Dance</td> 
+										<td>Dragon Rage</td> 
+										<td>Recover</td>
+										<td>Flamethrower</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<hr class="major" />
+
+						<h2>Elite 4: Mattie</h2>  
+						<img src="images/Pokemon Images/Spr_RS_Mattie.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Exeggutor
+											<br> <img src="images/Pokemon Images/Exeggutor.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Ursaluna
+											<br> <img src="images/Pokemon Images/Ursaluna.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Cloyster
+											<br> <img src="images/Pokemon Images/Cloyster.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Victreebel
+											<br> <img src="images/Pokemon Images/Victreebel.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Lapras
+											<br> <img src="images/Pokemon Images/Lapras.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Tropius
+											<br> <img src="images/Pokemon Images/Tropius.png" alt="" width="64" height="64"/>
+											<br> 67
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+														<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+													<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+														<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h2>Elite 4: Archie</h2>  
+						<img src="images/Pokemon Images/Spr_RS_Archie.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Walrein
+											<br> <img src="images/Pokemon Images/Walrein.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Cursola
+											<br> <img src="images/Pokemon Images/Cursola.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Octillery
+											<br> <img src="images/Pokemon Images/Octillery.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Crobat
+											<br> <img src="images/Pokemon Images/Crobat.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Wailord
+											<br> <img src="images/Pokemon Images/Wailord.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Missilodon
+											<br> <img src="images/Pokemon Images/Sharpedo-Mega.png" alt="" width="64" height="64"/>
+											<br> 67
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+														<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+													<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+														<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h2>Elite 4: Maxie</h2> 
+						<img src="images/Pokemon Images/Spr_RS_Maxie.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Aggron
+											<br> <img src="images/Pokemon Images/Aggron.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Claydol
+											<br> <img src="images/Pokemon Images/Claydol.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Steelix
+											<br> <img src="images/Pokemon Images/Steelix.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Donphan
+											<br> <img src="images/Pokemon Images/Donphan.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Volcanine
+											<br> <img src="images/Pokemon Images/Arcanine-Hisui.png" alt="" width="64" height="64"/>
+											<br> 65
+										</th> 
+										<th>Pompeiimal
+											<br> <img src="images/Pokemon Images/Camerupt-Mega.png" alt="" width="64" height="64"/>
+											<br> 67
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+														<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+													<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+														<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+
+						<h2>Elite 4: Wally</h2>  
+						<img src="images/Pokemon Images/Spr_RS_Wally.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Exploud
+											<br> <img src="images/Pokemon Images/Exploud.png" alt="" width="64" height="64"/>
+											<br> 66
+										</th> 
+										<th>Milotic
+											<br> <img src="images/Pokemon Images/Milotic.png" alt="" width="64" height="64"/>
+											<br> 66
+										</th> 
+										<th>Roserade
+											<br> <img src="images/Pokemon Images/Roserade.png" alt="" width="64" height="64"/>
+											<br> 66
+										</th> 
+										<th>Ninetales
+											<br> <img src="images/Pokemon Images/Ninetales.png" alt="" width="64" height="64"/>
+											<br> 66
+										</th> 
+										<th>Magnezone
+											<br> <img src="images/Pokemon Images/Magnezone.png" alt="" width="64" height="64"/>
+											<br> 66
+										</th> 
+										<th>Gallade
+											<br> <img src="images/Pokemon Images/Gallade.png" alt="" width="64" height="64"/>
+											<br> 68
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+														<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+													<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+														<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<h2>Champion: Steven</h2>  
+						<img src="images/Pokemon Images/Spr_RS_Steven.png" alt="" width="64" height="64"/>
+						<div class="table-wrapper">
+							<table>
+								<thead>
+									<tr>
+										<th>Starmie
+											<br> <img src="images/Pokemon Images/Starmie.png" alt="" width="64" height="64"/>
+											<br> 68
+										</th> 
+										<th>Sablsleye
+											<br> <img src="images/Pokemon Images/Sableye-Mega.png" alt="" width="64" height="64"/>
+											<br> 68
+										</th> 
+										<th>Mawsprite
+											<br> <img src="images/Pokemon Images/Mawile-Mega.png" alt="" width="64" height="64"/>
+											<br> 68
+										</th> 
+										<th>Cradily
+											<br> <img src="images/Pokemon Images/Cradily.png" alt="" width="64" height="64"/>
+											<br> 68
+										</th> 
+										<th>Armaldo
+											<br> <img src="images/Pokemon Images/Armaldo.png" alt="" width="64" height="64"/>
+											<br> 68
+										</th> 
+										<th>Metagross
+											<br> <img src="images/Pokemon Images/Metagross.png" alt="" width="64" height="64"/>
+											<br> 70
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+									</tr>
+									<tr>
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td> 
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</section>
+				</div>
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script>
-			    document.addEventListener("DOMContentLoaded", function() {
-			        const chapters = document.querySelectorAll('.table-of-contents > ul > li');
-			
-			        chapters.forEach(chapter => {
-			            chapter.addEventListener('click', function() {
-			                const sections = this.querySelector('ul');
-			                sections.classList.toggle('active');
-			            });
-			        });
-			    });
-    		</script>
+			<div id="sidebar"><!-- Sidebar -->
+				<div class="inner">
+					<nav id="menu"><!-- Menu -->
+						<header class="major">
+							<h2>Menu</h2>
+						</header>
+						<ul>
+							<li><a href="index.html">Homepage</a></li>
+							<li><a href="teaching.html">Teaching</a></li>
+							<li><a href="cv.html">Curriculum Vitae</a></li>
+							<li><a href="rj.html">Prison Education</a></li>
+							<li><a href="OERs.html">Mathematics OERs</a></li>
+							<li>
+								<span class="opener">Personal</span>
+								<ul>
+									<li><a href="about-me.html">About Me</a></li>
+									<li><a href="music.html">Music Hours (SAAM) </a></li>
+									<li><a href="climb.html">Climbing</a></li>
+									<li><a href="reading.html">Reading</a></li>
+									<li><a href="write.html">Writing</a></li>
+									<li><a href="art.html">Artwork</a></li>
+									<li><a href="cats.html">Cats</a></li>
+									<li><a href="soon.html">Storage</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
 
+					<section><header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:smacdonald5@huskers.unl.edu">smacdonald5@huskers.unl.edu</a></li>
+							<li class="icon solid fa-school">Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a></li>
+						</ul>
+					</section>
+					<footer id="footer"><p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p></footer>
+				</div>
+			</div>
+		</div>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				const chapters = document.querySelectorAll('.table-of-contents > ul > li');
+		
+				chapters.forEach(chapter => {
+					chapter.addEventListener('click', function() {
+						const sections = this.querySelector('ul');
+						sections.classList.toggle('active');
+					});
+				});
+			});
+		</script>
 	</body>
 </html>
