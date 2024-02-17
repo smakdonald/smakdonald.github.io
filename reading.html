@@ -271,13 +271,17 @@
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[column].textContent;
 				const altB = b.cells[column].textContent;
-				if (!isNaN(altA) && !isNaN(altB)) {		// Check if the alt attributes are numbers
-					return Number(altA) - Number(altB); // If both are numbers, sort numerically
+				if (column == 0) {
+					return Number(altB) - Number(altA); // If both are numbers, sort numerically
 				} 
 				else {
-					return altA.localeCompare(altB); 	// Otherwise, sort alphabetically
-		      		}
-				return altA.localeCompare(altB);
+					if (!isNaN(altA) && !isNaN(altB)) {		// Check if the alt attributes are numbers
+						return Number(altA) - Number(altB); // If both are numbers, sort numerically
+					} 
+					else {
+						return altA.localeCompare(altB); 	// Otherwise, sort alphabetically
+			      	}
+				}
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
 			images()
