@@ -61,7 +61,7 @@
 					<table id="myTable">
 						<tbody>
 							<!-- Books Read in 2024 -->
-								<!-- 0 -->				<!-- 1 -->											<!-- 2 --> 												<!-- 3 -->			<!-- 4 -->				<!-- 5 -->		<!-- 6 -->										<!-- 7 -->	<!-- 8 -->			<!-- 9 -->				<!-- 10 -->
+							<!-- 0 -->			<!-- 1 -->									<!-- 2 --> 																<!-- 3 -->			<!-- 4 -->				<!-- 5 -->		<!-- 6 -->										<!-- 7 -->	<!-- 8 -->			<!-- 9 -->				<!-- 10 -->
 							<tr> <td>122</td> 	<td>Sanderson-Yumi.jpg</td>					<td>Yumi and the Nightmare Painter</td> 							    <td>Sanderson</td> 	<td>Brandon</td> 	    <td>2023</td> 	<td></td>										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td></td></tr>
 							<tr> <td>121</td> 	<td>Wells-Network-Effect.jpg</td>			<td>Network Effect</td> 							                    <td>Wells</td> 		<td>Martha</td> 	    <td>2020</td> 	<td>The Murderbot Diaries</td>					<td>5</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td></tr>
 							<tr> <td>120</td> 	<td>Liu-Three-Body-Problem.jpeg</td>		<td>The Three Body Problem</td> 							            <td>Liu</td> 		<td>Cixen</td> 	    	<td>2008</td> 	<td>Rememberance of Earth's Past</td>			<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td></tr>
@@ -196,7 +196,7 @@
 					<p>Enter the index of the column to count empty cells: <input type="number" id="columnIndex" min="0" max="6" value="1"></p>
 					<button onclick="countEmptyCells()">Count Empty Cells</button>
 
-<p id="result"></p>
+					<p id="result"></p>
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
@@ -244,7 +244,7 @@
 		function images(cutoff) {
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;												// Create a blank text container that the Content will go into						
-			for (var i = 0; i < cutoff; i++) {						// Loop through the rows of the table
+			for (var i = cutoff; i < table.rows.length; i++) {						// Loop through the rows of the table
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
 		    	var Content = '<img src="images/Book Covers/'+ path.textContent + '" alt="'+ title.textContent + '"title="' + path.textContent + '">';
@@ -299,12 +299,12 @@
 				}
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
-			images(table.rows.length)
+			images(countEmptyCells(column))
 		}
 	</script>
 	
 	<script>
-		window.addEventListener('load', images(document.getElementById("myTable").rows.length));
+		window.addEventListener('load', images(0);
 	</script>
 
 	<script>
