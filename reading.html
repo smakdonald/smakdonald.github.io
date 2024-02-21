@@ -277,9 +277,11 @@
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
 				var popupContent = ``;
 				popupContent += `
+					<p>
 						Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
 	  					<br>
 	  					Published: ${table.rows[i].cells[5].textContent}
+					</p>
 	 			`;
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
@@ -300,7 +302,7 @@
 		   
 		    	var bookContainer = document.getElementById("bookContainer");
 		      	bookContainer.innerHTML = containerContent;							// Find the correct <div class=image-container> and add content
-		 	 }
+		 	}
 		}
 	</script>
 
@@ -359,13 +361,7 @@
 			images(countEmptyCells(column))
 		}
 	</script>
-
-	<script>
-		images (0)   														// Get the selector element
-	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
-	    selector.selectedIndex = 0;
-  	</script>
-
+<!--
 	<script>
 	    // Function to show the popup
 	    function showPopup(event) {
@@ -391,7 +387,11 @@
 	        image.addEventListener("click", showPopup);
 	    });
 	</script>
-
-	
+-->
+	<script>
+		images (0)   														// Get the selector element
+	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
+	    selector.selectedIndex = 0;
+  	</script>
 </body>
 </html>
