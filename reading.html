@@ -264,17 +264,14 @@
 	</script>
 	
 	<script>
-		function sortSelect() {
-			sort(document.getElementById("tableSelector").value)
+		function sortSelect() {								// When dropdown is selected, run the sort function
+			sort(document.getElementById("tableSelector").value) 
 		}
-	  // Get all rows of the table
+	  
 		function sort(column) {
 			const table = document.getElementById('myTable');
-			const tableRows = document.querySelectorAll("#myTable tr");
-		
-			// Convert NodeList to array using Array.from
-			const rowsArray = Array.from(tableRows);
-		
+			const tableRows = document.querySelectorAll("#myTable tr");  // Get all rows of the table
+			const rowsArray = Array.from(tableRows); 	// Convert NodeList to array using Array.from
 			// Sort the array by the content of the first cell in each row
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[column].textContent;
@@ -285,7 +282,7 @@
 				else if (b == "") {
         			return -1; 									// Place empty string at the end
     			}
-				else {
+				else if {
 					if (column == 0 || column == 10) {			// If sorting chronologically, sort Z -> A to place most recent books first
 						return Number(altB) - Number(altA); 
 					} 
@@ -305,7 +302,7 @@
 	</script>
 	
 	<script>
-		window.addEventListener('load', images();
+		window.addEventListener('load', images(0);
 	</script>
 
 	<script>
@@ -321,17 +318,15 @@
 	        var table = document.getElementById("myTable");
 	        var rowCount = table.rows.length;
 	        var emptyCellCount = 0;
-	
 	        for (var i = 0; i < rowCount; i++) {
 	            var cell = table.rows[i].cells[column];
 	            if (!cell.innerHTML.trim()) {
 	                emptyCellCount++;
 	            }
 	        }
+			document.getElementById("result").innerHTML = "Empty cells in column " + columnIndex + ": " + emptyCellCount;
 			return emptyCellCount
-			
-        document.getElementById("result").innerHTML = "Empty cells in column " + columnIndex + ": " + emptyCellCount;
-    }
+    	}
 	</script>
 </body>
 </html>
