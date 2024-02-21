@@ -190,13 +190,14 @@
 							<tr> <td>1</td> 	<td>Sanderson_Mistborn.webp</td>			<td>Mistborn</td> 														<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn - Era I</td> 						<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210,103</td></tr>
 						</tbody>
 					</table>
-					
-					<div class="image-container" id="bookContainer"></div>
 
 					<p>Enter the index of the column to count empty cells: <input type="number" id="columnIndex" min="0" max="6" value="1"></p>
 					<button onclick="countEmptyCells()">Count Empty Cells</button>
 
 					<p id="result"></p>
+					
+					<div class="image-container" id="bookContainer"></div>
+
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
@@ -244,7 +245,7 @@
 		function images(cutoff) {
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
-			for (var i = emptyCellCount; i < table.rows.length; i++) {					// Loop through the rows of the table
+			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
 		    	var Content = '<img src="images/Book Covers/'+ path.textContent + '" alt="'+ title.textContent + '"title="' + path.textContent + '">';
