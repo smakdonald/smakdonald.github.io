@@ -278,10 +278,8 @@
 				var rowIndex = table.rows[i].cells[0];
 				var popupContent = ``;
 				popupContent += `
-					<p>
 						Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
 	  					Published: ${table.rows[i].cells[5].textContent}
-					</p>
 	 			`;
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
@@ -291,7 +289,7 @@
 					+ path.textContent 
 					+ '"class="triggerImage" data-popup-text="'
 					+ popupContent
-					+ 'style="cursor: pointer;">';
+					+ '"style="cursor: pointer;">';
 		    																	// Write the content of the <img> element so that it becomes the image
 				containerContent += `
 					<div class = image-item>
