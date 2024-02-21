@@ -190,8 +190,6 @@
 							<tr> <td>1</td> 	<td>Sanderson_Mistborn.webp</td>			<td>Mistborn</td> 														<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn - Era I</td> 						<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210,103</td></tr>
 						</tbody>
 					</table>
-
-					<p id="result"></p>
 					
 					<div class="image-container" id="bookContainer"></div>
 
@@ -245,7 +243,11 @@
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
-		    	var Content = '<img src="images/Book Covers/'+ path.textContent + '" alt="'+ title.textContent + '"title="' + path.textContent + '">';
+		    	var Content = 	'<img src="images/Book Covers/' + path.textContent + ' 
+								"alt="'+ title.textContent + '
+								"title="' + path.textContent + '
+								"id="' + path.textContent + '
+								"style="cursor: pointer;">';
 		    																	// Write the content of the <img> element so that it becomes the image
 				containerContent += `
 					<div class = image-item>
@@ -295,7 +297,7 @@
         			return -1; 												// Place empty string at the end
     			}
 				else {
-					if (column == 0) {						// If sorting chronologically, sort Z -> A to place most recent books first
+					if (column == 0) {										// If sorting chronologically, sort Z -> A to place most recent books first
 						return Number(altB) - Number(altA); 
 					} 
 					else if (column == 10) {								// If sorting chronologically, sort Z -> A to place most recent books first
