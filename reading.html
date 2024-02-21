@@ -316,14 +316,13 @@
   	</script>
 
 	<script>
-	    function countEmptyCells() {
-	        var columnIndex = document.getElementById("columnIndex").value;
+	    function countEmptyCells(column) {
 	        var table = document.getElementById("myTable");
 	        var rowCount = table.rows.length;
 	        var emptyCellCount = 0;
 	
 	        for (var i = 0; i < rowCount; i++) {
-	            var cell = table.rows[i].cells[columnIndex];
+	            var cell = table.rows[i].cells[column];
 	            if (!cell.innerHTML.trim()) {
 	                emptyCellCount++;
 	            }
