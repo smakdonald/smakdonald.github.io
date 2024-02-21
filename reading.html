@@ -275,7 +275,6 @@
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
-				var rowIndex = table.rows[i].cells[0];
 				var popupContent = ``;
 				popupContent += `
 						Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
@@ -376,7 +375,7 @@
 	        
 	        // Set the title and text of the popup based on the data-popup-text attribute of the clicked image
 	        popupTitle.textContent = event.target.alt;
-	        popupText.textContent = event.target.getAttribute("data-popup-text");
+	        popupText.innerHTML = event.target.getAttribute("data-popup-text");
 	
 	        popup.style.display = "block";
 	    }
