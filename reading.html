@@ -24,6 +24,36 @@
 		#myTable {
 			display: none;  /* Set display property to none to make the table invisible */
 		}
+	    .popup-container { /* Styling for the popup container */
+	        display: none;
+	        position: fixed;
+	        top: 50%;
+	        left: 50%;
+	        transform: translate(-50%, -50%);
+	        width: 300px;
+	        height: 200px;
+	        background-color: white;
+	        border: 1px solid #ccc;
+	        border-radius: 5px;
+	        padding: 20px;
+	        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	        z-index: 9999;
+	        animation: fadeIn 0.3s ease-out;
+	    }
+	    @keyframes fadeIn {  /* Animation keyframes for fading in */
+	        from {
+	            opacity: 0;
+	        }
+	        to {
+	            opacity: 1;
+	        }
+	    }
+	    .close-btn { /* Styling for the close button */
+	        position: absolute;
+	        top: 10px;
+	        right: 10px;
+	        cursor: pointer;
+	    }
 	</style>
 </head>
 <body class="is-preload">
@@ -190,6 +220,12 @@
 							<tr> <td>1</td> 	<td>Sanderson_Mistborn.webp</td>			<td>Mistborn</td> 														<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn - Era I</td> 						<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210,103</td></tr>
 						</tbody>
 					</table>
+
+					<div id="popup" class="popup-container">
+					    <span class="close-btn" onclick="closePopup()">X</span>
+					    <h2>Popup Content</h2>
+					    <p>This is the content of the popup.</p>
+					</div>
 					
 					<div class="image-container" id="bookContainer"></div>
 
@@ -319,6 +355,21 @@
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
   	</script>
+
+	<script>
+	    // Function to show the popup
+	    function showPopup() {
+	        document.getElementById("popup").style.display = "block";
+	    }
+	
+	    // Function to close the popup
+	    function closePopup() {
+	        document.getElementById("popup").style.display = "none";
+	    }
+	
+	    // Attach click event listener to the trigger image
+	    document.getElementById("triggerImage").addEventListener("click", showPopup);
+	</script>
 
 	
 </body>
