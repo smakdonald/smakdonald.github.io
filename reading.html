@@ -53,7 +53,8 @@
 								<option value="4">Author First Name</option>
 								<option value="5">Publication Date</option>
 								<option value="6">Series</option>
-							  </select>
+								<option value="10">Word Count</option>
+							</select>
 					
 					<br>
 
@@ -271,7 +272,7 @@
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[column].textContent;
 				const altB = b.cells[column].textContent;
-				if (column == 0) {							// If sorting chronologically, sort Z -> A to place most recent books first
+				if (column == 0, 10) {						// If sorting chronologically, sort Z -> A to place most recent books first
 					return Number(altB) - Number(altA); 
 				} 
 				else {
