@@ -8,22 +8,22 @@
 	<script src="https://kit.fontawesome.com/9983334911.js" crossorigin="anonymous"></script>
 	<style>
 		.image-container {
-	      		display: flex;
-	      		flex-wrap: wrap;
-	      		justify-content: space-between;
-	    	}
-	    	.image-item {
-	      		width: calc(33.33% - 10px);
-	      		margin-bottom: 20px;
-	    	}
-	    	.image-item img {
-	      		max-width: 100%;
-		  	width: 300px; /* Adjust the desired width */
-		  	height: 450px; /* Adjust the desired height */
-	    	}
-	    	#myTable {
-	      		display: none;  /* Set display property to none to make the table invisible */
-	    	}
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+	    }
+	    .image-item {
+			width: calc(33.33% - 10px);
+			margin-bottom: 20px;
+		}
+		.image-item img {
+			max-width: 100%;
+		width: 300px; /* Adjust the desired width */
+		height: 450px; /* Adjust the desired height */
+		}
+		#myTable {
+			display: none;  /* Set display property to none to make the table invisible */
+		}
 	</style>
 </head>
 <body class="is-preload">
@@ -327,6 +327,7 @@
 	                emptyCellCount++;
 	            }
 	        }
+			return emptyCellCount
 			
         document.getElementById("result").innerHTML = "Empty cells in column " + columnIndex + ": " + emptyCellCount;
     }
