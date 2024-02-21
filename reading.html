@@ -279,8 +279,8 @@
 				var popupContent = ``;
 				popupContent += `
 					<p>
-						Author: ${table.rows[i].cells[4]} ${table.rows[i].cells[3]}
-	  					Published: ${table.rows[i].cells[5]}
+						Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
+	  					Published: ${table.rows[i].cells[5].textContent}
 					</p>
 	 			`;
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
