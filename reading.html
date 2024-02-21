@@ -273,11 +273,11 @@
 				const altA = a.cells[column].textContent;
 				const altB = b.cells[column].textContent;
 				if (a == "") {
-        			return 1; // Place empty string at the end
+        			return 1; 									// Place empty string at the end
     			} 
 				else if (b == "") {
-        			return -1; // Place empty string at the end
-    			} 
+        			return -1; 									// Place empty string at the end
+    			}
 				else {
 					if (column == 0 || column == 10) {			// If sorting chronologically, sort Z -> A to place most recent books first
 						return Number(altB) - Number(altA); 
@@ -293,7 +293,8 @@
 				}
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
-			images(table.rows.length)
+			images(10)
+			// images(table.rows.length)
 		}
 	</script>
 	
