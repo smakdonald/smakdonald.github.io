@@ -244,7 +244,7 @@
 		function images(cutoff) {
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
-			for (var i = 0; i < table.rows.length; i++) {					// Loop through the rows of the table
+			for (var i = emptyCellCount; i < table.rows.length; i++) {					// Loop through the rows of the table
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
 		    	var Content = '<img src="images/Book Covers/'+ path.textContent + '" alt="'+ title.textContent + '"title="' + path.textContent + '">';
