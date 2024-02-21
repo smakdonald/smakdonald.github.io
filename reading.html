@@ -295,7 +295,10 @@
         			return -1; 												// Place empty string at the end
     			}
 				else {
-					if (column == 0 || column == 10) {						// If sorting chronologically, sort Z -> A to place most recent books first
+					if (column == 0) {						// If sorting chronologically, sort Z -> A to place most recent books first
+						return Number(altB) - Number(altA); 
+					} 
+					else if (column == 10) {								// If sorting chronologically, sort Z -> A to place most recent books first
 						return Number(altB) - Number(altA); 
 					} 
 					else {
