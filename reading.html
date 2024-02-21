@@ -193,7 +193,7 @@
 					
 					<div class="image-container" id="bookContainer"></div>
 
-					<p>Enter the index of the column to count empty cells: <input type="number" id="columnIndex" min="1" max="3" value="1"></p>
+					<p>Enter the index of the column to count empty cells: <input type="number" id="columnIndex" min="0" max="6" value="1"></p>
 					<button onclick="countEmptyCells()">Count Empty Cells</button>
 
 <p id="result"></p>
@@ -323,7 +323,7 @@
 	        var emptyCellCount = 0;
 	
 	        for (var i = 0; i < rowCount; i++) {
-	            var cell = table.rows[i].cells[columnIndex - 1];
+	            var cell = table.rows[i].cells[columnIndex];
 	            if (!cell.innerHTML.trim()) {
 	                emptyCellCount++;
 	            }
