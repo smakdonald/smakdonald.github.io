@@ -359,11 +359,11 @@
 	    // Function to show the popup
 	    function showPopup(event) {
 	        var popup = document.getElementById("popup");
-	        var popupTitle = document.getElementById("title");
+	        var popupTitle = document.getElementById("popupTitle");
 	        var popupText = document.getElementById("popupText");
 	        
 	        // Set the title and text of the popup based on the data-popup-text attribute of the clicked image
-	        popupTitle.textContent = event.target.alt;
+	        popupTitle.textContent = event.target.title;
 	        popupText.textContent = event.target.getAttribute("data-popup-text");
 	
 	        popup.style.display = "block";
