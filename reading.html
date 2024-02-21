@@ -191,9 +191,6 @@
 						</tbody>
 					</table>
 
-					<p>Enter the index of the column to count empty cells: <input type="number" id="columnIndex" min="0" max="6" value="1"></p>
-					<button onclick="countEmptyCells()">Count Empty Cells</button>
-
 					<p id="result"></p>
 					
 					<div class="image-container" id="bookContainer"></div>
@@ -274,16 +271,15 @@
 	                emptyCellCount++;
 	            }
 	        }
-			document.getElementById("result").innerHTML = "Empty cells in column " + columnIndex + ": " + emptyCellCount;
 			return emptyCellCount
     	}
 	</script>
 	
 	<script>
-		function sortSelect() {									// When dropdown is selected, run the sort function
+		function sortSelect() {												// When dropdown is selected, run the sort function
 			sort(document.getElementById("tableSelector").value) 
 		}
-	  
+
 		function sort(column) {
 			const table = document.getElementById('myTable');
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
@@ -316,16 +312,10 @@
 			images(countEmptyCells(column))
 		}
 	</script>
-	
-	<script>
-		window.addEventListener('load', images(0);
-	</script>
 
 	<script>
-		images (0)
-	    // Get the selector element
-	    var selector = document.getElementById("tableSelector");
-	    // Set the selected index to 0 (which is the index of the first option)
+		images (0)   														// Get the selector element
+	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
   	</script>
 
