@@ -243,11 +243,7 @@
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
-		    	var Content = 	'<img src="images/Book Covers/' + path.textContent + ' 
-								"alt="'+ title.textContent + '
-								"title="' + path.textContent + '
-								"id="' + path.textContent + '
-								"style="cursor: pointer;">';
+		    	var Content = 	'<img src="images/Book Covers/' + path.textContent + ' "alt="'+ title.textContent + '"title="' + path.textContent + '"id="' + path.textContent + '"style="cursor: pointer;">';
 		    																	// Write the content of the <img> element so that it becomes the image
 				containerContent += `
 					<div class = image-item>
