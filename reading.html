@@ -275,14 +275,23 @@
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
-				var rowIndex = table.rows[i].cells[0];	
+				var rowIndex = table.rows[i].cells[0];
+				var popupContent = ``;
+				popupContent += `
+					<p>
+						Author: ${table.rows[i].cells[4]} ${table.rows[i].cells[3]}
+	  					Published: ${table.rows[i].cells[5]}
+					</p>
+	 			`;
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
 		    	var Content = '<img src="images/Book Covers/' + path.textContent 
 					+ '"alt="'+ title.textContent 
 					+ '"title="' 
 					+ path.textContent 
-					+ '"class="triggerImage" data-popup-text="Popup Text 1" style="cursor: pointer;">';
+					+ '"class="triggerImage" data-popup-text="'
+					+ popupContent
+					+ 'style="cursor: pointer;">';
 		    																	// Write the content of the <img> element so that it becomes the image
 				containerContent += `
 					<div class = image-item>
