@@ -280,7 +280,7 @@
 				var rowIndex = table.rows[i].cells[0];	
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
-		    	var Content = 	'<img src="images/Book Covers/' + path.textContent + ' "alt="'+ title.textContent + '"title="' + path.textContent + '"id="' + rowIndex.textContent + '"style="cursor: pointer;">';
+		    	var Content = '<img src="images/Book Covers/' + path.textContent + ' "alt="'+ title.textContent + '"title="' + path.textContent + '"id="' + rowIndex.textContent + 'class="triggerImage" data-popup-text="Popup Text 1" style="cursor: pointer;">';
 		    																	// Write the content of the <img> element so that it becomes the image
 				containerContent += `
 					<div class = image-item>
@@ -359,8 +359,16 @@
 
 	<script>
 	    // Function to show the popup
-	    function showPopup() {
-	        document.getElementById("popup").style.display = "block";
+	    function showPopup(event) {
+	        var popup = document.getElementById("popup");
+	        var popupTitle = document.getElementById("popupTitle");
+	        var popupText = document.getElementById("popupText");
+	        
+	        // Set the title and text of the popup based on the data-popup-text attribute of the clicked image
+	        popupTitle.textContent = event.target.alt;
+	        popupText.textContent = event.target.getAttribute("data-popup-text");
+	
+	        popup.style.display = "block";
 	    }
 	
 	    // Function to close the popup
@@ -368,8 +376,11 @@
 	        document.getElementById("popup").style.display = "none";
 	    }
 	
-	    // Attach click event listener to the trigger image
-	    document.getElementById("triggerImage").addEventListener("click", showPopup);
+	    // Attach click event listener to all images with the triggerImage class
+	    var images = document.querySelectorAll(".triggerImage");
+	    images.forEach(function(image) {
+	        image.addEventListener("click", showPopup);
+	    });
 	</script>
 
 	
