@@ -24,14 +24,22 @@
 		#myTable {
 			display: none;  /* Set display property to none to make the table invisible */
 		}
-    	popup-container {
+    	.parent-container {
+	        position: relative; /* Required for absolute positioning */
+	        display: inline-block; /* Ensure proper positioning of child elements */
+    	}
+
+	    /* Styling for the popup container */
+	    .popup-container {
 	        display: none;
-	        position: absolute; /* Position relative to the document */
-	        background-color: white;
-	        border: 1px solid #ccc;
+	        position: absolute; /* Position relative to the parent container */
+	        top: 50%; /* Center vertically */
+	        left: 50%; /* Center horizontally */
+	        transform: translate(-50%, -50%); /* Center the container */
+	        background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
 	        border-radius: 5px;
 	        padding: 20px;
-	        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	        box-sizing: border-box; /* Include padding in width and height */
 	        z-index: 9999;
 	        animation: fadeIn 0.3s ease-out;
 	    }
@@ -376,12 +384,7 @@
 	        
 	        // Set the title and text of the popup based on the data-popup-text attribute of the clicked image
 	        popupTitle.textContent = event.target.alt;
-	        popupText.innerHTML = event.target.getAttribute("data-popup-text");
-
-			// Position the popup relative to the clicked image
-	        popup.style.top = event.target.offsetTop + event.target.offsetHeight + "px";
-	        popup.style.left = event.target.offsetLeft + "px";
-	        
+	        popupText.innerHTML = event.target.getAttribute("data-popup-text");     
 			popup.style.display = "block";
 	    }
 	
