@@ -237,6 +237,7 @@
 					    <h2 id="popupTitle"></h2>
 					    <p id="popupText"></p>
 					</div>
+					<div class="popup-overlay" id="popupOverlay"></div>
 					
 					<div class="image-container" id="bookContainer"></div>
 
@@ -376,7 +377,7 @@
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
 			images(countEmptyCells(column))
-			
+			closePopup()
 			var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
 	        	picture.addEventListener("click", showPopup);
