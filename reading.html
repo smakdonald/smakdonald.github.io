@@ -404,7 +404,11 @@
 	    // Function to close the popup
 	    function closePopup() {
 	        document.getElementById("popup").style.display = "none";
-			document.getElementById("popupOverlay").style.display = "none";
+			var popupOverlay = document.getElementById("popupOverlay");
+			popupOverlay.style.display = "none";
+
+			// Remove click event listener from the overlay
+        	popupOverlay.removeEventListener("click", closePopup);
 	    }
 	
 	    // Attach click event listener to all images with the triggerImage class
