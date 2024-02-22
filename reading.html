@@ -307,7 +307,7 @@
 					<br>
 					Published: ${table.rows[i].cells[5].textContent}
 	 			`;
-				if (!table.rows[i].cells[6].innerHTML.trim()) {
+				if (table.rows[i].cells[6].innerHTML.trim()) {
 	                popupContent += `
 	  					<br>
 	  					Series: ${table.rows[i].cells[6].textContent} # ${table.rows[i].cells[7].textContent}
