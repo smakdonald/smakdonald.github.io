@@ -24,14 +24,15 @@
 		#myTable {
 			display: none;  /* Set display property to none to make the table invisible */
 		}
-	    .popup-container { /* Styling for the popup container */
+    	.popup-container {
 	        display: none;
 	        position: fixed;
 	        top: 50%;
 	        left: 50%;
 	        transform: translate(-50%, -50%);
-	        width: 300px;
-	        height: 200px;
+	        max-width: 80%; /* Set maximum width to prevent overly wide popups */
+	        max-height: 80%; /* Set maximum height to prevent overly tall popups */
+	        overflow: auto; /* Enable scrolling if content overflows */
 	        background-color: white;
 	        border: 1px solid #ccc;
 	        border-radius: 5px;
