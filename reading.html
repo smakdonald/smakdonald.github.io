@@ -402,6 +402,11 @@
 		images (0)   														// Get the selector element
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
+
+		var pictures = document.querySelectorAll(".triggerImage");
+	    	pictures.forEach(function(picture) {
+	        	picture.addEventListener("click", showPopup);
+	    	});
   	</script>
 </body>
 </html>
