@@ -301,6 +301,12 @@
 	  					Series: ${table.rows[i].cells[6].textContent} # ${table.rows[i].cells[7].textContent}
 	 				`;
 	            }
+				if (table.rows[i].cells[10].innerHTML.trim()) {
+	                popupContent += `
+	  					<br>
+	  					Word Count: ${table.rows[i].cells[10].textContent}
+	 				`;
+	            }
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
 		    	var Content = '<img src="images/Book Covers/' + path.textContent 
