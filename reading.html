@@ -24,15 +24,9 @@
 		#myTable {
 			display: none;  /* Set display property to none to make the table invisible */
 		}
-    	.popup-container {
+    	popup-container {
 	        display: none;
-	        position: fixed;
-	        top: 50%;
-	        left: 50%;
-	        transform: translate(-50%, -50%);
-	        max-width: 80%; /* Set maximum width to prevent overly wide popups */
-	        max-height: 80%; /* Set maximum height to prevent overly tall popups */
-	        overflow: auto; /* Enable scrolling if content overflows */
+	        position: absolute; /* Position relative to the document */
 	        background-color: white;
 	        border: 1px solid #ccc;
 	        border-radius: 5px;
@@ -383,7 +377,12 @@
 	        // Set the title and text of the popup based on the data-popup-text attribute of the clicked image
 	        popupTitle.textContent = event.target.alt;
 	        popupText.innerHTML = event.target.getAttribute("data-popup-text");
-	        popup.style.display = "block";
+
+			// Position the popup relative to the clicked image
+	        popup.style.top = event.target.offsetTop + event.target.offsetHeight + "px";
+	        popup.style.left = event.target.offsetLeft + "px";
+	        
+			popup.style.display = "block";
 	    }
 	
 	    // Function to close the popup
