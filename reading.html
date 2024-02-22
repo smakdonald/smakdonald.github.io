@@ -24,24 +24,33 @@
 		#myTable {
 			display: none;  /* Set display property to none to make the table invisible */
 		}
+		.popup-overlay {
+	        display: none;
+	        position: fixed; /* Position overlay relative to the viewport */
+	        top: 0;
+	        left: 0;
+	        width: 100%; /* Cover the entire viewport */
+	        height: 100%; /* Cover the entire viewport */
+	        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+	        z-index: 9998; /* Place the overlay behind the popup */
+	    }
 	    /* Styling for the popup container */
 	    .popup-container {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-		overflow: auto; /* Enable scrolling if content overflows */
-        width: 300px;
-        height: 200px;
-        background-color: white;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        z-index: 9999;
-        animation: fadeIn 0.3s ease-out;
-    }
+	        display: none;
+	        position: fixed;
+	        top: 50%;
+	        left: 50%;
+	        transform: translate(-50%, -50%);
+			overflow: auto; /* Enable scrolling if content overflows */
+	        width: 300px;
+	        height: 200px;
+	        background-color: white;
+	        border: 1px solid #ccc;
+	        border-radius: 5px;
+	        padding: 20px;
+	        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	        z-index: 9999;
+	        animation: fadeIn 0.3s ease-out;
 	    }
 	    @keyframes fadeIn {  /* Animation keyframes for fading in */
 	        from {
@@ -378,6 +387,7 @@
 	<script>
 	    // Function to show the popup
 	    function showPopup(event) {
+			var popupOverlay = document.getElementById("popupOverlay");
 	        var popup = document.getElementById("popup");
 	        var popupTitle = document.getElementById("popupTitle");
 	        var popupText = document.getElementById("popupText");
@@ -385,12 +395,15 @@
 	        // Set the title and text of the popup based on the data-popup-text attribute of the clicked image
 	        popupTitle.textContent = event.target.alt;
 	        popupText.innerHTML = event.target.getAttribute("data-popup-text");     
+			
 			popup.style.display = "block";
+			popupOverlay.style.display = "block";
 	    }
 	
 	    // Function to close the popup
 	    function closePopup() {
 	        document.getElementById("popup").style.display = "none";
+			document.getElementById("popupOverlay").style.display = "none";
 	    }
 	
 	    // Attach click event listener to all images with the triggerImage class
