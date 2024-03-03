@@ -443,7 +443,7 @@
 	        var emptyCellCount = 0;
 	        for (var i = 0; i < rowCount; i++) {
 	            var cell = table.rows[i].cells[column];
-	            if (!cell.innerHTML.trim() || table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
+	            if (!cell.innerHTML.trim()) {
 	                emptyCellCount++;
 	            }
 	        }
