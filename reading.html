@@ -21,8 +21,12 @@
 		width: 300px; /* Adjust the desired width */
 		height: 450px; /* Adjust the desired height */
 		}
+		table,
 		.tableView {
 	        display: none; /* Hide the table by default */
+			width: 100%; /* Set table width to 100% of its container */
+        	max-width: 80%; /* Set maximum width to 80% of the screen */
+        	border-collapse: collapse; /* Collapse table borders */
 	    }
 	    .tableView td:nth-child(2) { /* Hide the fourth column */
 	        display: none;
@@ -355,7 +359,7 @@
 	        var myTable = document.getElementById("myTable");
 	        var bookContainer = document.getElementById("bookContainer");
 	
-	        myTable.style.display = "table";
+	        myTable.style.display = "";
 	        bookContainer.style.display = "none";
 	    }
 	
