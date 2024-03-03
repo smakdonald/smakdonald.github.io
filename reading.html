@@ -494,6 +494,9 @@
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
 
+		var checkbox = document.getElementById("myCheckbox");
+        checkbox.checked = false; // Uncheck the checkbox
+
 		var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
 	        	picture.addEventListener("click", showPopup);
