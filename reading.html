@@ -88,16 +88,19 @@
 					<hr class="major" />
 
 					<label for="tableSelector">Sorting:</label>
-							<select id="tableSelector" onchange="sortSelect()">
-								<option value="0">Chronologically</option>
-								<option value="2">Title</option>
-								<option value="3">Author Last Name</option>
-								<option value="4">Author First Name</option>
-								<option value="5">Publication Date</option>
-								<option value="6">Series</option>
-								<option value="11">Page Count</option>
-								<option value="10">Word Count</option>
-							</select>
+						<select id="tableSelector" onchange="sortSelect()">
+							<option value="0">Chronologically</option>
+							<option value="2">Title</option>
+							<option value="3">Author Last Name</option>
+							<option value="4">Author First Name</option>
+							<option value="5">Publication Date</option>
+							<option value="6">Series</option>
+							<option value="11">Page Count</option>
+							<option value="10">Word Count</option>
+						</select>
+
+					<label for="myCheckbox">Show Short Fiction:</label>
+						<input type="checkbox" id="shortFiction" onclick="sortSelect()">
 
 					<!--
 					<label for="tableFilter">Sorting:</label>
@@ -301,9 +304,15 @@
 	
 	<script>
 		function images(cutoff) {
+			var checkbox = document.getElementById("shortFiction");
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
+				if (checkbox.checked) {
+					if (table.rows[i].cells[9].textContent == "Short Story" || table.rows[i].cells[9].textContent == "Novelette") {
+						continue;
+					}
+				}
 				var popupContent = ``;
 				popupContent += `
 					Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
