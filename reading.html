@@ -333,9 +333,9 @@
 	
 	<script>
 		function images(cutoff) {
-			var checkbox = document.getElementById("shortFiction");
-			var table = document.getElementById("myTable");						// Get the table
-			var containerContent = ``;											// Create a blank text container that the Content will go into						
+			var checkbox = document.getElementById("shortFiction");				// Check to see what filters have been selected
+			var table = document.getElementById("myTable");						// Get the table containing all the book info
+			var containerContent = ``;											// Create a blank container that the content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
 				if (!checkbox.checked) {
 					if (table.rows[i].cells[9].textContent == "Short Story" || table.rows[i].cells[9].textContent == "Novelette") {
@@ -360,6 +360,8 @@
 	 				`;
 	            }
 				popupContent += `
+					<br>
+	 				Length: ${table.rows[i].cells[9].textContent}
 					<br>
 					Page Count: ${table.rows[i].cells[11].textContent}
 	 			`;
