@@ -509,7 +509,6 @@
 			
 			popup.style.display = "block";
 			popupOverlay.style.display = "block";
-
 			popupOverlay.addEventListener("click", closePopup);
 	    }
 	
@@ -518,7 +517,6 @@
 	        document.getElementById("popup").style.display = "none";
 			var popupOverlay = document.getElementById("popupOverlay");
 			popupOverlay.style.display = "none";
-
 			// Remove click event listener from the overlay
         	popupOverlay.removeEventListener("click", closePopup);
 	    }
@@ -534,6 +532,11 @@
 		images (0)   														// Get the selector element
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
+
+		window.onload = function() {
+	        var checkbox = document.getElementById("shortFiction");
+	        checkbox.checked = false; // Uncheck the checkbox when the page loads
+	    };
 
 		var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
