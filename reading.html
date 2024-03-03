@@ -346,6 +346,14 @@
 	</div><!-- End Wrapper -->
 
 	<script>
+		window.onload = function() { // Function to be executed when the page loads
+	        showImageView(); // Call showImageView function to display image view by default
+			var checkbox = document.getElementById("shortFiction");
+	        checkbox.checked = false; // Uncheck the checkbox when the page loads
+	    };
+	</script>
+
+	<script>
 	    function showTableView() {
 	        var myTable = document.getElementById("myTable");
 	        var bookContainer = document.getElementById("bookContainer");
@@ -522,11 +530,6 @@
 		images (0)   														// Get the selector element
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
-
-		window.onload = function() {
-	        var checkbox = document.getElementById("shortFiction");
-	        checkbox.checked = false; // Uncheck the checkbox when the page loads
-	    };
 
 		var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
