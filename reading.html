@@ -21,9 +21,9 @@
 		width: 300px; /* Adjust the desired width */
 		height: 450px; /* Adjust the desired height */
 		}
-		#myTable {
-			display: none;  /* Set display property to none to make the table invisible */
-		}
+		.tableView {
+	        display: none; /* Hide the table by default */
+	    }
 		.popup-overlay {
 	        display: none;
 	        position: fixed; /* Position overlay relative to the viewport */
@@ -111,15 +111,15 @@
 					</p>
 
 					<form>
-					  <input type="radio" id="imageView" name="fav_language" value="HTML">
+					  <input type="radio" id="imageView" name="fav_language" value="HTML" onclick="showTableView()">
 					  <label for="imageView">Image View</label><br>
-					  <input type="radio" id="tableView" name="fav_language" value="CSS">
+					  <input type="radio" id="tableView" name="fav_language" value="CSS" onclick="showImageView()">
 					  <label for="tableView">Table View</label><br>
 					</form>
 
 					<br>
 					
-					<table id="myTable">
+					<table id="myTable" class="tableView">
 						<tbody>
 							<!-- Books Read in 2024 -->
 							<!-- 0 -->			<!-- 1 -->										<!-- 2 --> 																							<!-- 3 -->			<!-- 4 -->				<!-- 5 -->		<!-- 6 -->										<!-- 7 -->	<!-- 8 -->			<!-- 9 -->				<!-- 10 -->		<!-- 11 -->
@@ -291,6 +291,7 @@
 					    <h2 id="popupTitle"></h2>
 					    <p id="popupText"></p>
 					</div>
+					
 					<div class="popup-overlay" id="popupOverlay"></div>
 					
 					<div class="image-container" id="bookContainer"></div>
@@ -337,6 +338,24 @@
 			</div><!-- End Inner Sidebar -->
 		</div><!-- End Sidebar -->
 	</div><!-- End Wrapper -->
+
+	<script>
+	    function showTableView() {
+	        var myTable = document.getElementById("myTable");
+	        var bookContainer = document.getElementById("bookContainer");
+	
+	        myTable.style.display = "table";
+	        bookContainer.style.display = "none";
+	    }
+	
+	    function showImageView() {
+	        var myTable = document.getElementById("myTable");
+	        var bookContainer = document.getElementById("bookContainer");
+	
+	        myTable.style.display = "none";
+	        bookContainer.style.display = "block";
+	    }
+	</script>
 	
 	<script>
 		function images(cutoff) {
