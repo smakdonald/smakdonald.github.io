@@ -495,8 +495,10 @@
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
 
-		var checkbox = document.getElementById("shortFiction");
-        checkbox.checked = false; // Uncheck the checkbox
+		window.onload = function() {
+	        var checkbox = document.getElementById("myCheckbox");
+	        checkbox.checked = false; // Uncheck the checkbox when the page loads
+	    };
 
 		var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
