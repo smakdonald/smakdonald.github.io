@@ -436,12 +436,12 @@
         			return -1; 												// Place empty string at the end
     			}
 				else {
-					if (column == 0 || column == 11) {						// If sorting chronologically, sort Z -> A to place most recent books first
+					if (column == 0 || column == 9 || column == 11) {		// If sorting chronologically, sort Z -> A to place most recent books first
 						return parseFloat(altB) - parseFloat(altA); 
 					} 
 					else {
 						if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
-							return parseFloat(altA) - parseFloat(altB); 			// If both are numbers, sort numerically
+							return parseFloat(altA) - parseFloat(altB); 	// If both are numbers, sort numerically
 						} 
 						else {
 							return altA.localeCompare(altB); 				// Otherwise, sort alphabetically
