@@ -122,8 +122,8 @@
 							<tr> <td>152</td> 	<td>Chiang-Its-2059.webp</td>					<td>“It’s 2059, and the Rich Kids Are Still Winning“</td> 											<td>Chiang</td> 	<td>Ted</td> 			<td>2019</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td></td>		<td></td> 		</tr>
 							<tr> <td>151</td> 	<td>Chambers-Small-Angry-Planet.jpg</td>		<td>The Long Way to a Small Angry Planet</td> 														<td>Chambers</td> 	<td>Becky</td> 	    	<td>2014</td> 	<td>Wayfarers</td>								<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td>		<td>443</td> 	</tr>
 							<tr> <td>150</td> 	<td>Wells-Fugitive-Telemetry.jpg</td>			<td>Fugitive Telemetry</td> 							               								<td>Wells</td> 		<td>Martha</td> 	    <td>2021</td> 	<td>The Murderbot Diaries</td>					<td>6</td> 	<td>Audiobook</td> 	<td>Novella</td> 		<td></td> 		<td>168</td> 	</tr>	
-							<tr> <td>149</td> 	<td>Pullman-Subtle-Knife.jpg</td>				<td>The Subtle Knife</td> 																			<td>Pullman</td> 	<td>Philip</td> 	    <td>1997</td> 	<td>His Dark Materials</td>						<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>109120</td>	<td>352</td> 	</tr>
-							<tr> <td>148</td> 	<td>Adeyemi-Children-of-Blood-and-Bone.jpg</td>	<td>Children of Blood and Bone</td> 																<td>Adeyemi</td> 	<td>Tomi</td> 	    	<td>2018</td> 	<td>Legacy of Orïsha trilogy</td>				<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>135102</td> <td>531</td> 	</tr>	
+							<tr> <td>149</td> 	<td>Pullman-Subtle-Knife.jpg</td>				<td>The Subtle Knife</td> 																			<td>Pullman</td> 	<td>Philip</td> 	    <td>1997</td> 	<td>His Dark Materials</td>						<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>109,120</td><td>352</td> 	</tr>
+							<tr> <td>148</td> 	<td>Adeyemi-Children-of-Blood-and-Bone.jpg</td>	<td>Children of Blood and Bone</td> 																<td>Adeyemi</td> 	<td>Tomi</td> 	    	<td>2018</td> 	<td>Legacy of Orïsha trilogy</td>				<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>135,102</td><td>531</td> 	</tr>	
 							<tr> <td>147</td> 	<td></td>										<td>“Mr. Death“</td> 																				<td>Harrow</td> 	<td>Alix E.</td> 		<td>2021</td> 	<td></td>										<td></td> 	<td>Audio</td> 		<td>Short Story</td> 	<td>5118</td>	<td></td> 		</tr>
 							<tr> <td>146</td> 	<td>Scalzi-Redshirts.jpeg</td>					<td>Redshirts</td> 							    													<td>Scalzi</td> 	<td>John</td> 	    	<td>2012</td> 	<td></td>										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>320</td> 	</tr>	
 							<tr> <td>145</td> 	<td>Sanderson-Yumi.jpg</td>						<td>Yumi and the Nightmare Painter</td> 							    							<td>Sanderson</td> 	<td>Brandon</td> 	    <td>2023</td> 	<td></td>										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>474</td> 	</tr>	
@@ -428,11 +428,11 @@
     			}
 				else {
 					if (column == 0 || column == 11) {						// If sorting chronologically, sort Z -> A to place most recent books first
-						return Number(altB) - Number(altA); 
+						return Number(altB.replace(/,/g, "")) - Number(altA.replace(/,/g, "")); 
 					} 
 					else {
 						if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
-							return Number(altA) - Number(altB); 			// If both are numbers, sort numerically
+							return Number(altA.replace(/,/g, "")) - Number(altB.replace(/,/g, "")); 			// If both are numbers, sort numerically
 						} 
 						else {
 							return altA.localeCompare(altB); 				// Otherwise, sort alphabetically
