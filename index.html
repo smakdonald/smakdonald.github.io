@@ -114,7 +114,13 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/leader-line.min.js"></script>
 		<script>
-			new LeaderLine(LeaderLine.mouseHoverAnchor(mac), Sam);
+			new LeaderLine(
+				LeaderLine.mouseHoverAnchor(mac), 
+				LeaderLine.pointAnchor(Sam, {
+			    	x: 170,
+			    	y: 300
+			  	}),
+			);
 		</script>
 	</body>
 </html>
