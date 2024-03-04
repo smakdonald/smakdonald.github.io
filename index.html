@@ -114,16 +114,15 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/leader-line.min.js"></script>
 		<script>
-			var line
 			new LeaderLine(
 				LeaderLine.mouseHoverAnchor(man), 
 				LeaderLine.pointAnchor(Sam, {
 			    	x: 210,
 			    	y: 284
 			  	}),
-				{color: '#f56a6a', 
-				 size: 10, 
-				 setOptions({endSocket: 'top'});
+				{color: '#f56a6a'}; 
+				{size: 10};
+				{setOptions({startSocket: 'auto', endSocket: 'top'});
 			});
 			new LeaderLine(
 				LeaderLine.mouseHoverAnchor(myth), 
@@ -131,8 +130,7 @@
 			    	x: 170,
 			    	y: 265
 			  	}),
-				{color: '#f56a6a', 
-				 size: 10, 
+				{color: '#f56a6a' 
 			});
 			new LeaderLine(
 				LeaderLine.mouseHoverAnchor(mac), 
@@ -140,8 +138,7 @@
 			    	x: 170,
 			    	y: 300
 			  	}),
-				{color: '#f56a6a', 
-				 size: 10, 
+				{color: '#f56a6a'
 			});
 		</script>
 	</body>
