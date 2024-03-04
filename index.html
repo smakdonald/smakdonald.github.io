@@ -114,7 +114,7 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/leader-line.min.js"></script>
 		<script>
-			new LeaderLine(
+			var line1 = new LeaderLine(
 				LeaderLine.mouseHoverAnchor(man), 
 				LeaderLine.pointAnchor(Sam, {
 			    	x: 210,
@@ -123,6 +123,7 @@
 				{color: '#f56a6a',
 				 size: 8
 			});
+			line1.line.setOptions({startSocket: 'auto', endSocket: 'top'});
 			new LeaderLine(
 				LeaderLine.mouseHoverAnchor(myth), 
 				LeaderLine.pointAnchor(Sam, {
