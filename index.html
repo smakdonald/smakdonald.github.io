@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://kit.fontawesome.com/9983334911.js" crossorigin="anonymous"></script>
+		<script src="leader-line.min.js"></script>
 	</head>
 	<body class="is-preload"><!--style="background-color:#EDE7F6;"-->
 		<div id="wrapper"><!-- Wrapper -->
@@ -28,9 +29,9 @@
 					<section id="banner"><!-- Section -->
 						<div class="content"><!-- Content -->
 							<header>
-								<h3 style="text-align:center">The Man</h3>
-								<h2 style="text-align:center">The Myth</h2>
-								<h1 style="text-align:center">The Mac</h1>
+								<h3 id="man" style="text-align:center">The Man</h3>
+								<h2 id="myth" style="text-align:center">The Myth</h2>
+								<h1 id="mac" style="text-align:center">The Mac</h1>
 							</header>
 																	
 							<p>
@@ -53,7 +54,7 @@
 								Outside of math, you will probably find me <a href="climb.html">climbing</a>, <a href="reading.html">reading</a> by the lake (weather permitting), or neglecting my <a href="cats.html">cats</a>.
 							</p>
 							
-							<p>
+							<p id="construction" class = "text">
 								This site is still heavily under construction, so what works works and what doesn't doesn't!
 							</p>
 							
@@ -111,5 +112,8 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script>
+			new LeaderLine(LeaderLine.mouseHoverAnchor(mac), construction);
+		</script>
 	</body>
 </html>
