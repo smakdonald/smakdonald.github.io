@@ -98,6 +98,12 @@
 						</select>
 					<br>
 
+					<label for="authorSelector">Sorting:</label>
+						<select id="authorSelector" onchange="sortSelect()">
+							<option value="">Select an option</option>
+						</select>
+					<br>
+
 					<p>
 						To view short fiction, please use the table view.
 					</p>
@@ -116,7 +122,7 @@
 							<tr> <td>151</td> 	<td>Chambers-Small-Angry-Planet.jpg</td>		<td>The Long Way to a Small Angry Planet</td> 														<td>Chambers</td> 	<td>Becky</td> 	    	<td>2014</td> 	<td>Wayfarers</td>								<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td>		<td>443</td> 	</tr>
 							<tr> <td>150</td> 	<td>Wells-Fugitive-Telemetry.jpg</td>			<td>Fugitive Telemetry</td> 							               								<td>Wells</td> 		<td>Martha</td> 	    <td>2021</td> 	<td>The Murderbot Diaries</td>					<td>6</td> 	<td>Audiobook</td> 	<td>Novella</td> 		<td></td> 		<td>168</td> 	</tr>	
 							<tr> <td>149</td> 	<td>Pullman-Subtle-Knife.jpg</td>				<td>The Subtle Knife</td> 																			<td>Pullman</td> 	<td>Philip</td> 	    <td>1997</td> 	<td>His Dark Materials</td>						<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>109120</td>	<td>352</td> 	</tr>
-							<tr> <td>148</td> 	<td>Adeyemi-Children-of-Blood-and-Bone.jpg</td>	<td>Children of Blood and Bone</td> 																<td>Adeyemi</td> 	<td>Tomi</td> 	    	<td>2018</td> 	<td>Legacy of Orïsha trilogy</td>				<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>135102</td> <td>531</td> 	</tr>	
+							<tr> <td>148</td> 	<td>Adeyemi-Children-of-Blood-and-Bone.jpg</td>	<td>Children of Blood and Bone</td> 																<td>Adeyemi</td> 	<td>Tomi</td> 	    	<td>2018</td> 	<td>Legacy of Orïsha</td>						<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>135102</td> <td>531</td> 	</tr>	
 							<tr> <td>147</td> 	<td></td>										<td>“Mr. Death“</td> 																				<td>Harrow</td> 	<td>Alix E.</td> 		<td>2021</td> 	<td></td>										<td></td> 	<td>Audio</td> 		<td>Short Story</td> 	<td>5118</td>	<td></td> 		</tr>
 							<tr> <td>146</td> 	<td>Scalzi-Redshirts.jpeg</td>					<td>Redshirts</td> 							    													<td>Scalzi</td> 	<td>John</td> 	    	<td>2012</td> 	<td></td>										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>320</td> 	</tr>	
 							<tr> <td>145</td> 	<td>Sanderson-Yumi.jpg</td>						<td>Yumi and the Nightmare Painter</td> 							    							<td>Sanderson</td> 	<td>Brandon</td> 	    <td>2023</td> 	<td></td>										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>474</td> 	</tr>	
@@ -390,6 +396,40 @@
 	        }
 			return emptyCellCount
     	}
+
+		function countAuthor(author) {
+	        var table = document.getElementById("myTable");
+	        var rowCount = table.rows.length;
+	        var authorCellCount = 0;
+	        for (var i = 0; i < rowCount; i++) {
+	            var cell = table.rows[i].cells[3];
+	            if (cell.innerHTML == author) {
+	                authorCellCount++;
+	            }
+	        }
+			return authorCellCount
+    	}
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function() {
+			var table = document.getElementById("myTable");
+			var dropdown = document.getElementById("authorSelect");
+			var addedEntries = {};
+	
+			for (var i = 1; i < table.rows.length; i++) {
+				var row = table.rows[i];
+				var entry = row.cells[3].textContent.trim(); // Get text content of the second column cell
+	
+				// Skip if entry is already added
+				if (!addedEntries[entry]) {
+					var option = document.createElement("option");
+					option.text = entry;
+					option.value = 3;
+					dropdown.add(option);
+					addedEntries[entry] = true;
+				}
+			}
+		});
 	</script>
 	
 	<script>
@@ -432,6 +472,9 @@
 	    	});
 		}
 	</script>
+
+<!-- Popup Functions -->
+	
 	<script>
 	    // Function to show the popup
 	    function showPopup(event) {
