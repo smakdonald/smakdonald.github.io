@@ -123,13 +123,11 @@
 				{color: '#f56a6a',
 				 size: 8,
 				 dropShadow: true
+				}
 			);
 			line1.setOptions({startSocket: 'auto', endSocket: 'left'});
 			var line2 = new LeaderLine(
-				LeaderLine.mouseHoverAnchor(myth, {
-					x: 240,
-			    	y: 50
-				}), 
+				LeaderLine.mouseHoverAnchor(myth), 
 				LeaderLine.pointAnchor(Sam, {
 			    	x: 170,
 			    	y: 280
@@ -137,7 +135,8 @@
 				{color: '#f56a6a',
 				 size: 12,
 				 dropShadow: true
-			});
+				}
+			);
 			var line3 = new LeaderLine(
 				LeaderLine.mouseHoverAnchor(mac), 
 				LeaderLine.pointAnchor(Sam, {
@@ -147,7 +146,8 @@
 				{color: '#f56a6a',
 				 size: 16,
 				 dropShadow: true
-			});
+				}
+			);
 		</script>
 	</body>
 </html>
