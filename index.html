@@ -126,7 +126,10 @@
 			});
 			line1.setOptions({startSocket: 'auto', endSocket: 'top'});
 			new LeaderLine(
-				LeaderLine.mouseHoverAnchor(myth), 
+				LeaderLine.mouseHoverAnchor(myth, {
+					x: 240,
+			    	y: 50
+				}), 
 				LeaderLine.pointAnchor(Sam, {
 			    	x: 170,
 			    	y: 280
