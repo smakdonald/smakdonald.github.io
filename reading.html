@@ -335,7 +335,7 @@
 				var row = table.rows[i];
 				/* ----- Filters ----- */
 				if (authorFilter !== 'Select an option') {
-					console.log("Author Filter is correct.");
+					console.log(authorFilter);
 					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter) {
 						continue
 					}
