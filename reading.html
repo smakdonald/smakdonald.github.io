@@ -354,10 +354,12 @@
 	  					Series: ${table.rows[i].cells[6].textContent} # ${table.rows[i].cells[7].textContent}
 	 				`;
 	            }
-				popupContent += `
-					<br>
-					Page Count: ${table.rows[i].cells[11].textContent}
-	 			`;
+				if (table.rows[i].cells[11].innerHTML.trim()) {
+					popupContent += `
+						<br>
+						Page Count: ${table.rows[i].cells[11].textContent}
+		 			`;
+				}
 				if (table.rows[i].cells[10].innerHTML.trim()) {
 	                popupContent += `
 	  					<br>
