@@ -100,7 +100,7 @@
 					<br>
 
 					<label for="authorSelector">Filter by Author:</label>
-						<select id="authorSelector">
+						<select id="authorSelector" onchange="sortSelect()">
 							<option value="">Select an option</option>
 						</select>
 					<br>
@@ -278,9 +278,10 @@
 					    <h2 id="popupTitle"></h2>
 					    <p id="popupText"></p>
 					</div>
+					
 					<div class="popup-overlay" id="popupOverlay"></div>
 					
-					<div class="image-container" id="bookContainer"></div>
+					<div class="image-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
@@ -407,35 +408,9 @@
 			return authorCellCount
     	}
 	</script>
-
-	<script>
-	    document.addEventListener("DOMContentLoaded", function() {
-	        var table = document.getElementById("myTable");
-	        var dropdown = document.getElementById("dropdown");
-	        var addedEntries = {};
-	
-	        // Collect entries from the table
-	        for (var i = 1; i < table.rows.length; i++) {
-	            var row = table.rows[i];
-	            var entry = row.cells[1].textContent.trim() + ', ' + row.cells[0].textContent.trim(); // Concatenate cell values
-	            addedEntries[entry] = true; // Add to added entries object
-	        }
-	
-	        // Sort entries alphabetically
-	        var sortedEntries = Object.keys(addedEntries).sort();
-	
-	        // Add sorted entries to the dropdown
-	        sortedEntries.forEach(function(entry) {
-	            var option = document.createElement("option");
-	            option.text = entry;
-	            option.value = entry;
-	            dropdown.add(option);
-	        });
-	    });
-	</script>
 	
 	<script>
-	    document.addEventListener("DOMContentLoaded", function() {
+	    document.addEventListener("DOMContentLoaded", function() { // Function that populates the authorSelector dropdown with each author
 	        var table = document.getElementById("myTable");
 	        var dropdown = document.getElementById("authorSelector");
 	        var addedEntries = {};
@@ -454,7 +429,7 @@
 	        sortedEntries.forEach(function(entry) {
 	            var option = document.createElement("option");
 	            option.text = entry;
-	            option.value = entry;
+	            option.value = 3;
 	            dropdown.add(option);
 	        });
 	    });
