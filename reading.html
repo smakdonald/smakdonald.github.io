@@ -327,20 +327,25 @@
 	</div><!-- End Wrapper -->
 
 	<script>
-		function images(cutoff) {
+		function images() {
 			var table = document.getElementById("myTable");						// Get the table
-			//var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortFilter = sortSelect.options[sortIndex].text;
+			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortColumn = sortSelect.options[sortIndex].value;
 			var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
-			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
+			for (var i; i < table.rows.length; i++) {							// Loop through the rows of the table
 				var row = table.rows[i];
 				/* ----- Filters ----- */
+				if (sortColumn !== '') {			
+					var cell = table.rows[i].cells[sortColumn];
+	            	if (!cell.innerHTML.trim()) {
+						continue
+					}
+				}
 				if (authorFilter !== 'Select an option') {						// When the 'Select an option' option is selected there is no filter
 					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter) {
 						continue
 					}
 				}
-				
 				// Does not display novelettes or short stories in image container
 				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
 					continue
@@ -484,7 +489,7 @@
 				}
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
-			images(countEmptyCells(column))
+			images()
 			var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
 	        	picture.addEventListener("click", showPopup);
