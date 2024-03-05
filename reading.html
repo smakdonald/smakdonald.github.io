@@ -96,18 +96,13 @@
 							<option value="11">Page Count</option>
 							<option value="10">Word Count</option>
 						</select>
+					
 					<br>
 
 					<label for="authorSelector">Filter by Author:</label>
 						<select id="authorSelector">
 							<option value="">Select an option</option>
 						</select>
-					<br>
-
-					<p>
-						To view short fiction, please use the table view.
-					</p>
-
 					<br>
 
 					<table id="myTable">
@@ -277,6 +272,7 @@
 							<tr> <td>1</td> 	<td>Sanderson-Mistborn.jpg</td>					<td>Mistborn</td> 																					<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn</td> 								<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210103</td>	<td>669</td> 	</tr>
 						</tbody>
 					</table>
+					
 					<div id="popup" class="popup-container">
 					    <span class="close-btn" onclick="closePopup()">X</span>
 					    <h2 id="popupTitle"></h2>
@@ -327,7 +323,7 @@
 			</div><!-- End Inner Sidebar -->
 		</div><!-- End Sidebar -->
 	</div><!-- End Wrapper -->
-	
+
 	<script>
 		function images(cutoff) {
 			var table = document.getElementById("myTable");						// Get the table
@@ -376,12 +372,12 @@
 	 				<p style="text-align:center"><b>${title.textContent}</b></p>
 					</div>
 				`;																// Write the text that will be added to <div class=image-container> 
-		   
 		    	var bookContainer = document.getElementById("bookContainer");
 		      	bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
 		 	}
 		}
 	</script>
+	
 	<script>
 	    function countEmptyCells(column) {
 	        var table = document.getElementById("myTable");
@@ -408,7 +404,8 @@
 	        }
 			return authorCellCount
     	}
-
+	</script>
+	
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var table = document.getElementById("myTable");
@@ -430,6 +427,7 @@
 			}
 		});
 	</script>
+	
 	
 	<script>
 		function sortSelect() {												// When dropdown is selected, run the sort function
