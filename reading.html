@@ -407,32 +407,58 @@
 			return authorCellCount
     	}
 	</script>
+
+	<script>
+	    document.addEventListener("DOMContentLoaded", function() {
+	        var table = document.getElementById("myTable");
+	        var dropdown = document.getElementById("dropdown");
+	        var addedEntries = {};
+	
+	        // Collect entries from the table
+	        for (var i = 1; i < table.rows.length; i++) {
+	            var row = table.rows[i];
+	            var entry = row.cells[1].textContent.trim() + ', ' + row.cells[0].textContent.trim(); // Concatenate cell values
+	            addedEntries[entry] = true; // Add to added entries object
+	        }
+	
+	        // Sort entries alphabetically
+	        var sortedEntries = Object.keys(addedEntries).sort();
+	
+	        // Add sorted entries to the dropdown
+	        sortedEntries.forEach(function(entry) {
+	            var option = document.createElement("option");
+	            option.text = entry;
+	            option.value = entry;
+	            dropdown.add(option);
+	        });
+	    });
+	</script>
 	
 	<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var table = document.getElementById("myTable");
-        var dropdown = document.getElementById("authorSelector");
-        var entries = [];
-
-        // Collect entries from the table
-        for (var i = 1; i < table.rows.length; i++) {
-            var row = table.rows[i];
-            var entry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); // Concatenate cell values
-            entries.push(entry);
-        }
-
-        // Sort entries alphabetically
-        entries.sort();
-
-        // Add sorted entries to the dropdown
-        entries.forEach(function(entry) {
-            var option = document.createElement("option");
-            option.text = entry;
-            option.value = entry;
-            dropdown.add(option);
-        });
-    });
-</script>
+	    document.addEventListener("DOMContentLoaded", function() {
+	        var table = document.getElementById("myTable");
+	        var dropdown = document.getElementById("authorSelector");
+	        var addedEntries = {};
+	
+	        // Collect entries from the table
+	        for (var i = 1; i < table.rows.length; i++) {
+	            var row = table.rows[i];
+	            var entry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); // Concatenate cell values
+	            addedEntries[entry] = true; // Add to added entries object
+	        }
+	
+	        // Sort entries alphabetically
+	        var sortedEntries = Object.keys(addedEntries).sort();
+	
+	        // Add sorted entries to the dropdown
+	        sortedEntries.forEach(function(entry) {
+	            var option = document.createElement("option");
+	            option.text = entry;
+	            option.value = entry;
+	            dropdown.add(option);
+	        });
+	    });
+	</script>
 	
 	
 	<script>
