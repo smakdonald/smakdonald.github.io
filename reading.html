@@ -409,27 +409,30 @@
 	</script>
 	
 	<script>
-		document.addEventListener("DOMContentLoaded", function() {
-	        var table = document.getElementById("myTable");
-	        var dropdown = document.getElementById("authorSelector");
-	        var entries = [];
+    document.addEventListener("DOMContentLoaded", function() {
+        var table = document.getElementById("myTable");
+        var dropdown = document.getElementById("authorSelector");
+        var entries = [];
 
-			for (var i = 1; i < table.rows.length; i++) {
-	            var entry = table.rows[i].cells[3].textContent.trim(); // Get text content of the second column cell
-	            entries.push(entry);
-	        }
+        // Collect entries from the table
+        for (var i = 1; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var entry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); // Concatenate cell values
+            entries.push(entry);
+        }
 
-			// Sort entries alphabetically
-	        entries.sort();
+        // Sort entries alphabetically
+        entries.sort();
 
-			entries.forEach(function(entry) {
-	            var option = document.createElement("option");
-	            option.text = entry;
-	            option.value = 3;
-	            dropdown.add(option);
-	        });
-		});
-	</script>
+        // Add sorted entries to the dropdown
+        entries.forEach(function(entry) {
+            var option = document.createElement("option");
+            option.text = entry;
+            option.value = entry;
+            dropdown.add(option);
+        });
+    });
+</script>
 	
 	
 	<script>
