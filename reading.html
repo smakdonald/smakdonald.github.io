@@ -410,9 +410,9 @@
 	
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
-			var table = document.getElementById("myTable");
-			var dropdown = document.getElementById("authorSelector");
-			var addedEntries = {};
+	        var table = document.getElementById("myTable");
+	        var dropdown = document.getElementById("dropdown");
+	        var entries = [];
 
 			for (var i = 1; i < table.rows.length; i++) {
 	            var entry = table.rows[i].cells[3].textContent.trim(); // Get text content of the second column cell
