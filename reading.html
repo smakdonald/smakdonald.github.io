@@ -329,7 +329,8 @@
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
-				var popupContent = ``;
+				/* ----- Popup Content ----- */
+				var popupContent = ``;											// Create empty container that will contain the data for the popup window
 				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
 					continue
 				}
@@ -356,6 +357,7 @@
 	  					Word Count: ${table.rows[i].cells[10].textContent}
 	 				`;
 	            }
+				/* ----- Image Content ----- */
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
 		    	var Content = '<img src="images/Book Covers/' + path.textContent 
@@ -371,7 +373,7 @@
 					${Content}
 	 				<p style="text-align:center"><b>${title.textContent}</b></p>
 					</div>
-				`;																// Write the text that will be added to <div class=image-container> 
+				`;															// Write the text that will be added to <div class=image-container> 
 		    	var bookContainer = document.getElementById("bookContainer");
 		      	bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
 		 	}
@@ -411,20 +413,21 @@
 			var table = document.getElementById("myTable");
 			var dropdown = document.getElementById("authorSelector");
 			var addedEntries = {};
-	
+
 			for (var i = 1; i < table.rows.length; i++) {
-				var row = table.rows[i];
-				var entry = row.cells[3].textContent.trim(); // Get text content of the author last column cell
-	
-				// Skip if entry is already added
-				if (!addedEntries[entry]) {
-					var option = document.createElement("option");
-					option.text = entry;
-					option.value = 3;
-					dropdown.add(option);
-					addedEntries[entry] = true;
-				}
-			}
+	            var entry = table.rows[i].cells[3].textContent.trim(); // Get text content of the second column cell
+	            entries.push(entry);
+	        }
+
+			// Sort entries alphabetically
+	        entries.sort();
+
+			entries.forEach(function(entry) {
+	            var option = document.createElement("option");
+	            option.text = entry;
+	            option.value = 3;
+	            dropdown.add(option);
+	        });
 		});
 	</script>
 	
