@@ -330,6 +330,7 @@
 		function images() {
 			var table = document.getElementById("myTable");						// Get the table
 			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortColumn = sortSelect.options[sortIndex].value;
+			console.log(sortColumn);
 			var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i; i < table.rows.length; i++) {							// Loop through the rows of the table
