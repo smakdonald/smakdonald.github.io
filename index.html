@@ -115,14 +115,16 @@
 		<script src="assets/js/leader-line.min.js"></script>
 		<script>
 			var line1 = new LeaderLine(
-			    document.querySelector('.man'),
-			    document.querySelector('.Sam')
-				).pointAnchor(240, 50) // x = 100, y = 200 for the start object
-			 	.mouseHoverAnchor(
-			    document.querySelector('.mouseHoverAnchorStart')
-				).pointAnchor(208, 244) // x = 300, y = 400 for the end object
+			    LeaderLine.mouseHoverAnchor(man), 
+				LeaderLine.pointAnchor(Sam, {
+			    	x: 170,
+			    	y: 280
+			  	}),
+				{color: '#f56a6a',
+				 size: 8,
+				 dropShadow: true
 			);
-			line1.setOptions({startSocket: 'auto', endSocket: 'top'});
+			line1.setOptions({startSocket: 'auto', endSocket: 'left'});
 			var line2 = new LeaderLine(
 				LeaderLine.mouseHoverAnchor(myth, {
 					x: 240,
@@ -134,7 +136,7 @@
 			  	}),
 				{color: '#f56a6a',
 				 size: 12,
-				 backgroundColor: "white"
+				 dropShadow: true
 			});
 			var line3 = new LeaderLine(
 				LeaderLine.mouseHoverAnchor(mac), 
