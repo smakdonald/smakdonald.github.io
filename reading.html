@@ -332,6 +332,7 @@
 			var authorFilter = document.getElementById("authorSelector").text;
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
+				var row = table.rows[i];
 				/* ----- Filters ----- */
 				if (authorFilter !== 'Select an option') {
 					console.log("Author Filter is correct.");
