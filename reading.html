@@ -334,8 +334,10 @@
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
 				var row = table.rows[i];
 				/* ----- Filters ----- */
-				if (authorFilter === undefined) {
+				if (authorFilter === undefined) {								// When the 'Select an option' option is selected there is no filter
+					console.log(authorFilter);
 					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter) {
+						console.log(row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim());
 						continue
 					}
 				}
