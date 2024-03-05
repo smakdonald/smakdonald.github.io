@@ -21,6 +21,11 @@
 		width: 300px; /* Adjust the desired width */
 		height: 450px; /* Adjust the desired height */
 		}
+		.table {
+			width: 100%;
+			max-width: 100%;
+			border-collapse: collapse;
+		}
 		#myTable {
 			display: none;  /* Set display property to none to make the table invisible */
 		}
@@ -282,10 +287,14 @@
 					
 					<div class="popup-overlay" id="popupOverlay"></div>
 					
+					
 					<div class="image-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
-					<table id="shortFiction">
-						<!-- Table content will be generated here -->
-					<table>
+					
+					<div style="overflow-x: auto;">
+						<table id="shortFiction">
+							<!-- Table content will be generated here -->
+						<table>
+					</div>
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
