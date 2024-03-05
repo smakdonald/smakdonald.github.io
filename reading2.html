@@ -18,19 +18,12 @@
 		}
 		.image-item img {
 			max-width: 100%;
-			width: 300px; /* Adjust the desired width */
-			height: 450px; /* Adjust the desired height */
+		width: 300px; /* Adjust the desired width */
+		height: 450px; /* Adjust the desired height */
 		}
-		.tableView {
-	        display: none; /* Hide the table by default */
-			width: 100%; /* Set table width to 100% of its container */
-        	max-width: 80%; /* Set maximum width to 80% of the screen */
-        	border-collapse: collapse; /* Collapse table borders */
-	    }
-		.tableView td:nth-child(2), /* Hide the second column */
-	    .tableView td:nth-child(8) { /* Hide the fourth column */
-	        display: none;
-	    }
+		#myTable {
+			display: none;  /* Set display property to none to make the table invisible */
+		}
 		.popup-overlay {
 	        display: none;
 	        position: fixed; /* Position overlay relative to the viewport */
@@ -91,9 +84,7 @@
 				<!-- Content -->
 				<section><!-- Reading Section -->
 					<header class="main"><h1>Reading</h1></header>
-
 					<hr class="major" />
-
 					<label for="tableSelector">Sorting:</label>
 						<select id="tableSelector" onchange="sortSelect()">
 							<option value="0">Chronologically</option>
@@ -105,45 +96,28 @@
 							<option value="11">Page Count</option>
 							<option value="10">Word Count</option>
 						</select>
-
+					
 					<br>
 
-					<!--
-
-					<form>
-						<input type="checkbox" id="shortFiction" onclick="sortSelect()">
-						<label for="shortFiction">Show Short Fiction:</label>
-					</form> 
-
-					
-
-					<p>
-						To view short fiction, please use the table view.
-					</p>
-
-					<form>
-					  <input type="radio" id="imageView" onclick="showImageView()" checked>
-					  <label for="imageView">Image View</label><br>
-					  <input type="radio" id="tableView" onclick="showTableView()">
-					  <label for="tableView">Table View</label><br>
-					</form>
-
+					<label for="authorSelector">Filter by Author:</label>
+						<select id="authorSelector" onchange="sortSelect()">
+							<option value="">Select an option</option>
+						</select>
 					<br>
 
-					-->
-					
-					<table id="myTable" class="tableView">
+					<table id="myTable">
 						<tbody>
 							<!-- Books Read in 2024 -->
 							<!-- 0 -->			<!-- 1 -->										<!-- 2 --> 																							<!-- 3 -->			<!-- 4 -->				<!-- 5 -->		<!-- 6 -->										<!-- 7 -->	<!-- 8 -->			<!-- 9 -->				<!-- 10 -->		<!-- 11 -->
+							<tr> <td>156</td> 	<td>Pullman-Amber-Spyglass.jpg</td>				<td>The Amber Spyglass</td> 																		<td>Pullman</td> 	<td>Philip</td> 	    <td>2000</td> 	<td>His Dark Materials</td>						<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>168640</td>	<td>560</td> 	</tr>
 							<tr> <td>155</td> 	<td></td>										<td>"Welcome to Your Authentic Indian Experience"</td> 												<td>Roanhorse</td> 	<td>Rebecca</td> 	    <td>2017</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>5782</td>	<td></td> 		</tr>
 							<tr> <td>154</td> 	<td></td>										<td>"If You Find Yourself Speaking to God, Address God with the Informal You"</td> 					<td>Chu</td> 		<td>John</td> 			<td>2022</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Novelette</td> 		<td>9886</td>	<td></td> 		</tr>
 							<tr> <td>153</td> 	<td>Muir-Deepwater-Bride</td>					<td>"The Deepwater Bride"</td> 																		<td>Muir</td> 		<td>Tamsyn</td> 		<td>2015</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Novelette</td> 		<td>8453</td>	<td></td> 		</tr>
 							<tr> <td>152</td> 	<td>Chiang-Its-2059.webp</td>					<td>“It’s 2059, and the Rich Kids Are Still Winning“</td> 											<td>Chiang</td> 	<td>Ted</td> 			<td>2019</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td></td>		<td></td> 		</tr>
 							<tr> <td>151</td> 	<td>Chambers-Small-Angry-Planet.jpg</td>		<td>The Long Way to a Small Angry Planet</td> 														<td>Chambers</td> 	<td>Becky</td> 	    	<td>2014</td> 	<td>Wayfarers</td>								<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td>		<td>443</td> 	</tr>
 							<tr> <td>150</td> 	<td>Wells-Fugitive-Telemetry.jpg</td>			<td>Fugitive Telemetry</td> 							               								<td>Wells</td> 		<td>Martha</td> 	    <td>2021</td> 	<td>The Murderbot Diaries</td>					<td>6</td> 	<td>Audiobook</td> 	<td>Novella</td> 		<td></td> 		<td>168</td> 	</tr>	
-							<tr> <td>149</td> 	<td>Pullman-Subtle-Knife.jpg</td>				<td>The Subtle Knife</td> 																			<td>Pullman</td> 	<td>Philip</td> 	    <td>1997</td> 	<td>His Dark Materials</td>						<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>109120</td><td>352</td> 	</tr>
-							<tr> <td>148</td> 	<td>Adeyemi-Children-of-Blood-and-Bone.jpg</td>	<td>Children of Blood and Bone</td> 																<td>Adeyemi</td> 	<td>Tomi</td> 	    	<td>2018</td> 	<td>Legacy of Orïsha trilogy</td>				<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>135102</td><td>531</td> 	</tr>	
+							<tr> <td>149</td> 	<td>Pullman-Subtle-Knife.jpg</td>				<td>The Subtle Knife</td> 																			<td>Pullman</td> 	<td>Philip</td> 	    <td>1997</td> 	<td>His Dark Materials</td>						<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>109120</td>	<td>352</td> 	</tr>
+							<tr> <td>148</td> 	<td>Adeyemi-Children-of-Blood-and-Bone.jpg</td>	<td>Children of Blood and Bone</td> 																<td>Adeyemi</td> 	<td>Tomi</td> 	    	<td>2018</td> 	<td>Legacy of Orïsha</td>						<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>135102</td> <td>531</td> 	</tr>	
 							<tr> <td>147</td> 	<td></td>										<td>“Mr. Death“</td> 																				<td>Harrow</td> 	<td>Alix E.</td> 		<td>2021</td> 	<td></td>										<td></td> 	<td>Audio</td> 		<td>Short Story</td> 	<td>5118</td>	<td></td> 		</tr>
 							<tr> <td>146</td> 	<td>Scalzi-Redshirts.jpeg</td>					<td>Redshirts</td> 							    													<td>Scalzi</td> 	<td>John</td> 	    	<td>2012</td> 	<td></td>										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>320</td> 	</tr>	
 							<tr> <td>145</td> 	<td>Sanderson-Yumi.jpg</td>						<td>Yumi and the Nightmare Painter</td> 							    							<td>Sanderson</td> 	<td>Brandon</td> 	    <td>2023</td> 	<td></td>										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>474</td> 	</tr>	
@@ -227,17 +201,17 @@
 							<tr> <td>69</td> 	<td>Wells-All-Systems-Red.jpg</td> 				<td>All Systems Red</td> 																			<td>Wells</td> 		<td>Martha</td> 		<td>2017</td> 	<td>The Murderbot Diaries</td> 					<td>1</td> 	<td>Read</td> 		<td>Novella</td> 		<td>31128</td> 	<td>152</td> 	</tr>	
 							<tr> <td>68</td> 	<td>Vandermeer-Annihilation.jpg</td> 			<td>Annihilation</td> 																				<td>VanderMeer</td> <td>Jeff</td> 			<td>2014</td> 	<td>Southern Reach Trilogy</td> 				<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>195</td> 	</tr>	
 							<tr> <td>67</td> 	<td>Jemesin-The-City-We-Became.jpg</td> 		<td>The City We Became</td> 																		<td>Jemesin</td> 	<td>N.K.</td> 			<td>2020</td> 	<td>Great Cities Series</td> 					<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>437</td> 	</tr>	
-							<tr> <td>66</td> 	<td>Sanderson-Lost-Metal.jpg</td> 				<td>The Lost Metal</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2022</td> 	<td>Mistborn: Era II</td> 						<td>4</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>507</td> 	</tr>	
+							<tr> <td>66</td> 	<td>Sanderson-Lost-Metal.jpg</td> 				<td>The Lost Metal</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2022</td> 	<td>Mistborn</td> 								<td>4</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>507</td> 	</tr>	
 							<tr> <td>65</td> 	<td>Sanderson-Secret-History.jpg</td> 			<td>Mistborn: Secret History</td> 																	<td>Sanderson</td> 	<td>Brandon</td> 		<td>2016</td> 	<td></td> 										<td></td> 	<td>Read</td> 		<td>Novella</td> 		<td></td> 		<td>240</td> 	</tr>	
-							<tr> <td>64</td> 	<td>Sanderson-Bands-of-Mourning.jpg</td> 		<td>Bands of Mourning</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2016</td> 	<td>Mistborn: Era II</td> 						<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>127456</td> <td>452</td> 	</tr>
+							<tr> <td>64</td> 	<td>Sanderson-Bands-of-Mourning.jpg</td> 		<td>Bands of Mourning</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2016</td> 	<td>Mistborn</td> 								<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>127456</td> <td>452</td> 	</tr>
 							<tr> <td>63</td> 	<td>Schwab-Conjuring-of-Light.jpg</td> 			<td>A Conjuring of Light</td> 																		<td>Schwab</td> 	<td>V.E.</td> 			<td>2017</td> 	<td>Shades of Magic series</td> 				<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>624</td> 	</tr>	
 							<tr> <td>62</td> 	<td>Tan-Daughter-of-the-Moon-Goddess.jpg</td> 	<td>Daughter of the Moon Goddess</td> 																<td>Tan</td> 		<td>Sue Lynn</td> 		<td>2022</td> 	<td>The Celestial Kingdom</td> 					<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>503</td> 	</tr>	
-							<tr> <td>61</td> 	<td>Sanderson-Shadows-of-Self.jpg</td> 			<td>Shadows of Self</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2015</td> 	<td>Mistborn: Era II</td> 						<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>110019</td> <td>400</td> 	</tr>
+							<tr> <td>61</td> 	<td>Sanderson-Shadows-of-Self.jpg</td> 			<td>Shadows of Self</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2015</td> 	<td>Mistborn</td> 								<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>110019</td> <td>400</td> 	</tr>
 							<tr> <td>60</td> 	<td>Schwab-Gathering-of-Shadows.jpg</td> 		<td>A Gathering of Shadows</td> 																	<td>Schwab</td> 	<td>V.E.</td> 			<td>2016</td> 	<td>Shades of Magic series</td> 				<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>512</td> 	</tr>	
 							<tr> <td>59</td> 	<td>Yarros-Fourth-Wing.jpg</td> 				<td>Fourth Wing</td> 																				<td>Yarros</td> 	<td>Rebecca</td> 		<td>2023</td> 	<td>Fourth Wing</td> 							<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>184490</td> <td>528</td> 	</tr>
 							<tr> <td>58</td> 	<td>Schwab-Darker-Shade-of-Magic.jpg</td> 		<td>A Darker Shade of Magic</td> 																	<td>Schwab</td> 	<td>V.E.</td> 			<td>2015</td> 	<td>Shades of Magic Series</td> 				<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>99285</td> 	<td>400</td> 	</tr>
 							<tr> <td>57</td> 	<td>Corey-Bablyons-Ashes.jpg</td> 				<td>Babylon's Ashes</td>																			<td>Corey</td> 		<td>James S.A.</td> 	<td>2016</td> 	<td>The Expanse</td> 							<td>6</td> 	<td>Read</td> 		<td>Novel</td> 			<td>168113</td> <td>538</td> 	</tr>	
-							<tr> <td>56</td> 	<td>Sanderson-Alloy-of-Law.jpg</td> 			<td>The Alloy of Law</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2011</td> 	<td>Mistborn: Era II</td> 						<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>94652</td> 	<td>329</td> 	</tr>
+							<tr> <td>56</td> 	<td>Sanderson-Alloy-of-Law.jpg</td> 			<td>The Alloy of Law</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2011</td> 	<td>Mistborn</td> 								<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>94652</td> 	<td>329</td> 	</tr>
 							<tr> <td>55</td> 	<td>Sanderson-Tress-of-the-Emerald-Sea.jpg</td> <td>Tress of the Emerald Sea</td> 																	<td>Sanderson</td> 	<td>Brandon</td> 		<td>2023</td> 	<td></td> 										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td></td> 		<td>369</td> 	</tr>	
 							<tr> <td>54</td> 	<td>Gaiman-Fragile-Things.jpg</td> 				<td>"Closing Time"</td> 																			<td>Gaiman</td> 	<td>Neil</td> 			<td>2003</td> 	<td>Fragile Things</td> 						<td>2</td> 	<td>Read</td> 		<td>Short Story</td> 	<td></td> 		<td></td> 		</tr>
 							<tr> <td>53</td> 	<td>Gaiman-Fragile-Things.jpg</td> 				<td>"Bitter Grounds"</td> 																			<td>Gaiman</td> 	<td>Neil</td> 			<td>2003</td> 	<td>Fragile Things</td> 						<td>10</td> <td>Read</td> 		<td>Short Story</td> 	<td></td> 		<td></td> 		</tr>
@@ -293,12 +267,12 @@
 							<tr> <td>6</td> 	<td>Sanderson-Oathbringer.jpg</td>				<td>Oathbringer</td> 																				<td>Sanderson</td> 	<td>Brandon</td> 		<td>2017</td> 	<td>The Stormlight Archive</td> 				<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>454440</td>	<td>1243</td> 	</tr>
 							<tr> <td>5</td> 	<td>Sanderson-Words-of-Radiance.jpg</td>		<td>Words of Radiance</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2014</td> 	<td>The Stormlight Archive</td> 				<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>398238</td>	<td>1087</td> 	</tr>
 							<tr> <td>4</td> 	<td>Sanderson-Way-of-Kings.jpg</td>				<td>The Way of Kings</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2010</td> 	<td>The Stormlight Archive</td> 				<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>386470</td>	<td>1007</td> 	</tr>
-							<tr> <td>3</td> 	<td>Sanderson-Hero-of-Ages.jpg</td>				<td>The Hero of Ages</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2008</td> 	<td>Mistborn - Era I</td> 						<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>225372</td>	<td>767</td> 	</tr>
-							<tr> <td>2</td> 	<td>Sanderson-Well-of-Ascension.jpg</td>		<td>The Well of Ascension</td> 																		<td>Sanderson</td> 	<td>Brandon</td> 		<td>2007</td> 	<td>Mistborn - Era I</td> 						<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>244371</td>	<td>784</td> 	</tr>
-							<tr> <td>1</td> 	<td>Sanderson-Mistborn.jpg</td>					<td>Mistborn</td> 																					<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn - Era I</td> 						<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210103</td>	<td>669</td> 	</tr>
+							<tr> <td>3</td> 	<td>Sanderson-Hero-of-Ages.jpg</td>				<td>The Hero of Ages</td> 																			<td>Sanderson</td> 	<td>Brandon</td> 		<td>2008</td> 	<td>Mistborn</td> 								<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>225372</td>	<td>767</td> 	</tr>
+							<tr> <td>2</td> 	<td>Sanderson-Well-of-Ascension.jpg</td>		<td>The Well of Ascension</td> 																		<td>Sanderson</td> 	<td>Brandon</td> 		<td>2007</td> 	<td>Mistborn</td> 								<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>244371</td>	<td>784</td> 	</tr>
+							<tr> <td>1</td> 	<td>Sanderson-Mistborn.jpg</td>					<td>Mistborn</td> 																					<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn</td> 								<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210103</td>	<td>669</td> 	</tr>
 						</tbody>
 					</table>
-
+					
 					<div id="popup" class="popup-container">
 					    <span class="close-btn" onclick="closePopup()">X</span>
 					    <h2 id="popupTitle"></h2>
@@ -307,8 +281,7 @@
 					
 					<div class="popup-overlay" id="popupOverlay"></div>
 					
-					<div class="image-container" id="bookContainer"></div>
-
+					<div class="image-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
@@ -346,51 +319,22 @@
 				</section><!-- End Contact Section -->
 				
 				<footer id="footer"><!-- Footer -->
-					<p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-				</footer>
+					<p class="copyright">&copy; Sam Macdonald. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer><!-- End Footer -->
 			</div><!-- End Inner Sidebar -->
 		</div><!-- End Sidebar -->
 	</div><!-- End Wrapper -->
 
-	<!-- 
-	
-	<script>
-	    function showTableView() {
-	        var myTable = document.getElementById("myTable");
-	        var bookContainer = document.getElementById("bookContainer");
-	
-	        myTable.style.display = "";
-	        bookContainer.style.display = "none";
-	    }
-	
-	    function showImageView() {
-	        var myTable = document.getElementById("myTable");
-	        var bookContainer = document.getElementById("bookContainer");
-	
-	        myTable.style.display = "none";
-	        bookContainer.style.display = "";
-	    }
-	</script>
-
-	-->
-	
 	<script>
 		function images(cutoff) {
-			//var checkbox = document.getElementById("shortFiction");				// Check to see what filters have been selected
-			var table = document.getElementById("myTable");						// Get the table containing all the book info
-			var containerContent = ``;											// Create a blank container that the content will go into						
+			var table = document.getElementById("myTable");						// Get the table
+			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
-				if (!checkbox.checked) {
-					if (table.rows[i].cells[9].textContent == "Short Story" || table.rows[i].cells[9].textContent == "Novelette") {
-						continue;
-					}
+				/* ----- Popup Content ----- */
+				var popupContent = ``;											// Create empty container that will contain the data for the popup window
+				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
+					continue
 				}
-				else {
-            		if (table.rows[i].cells[9].textContent == "Collection") {
-	            		continue;
-        			}
-				}
-				var popupContent = ``;
 				popupContent += `
 					Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
 					<br>
@@ -402,18 +346,19 @@
 	  					Series: ${table.rows[i].cells[6].textContent} # ${table.rows[i].cells[7].textContent}
 	 				`;
 	            }
-				popupContent += `
-					<br>
-	 				Length: ${table.rows[i].cells[9].textContent}
-					<br>
-					Page Count: ${table.rows[i].cells[11].textContent}
-	 			`;
+				if (table.rows[i].cells[11].innerHTML.trim()) {
+					popupContent += `
+						<br>
+						Page Count: ${table.rows[i].cells[11].textContent}
+		 			`;
+				}
 				if (table.rows[i].cells[10].innerHTML.trim()) {
 	                popupContent += `
 	  					<br>
 	  					Word Count: ${table.rows[i].cells[10].textContent}
 	 				`;
 	            }
+				/* ----- Image Content ----- */
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
 		    	var Content = '<img src="images/Book Covers/' + path.textContent 
@@ -429,13 +374,13 @@
 					${Content}
 	 				<p style="text-align:center"><b>${title.textContent}</b></p>
 					</div>
-				`;																// Write the text that will be added to <div class=image-container> 
+				`;															// Write the text that will be added to <div class=image-container> 
 		    	var bookContainer = document.getElementById("bookContainer");
 		      	bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
 		 	}
 		}
 	</script>
-
+	
 	<script>
 	    function countEmptyCells(column) {
 	        var table = document.getElementById("myTable");
@@ -449,13 +394,52 @@
 	        }
 			return emptyCellCount
     	}
+
+		function countAuthor(author) {
+	        var table = document.getElementById("myTable");
+	        var rowCount = table.rows.length;
+	        var authorCellCount = 0;
+	        for (var i = 0; i < rowCount; i++) {
+	            var cell = table.rows[i].cells[3];
+	            if (cell.innerHTML == author) {
+	                authorCellCount++;
+	            }
+	        }
+			return authorCellCount
+    	}
 	</script>
+	
+	<script>
+	    document.addEventListener("DOMContentLoaded", function() { // Function that populates the authorSelector dropdown with each author
+	        var table = document.getElementById("myTable");
+	        var dropdown = document.getElementById("authorSelector");
+	        var addedEntries = {};
+	
+	        // Collect entries from the table
+	        for (var i = 1; i < table.rows.length; i++) {
+	            var row = table.rows[i];
+	            var entry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); // Concatenate cell values
+	            addedEntries[entry] = true; // Add to added entries object
+	        }
+	
+	        // Sort entries alphabetically
+	        var sortedEntries = Object.keys(addedEntries).sort();
+	
+	        // Add sorted entries to the dropdown
+	        sortedEntries.forEach(function(entry) {
+	            var option = document.createElement("option");
+	            option.text = entry;
+	            option.value = 3;
+	            dropdown.add(option);
+	        });
+	    });
+	</script>
+	
 	
 	<script>
 		function sortSelect() {												// When dropdown is selected, run the sort function
 			sort(document.getElementById("tableSelector").value) 
 		}
-
 		function sort(column) {
 			const table = document.getElementById('myTable');
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
@@ -471,12 +455,12 @@
         			return -1; 												// Place empty string at the end
     			}
 				else {
-					if (column == 0 || column == 9 || column == 11) {		// If sorting chronologically, sort Z -> A to place most recent books first
-						return parseFloat(altB) - parseFloat(altA); 
+					if (column == 0 || column == 10) {						// If sorting chronologically, sort Z -> A to place most recent books first
+						return Number(altB) - Number(altA); 
 					} 
 					else {
 						if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
-							return parseFloat(altA) - parseFloat(altB); 	// If both are numbers, sort numerically
+							return Number(altA) - Number(altB); 			// If both are numbers, sort numerically
 						} 
 						else {
 							return altA.localeCompare(altB); 				// Otherwise, sort alphabetically
@@ -485,7 +469,12 @@
 				}
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
+			//if (filter == 'none') {
 			images(countEmptyCells(column))
+			//}
+			//if (filter == 'author') {
+				//images(countAuthorCells(column))
+			//}
 			var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
 	        	picture.addEventListener("click", showPopup);
@@ -493,7 +482,7 @@
 		}
 	</script>
 
-	<!--  PopUp Functions  -->
+<!-- Popup Functions -->
 	
 	<script>
 	    // Function to show the popup
@@ -532,11 +521,6 @@
 		images (0)   														// Get the selector element
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
-
-		window.onload = function() {
-	        var checkbox = document.getElementById("shortFiction");
-	        checkbox.checked = false; // Uncheck the checkbox when the page loads
-	    };
 
 		var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
