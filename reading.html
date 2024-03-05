@@ -87,7 +87,7 @@
 					<hr class="major" />
 					<label for="tableSelector">Sorting:</label>
 						<select id="tableSelector" onchange="sortSelect()">
-							<option value="">Select an option</option>
+							<option value="-1">Select an option</option>
 							<option value="0">Chronologically</option>
 							<option value="2">Title</option>
 							<option value="3">Author Last Name</option>
@@ -336,7 +336,7 @@
 			for (var i; i < table.rows.length; i++) {							// Loop through the rows of the table
 				var row = table.rows[i];
 				/* ----- Filters ----- */
-				if (sortColumn !== '') {			
+				if (sortColumn !== -1) {			
 					var cell = table.rows[i].cells[sortColumn];
 	            	if (!cell.innerHTML.trim()) {
 						continue
@@ -534,9 +534,7 @@
 	</script>
 	
 	<script>
-		images()   															// Get the selector element
-	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
-	    selector.selectedIndex = 0;
+		images()
 
 		var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
