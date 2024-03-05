@@ -97,10 +97,6 @@
 							<option value="10">Word Count</option>
 						</select>
 					<br>
-					<form>
-						<input type="checkbox" id="shortFiction" onclick="sortSelect()">
-						<label for="shortFiction">Show Short Fiction:</label>
-					</form> 
 
 					<p>
 						To view short fiction, please use the table view.
@@ -320,8 +316,8 @@
 				</section><!-- End Contact Section -->
 				
 				<footer id="footer"><!-- Footer -->
-					<p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-				</footer>
+					<p class="copyright">&copy; Sam Macdonald. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer><!-- End Footer -->
 			</div><!-- End Inner Sidebar -->
 		</div><!-- End Sidebar -->
 	</div><!-- End Wrapper -->
@@ -422,7 +418,7 @@
         			return -1; 												// Place empty string at the end
     			}
 				else {
-					if (column == 0 || column == 11) {						// If sorting chronologically, sort Z -> A to place most recent books first
+					if (column == 0 || column == 10 || column == 11) {		// If sorting chronologically, sort Z -> A to place most recent books first
 						return Number(altB) - Number(altA); 
 					} 
 					else {
