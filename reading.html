@@ -331,7 +331,7 @@
 			var table = document.getElementById("myTable");						// Get the table
 			var authorSelect = document.getElementById("authorSelector");
 			var authorIndex = authorSelect.selectedIndex;
-			var authorFilter = authorSelect.options[selectedIndex].text;
+			var authorFilter = authorSelect.options[authorIndex].text;
 			console.log(authorFilter); // Output the text of the selected option
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
