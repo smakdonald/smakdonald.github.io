@@ -330,7 +330,6 @@
 	
 	<script>
 		function images(cutoff) {
-			var checkbox = document.getElementById("shortFiction");
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
@@ -433,10 +432,10 @@
 	</script>
 	
 	<script>
-		function sortSelect(filter) {												// When dropdown is selected, run the sort function
-			sort(document.getElementById("tableSelector").value, filter) 
+		function sortSelect() {												// When dropdown is selected, run the sort function
+			sort(document.getElementById("tableSelector").value) 
 		}
-		function sort(column, filter) {
+		function sort(column) {
 			const table = document.getElementById('myTable');
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 			const rowsArray = Array.from(tableRows); 						// Convert NodeList to array using Array.from
@@ -465,12 +464,12 @@
 				}
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
-			if (filter == 'none') {
+			//if (filter == 'none') {
 				images(countEmptyCells(column))
-			}
-			if (filter == 'author') {
-				images(countAuthorCells(column))
-			}
+			//}
+			//if (filter == 'author') {
+				//images(countAuthorCells(column))
+			//}
 			var pictures = document.querySelectorAll(".triggerImage");
 	    	pictures.forEach(function(picture) {
 	        	picture.addEventListener("click", showPopup);
