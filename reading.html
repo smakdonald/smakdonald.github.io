@@ -417,7 +417,7 @@
 	
 			for (var i = 1; i < table.rows.length; i++) {
 				var row = table.rows[i];
-				var entry = row.cells[3].textContent.trim(); // Get text content of the second column cell
+				var entry = row.cells[3].textContent.trim(); // Get text content of the author last column cell
 	
 				// Skip if entry is already added
 				if (!addedEntries[entry]) {
@@ -465,7 +465,7 @@
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
 			//if (filter == 'none') {
-				images(countEmptyCells(column))
+			images(countEmptyCells(column))
 			//}
 			//if (filter == 'author') {
 				//images(countAuthorCells(column))
