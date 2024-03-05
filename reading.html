@@ -287,7 +287,6 @@
 					
 					<div class="popup-overlay" id="popupOverlay"></div>
 					
-					
 					<div class="image-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
 					
 					<div style="overflow-x: auto;">
@@ -295,6 +294,7 @@
 							<!-- Table content will be generated here -->
 						<table>
 					</div>
+							
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
@@ -346,7 +346,7 @@
 			var containerContent = ``;											// Create a blank text container that the Content will go into		
 			var tableContent = `
    			<th>
-	  			<td>Title</td> <td>Author Last</td> <td>Author First</td> <td>Year</td> <td>Year</td> <td>Collection</td>
+	  			<td>Title</td> <td>Author Last</td> <td>Author First</td> <td>Year</td> <td>Collection</td>
 	  		</th>
 	  		`;												// Create a blank text container that the Content will go into	
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
