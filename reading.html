@@ -328,16 +328,6 @@
 			var table = document.getElementById("myTable");						// Get the table
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
-				if (!checkbox.checked) {
-					if (table.rows[i].cells[9].textContent == "Short Story" || table.rows[i].cells[9].textContent == "Novelette") {
-						continue;
-					}
-				}
-				else {
-            		if (table.rows[i].cells[9].textContent == "Collection") {
-	            		continue;
-        			}
-				}
 				var popupContent = ``;
 				popupContent += `
 					Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
