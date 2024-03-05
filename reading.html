@@ -87,6 +87,7 @@
 					<hr class="major" />
 					<label for="tableSelector">Sorting:</label>
 						<select id="tableSelector" onchange="sortSelect()">
+							<option value="">Select an option</option>
 							<option value="0">Chronologically</option>
 							<option value="2">Title</option>
 							<option value="3">Author Last Name</option>
@@ -328,13 +329,19 @@
 	<script>
 		function images(cutoff) {
 			var table = document.getElementById("myTable");						// Get the table
+			var authorFilter = document.getElementById("authorSelector");
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
-				/* ----- Popup Content ----- */
-				var popupContent = ``;											// Create empty container that will contain the data for the popup window
+				if (authorFilter === undefined || authorFilter === null || authorFilter === '') {
+					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter) {
+						continue
+					}
+				}
 				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
 					continue
 				}
+				/* ----- Popup Content ----- */
+				var popupContent = ``;											// Create empty container that will contain the data for the popup window
 				popupContent += `
 					Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
 					<br>
@@ -429,7 +436,7 @@
 	        sortedEntries.forEach(function(entry) {
 	            var option = document.createElement("option");
 	            option.text = entry;
-	            option.value = 3;
+	            option.value = entry;
 	            dropdown.add(option);
 	        });
 	    });
