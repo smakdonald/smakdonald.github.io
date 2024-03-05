@@ -332,12 +332,13 @@
 			var authorFilter = document.getElementById("authorSelector").text;
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
-				/* ----- Filters ----- */
+				/* ----- Filters ----- 
 				if (authorFilter !== 'Select an option') {
 					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter) {
 						continue
 					}
 				}
+				*/
 				// Does not display novelettes or short stories in image container
 				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
 					continue
