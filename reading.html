@@ -98,7 +98,7 @@
 						</select>
 					<br>
 
-					<label for="authorSelector">Sorting:</label>
+					<label for="authorSelector">Filter by Author:</label>
 						<select id="authorSelector" onchange="sortSelect()">
 							<option value="">Select an option</option>
 						</select>
@@ -413,7 +413,7 @@
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
 			var table = document.getElementById("myTable");
-			var dropdown = document.getElementById("authorSelect");
+			var dropdown = document.getElementById("authorSelector");
 			var addedEntries = {};
 	
 			for (var i = 1; i < table.rows.length; i++) {
