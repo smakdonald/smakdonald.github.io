@@ -361,11 +361,10 @@
 
 	<script>
 		function images(cutoff) {
-			/* ----- Start by Collecting Info from Sorting and Filters ----- */
 			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortID = sortSelect.options[sortIndex].value;
 			var table = document.getElementById("myTable");					// Get the table
 
-			/* ----- Sorting ----- */
+			/* ----- Sort the Table ----- */
 
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 			const rowsArray = Array.from(tableRows); 						// Convert NodeList to array using Array.from
@@ -401,13 +400,29 @@
 			var yearSelect = document.getElementById("yearFilter"), yearIndex = yearSelect.selectedIndex, yearFilter = yearSelect.options[yearIndex].value;
 			var seriesFilter = document.getElementById("tableSelector");
 			var awardFilter = document.getElementById("tableSelector");
-			
-			//var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortFilter = sortSelect.options[sortIndex].text;
-			//var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
+
+			var filteredRows = []
+/*
+			for (var i = cutoff; i < table.rows.length; i++) {
+				var row = table.rows[i];
+				
+				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
+					continue
+				}
+				
+				if (authorFilter !== 'Select an option') {						// When the 'Select an option' option is selected there is no filter
+					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter) {
+						filteredRows.push(row)
+					}
+				}
+*/
+
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
 				var row = table.rows[i];
+				
 				/* ----- Filters ----- */
+				
 				if (authorFilter !== 'Select an option') {						// When the 'Select an option' option is selected there is no filter
 					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter) {
 						continue
