@@ -426,6 +426,11 @@
 */
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			rowsArray.forEach(function(row) {
+
+				// Does not display novelettes or short stories in image container
+				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
+					continue
+				}
 				
 				/* ----- Popup Content ----- */
 				
