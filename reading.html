@@ -87,7 +87,7 @@
 					<hr class="major" />
 					<label for="tableSelector">Sorting:</label>
 						<select id="tableSelector" onchange="sortSelect()">
-							<option value="">Select an option</option>
+							<option value="0">Select an option</option>
 							<option value="0">Chronologically</option>
 							<option value="2">Title</option>
 							<option value="3">Author Last Name</option>
@@ -368,7 +368,7 @@
 
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 			const rowsArray = Array.from(tableRows); 						// Convert NodeList to array using Array.from
-			console.log(rowsArray);
+			console.log(sortID);
 
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[sortID].textContent;
