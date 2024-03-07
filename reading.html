@@ -367,7 +367,7 @@
 			/* ----- Sort the Table ----- */
 
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
-			const rowsArray = Array.from(tableRows); 						// Convert NodeList to array using Array.from
+			var rowsArray = Array.from(tableRows); 						// Convert NodeList to array using Array.from
 
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[sortID].textContent;
