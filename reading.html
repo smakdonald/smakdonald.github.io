@@ -404,7 +404,7 @@
 
 			if (authorFilter !== 'Select an option') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
-					return row.cells[1].textContent.trim() !== "hello" && row.cells[2].textContent.trim(); !== "goodbye";
+					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter;
 				});
 				rowsArray = filteredRowsArray
 			}
@@ -426,15 +426,6 @@
 */
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			rowsArray.forEach(function(row) {
-				// Does not display novelettes or short stories in image container
-					
-				/* ----- Filters ----- */
-				
-				if (authorFilter !== 'Select an option') {						// When the 'Select an option' option is selected there is no filter
-					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter) {
-						continue
-					}
-				}
 				
 				/* ----- Popup Content ----- */
 				
