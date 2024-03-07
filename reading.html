@@ -405,10 +405,11 @@
 			var seriesFilter = document.getElementById("tableSelector");
 			var awardFilter = document.getElementById("tableSelector");
 
-
+			// Does not display novelettes or short stories in image container
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
 			});
+			
 			console.log(rowsArray);
 			rowsArray = filteredRowsArray
 			console.log(rowsArray);
@@ -418,6 +419,7 @@
 					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
 				});
 			}
+			
 			console.log(rowsArray);
 			rowsArray = filteredRowsArray
 			console.log(rowsArray);
@@ -426,9 +428,6 @@
 
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			rowsArray.forEach(function(row) {
-
-				// Does not display novelettes or short stories in image container
-				
 				
 				/* ----- Popup Content ----- */
 				
