@@ -402,8 +402,9 @@
 			var awardFilter = document.getElementById("tableSelector");
 
 			var filteredRowsArray = rowsArray.filter(function(row) {
-				return row.cells[9].textContent !== "Novelette" || row.cells[9].textContent !== "Short Story";
+				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
 			});
+			console.log(filteredRowsArray);
 
 			rowsArray = filteredRowsArray
 	
@@ -416,7 +417,7 @@
 			rowsArray = filteredRowsArray
 			
 			console.log(rowsArray);
-			console.log(filteredRowsArray);
+			
 
 			//if (yearFilter !== '0') {
 /*
