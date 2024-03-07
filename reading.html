@@ -404,6 +404,8 @@
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[9].textContent !== "Novelette" || row.cells[9].textContent !== "Short Story";
 			});
+
+			rowsArray = filteredRowsArray
 	
 			if (authorFilter !== 'Select an option') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
