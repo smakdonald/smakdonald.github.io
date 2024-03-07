@@ -405,22 +405,19 @@
 			var seriesFilter = document.getElementById("tableSelector");
 			var awardFilter = document.getElementById("tableSelector");
 
-			
-
 
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
 			});
+			console.log(rowsArray);
+			rowsArray = filteredRowsArray
+			console.log(rowsArray);
 
-	
 			if (authorFilter !== 'Select an option') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
 					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
 				});
 			}
-
-			
-			
 
 			//if (yearFilter !== '0') {
 /*
