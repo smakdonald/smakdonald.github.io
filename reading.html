@@ -368,7 +368,6 @@
 
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 			const rowsArray = Array.from(tableRows); 						// Convert NodeList to array using Array.from
-			console.log(sortID);
 
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[sortID].textContent;
@@ -402,11 +401,17 @@
 			var seriesFilter = document.getElementById("tableSelector");
 			var awardFilter = document.getElementById("tableSelector");
 
+			var filteredRowsArray = rowsArray.filter(function(row) {
+				return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
+			});
+			console.log(filteredRowsArray);
+	
+			rowsArray = filteredRowsArray
+
 			if (authorFilter !== 'Select an option') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
-					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter || row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
+					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() !== authorFilter;
 				});
-				rowsArray = filteredRowsArray
 			}
 
 			console.log(rowsArray);
