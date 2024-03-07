@@ -323,6 +323,7 @@
 							<label for="yearFilter">By Year Read:</label>
 							<select id="yearFilter" onchange="sortSelectAuthor()">
 								<option value="">Select an option</option>
+								<option value="0">All</option>
 								<option value="2020">2020</option>
 								<option value="2021">2021</option>
 								<option value="2022">2022</option>
@@ -362,13 +363,45 @@
 		function images(cutoff) {
 			/* ----- Start by Collecting Info from Sorting and Filters ----- */
 			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortID = sortSelect.options[sortIndex].value;
+			var table = document.getElementById("myTable");					// Get the table
+
+			/* ----- Sorting ----- */
+
+			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
+			const rowsArray = Array.from(tableRows); 						// Convert NodeList to array using Array.from
+
+			rowsArray.sort((a, b) => {
+				const altA = a.cells[sortID].textContent;
+				const altB = b.cells[sortID].textContent;
+				if (a == "") {
+        			return 1; 												// Place empty string at the end
+    			} 
+				else if (b == "") {
+        			return -1; 												// Place empty string at the end
+    			}
+				else {
+					if (column == 0 || column == 10) {						// If sorting chronologically, sort Z -> A to place most recent books first
+						return Number(altB) - Number(altA); 
+					} 
+					else {
+						if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
+							return Number(altA) - Number(altB); 			// If both are numbers, sort numerically
+						} 
+						else {
+							return altA.localeCompare(altB); 				// Otherwise, sort alphabetically
+				      	}
+					}
+				}
+		  	});
+		  	rowsArray.forEach(item => table.appendChild(item));
+
+			/* ----- Constuct image-container, Using Appropriate Filters ----- */
+
 			var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
-			var yearSelect = document.getElementById("yearFilter"), yearIndex = yearSelect.selectedIndex, yearFilter = yearSelect.options[yearIndex].text;
+			var yearSelect = document.getElementById("yearFilter"), yearIndex = yearSelect.selectedIndex, yearFilter = yearSelect.options[yearIndex].value;
 			var seriesFilter = document.getElementById("tableSelector");
 			var awardFilter = document.getElementById("tableSelector");
-
 			
-			var table = document.getElementById("myTable");						// Get the table
 			//var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortFilter = sortSelect.options[sortIndex].text;
 			//var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
@@ -385,7 +418,9 @@
 				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
 					continue
 				}
+				
 				/* ----- Popup Content ----- */
+				
 				var popupContent = ``;											// Create empty container that will contain the data for the popup window
 				popupContent += `
 					Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
@@ -410,7 +445,9 @@
 	  					Word Count: ${table.rows[i].cells[10].textContent}
 	 				`;
 	            }
+				
 				/* ----- Image Content ----- */
+				
 				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
 		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
 		    	var Content = '<img src="images/Book Covers/' + path.textContent 
