@@ -100,12 +100,6 @@
 					
 					<br>
 
-					<label for="authorSelector">Filter by Author:</label>
-						<select id="authorSelector" onchange="sortSelectAuthor()">
-							<option value="">Select an option</option>
-						</select>
-					<br>
-
 					<table id="myTable">
 						<tbody>
 							<!-- Books Read in 2024 -->
@@ -319,8 +313,22 @@
 					</header>
 					<div class="mini-posts">
 						<article>
-							<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+							<label for="authorSelector">By Author:</label>
+							<select id="authorSelector" onchange="sortSelectAuthor()">
+								<option value="">Select an option</option>
+							</select>
+							
+							<br>
+
+							<label for="yearFilter">By Year Read:</label>
+							<select id="yearFilter" onchange="sortSelectAuthor()">
+								<option value="">Select an option</option>
+								<option value="2020">2020</option>
+								<option value="2021">2021</option>
+								<option value="2022">2022</option>
+								<option value="2023">2023</option>
+								<option value="2024">2024</option>
+							</select>
 						</article>
 						<article>
 							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
@@ -352,6 +360,14 @@
 
 	<script>
 		function images(cutoff) {
+			/* ----- Start by Collecting Info from Sorting and Filters ----- */
+			var sortID = document.getElementById("tableSelector").value;
+			var authorFilter = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
+			var yearFilter = document.getElementById("tableSelector").value;
+			var seriesFilter = document.getElementById("tableSelector").value;
+			var awardFilter = document.getElementById("tableSelector").value;
+
+			
 			var table = document.getElementById("myTable");						// Get the table
 			//var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortFilter = sortSelect.options[sortIndex].text;
 			var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
