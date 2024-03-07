@@ -402,7 +402,14 @@
 			var seriesFilter = document.getElementById("tableSelector");
 			var awardFilter = document.getElementById("tableSelector");
 
-			var filteredRows = []
+			if (authorFilter !== 'Select an option') {
+				var filteredRowsArray = rowsArray.filter(function(row) {
+					return row.cells[1].textContent.trim() !== "hello" && row.cells[2].textContent.trim(); !== "goodbye";
+				});
+				rowsArray = filteredRowsArray
+			}
+
+			//if (yearFilter !== '0') {
 /*
 			for (var i = cutoff; i < table.rows.length; i++) {
 				var row = table.rows[i];
@@ -417,11 +424,10 @@
 					}
 				}
 */
-
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
-			for (var i = cutoff; i < table.rows.length; i++) {					// Loop through the rows of the table
-				var row = table.rows[i];
-				
+			rowsArray.forEach(function(row) {
+				// Does not display novelettes or short stories in image container
+					
 				/* ----- Filters ----- */
 				
 				if (authorFilter !== 'Select an option') {						// When the 'Select an option' option is selected there is no filter
@@ -430,59 +436,54 @@
 					}
 				}
 				
-				// Does not display novelettes or short stories in image container
-				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
-					continue
-				}
-				
 				/* ----- Popup Content ----- */
 				
 				var popupContent = ``;											// Create empty container that will contain the data for the popup window
 				popupContent += `
-					Author: ${table.rows[i].cells[4].textContent} ${table.rows[i].cells[3].textContent}
+					Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
 					<br>
-					Published: ${table.rows[i].cells[5].textContent}
-	 			`;
-				if (table.rows[i].cells[6].innerHTML.trim()) {
-	                popupContent += `
-	  					<br>
-	  					Series: ${table.rows[i].cells[6].textContent} # ${table.rows[i].cells[7].textContent}
-	 				`;
-	            }
-				if (table.rows[i].cells[11].innerHTML.trim()) {
+					Published: ${row.cells[5].textContent}
+				`;
+				if (row.cells[6].innerHTML.trim()) {
 					popupContent += `
 						<br>
-						Page Count: ${table.rows[i].cells[11].textContent}
-		 			`;
+						Series: ${row.cells[6].textContent} # ${row.cells[7].textContent}
+					`;
 				}
-				if (table.rows[i].cells[10].innerHTML.trim()) {
-	                popupContent += `
-	  					<br>
-	  					Word Count: ${table.rows[i].cells[10].textContent}
-	 				`;
-	            }
+				if (row.cells[11].innerHTML.trim()) {
+					popupContent += `
+						<br>
+						Page Count: ${row.cells[11].textContent}
+					`;
+				}
+				if (row.cells[10].innerHTML.trim()) {
+					popupContent += `
+						<br>
+						Word Count: ${row.cells[10].textContent}
+					`;
+				}
 				
 				/* ----- Image Content ----- */
 				
-				var path = table.rows[i].cells[1];								// Take the first entry of each row (the path for the image file)
-		    	var title = table.rows[i].cells[2];								// Take the second entry of each row (the title of the book)
-		    	var Content = '<img src="images/Book Covers/' + path.textContent 
+				var path = row.cells[1];								// Take the first entry of each row (the path for the image file)
+				var title = row.cells[2];								// Take the second entry of each row (the title of the book)
+				var Content = '<img src="images/Book Covers/' + path.textContent 
 					+ '"alt="'+ title.textContent 
 					+ '"title="' 
 					+ path.textContent 
 					+ '"class="triggerImage" data-popup-text="'
 					+ popupContent
 					+ '"style="cursor: pointer;">';
-		    																	// Write the content of the <img> element so that it becomes the image
+																				// Write the content of the <img> element so that it becomes the image
 				containerContent += `
 					<div class = image-item>
 					${Content}
-	 				<p style="text-align:center"><b>${title.textContent}</b></p>
+					<p style="text-align:center"><b>${title.textContent}</b></p>
 					</div>
 				`;															// Write the text that will be added to <div class=image-container> 
-		    	var bookContainer = document.getElementById("bookContainer");
-		      	bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
-		 	}
+				var bookContainer = document.getElementById("bookContainer");
+				bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
+			}
 		}
 	</script>
 	
