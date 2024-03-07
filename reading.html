@@ -86,7 +86,7 @@
 					<header class="main"><h1>Reading</h1></header>
 					<hr class="major" />
 					<label for="tableSelector">Sorting:</label>
-						<select id="tableSelector" onchange="images()">
+						<select id="tableSelector" onchange="builder()">
 							<option value="0">Select an option</option>
 							<option value="0">Chronologically</option>
 							<option value="2">Title</option>
@@ -314,14 +314,14 @@
 					<div class="mini-posts">
 						<article>
 							<label for="authorSelector">By Author:</label>
-							<select id="authorSelector" onchange="images()">
+							<select id="authorSelector" onchange="builder()">
 								<option value="">Select an option</option>
 							</select>
 							
 							<br>
 
 							<label for="yearFilter">By Year Read:</label>
-							<select id="yearFilter" onchange="images()">
+							<select id="yearFilter" onchange="builder()">
 								<option value="">Select an option</option>
 								<option value="0">All</option>
 								<option value="2020">2020</option>
@@ -360,7 +360,7 @@
 	</div><!-- End Wrapper -->
 
 	<script>
-		function images() {
+		function builder() {
 			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortID = sortSelect.options[sortIndex].value;
 			var table = document.getElementById("myTable");					// Get the table
 
@@ -614,7 +614,7 @@
 	</script>
 	
 	<script>
-		images()   														// Get the selector element
+		builder()   														// Get the selector element
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
 
