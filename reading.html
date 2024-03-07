@@ -360,7 +360,7 @@
 	</div><!-- End Wrapper -->
 
 	<script>
-		function images(cutoff) {
+		function images() {
 			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortID = sortSelect.options[sortIndex].value;
 			var table = document.getElementById("myTable");					// Get the table
 
@@ -421,21 +421,9 @@
 			console.log(rowsArray);
 			rowsArray = filteredRowsArray
 			console.log(rowsArray);
+			
 			//if (yearFilter !== '0') {
-/*
-			for (var i = cutoff; i < table.rows.length; i++) {
-				var row = table.rows[i];
-				
-				if (table.rows[i].cells[9].textContent == "Novelette" || table.rows[i].cells[9].textContent == "Short Story") {
-					continue
-				}
-				
-				if (authorFilter !== 'Select an option') {						// When the 'Select an option' option is selected there is no filter
-					if (row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter) {
-						filteredRows.push(row)
-					}
-				}
-*/
+
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			rowsArray.forEach(function(row) {
 
@@ -627,7 +615,7 @@
 	</script>
 	
 	<script>
-		images(0)   														// Get the selector element
+		images()   														// Get the selector element
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
 
