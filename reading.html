@@ -434,7 +434,7 @@
 			rowsArray = filteredRowsArray
 
 			var filteredRowsArray = rowsArray.filter(function(row) {
-				return row.cells[sortID].textContent == "" || isNaN(row.cells[sortID].textContent);
+				return row.cells[sortID].textContent !== "" || !isNaN(row.cells[sortID].textContent);
 			});
 			rowsArray = filteredRowsArray
 
