@@ -329,6 +329,13 @@
 								<option value="2">2021</option>
 								<option value="1">2020</option>
 							</select>
+
+							<br>
+
+							<label for="seriesSelector">By Series:</label>
+							<select id="seriesSelector" onchange="builder()">
+								<option value="">All</option>
+							</select>
 						</article>
 						<article>
 							<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
@@ -393,14 +400,12 @@
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
 
-			/* ----- Constuct image-container, Using Appropriate Filters ----- */
+			/* ----- Filtering ----- */
 
 			var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
 			var yearSelect = document.getElementById("yearSelector"), yearIndex = yearSelect.selectedIndex, yearFilter = yearSelect.options[yearIndex].value;
-			var seriesFilter = document.getElementById("tableSelector");
+			var seriesSelect = document.getElementById("tableSelector"), seriesIndex = seriesSelect.selectedIndex, seriesFilter = seriesSelect.options[seriesIndex].text;
 			var awardFilter = document.getElementById("tableSelector");
-
-			console.log(yearFilter);
 
 			// Does not display novelettes or short stories in image container
 			var filteredRowsArray = rowsArray.filter(function(row) {
@@ -507,30 +512,55 @@
 	        }
 			return authorCellCount
     	}
+
+		function countSeries(series) {
+	        var table = document.getElementById("myTable");
+	        var rowCount = table.rows.length;
+	        var seriesCellCount = 0;
+	        for (var i = 0; i < rowCount; i++) {
+	            var cell = table.rows[i].cells[6];
+	            if (cell.innerHTML == series) {
+	                seriesCellCount++;
+	            }
+	        }
+			return seriesCellCount
+    	}
 	</script>
 	
 	<script>
 	    document.addEventListener("DOMContentLoaded", function() { // Function that populates the authorSelector dropdown with each author
 	        var table = document.getElementById("myTable");
-	        var dropdown = document.getElementById("authorSelector");
-	        var addedEntries = {};
+	        var authorDropdown = document.getElementById("authorSelector");
+			var seriesDropdown = document.getElementById("seriesSelector");
+	        var authorEntries = {}, seriesEntries = {};
 	
 	        // Collect entries from the table
 	        for (var i = 1; i < table.rows.length; i++) {
 	            var row = table.rows[i];
-	            var entry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); // Concatenate cell values
-	            addedEntries[entry] = true; // Add to added entries object
+	            var authorEntry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); // Concatenate cell values
+				var seriesEntry = row.cells[6].textContent.trim();
+	            authorEntries[authorEntry] = true; // Add to added entries object
+				seriesEntries[seriesEntry] = true; // Add to added entries object
 	        }
 	
 	        // Sort entries alphabetically
-	        var sortedEntries = Object.keys(addedEntries).sort();
+	        var authorSortedEntries = Object.keys(authorEntries).sort();
+			var seriesSortedEntries = Object.keys(seriesEntries).sort();
 	
 	        // Add sorted entries to the dropdown
-	        sortedEntries.forEach(function(entry) {
+	        authorSortedEntries.forEach(function(authorEntry) {
 	            var option = document.createElement("option");
-	            option.text = entry;
-	            option.value = entry;
-	            dropdown.add(option);
+	            option.text = authorEntry;
+	            option.value = authorEntry;
+	            authorDropdown.add(option);
+	        });
+
+			// Add sorted entries to the dropdown
+	        seriesSortedEntries.forEach(function(seriesEntry) {
+	            var option = document.createElement("option");
+	            option.text = authorEntry;
+	            option.value = authorEntry;
+	            seriesDropdown.add(option);
 	        });
 	    });
 	</script>
