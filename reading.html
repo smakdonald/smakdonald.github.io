@@ -324,11 +324,11 @@
 							<select id="yearFilter" onchange="builder()">
 								<option value="">Select an option</option>
 								<option value="0">All</option>
-								<option value="13">2020</option>
-								<option value="25">2021</option>
-								<option value="43">2022</option>
-								<option value="2023">2023</option>
-								<option value="2024">2024</option>
+								<option value="5">2024</option>
+								<option value="4">2023</option>
+								<option value="3">2022</option>
+								<option value="2">2021</option>
+								<option value="1">2020</option>
 							</select>
 						</article>
 						<article>
@@ -363,10 +363,6 @@
 		function builder() {
 			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortID = sortSelect.options[sortIndex].value;
 			var table = document.getElementById("myTable");					// Get the table
-
-			console.log(sortSelect);
-			console.log(sortIndex);
-			console.log(sortID);
 
 			/* ----- Sort the Table ----- */
 
@@ -405,14 +401,14 @@
 			var seriesFilter = document.getElementById("tableSelector");
 			var awardFilter = document.getElementById("tableSelector");
 
+			console.log(yearFilter);
+
 			// Does not display novelettes or short stories in image container
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
 			});
 			
-			console.log(rowsArray);
 			rowsArray = filteredRowsArray
-			console.log(rowsArray);
 
 			if (authorFilter !== 'Select an option') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
@@ -420,13 +416,13 @@
 				});
 			}
 			
-			console.log(rowsArray);
 			rowsArray = filteredRowsArray
-			console.log(rowsArray);
+
+			const yearCutoffs = [0, 12, 24, 42, 101];
 			
 			if (yearFilter !== '0') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
-					return row.cells[0].textContent.trim() > yearFilter;
+					return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && return row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
 				});
 			}
 
