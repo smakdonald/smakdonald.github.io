@@ -432,6 +432,14 @@
 
 			rowsArray = filteredRowsArray
 
+			if (seriesFilter !== 'All') {
+				var filteredRowsArray = rowsArray.filter(function(row) {
+					return row.cells[6].textContent.trim() == seriesFilter;
+				});
+			}
+			
+			rowsArray = filteredRowsArray
+
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			rowsArray.forEach(function(row) {
 				
