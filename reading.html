@@ -404,7 +404,7 @@
 
 			var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
 			var yearSelect = document.getElementById("yearSelector"), yearIndex = yearSelect.selectedIndex, yearFilter = yearSelect.options[yearIndex].value;
-			var seriesSelect = document.getElementById("tableSelector"), seriesIndex = seriesSelect.selectedIndex, seriesFilter = seriesSelect.options[seriesIndex].text;
+			var seriesSelect = document.getElementById("seriesSelector"), seriesIndex = seriesSelect.selectedIndex, seriesFilter = seriesSelect.options[seriesIndex].text;
 			var awardFilter = document.getElementById("tableSelector");
 
 			// Does not display novelettes or short stories in image container
@@ -435,6 +435,8 @@
 				});
 			}
 			rowsArray = filteredRowsArray
+
+			/* ----- Build the Container ----- */
 
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
 			rowsArray.forEach(function(row) {
