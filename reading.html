@@ -309,10 +309,10 @@
 				
 				<section><!-- Section -->
 					<div class="mini-posts">
-						<header class="major">
-							<h2>Filters</h2>
-						</header>
 						<article>
+							<header class="major">
+								<h2>Filters</h2>
+							</header>
 							<label for="authorSelector">By Author:</label>
 							<select id="authorSelector" onchange="builder()">
 								<option value="">All</option>
@@ -337,10 +337,10 @@
 								<option value="">All</option>
 							</select>
 						</article>
-						<header class="major">
-							<h2>Highlights</h2>
-						</header>
 						<article>
+							<header class="major">
+								<h2>Highlights</h2>
+							</header>
 							Coming soon!
 						</article>
 						<article>
@@ -490,6 +490,7 @@
 				`;															// Write the text that will be added to <div class=image-container> 
 				var bookContainer = document.getElementById("bookContainer");
 				bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
+				buildPopup()
 			}
 		)}
 	</script>
@@ -610,9 +611,7 @@
 		  	});
 		  	rowsArray.forEach(item => table.appendChild(item));
 			images(countEmptyCells(column))
-			var pictures = document.querySelectorAll(".triggerImage");
-	    	pictures.forEach(function(picture) {
-	        	picture.addEventListener("click", showPopup);
+			buildPopup()
 	    	});
 		}
 	</script>
@@ -646,14 +645,18 @@
 	    }
 	
 	    // Attach click event listener to all images with the triggerImage class
-	    var pictures = document.querySelectorAll(".triggerImage");
-	    pictures.forEach(function(picture) {
-	        picture.addEventListener("click", showPopup);
-	    });
+		function buildPopup() {
+		    var pictures = document.querySelectorAll(".triggerImage");
+		    pictures.forEach(function(picture) {
+		        picture.addEventListener("click", showPopup);
+		    });
+		}
+		buildPopup()
 	</script>
 	
 	<script>
 		builder()   														// Get the selector element
+		buildPopup()
 		
 		/* ----- Reset all the Dropdowns to the Default Position ----- */
 		
@@ -663,10 +666,6 @@
 	    selector.selectedIndex = 0;
 		var selector = document.getElementById("yearSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
-
-		var pictures = document.querySelectorAll(".triggerImage");
-		pictures.forEach(function(picture) {
-			picture.addEventListener("click", showPopup);
 		});
   	</script>
 </body>
