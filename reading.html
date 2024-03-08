@@ -315,7 +315,7 @@
 						<article>
 							<label for="authorSelector">By Author:</label>
 							<select id="authorSelector" onchange="builder()">
-								<option value="">Select an option</option>
+								<option value="">All</option>
 							</select>
 							
 							<br>
@@ -409,7 +409,7 @@
 			
 			rowsArray = filteredRowsArray
 
-			if (authorFilter !== 'Select an option') {
+			if (authorFilter !== 'All') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
 					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
 				});
@@ -616,13 +616,20 @@
 	
 	<script>
 		builder()   														// Get the selector element
+		
+		/* ----- Reset all the Dropdowns to the Default Position ----- */
+		
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
+	    selector.selectedIndex = 0;
+		var selector = document.getElementById("authorSelector");			// Set the selected index to 0 (which is the index of the first option)
+	    selector.selectedIndex = 0;
+		var selector = document.getElementById("yearSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
 
 		var pictures = document.querySelectorAll(".triggerImage");
-	    	pictures.forEach(function(picture) {
-	        	picture.addEventListener("click", showPopup);
-	    	});
+		pictures.forEach(function(picture) {
+			picture.addEventListener("click", showPopup);
+		});
   	</script>
 </body>
 </html>
