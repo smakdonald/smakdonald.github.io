@@ -320,8 +320,8 @@
 							
 							<br>
 
-							<label for="yearFilter">By Year Read:</label>
-							<select id="yearFilter" onchange="builder()">
+							<label for="yearSelector">By Year Read:</label>
+							<select id="yearSelector" onchange="builder()">
 								<option value="">Select an option</option>
 								<option value="0">All</option>
 								<option value="5">2024</option>
@@ -397,7 +397,7 @@
 			/* ----- Constuct image-container, Using Appropriate Filters ----- */
 
 			var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
-			var yearSelect = document.getElementById("yearFilter"), yearIndex = yearSelect.selectedIndex, yearFilter = yearSelect.options[yearIndex].value;
+			var yearSelect = document.getElementById("yearSelector"), yearIndex = yearSelect.selectedIndex, yearFilter = yearSelect.options[yearIndex].value;
 			var seriesFilter = document.getElementById("tableSelector");
 			var awardFilter = document.getElementById("tableSelector");
 
