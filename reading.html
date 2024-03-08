@@ -15,11 +15,21 @@
 	    .image-item {
 			width: calc(33.33% - 10px);
 			margin-bottom: 20px;
-		}
+
 		.image-item img {
 			max-width: 100%;
-		width: 300px; /* Adjust the desired width */
-		height: 450px; /* Adjust the desired height */
+			width: 300px; /* Adjust the desired width */
+			height: 450px; /* Adjust the desired height */
+			-moz-transition: -moz-transform 0.2s ease;
+		    -webkit-transition: -webkit-transform 0.2s ease;
+		    -ms-transition: -ms-transform 0.2s ease;
+		    transition: transform 0.2s ease; }
+		}
+		.image-item:hover img {
+			-moz-transform: scale(1.075);
+		    -webkit-transform: scale(1.075);
+		    -ms-transform: scale(1.075);
+		    transform: scale(1.075); }
 		}
 		#myTable {
 			display: none;  /* Set display property to none to make the table invisible */
