@@ -422,7 +422,7 @@
 			
 			if (yearFilter !== '0') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
-					return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && return row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
+					return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
 				});
 			}
 
