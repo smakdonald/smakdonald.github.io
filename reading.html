@@ -570,6 +570,7 @@
 		    selector.selectedIndex = 0;
 			var selector = document.getElementById("seriesSelector");			// Set the selected index to 0 (which is the index of the first option)
 		    selector.selectedIndex = 0;
+			builder()
 		}
 	</script>
 
@@ -608,12 +609,10 @@
 		        picture.addEventListener("click", showPopup);
 		    });
 		}
-		buildPopup()
 	</script>
 	
 	<script>
 		builder()   														// Get the selector element
-		buildPopup()
 		
 		/* ----- Reset all the Dropdowns to the Default Position ----- */
 		
