@@ -312,9 +312,9 @@
 						<article>
 							<header class="major"><h2>Filters</h2></header>
 
-							<form>
-								<input type="button">
-							</form>
+							<button onclick="clearFilter()">Clear Filters</button>
+
+							<br>
 							
 							<label for="authorSelector">By Author:</label>
 							<select id="authorSelector" onchange="builder()"><option value="">All</option></select>
@@ -558,6 +558,19 @@
 	            seriesDropdown.add(option);
 	        });
 	    });
+	</script>
+
+	<script>
+		function clearFilter() {
+    		var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
+		    selector.selectedIndex = 0;
+			var selector = document.getElementById("authorSelector");			// Set the selected index to 0 (which is the index of the first option)
+		    selector.selectedIndex = 0;
+			var selector = document.getElementById("yearSelector");				// Set the selected index to 0 (which is the index of the first option)
+		    selector.selectedIndex = 0;
+			var selector = document.getElementById("seriesSelector");			// Set the selected index to 0 (which is the index of the first option)
+		    selector.selectedIndex = 0;
+		}
 	</script>
 
 <!-- Popup Functions -->
