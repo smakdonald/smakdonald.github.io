@@ -322,7 +322,6 @@
 
 							<label for="yearSelector">By Year Read:</label>
 							<select id="yearSelector" onchange="builder()">
-								<option value="">Select an option</option>
 								<option value="0">All</option>
 								<option value="5">2024</option>
 								<option value="4">2023</option>
@@ -418,7 +417,7 @@
 			
 			rowsArray = filteredRowsArray
 
-			const yearCutoffs = [0, 12, 24, 42, 101];
+			const yearCutoffs = [0, 12, 24, 42, 101, 100000];
 			
 			if (yearFilter !== '0') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
