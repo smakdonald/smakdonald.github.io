@@ -411,33 +411,29 @@
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
 			});
-			
 			rowsArray = filteredRowsArray
 
-			if (authorFilter !== 'All') {
-				var filteredRowsArray = rowsArray.filter(function(row) {
+			if (authorFilter !== 'All') { var filteredRowsArray = rowsArray.filter(function(row) {
 					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
 				});
 			}
-			
 			rowsArray = filteredRowsArray
 
 			const yearCutoffs = [0, 12, 24, 42, 101, 100000];
 			
-			if (yearFilter !== '0') {
-				var filteredRowsArray = rowsArray.filter(function(row) {
+			if (yearFilter !== '0') { var filteredRowsArray = rowsArray.filter(function(row) {
 					return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
 				});
 			}
-
 			rowsArray = filteredRowsArray
+
+			console.log(seriesFilter);
 
 			if (seriesFilter !== 'All') {
 				var filteredRowsArray = rowsArray.filter(function(row) {
 					return row.cells[6].textContent.trim() == seriesFilter;
 				});
 			}
-			
 			rowsArray = filteredRowsArray
 
 			var containerContent = ``;											// Create a blank text container that the Content will go into						
