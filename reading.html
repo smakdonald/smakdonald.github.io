@@ -549,7 +549,9 @@
 	            var authorEntry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); // Concatenate cell values
 				var seriesEntry = row.cells[6].textContent.trim();
 	            authorEntries[authorEntry] = true; // Add to added entries object
-				seriesEntries[seriesEntry] = true; // Add to added entries object
+				if (seriesEntry !== '') {
+					seriesEntries[seriesEntry] = true; // Add to added entries object
+				}
 	        }
 	
 	        // Sort entries alphabetically
@@ -663,7 +665,9 @@
 	    selector.selectedIndex = 0;
 		var selector = document.getElementById("authorSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
-		var selector = document.getElementById("yearSelector");			// Set the selected index to 0 (which is the index of the first option)
+		var selector = document.getElementById("yearSelector");				// Set the selected index to 0 (which is the index of the first option)
+	    selector.selectedIndex = 0;
+		var selector = document.getElementById("seriesSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
   	</script>
 </body>
