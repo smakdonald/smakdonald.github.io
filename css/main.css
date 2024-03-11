@@ -78,17 +78,17 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #ffffff; }
-/*  body.is-preload *, body.is-preload *:before, body.is-preload *:after, body.is-resizing *, body.is-resizing *:before, body.is-resizing *:after {
+  	background: #ffffff; }
+	body.is-preload *, body.is-preload *:before, body.is-preload *:after, body.is-resizing *, body.is-resizing *:before, body.is-resizing *:after {
     
-	-moz-animation: none !important;
-    -webkit-animation: none !important;
-    -ms-animation: none !important;
-    animation: none !important;
-    -moz-transition: none !important;
-    -webkit-transition: none !important;
-    -ms-transition: none !important;
-    transition: none !important; }*/
+	-moz-animation: none;
+    -webkit-animation: none;
+    -ms-animation: none;
+    animation: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none; }
 	  
 /* Type */
 body, input, select, textarea {
