@@ -389,18 +389,17 @@
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[sortID].textContent;
 				const altB = b.cells[sortID].textContent;
-				if (a == "") {
+				if (a == "" || isNaN(a) {
         			return 1; 												// Place empty string at the end
     			}
-				else if (b == "") {
+				else if (b == "" || isNaN(b)) {
         			return -1; 												// Place empty string at the end
     			}
 				else {
 					if (sortID == 0 || sortID == 10 || sortID == 11) {		// If sorting chronologically, sort Z -> A to place most recent books first
 						const numA = parseFloat(altA.replace(/,/g, ''));
 						const numB = parseFloat(altB.replace(/,/g, ''));
-						return Number(numB) - Number(numA); 
-						
+						return Number(numB) - Number(numA);
 					} 
 					else {
 						if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
