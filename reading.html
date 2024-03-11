@@ -7,16 +7,18 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<script src="https://kit.fontawesome.com/9983334911.js" crossorigin="anonymous"></script>
 	<style>
-		.image-container {
+		.book-container {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: space-between;
 	    }
+		.image-container {
+			width: calc(33.33% - 10px);
+			overflow: hidden;
+		}
 	    .image-item {
 			overflow: hidden;
-			width: calc(33.33% - 10px);
 			height: 450px; /* Adjust the desired height */
-			margin-bottom: 20px; 
 			border-radius: 0.375em;
   			border: 0;
 			display: inline-block;
@@ -24,6 +26,7 @@
 		}
 		.image-item img {
 			max-width: 100%;
+			overflow: hidden;
 			width: 300px; /* Adjust the desired width */
 			height: 450px; /* Adjust the desired height */
 			border-radius: 0.375em;
@@ -294,7 +297,7 @@
 					
 					<div class="popup-overlay" id="popupOverlay"></div>
 					
-					<div class="image-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
+					<div class="book-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
@@ -508,9 +511,11 @@
 					+ '"style="cursor: pointer;">';
 																				// Write the content of the <img> element so that it becomes the image
 				containerContent += `
-					<div class = image-item>
-					${Content}
-	 				<p style="text-align:center"><b>${title.textContent}</b></p>
+					<div class = image-container>
+						<div class = image-item>
+							${Content}
+						</div>
+						<p style="text-align:center"><b>${title.textContent}</b></p>
 					</div>
 				`;															// Write the text that will be added to <div class=image-container> 
 				var bookContainer = document.getElementById("bookContainer");
