@@ -385,7 +385,6 @@
 
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 			var rowsArray = Array.from(tableRows);							// Creates an arrow with each row as an element
-			var rowsArrayShort = Array.from(tableRows);
 
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[sortID].textContent;
@@ -394,7 +393,7 @@
 					const numA = parseFloat(altA.replace(/,/g, ''));
 					const numB = parseFloat(altB.replace(/,/g, ''));
 					return Number(numB) - Number(numA);
-				} 
+				}
 				else {
 					if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
 						return Number(altA) - Number(altB); 			// If both are numbers, sort numerically
@@ -419,9 +418,11 @@
 			});
 			rowsArray = filteredRowsArray
 
+			// Does not display 
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[sortID].textContent !== "" || !isNaN(row.cells[sortID].textContent);
 			});
+			console.log(filteredRowsArray);
 			rowsArray = filteredRowsArray
 
 			if (authorFilter !== 'All') { var filteredRowsArray = rowsArray.filter(function(row) {
