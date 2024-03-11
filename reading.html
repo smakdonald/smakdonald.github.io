@@ -44,6 +44,9 @@
 		#myTable {
 			display: none;  /* Set display property to none to make the table invisible */
 		}
+		#tableContainer {
+			display: none;  /* Set display property to none to make the table invisible */
+		}
 		.popup-overlay {
 	        display: none;
 	        position: fixed; /* Position overlay relative to the viewport */
@@ -117,9 +120,7 @@
 							<option value="11">Page Count</option>
 							<option value="10">Word Count</option>
 						</select>
-					
-					<br>
-
+							<br>
 					<table id="myTable">
 						<tbody>
 							<!-- Books Read in 2024 -->
@@ -296,6 +297,9 @@
 					<div class="popup-overlay" id="popupOverlay"></div>
 					
 					<div class="book-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
+					<!--
+					<table id="tableContainer"></table>
+					-->
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
