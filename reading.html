@@ -389,10 +389,10 @@
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[sortID].textContent;
 				const altB = b.cells[sortID].textContent;
-				if (a == "" || isNaN(a)) {
+				if (a == "") {
         			return 1; 												// Place empty string at the end
     			}
-				else if (b == "" || isNaN(b)) {
+				else if (b == "") {
         			return -1; 												// Place empty string at the end
     			}
 				else {
@@ -507,6 +507,8 @@
 				var bookContainer = document.getElementById("bookContainer");
 				bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
 				buildPopup()
+
+				/* ----- Short Fiction Table Content ----- */
 			}
 		)}
 	</script>
