@@ -639,19 +639,23 @@
 
 	<script>
 		function resizeAllImages() {
-			var selectedSize = document.getElementById("sizeSelect").value;
-			var newWidth = parseFloat(selectedSize);
-
-			// Update the CSS rule dynamically
-			var styleTag = document.createElement('style');
-			styleTag.textContent = '.image-container { width: calc(' + newWidth + '% - 10px); overflow: hidden; }';
-			document.head.appendChild(styleTag);
-
-			// Apply the updated size to existing .image-container elements
-			var images = document.querySelectorAll('.image-container');
-			for (var i = 0; i < images.length; i++) {
-				images[i].style.width = 'calc(' + newWidth + '% - 10px)';
-			}
+		    var selectedSize = document.getElementById("sizeSelect").value;
+		    var newWidth = parseFloat(selectedSize) - 10;
+		
+		    // Calculate the height based on the new width
+		    var newHeight = newWidth * 1.5;
+		
+		    // Update the CSS rule dynamically
+		    var styleTag = document.createElement('style');
+		    styleTag.textContent = '.image-container { width: calc(' + newWidth + '% - 10px); height: ' + newHeight + 'px; overflow: hidden; }';
+		    document.head.appendChild(styleTag);
+		
+		    // Apply the updated size to existing .image-container elements
+		    var images = document.querySelectorAll('.image-container');
+		    for (var i = 0; i < images.length; i++) {
+		        images[i].style.width = 'calc(' + newWidth + '% - 10px)';
+		        images[i].style.height = newHeight + 'px';
+		    }
 		}
 	</script>
 	
