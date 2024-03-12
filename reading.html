@@ -31,7 +31,8 @@
 			-moz-transition: -moz-transform 0.2s ease;
 		    -webkit-transition: -webkit-transform 0.2s ease;
 		    -ms-transition: -ms-transform 0.2s ease;
-		    transition: width 0.5s ease, height 0.5s ease; /* Add transition effect */
+		    /* transition: width 0.5s ease, height 0.5s ease;  Add transition effect */
+			transition: transform 0.2s ease;
 		}
 		.image-item:hover img {
 			-moz-transform: scale(1.075);
@@ -636,7 +637,7 @@
 	        var perc = parseFloat(selectedSize)
 	        var images = document.querySelectorAll('img');
 	        var imageWidthPercentage = perc; // Set the percentage width here
-	        var screenWidth = window.innerWidth;
+			var screenWidth = document.querySelector('.inner').offsetWidth;
 	
 	        images.forEach(function(image) {
 	            var imageWidth = (screenWidth * imageWidthPercentage) / 100;
