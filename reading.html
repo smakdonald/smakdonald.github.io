@@ -508,6 +508,7 @@
 				var bookContainer = document.getElementById("bookContainer");
 				bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
 				buildPopup()
+				resizeAllImages()
 
 				/* ----- Short Fiction Table Content ----- */
 
@@ -668,6 +669,8 @@
 		var selector = document.getElementById("yearSelector");				// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
 		var selector = document.getElementById("seriesSelector");			// Set the selected index to 0 (which is the index of the first option)
+	    selector.selectedIndex = 0;
+		var selector = document.getElementById("sizeSelect");				// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
 
 		builder()
