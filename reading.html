@@ -14,6 +14,7 @@
 	    }
 		.image-container {
 			width: calc(33.33% - 10px);
+			
 			overflow: hidden;
 			transition: all 0.3s ease; /* Smooth transition for resizing */
 		}
@@ -26,7 +27,6 @@
 		}
 		.image-item img {
 			max-width: 100%;
-			width: 100%
 			overflow: hidden;
 			border-radius: 0.375em;
 			-moz-transition: -moz-transform 0.2s ease;
@@ -513,37 +513,8 @@
 
 				var talbeContent = ``;
 				
-				
 			}
 		)}
-	</script>
-	
-	<script>
-	    function countEmptyCells(column) {
-	        var table = document.getElementById("myTable");
-	        var rowCount = table.rows.length;
-	        var emptyCellCount = 0;
-	        for (var i = 0; i < rowCount; i++) {
-	            var cell = table.rows[i].cells[column];
-	            if (!cell.innerHTML.trim()) {
-	                emptyCellCount++;
-	            }
-	        }
-			return emptyCellCount
-    	}
-
-		function countAuthor(author) {
-	        var table = document.getElementById("myTable");
-	        var rowCount = table.rows.length;
-	        var authorCellCount = 0;
-	        for (var i = 0; i < rowCount; i++) {
-	            var cell = table.rows[i].cells[3];
-	            if (cell.innerHTML == author) {
-	                authorCellCount++;
-	            }
-	        }
-			return authorCellCount
-    	}
 	</script>
 	
 	<script>
@@ -656,6 +627,33 @@
 		        images[i].style.width = 'calc(' + newWidth + '% - 10px)';
 		    }
 		}
+	</script>
+
+	<script>
+	    function calculateImageDimensions() {
+	        var selectedSize = document.getElementById("sizeSelect").value;
+	        var perc = parseFloat(selectedSize)
+	        console.log(perc);
+	        var images = document.querySelectorAll('img');
+	        var imageWidthPercentage = perc; // Set the percentage width here
+	        var screenWidth = window.innerWidth;
+	
+	        images.forEach(function(image) {
+	            var imageWidth = (screenWidth * imageWidthPercentage) / 100;
+	            var imageHeight = 1.5 * imageWidth;
+	
+	            // Set the width and height of the image
+	            image.style.width = imageWidth + 'px';
+	            image.style.height = imageHeight + 'px';
+	
+	            console.log("Image width in pixels: " + imageWidth);
+	            console.log("Image height in pixels: " + imageHeight);
+	        });
+	    }
+	
+	    // Call the function on window load
+	    window.addEventListener('load', calculateImageDimensions);
+	
 	</script>
 	
 	<script>   														
