@@ -641,6 +641,9 @@
 		    var selectedSize = document.getElementById("sizeSelect").value;
 		    var newWidth = parseFloat(selectedSize);
 		
+		    // Calculate the height based on the new width
+		    var newHeight = newWidth * 1.5;
+		
 		    // Update the CSS rule dynamically
 		    var styleTag = document.createElement('style');
 		    styleTag.textContent = '.image-container { width: calc(' + newWidth + '% - 10px); overflow: hidden; }';
@@ -650,6 +653,12 @@
 		    var images = document.querySelectorAll('.image-container');
 		    for (var i = 0; i < images.length; i++) {
 		        images[i].style.width = 'calc(' + newWidth + '% - 10px)';
+		        
+		        // Find the img element within each .image-container
+		        var imgElement = images[i].querySelector('img');
+		        if (imgElement) {
+		            imgElement.style.height = newHeight + 'px'; // Apply the calculated height to the img element
+		        }
 		    }
 		}
 	</script>
