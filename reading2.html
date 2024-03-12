@@ -15,10 +15,10 @@
 		.image-container {
 			width: calc(33.33% - 10px);
 			overflow: hidden;
+			transition: all 0.3s ease; /* Smooth transition for resizing */
 		}
 	    .image-item {
 			overflow: hidden;
-			height: 450px; /* Adjust the desired height */
 			border-radius: 0.375em;
   			border: 0;
 			display: inline-block;
@@ -27,8 +27,6 @@
 		.image-item img {
 			max-width: 100%;
 			overflow: hidden;
-			width: 300px; /* Adjust the desired width */
-			height: 450px; /* Adjust the desired height */
 			border-radius: 0.375em;
 			-moz-transition: -moz-transform 0.2s ease;
 		    -webkit-transition: -webkit-transform 0.2s ease;
@@ -121,10 +119,18 @@
 							<option value="10">Word Count</option>
 						</select>
 							<br>
+
+					<select id="sizeSelect" onchange="resizeAllImages()">
+						<option value="33.33%">Medium</option>
+						<option value="25%">Small</option>
+						<option value="20%">Tiny</option>
+					</select>
+					<br>
 					<table id="myTable">
 						<tbody>
 							<!-- Books Read in 2024 -->
 							<!-- 0 -->			<!-- 1 -->										<!-- 2 --> 																							<!-- 3 -->			<!-- 4 -->				<!-- 5 -->		<!-- 6 -->										<!-- 7 -->	<!-- 8 -->			<!-- 9 -->				<!-- 10 -->		<!-- 11 -->
+							<tr> <td>157</td> 	<td>Robinson-Red-Mars.jpg</td>					<td>Red Mars</td> 																					<td>Robinson</td> 	<td>Kim Stanley</td> 	<td>1992</td> 	<td>Mars Trilogy</td>							<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td></td>		<td>615</td> 	</tr>
 							<tr> <td>156</td> 	<td>Backman-Man-Called-Ove.jpg</td>				<td>A Man Called Ove</td> 																			<td>Backman</td> 	<td>Fredrik</td> 	    <td>2012</td> 	<td></td>										<td></td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td></td>		<td>360</td> 	</tr>
 							<tr> <td>155</td> 	<td>Pullman-Amber-Spyglass.jpg</td>				<td>The Amber Spyglass</td> 																		<td>Pullman</td> 	<td>Philip</td> 	    <td>2000</td> 	<td>His Dark Materials</td>						<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>168,640</td><td>560</td> 	</tr>
 							<tr> <td>154</td> 	<td></td>										<td>"Welcome to Your Authentic Indian Experience"</td> 												<td>Roanhorse</td> 	<td>Rebecca</td> 	    <td>2017</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>5782</td>	<td></td> 		</tr>
@@ -389,26 +395,17 @@
 			rowsArray.sort((a, b) => {
 				const altA = a.cells[sortID].textContent;
 				const altB = b.cells[sortID].textContent;
-				if (a == "") {
-        			return 1; 												// Place empty string at the end
-    			}
-				else if (b == "") {
-        			return -1; 												// Place empty string at the end
-    			}
+				if (sortID == 0 || sortID == 10 || sortID == 11) {		// If sorting chronologically, sort Z -> A to place most recent books first
+					const numA = parseFloat(altA.replace(/,/g, ''));
+					const numB = parseFloat(altB.replace(/,/g, ''));
+					return Number(numB) - Number(numA);
+				}
 				else {
-					if (sortID == 0 || sortID == 10 || sortID == 11) {		// If sorting chronologically, sort Z -> A to place most recent books first
-						const numA = parseFloat(altA.replace(/,/g, ''));
-						const numB = parseFloat(altB.replace(/,/g, ''));
-						return Number(numB) - Number(numA); 
-						
+					if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
+						return Number(altA) - Number(altB); 			// If both are numbers, sort numerically
 					} 
 					else {
-						if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
-							return Number(altA) - Number(altB); 			// If both are numbers, sort numerically
-						} 
-						else {
-							return altA.localeCompare(altB); 				// Otherwise, sort alphabetically
-				      	}
+						return altA.localeCompare(altB); 				// Otherwise, sort alphabetically
 					}
 				}
 		  	});
@@ -427,9 +424,11 @@
 			});
 			rowsArray = filteredRowsArray
 
+			// Does not display 
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[sortID].textContent !== "" || !isNaN(row.cells[sortID].textContent);
 			});
+			console.log(filteredRowsArray);
 			rowsArray = filteredRowsArray
 
 			if (authorFilter !== 'All') { var filteredRowsArray = rowsArray.filter(function(row) {
@@ -508,6 +507,12 @@
 				var bookContainer = document.getElementById("bookContainer");
 				bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
 				buildPopup()
+
+				/* ----- Short Fiction Table Content ----- */
+
+				var talbeContent = ``;
+				
+				
 			}
 		)}
 	</script>
@@ -630,10 +635,26 @@
 		    });
 		}
 	</script>
-	
+
 	<script>
-		builder()   														// Get the selector element
+		function resizeAllImages() {
+		    var selectedSize = document.getElementById("sizeSelect").value;
+		    var newWidth = parseFloat(selectedSize);
 		
+		    // Update the CSS rule dynamically
+		    var styleTag = document.createElement('style');
+		    styleTag.textContent = '.image-container { width: calc(' + newWidth + '% - 10px); overflow: hidden; }';
+		    document.head.appendChild(styleTag);
+		
+		    // Apply the updated size to existing .image-container elements
+		    var images = document.querySelectorAll('.image-container');
+		    for (var i = 0; i < images.length; i++) {
+		        images[i].style.width = 'calc(' + newWidth + '% - 10px)';
+		    }
+		}
+	</script>
+	
+	<script>   														
 		/* ----- Reset all the Dropdowns to the Default Position ----- */
 		
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
@@ -644,6 +665,8 @@
 	    selector.selectedIndex = 0;
 		var selector = document.getElementById("seriesSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
+
+		builder()
   	</script>
 </body>
 </html>
