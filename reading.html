@@ -15,10 +15,10 @@
 		.image-container {
 			width: calc(33.33% - 10px);
 			overflow: hidden;
+			transition: all 0.3s ease; /* Smooth transition for resizing */
 		}
 	    .image-item {
 			overflow: hidden;
-			height: 450px; /* Adjust the desired height */
 			border-radius: 0.375em;
   			border: 0;
 			display: inline-block;
@@ -27,8 +27,6 @@
 		.image-item img {
 			max-width: 100%;
 			overflow: hidden;
-			width: 300px; /* Adjust the desired width */
-			height: 450px; /* Adjust the desired height */
 			border-radius: 0.375em;
 			-moz-transition: -moz-transform 0.2s ease;
 		    -webkit-transition: -webkit-transform 0.2s ease;
@@ -628,6 +626,24 @@
 		    pictures.forEach(function(picture) {
 		        picture.addEventListener("click", showPopup);
 		    });
+		}
+	</script>
+
+	<script>
+		function resizeAllImages() {
+			var selectedSize = document.getElementById("sizeSelect").value;
+			var newWidth = parseFloat(selectedSize);
+
+			// Update the CSS rule dynamically
+			var styleTag = document.createElement('style');
+			styleTag.textContent = '.image-container { width: calc(' + newWidth + '% - 10px); overflow: hidden; }';
+			document.head.appendChild(styleTag);
+
+			// Apply the updated size to existing .image-container elements
+			var images = document.querySelectorAll('.image-container');
+			for (var i = 0; i < images.length; i++) {
+				images[i].style.width = 'calc(' + newWidth + '% - 10px)';
+			}
 		}
 	</script>
 	
