@@ -653,12 +653,6 @@
 		    var images = document.querySelectorAll('.image-container');
 		    for (var i = 0; i < images.length; i++) {
 		        images[i].style.width = 'calc(' + newWidth + '% - 10px)';
-		        
-		        // Find the img element within each .image-container
-		        var imgElement = images[i].querySelector('img');
-		        if (imgElement) {
-		            imgElement.style.height = newHeight + 'px'; // Apply the calculated height to the img element
-		        }
 		    }
 		}
 	</script>
