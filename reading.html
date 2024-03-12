@@ -14,7 +14,6 @@
 	    }
 		.image-container {
 			width: calc(33.33% - 10px);
-			
 			overflow: hidden;
 			transition: all 0.3s ease; /* Smooth transition for resizing */
 		}
@@ -626,14 +625,15 @@
 		    for (var i = 0; i < images.length; i++) {
 		        images[i].style.width = 'calc(' + newWidth + '% - 10px)';
 		    }
+			calculateImageDimensions()
 		}
 	</script>
 
 	<script>
 	    function calculateImageDimensions() {
 	        var selectedSize = document.getElementById("sizeSelect").value;
+			console.log(selectedSize);
 	        var perc = parseFloat(selectedSize)
-	        console.log(perc);
 	        var images = document.querySelectorAll('img');
 	        var imageWidthPercentage = perc; // Set the percentage width here
 	        var screenWidth = window.innerWidth;
@@ -669,6 +669,7 @@
 	    selector.selectedIndex = 0;
 
 		builder()
+		calculateImageDimensions()
   	</script>
 </body>
 </html>
