@@ -427,7 +427,7 @@
 
 			// Does not display 
 			var filteredRowsArray = rowsArray.filter(function(row) {
-				return row.cells[sortID].textContent !== "" || !isNaN(row.cells[sortID].textContent);
+				return row.cells[sortID].textContent.trim() !== '';
 			});
 			console.log(filteredRowsArray);
 			rowsArray = filteredRowsArray
@@ -634,7 +634,6 @@
 	<script>
 	    function calculateImageDimensions() {
 	        var selectedSize = document.getElementById("sizeSelect").value;
-			console.log(selectedSize);
 	        var perc = parseFloat(selectedSize)
 	        var images = document.querySelectorAll('img');
 	        var imageWidthPercentage = perc; // Set the percentage width here
@@ -649,8 +648,8 @@
 	            image.style.width = imageWidth + 'px';
 	            image.style.height = imageHeight + 'px';
 	
-	            console.log("Image width in pixels: " + imageWidth);
-	            console.log("Image height in pixels: " + imageHeight);
+	            //console.log("Image width in pixels: " + imageWidth);
+	            //console.log("Image height in pixels: " + imageHeight);
 	        });
 	    }
 	
