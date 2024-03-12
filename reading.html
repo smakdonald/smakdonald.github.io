@@ -637,7 +637,8 @@
 	        var perc = parseFloat(selectedSize)
 	        var images = document.querySelectorAll('img');
 	        var imageWidthPercentage = perc; // Set the percentage width here
-			var screenWidth = document.querySelector('.inner').offsetWidth;
+			var innerWidth = document.querySelector('.inner').offsetWidth;
+			var screenWidth = innerWidth *.8
 	
 	        images.forEach(function(image) {
 	            var imageWidth = (screenWidth * imageWidthPercentage) / 100;
