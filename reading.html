@@ -132,7 +132,7 @@
 							<!-- Books Read in 2024 -->
 							<!-- 0 -->			<!-- 1 -->										<!-- 2 --> 																							<!-- 3 -->			<!-- 4 -->				<!-- 5 -->		<!-- 6 -->										<!-- 7 -->	<!-- 8 -->			<!-- 9 -->				<!-- 10 -->		<!-- 11 -->
 							<tr> <td>157</td> 	<td>Robinson-Red-Mars.jpg</td>					<td>Red Mars</td> 																					<td>Robinson</td> 	<td>Kim Stanley</td> 	<td>1992</td> 	<td>Mars Trilogy</td>							<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210374</td>	<td>615</td> 	</tr>
-							<tr> <td>156</td> 	<td>Backman-Man-Called-Ove.jpg</td>				<td>A Man Called Ove</td> 																			<td>Backman</td> 	<td>Fredrik</td> 	    <td>2012</td> 	<td></td>										<td></td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td></td>		<td>360</td> 	</tr>
+							<tr> <td>156</td> 	<td>Backman-Man-Called-Ove.jpg</td>				<td>A Man Called Ove</td> 																			<td>Backman</td> 	<td>Fredrik</td> 	    <td>2012</td> 	<td></td>										<td></td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>92073</td>		<td>360</td> 	</tr>
 							<tr> <td>155</td> 	<td>Pullman-Amber-Spyglass.jpg</td>				<td>The Amber Spyglass</td> 																		<td>Pullman</td> 	<td>Philip</td> 	    <td>2000</td> 	<td>His Dark Materials</td>						<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>168,640</td><td>560</td> 	</tr>
 							<tr> <td>154</td> 	<td></td>										<td>"Welcome to Your Authentic Indian Experience"</td> 												<td>Roanhorse</td> 	<td>Rebecca</td> 	    <td>2017</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>5782</td>	<td></td> 		</tr>
 							<tr> <td>153</td> 	<td></td>										<td>"If You Find Yourself Speaking to God, Address God with the Informal You"</td> 					<td>Chu</td> 		<td>John</td> 			<td>2022</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Novelette</td> 		<td>9886</td>	<td></td> 		</tr>
@@ -394,16 +394,11 @@
 			var rowsArray = Array.from(tableRows);							// Creates an arrow with each row as an element
 
 			rowsArray.sort((a, b) => {
-				const altA = a.cells[sortID].textContent;
-				const altB = b.cells[sortID].textContent;
-				if (sortID == 0 || sortID == 10 || sortID == 11) {		// If sorting chronologically, sort Z -> A to place most recent books first
-					//const numA = parseFloat(altA.replace(/,/g, ''));
-					//const numB = parseFloat(altB.replace(/,/g, ''));
-					const numA = parseFloat(altA.replace(/,/g, ''));
-					const numB = parseFloat(altB.replace(/,/g, ''));
-					return Number(numB) - Number(numA);
-					//return Number(altB) - Number(altA);
-				}
+				var altA = a.cells[sortID].textContent.replace(/,/g, '');;
+				var altB = b.cells[sortID].textContent.replace(/,/g, '');;
+				if (sortID === 0 || sortID === 10 || sortID === 11) {
+        			return Number(altB) - Number(altA);
+    			}
 				else {
 					if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
 						return Number(altA) - Number(altB); 			// If both are numbers, sort numerically
