@@ -648,6 +648,12 @@
 	</script>
 
 	<script>
+	  document.getElementById('showTableBtn').addEventListener('click', function() {
+	    document.getElementById('tableContainer').style.display = 'block';
+	  });
+	</script>
+
+	<script>
 	    function calculateImageDimensions() {
 	        var selectedSize = document.getElementById("sizeSelect").value;
 	        var perc = parseFloat(selectedSize)
