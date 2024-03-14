@@ -458,7 +458,6 @@
 				return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
 			});
    			
-			
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
 			});
@@ -478,22 +477,13 @@
 					Published: ${row.cells[5].textContent}
 				`;
 				if (row.cells[6].innerHTML.trim()) {
-					popupContent += `
-						<br>
-						Series: ${row.cells[6].textContent} # ${row.cells[7].textContent}
-					`;
+					popupContent += `<br> Series: ${row.cells[6].textContent} # ${row.cells[7].textContent}`;
 				}
 				if (row.cells[11].innerHTML.trim()) {
-					popupContent += `
-						<br>
-						Page Count: ${row.cells[11].textContent}
-					`;
+					popupContent += `<br> Page Count: ${row.cells[11].textContent}`;
 				}
 				if (row.cells[10].innerHTML.trim()) {
-					popupContent += `
-						<br>
-						Word Count: ${row.cells[10].textContent}
-					`;
+					popupContent += `<br> Word Count: ${row.cells[10].textContent}`;
 				}
 				
 				/* ----- Image Content ----- */
@@ -552,8 +542,6 @@
                 break;
             }
         }
-				
-				
 	</script>
 	
 	<script>
