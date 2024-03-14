@@ -345,7 +345,9 @@
 							<br>
 							<br>
 							<label for="authorSelector">By Author:</label>
-							<select id="authorSelector" onchange="builder()"><option value="">All</option></select>
+							<select id="authorSelector" onchange="builder()">
+								<option value="">All</option>
+							</select>
 							<br>
 							<label for="yearSelector">By Year Read:</label>
 							<select id="yearSelector" onchange="builder()">
@@ -535,7 +537,8 @@
 		)}
 
 		function authorClick(author) {
-			var authorSelect = document.getElementById("authorSelector"), 
+			var authorSelect = document.getElementById("authorSelector")
+			console.log(authorSelect.options.length)
 			for (var i = 0; i < authorSelect.options.length; i++) {
             if (authorSelect.options[i].value == author) {
                 authorSelect.selectedIndex = i;
