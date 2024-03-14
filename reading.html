@@ -94,7 +94,7 @@
 	<div id="wrapper"><!-- Wrapper -->
 		<div id="main"><!-- Main -->
 			<div class="inner"><!-- Inner -->	
-				<header id="header">
+				<header id="header"><!-- Header -->
 					<a href="index.html" class="logo"><strong>Sam Macdonald</strong> Turner of Pages</a>
 					<ul class="icons">
 						<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin"><span class="label">Linked In</span></a></li>
@@ -102,25 +102,25 @@
 						<li><a href="https://open.spotify.com/user/thesam.mac" class="icon brands fa-spotify"><span class="label">Spotify</span></a></li>
 						<li><a href="cats.html" class="icon solid fa-cat"><span class="label">Cat</span></a></li>
 					</ul>
-				</header>
+				</header><!-- End Header -->
 				<!-- Content -->
 				<section><!-- Reading Section -->
 					<header class="main"><h1>Reading</h1></header>
 					<hr class="major" />
 					<label for="tableSelector">Sorting:</label>
-						<select id="tableSelector" onchange="builder()">
-							<option value="0">Select an option</option>
-							<option value="0">Chronologically</option>
-							<option value="2">Title</option>
-							<option value="3">Author Last Name</option>
-							<option value="4">Author First Name</option>
-							<option value="5">Publication Date</option>
-							<option value="6">Series</option>
-							<option value="11">Page Count</option>
-							<option value="10">Word Count</option>
-						</select>
-							<br>
-
+					<select id="tableSelector" onchange="builder()">
+						<option value="0">Select an option</option>
+						<option value="0">Chronologically</option>
+						<option value="2">Title</option>
+						<option value="3">Author Last Name</option>
+						<option value="4">Author First Name</option>
+						<option value="5">Publication Date</option>
+						<option value="6">Series</option>
+						<option value="11">Page Count</option>
+						<option value="10">Word Count</option>
+					</select>
+					<br>
+					<label for="tableSelector">Image Size:</label>
 					<select id="sizeSelect" onchange="resizeAllImages()">
 						<option value="33.33%">Large</option>
 						<option value="25%">Medium</option>
@@ -297,20 +297,18 @@
 							<tr> <td>1</td> 	<td>Sanderson-Mistborn.jpg</td>					<td>Mistborn</td> 																					<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn</td> 								<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210,103</td>	<td>669</td> 	</tr>
 						</tbody>
 					</table>
-					
-					<div id="popup" class="popup-container">
+
+					<!-- Popup window that appears then an image is clicked on-->
+					<div id="popup" class="popup-container"> 
 					    <span class="close-btn" onclick="closePopup()">X</span>
 					    <h2 id="popupTitle"></h2>
 					    <p id="popupText"></p>
 					</div>
 					
 					<div class="popup-overlay" id="popupOverlay"></div>
-					
 					<div class="book-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
 					<table id="tableContainer"></table>
-
-					<button onclick="showTable()">Hide Table</button>
-					
+					<button onclick="showTable()">Table View</button>
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
@@ -340,16 +338,15 @@
 					</ul>
 				</nav><!-- End Menu -->
 				
-				<section><!-- Section -->
-					<div class="mini-posts">
+				<section><div class="mini-posts"><!-- Section -->
 						<article>
 							<header class="major"><h2>Filters</h2></header>
 							<button onclick="clearFilter()">Clear Filters</button>
-								<br>
-								<br>
+							<br>
+							<br>
 							<label for="authorSelector">By Author:</label>
 							<select id="authorSelector" onchange="builder()"><option value="">All</option></select>
-								<br>
+							<br>
 							<label for="yearSelector">By Year Read:</label>
 							<select id="yearSelector" onchange="builder()">
 								<option value="0">All</option>
@@ -359,7 +356,7 @@
 								<option value="2">2021</option>
 								<option value="1">2020</option>
 							</select>
-								<br>
+							<br>
 							<label for="seriesSelector">By Series:</label>
 							<select id="seriesSelector" onchange="builder()"><option value="">All</option></select>
 						</article>
@@ -371,7 +368,7 @@
 							</p>
 						</article>
 					</div>
-				</section>
+				</section><!-- End Section -->
 				
 				<section><header class="major"><h2>Get in touch</h2></header><!-- Contact Section -->
 					<ul class="contact">
@@ -398,7 +395,7 @@
 			// Set variables for the sorting preference
 			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortID = sortSelect.options[sortIndex].value;
 			// Get the table
-			var table = document.getElementById("myTable");					
+			var table = document.getElementById("myTable");			
 
 			/* ----- Sort the Table ----- */
 
@@ -416,11 +413,11 @@
 						return Number(altA) - Number(altB); 				// If both are numbers, sort numerically
 					} 
 					else {
-						return altA.localeCompare(altB); 					// Otherwise, sort alphabetically
+						return altA.localeCompare(altB); 					// Otherwise, sort alphabetically A -> Z
 					}
 				}
 		  	});
-		  	rowsArray.forEach(item => table.appendChild(item));
+		  	rowsArray.forEach(item => table.appendChild(item));				// Once everything is sorted, add it back to the table in the correct order
 
 			/* ----- Filtering ----- */
 
@@ -429,13 +426,13 @@
 			var seriesSelect = document.getElementById("seriesSelector"), seriesIndex = seriesSelect.selectedIndex, seriesFilter = seriesSelect.options[seriesIndex].text;
 			var awardFilter = document.getElementById("tableSelector");
 
-			var filteredRowsArray = rowsArray.filter(function(row) {
-				return row.cells[sortID].textContent.trim() !== '';
+			var filteredRowsArray = rowsArray.filter(function(row) {		// Remove all rows from the array that has an empty cell in the sorted column
+				return row.cells[sortID].textContent.trim() !== '';			// E.g., removing books without word count from word count sorting
 			});
 			rowsArray = filteredRowsArray
 
-			if (authorFilter !== 'All') {
-				var filteredRowsArray = rowsArray.filter(function(row) {
+			if (authorFilter !== 'All') {									// If an author has been selected from the Author Filter dropdown
+				var filteredRowsArray = rowsArray.filter(function(row) {	
 					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
 				});
 			}
