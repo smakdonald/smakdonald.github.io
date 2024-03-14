@@ -433,7 +433,7 @@
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[sortID].textContent.trim() !== '';
 			});
-			console.log(filteredRowsArray);
+			//console.log(filteredRowsArray);
 			rowsArray = filteredRowsArray
 
 			if (authorFilter !== 'All') { var filteredRowsArray = rowsArray.filter(function(row) {
@@ -526,7 +526,9 @@
 				rowsArray.forEach(function(row) {
 					var content = row.innerHTML
 					tableContent += `
+	 				<tr>
 			          ${content}
+			 		</tr>
 			        `;
 				});
 
