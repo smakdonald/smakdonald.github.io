@@ -395,26 +395,28 @@
 
 	<script>
 		function builder() {
+			// Set variables for the sorting preference
 			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortID = sortSelect.options[sortIndex].value;
-			var table = document.getElementById("myTable");					// Get the table
+			// Get the table
+			var table = document.getElementById("myTable");					
 
 			/* ----- Sort the Table ----- */
 
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
-			var rowsArray = Array.from(tableRows);							// Creates an arrow with each row as an element
+			var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
 
-			rowsArray.sort((a, b) => {
-				var altA = a.cells[sortID].textContent.replace(/,/g, '');
-				var altB = b.cells[sortID].textContent.replace(/,/g, '');
-				if (sortID == 0 || sortID == 10 || sortID == 11) {
-        			return Number(altB) - Number(altA);
+			rowsArray.sort((a, b) => {										// Sort the table based on the sortID given above
+				var altA = a.cells[sortID].textContent.replace(/,/g, '');	// Get the first value, with commas removed for number sorting
+				var altB = b.cells[sortID].textContent.replace(/,/g, '');	// Get the second value, with commas removed for number sorting
+				if (sortID == 0 || sortID == 10 || sortID == 11) {			// Check if column should be sorted Z -> A
+        			return Number(altB) - Number(altA);						// If so, compare two values appropriately
     			}
 				else {
-					if (!isNaN(altA) && !isNaN(altB)) {					// Check if the alt attributes are numbers
-						return Number(altA) - Number(altB); 			// If both are numbers, sort numerically
+					if (!isNaN(altA) && !isNaN(altB)) {						// Check if the alt attributes are numbers
+						return Number(altA) - Number(altB); 				// If both are numbers, sort numerically
 					} 
 					else {
-						return altA.localeCompare(altB); 				// Otherwise, sort alphabetically
+						return altA.localeCompare(altB); 					// Otherwise, sort alphabetically
 					}
 				}
 		  	});
@@ -456,16 +458,14 @@
 			rowsArray = filteredRowsArray
 
 			var shortFictionArray = rowsArray.filter(function(row) {
-					return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
-				});
-			}
+				return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
+			});
+   			
 			
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
 			});
 			rowsArray = filteredRowsArray
-
-			
 
 			/* ----- Build the Container ----- */
 
