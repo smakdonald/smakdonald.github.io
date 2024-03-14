@@ -474,7 +474,7 @@
 				
 				var popupContent = ``;											// Create empty container that will contain the data for the popup window
 				popupContent += `
-					Author: <a href="#" onclick="authorClick(${row.cells[3].textContent}, ${row.cells[4].textContent})">${row.cells[4].textContent} ${row.cells[3].textContent}</a>
+					Author: <a href="#" onclick="authorClick(${row.cells[3].textContent}, ${row.cells[4].textContent})"${row.cells[4].textContent} ${row.cells[3].textContent}</a>
 					<br>
 					Published: ${row.cells[5].textContent}
 				`;
