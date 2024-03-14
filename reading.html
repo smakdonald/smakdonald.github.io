@@ -159,7 +159,7 @@
 							<tr> <td>136</td> 	<td>Wells-Exit-Strategy.jpg</td>				<td>Exit Strategy</td> 							                        							<td>Wells</td> 		<td>Martha</td> 	    <td>2018</td> 	<td>The Murderbot Diaries</td>					<td>4</td> 	<td>Audiobook</td> 	<td>Novella</td> 		<td>35,829</td> 	<td>172</td> 	</tr>	
 							<tr> <td>135</td> 	<td>Liu-Paper-Menagerie.jpg</td>				<td>"State Change"</td> 							            									<td>Liu</td> 		<td>Ken</td> 	    	<td>2004</td> 	<td>The Paper Menagerie</td>					<td>2</td> 	<td>Read</td> 		<td>Novelette</td> 		<td></td> 			<td>16</td> 	</tr>	
 							<tr> <td>134</td> 	<td>Chiang-Stories.jpeg</td>					<td>Stories of Your Life and Others</td> 				                							<td>Chiang</td> 	<td>Ted</td> 		    <td>2002</td> 	<td></td> 										<td></td> 	<td>Book</td> 		<td>Collection</td> 	<td></td> 			<td>287</td> 	</tr>	
-							<tr> <td>133</td> 	<td>Chiang-Stories.jpeg</td>					<td>"Liking What You See: A Documentary"</td> 				            							<td>Chiang</td> 	<td>Ted</td> 		    <td>2002</td> 	<td>Stories of Your Life and Others</td> 		<td>8</td> 	<td>Book</td> 		<td>Novelette</td> 		<td><12,857/td> 	<td>38</td> 	</tr>
+							<tr> <td>133</td> 	<td>Chiang-Stories.jpeg</td>					<td>"Liking What You See: A Documentary"</td> 				            							<td>Chiang</td> 	<td>Ted</td> 		    <td>2002</td> 	<td>Stories of Your Life and Others</td> 		<td>8</td> 	<td>Book</td> 		<td>Novelette</td> 		<td>12,857</td> 	<td>38</td> 	</tr>
 							<tr> <td>132</td> 	<td>Leckie-Ancillary-Mercy.jpg</td>				<td>Ancillary Mercy</td> 						                        							<td>Leckie</td> 	<td>Ann</td> 		    <td>2015</td> 	<td>Imperial Radch</td> 						<td>3</td> 	<td>Book</td> 		<td>Novel</td> 			<td></td> 			<td>330</td> 	</tr>	
 							<tr> <td>131</td> 	<td>Wells-Rogue-Protocol.jpg</td>				<td>Rogue Protocol</td> 						                        							<td>Wells</td> 		<td>Martha</td> 	    <td>2018</td> 	<td>The Murderbot Diaries</td> 					<td>3</td> 	<td>Audiobook</td> 	<td>Novella</td> 		<td>35,206</td> 	<td>158</td> 	</tr>	
 							<tr> <td>130</td> 	<td>Liu-Paper-Menagerie.jpg</td>				<td>"The Bookmaking Habits of Select Species"</td> 													<td>Liu</td> 		<td>Ken</td> 	    	<td>2012</td> 	<td>The Paper Menagerie</td>					<td>1</td> 	<td>Read</td> 		<td>Short Story</td> 	<td></td> 			<td>9</td> 		</tr>	
@@ -526,9 +526,16 @@
 				rowsArray.forEach(function(row) {
 					var content = row.innerHTML
 					tableContent += `
-	 				<tr>
-			          ${content}
-			 		</tr>
+		 				<tr>
+				        	<td>${row.cells[2]}</td>
+							<td>${row.cells[3]}</td>
+		  					<td>${row.cells[4]}</td>
+							<td>${row.cells[5]}</td>
+		  					<td>${row.cells[6]}</td>
+							<td>${row.cells[9]}</td>
+					  		<td>${row.cells[10]}</td>
+					  		<td>${row.cells[11]}</td>
+				 		</tr>
 			        `;
 				});
 
