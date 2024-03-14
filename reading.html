@@ -524,8 +524,9 @@
 				rowsArray = filteredRowsArray
 
 				rowsArray.forEach(function(row) {
+					var content = row.innerHTML
 					tableContent += `
-			          ${row}
+			          ${content}
 			        `;
 				});
 
@@ -678,7 +679,6 @@
 	
 	        });
 	    }
-
 	    // Call the function on window load
 	    window.addEventListener('load', calculateImageDimensions);
 	
