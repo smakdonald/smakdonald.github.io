@@ -427,20 +427,13 @@
 			var seriesSelect = document.getElementById("seriesSelector"), seriesIndex = seriesSelect.selectedIndex, seriesFilter = seriesSelect.options[seriesIndex].text;
 			var awardFilter = document.getElementById("tableSelector");
 
-			// Does not display novelettes or short stories in image container
-			var filteredRowsArray = rowsArray.filter(function(row) {
-				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
-			});
-			rowsArray = filteredRowsArray
-
-			// Does not display 
 			var filteredRowsArray = rowsArray.filter(function(row) {
 				return row.cells[sortID].textContent.trim() !== '';
 			});
-			//console.log(filteredRowsArray);
 			rowsArray = filteredRowsArray
 
-			if (authorFilter !== 'All') { var filteredRowsArray = rowsArray.filter(function(row) {
+			if (authorFilter !== 'All') {
+				var filteredRowsArray = rowsArray.filter(function(row) {
 					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
 				});
 			}
@@ -448,7 +441,8 @@
 
 			const yearCutoffs = [0, 12, 24, 42, 99, 100000];
 			
-			if (yearFilter !== '0') { var filteredRowsArray = rowsArray.filter(function(row) {
+			if (yearFilter !== '0') { 
+				var filteredRowsArray = rowsArray.filter(function(row) {
 					return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
 				});
 			}
@@ -460,6 +454,18 @@
 				});
 			}
 			rowsArray = filteredRowsArray
+
+			var shortFictionArray = rowsArray.filter(function(row) {
+					return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
+				});
+			}
+			
+			var filteredRowsArray = rowsArray.filter(function(row) {
+				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
+			});
+			rowsArray = filteredRowsArray
+
+			
 
 			/* ----- Build the Container ----- */
 
@@ -521,13 +527,7 @@
 				/* ----- Short Fiction Table Content ----- */
 
 				var tableContent = ``;
-				var rowsArray = Array.from(tableRows);
-				var filteredRowsArray = rowsArray.filter(function(row) {
-					return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
-				});
-				rowsArray = filteredRowsArray
-
-				rowsArray.forEach(function(row) {
+				shortFictionArray.forEach(function(row) {
 					var content = row.innerHTML
 					tableContent += `
 		 				<tr>
@@ -542,7 +542,6 @@
 				 		</tr>
 			        `;
 				});
-
 				var tableContainer = document.getElementById("tableContainer");
 				tableContainer.innerHTML = tableContent;
 			}
