@@ -309,7 +309,7 @@
 					
 					<div class="book-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
 
-					<button id="showTableBtn">Show Table</button>
+					<button onclick="showTable()">Hide Table</button>
 					
 					<table id="tableContainer"></table>
 					
@@ -369,7 +369,7 @@
 							<p>
 								Books read this year: 40
 									<br>
-								Short fiction read this year: 19
+								Short fiction read this year: 21
 							</p>
 						</article>
 					</div>
@@ -649,9 +649,14 @@
 	</script>
 
 	<script>
-	  document.getElementById('showTableBtn').addEventListener('click', function() {
-	    document.getElementById('tableContainer').style.display = '';
-	  });
+    function showTable() {
+        var table = document.getElementById("tableContainer");
+        if (table.style.display == "none") {
+            table.style.display = "";
+        } else {
+            table.style.display = "none";
+        }
+    }
 	</script>
 
 	<script>
@@ -675,7 +680,7 @@
 	            //console.log("Image height in pixels: " + imageHeight);
 	        });
 	    }
-	
+
 	    // Call the function on window load
 	    window.addEventListener('load', calculateImageDimensions);
 	
