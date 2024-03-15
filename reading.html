@@ -317,7 +317,7 @@
 				<nav id="menu"><header class="major"><h2>Menu</h2></header><!-- Menu -->
 					<ul class="contact">
 						<li><a href="index.html">Homepage</a></li>
-						<li> <a href="teaching.html">Teaching</a></li>
+						<li><a href="teaching.html">Teaching</a></li>
 						<li><a href="cv.html">Curriculum Vitae</a></li>
 						<li><a href="rj.html">Prison Education</a></li>
 						<li><a href="OERs.html">Mathematics OERs</a></li>
@@ -339,11 +339,8 @@
 				
 				<section><div class="mini-posts"><!-- Section -->
 						<article><header class="major"><h2>Highlights</h2></header>
-							<p>
-								Books read this year: 40
-									<br>
-								Short fiction read this year: 21
-							</p>
+							<p id="lfRead2024"></p>
+							<p id="sfRead2024"></p>
 						</article>
 						<article>
 							<header class="major"><h2>Filters</h2></header>
@@ -392,8 +389,7 @@ function builder() {
 	var sortSelect = document.getElementById("tableSelector"), 
 		sortIndex = sortSelect.selectedIndex, 
 		sortID = sortSelect.options[sortIndex].value;
-	// Get the table
-	var table = document.getElementById("myTable");			
+	var table = document.getElementById("myTable");					// Get the table	
 
 	/* ----- Sort the Table ----- */
 
@@ -567,40 +563,40 @@ function authorClick(author) {
 </script>
 	
 <script>
-	// Function that populates the authorSelector and seriesSelector dropdowns
-	document.addEventListener("DOMContentLoaded", function() { 												
-		var table = document.getElementById("myTable");
-		var authorDropdown = document.getElementById("authorSelector");
-		var seriesDropdown = document.getElementById("seriesSelector");
-		var authorEntries = {}, seriesEntries = {};
-		// Loop through the rows of the table and add authors and series to the appropriate arrays
-		for (var i = 1; i < table.rows.length; i++) {														
-			var row = table.rows[i];
-			// Concatenate cell values to get 'LastName, FirstName'
-			var authorEntry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); 	
-			var seriesEntry = row.cells[6].textContent.trim();												
-			authorEntries[authorEntry] = true;
-			// Only add series 'seriesEntries' if it is non-empty
-			if (seriesEntry !== '') {seriesEntries[seriesEntry] = true;}									
-		}
-		// Make sure the options are added in alphabetical order
-		var authorSortedEntries = Object.keys(authorEntries).sort();										
-		var seriesSortedEntries = Object.keys(seriesEntries).sort();
-		// Add sorted 'author' entries to the dropdown
-		authorSortedEntries.forEach(function(authorEntry) {
-			var option = document.createElement("option");
-			option.text = authorEntry;
-			option.value = authorEntry;
-			authorDropdown.add(option);
-		});
-		// Add sorted 'series' entries to the dropdown
-		seriesSortedEntries.forEach(function(seriesEntry) {
-			var option = document.createElement("option");
-			option.text = seriesEntry;
-			option.value = seriesEntry;
-			seriesDropdown.add(option);
-		});
+// Function that populates the authorSelector and seriesSelector dropdowns
+document.addEventListener("DOMContentLoaded", function() { 												
+	var table = document.getElementById("myTable");
+	var authorDropdown = document.getElementById("authorSelector");
+	var seriesDropdown = document.getElementById("seriesSelector");
+	var authorEntries = {}, seriesEntries = {};
+	// Loop through the rows of the table and add authors and series to the appropriate arrays
+	for (var i = 1; i < table.rows.length; i++) {														
+		var row = table.rows[i];
+		// Concatenate cell values to get 'LastName, FirstName'
+		var authorEntry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); 	
+		var seriesEntry = row.cells[6].textContent.trim();												
+		authorEntries[authorEntry] = true;
+		// Only add series 'seriesEntries' if it is non-empty
+		if (seriesEntry !== '') {seriesEntries[seriesEntry] = true;}									
+	}
+	// Make sure the options are added in alphabetical order
+	var authorSortedEntries = Object.keys(authorEntries).sort();										
+	var seriesSortedEntries = Object.keys(seriesEntries).sort();
+	// Add sorted 'author' entries to the dropdown
+	authorSortedEntries.forEach(function(authorEntry) {
+		var option = document.createElement("option");
+		option.text = authorEntry;
+		option.value = authorEntry;
+		authorDropdown.add(option);
 	});
+	// Add sorted 'series' entries to the dropdown
+	seriesSortedEntries.forEach(function(seriesEntry) {
+		var option = document.createElement("option");
+		option.text = seriesEntry;
+		option.value = seriesEntry;
+		seriesDropdown.add(option);
+	});
+});
 </script>
 
 <script>
@@ -653,6 +649,8 @@ function authorClick(author) {
 	}
 </script>
 
+<!-- Image Size Functions -->
+
 <script>
 // Function to calculate the resized dimensions of images
 function calculateImageDimensions() {
@@ -698,15 +696,37 @@ function showTable() {
 		table.style.display = "none";
 	}
 }
+function fictionRead2024() {
+	const cutoff = 99
+	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
+	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
+	var filteredRowsArray = rowsArray.filter(function(row) {
+		return row.cells[0].textContent.trim() <= 10000 && row.cells[0].textContent.trim() > cutoff;
+	});
+	var shortFictionArray = filteredRowsArray.filter(function(row) {
+		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
+	});
+	// Filter out novelettes and short stories to construct images and popups
+	var longFictionRowsArray = filteredRowsArray.filter(function(row) {
+		return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
+	});
+	var longFictionRead2024 = `Books read this year: ${longFictionRowsArray.length}`
+	var shortFictionRead2024 = `Short fiction read this year: ${shortFictionArray.length}`
+	var plf2024 = document.getElementById("lfRead2024")
+	plf2024.innerHTML = longFictionRead2024;
+	var psf2024 = document.getElementById("sfRead2024")
+	psf2024.innerHTML = shortFictionRead2024;
+}
 </script>
 
 <script>
-	/* ----- Reset all the Dropdowns to the Default Position ----- */
+	// Reset all the Dropdowns to the Default Position
 	var selector = document.getElementById("sizeSelect");
 	selector.selectedIndex = 0;
 	clearFilter()
 	builder()
 	calculateImageDimensions()
+	fictionRead2024()
 </script>
 </body>
 </html>
