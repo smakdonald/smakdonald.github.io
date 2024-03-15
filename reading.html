@@ -617,36 +617,36 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- Popup Functions -->
 
 <script>
-	// Function to show the popup
-	function showPopup(event) {
-		var popupOverlay = document.getElementById("popupOverlay"),
-		var popup = document.getElementById("popup");
-		var popupTitle = document.getElementById("popupTitle");
-		var popupText = document.getElementById("popupText");
-		
-		// Set the title and text of the popup based on the 'data-popup-text' attribute of the clicked image that was created in the 'builder' function
-		popupTitle.textContent = event.target.alt;
-		popupText.innerHTML = event.target.getAttribute("data-popup-text");
-		
-		popup.style.display = "block";
-		popupOverlay.style.display = "block";
-		popupOverlay.addEventListener("click", closePopup);
-	}
-	// Function to close the popup
-	function closePopup() {
-		document.getElementById("popup").style.display = "none";
-		var popupOverlay = document.getElementById("popupOverlay");
-		popupOverlay.style.display = "none";
-		// Remove click event listener from the overlay
-		popupOverlay.removeEventListener("click", closePopup);
-	}
-	// Attach click event listener to all images with the triggerImage class
-	function buildPopup() {
-		var pictures = document.querySelectorAll(".triggerImage");
-		pictures.forEach(function(picture) {
-			picture.addEventListener("click", showPopup);
-		});
-	}
+// Function to show the popup
+function showPopup(event) {
+	var popupOverlay = document.getElementById("popupOverlay"),
+	var popup = document.getElementById("popup");
+	var popupTitle = document.getElementById("popupTitle");
+	var popupText = document.getElementById("popupText");
+	
+	// Set the title and text of the popup based on the 'data-popup-text' attribute of the clicked image that was created in the 'builder' function
+	popupTitle.textContent = event.target.alt;
+	popupText.innerHTML = event.target.getAttribute("data-popup-text");
+	
+	popup.style.display = "block";
+	popupOverlay.style.display = "block";
+	popupOverlay.addEventListener("click", closePopup);
+}
+// Function to close the popup
+function closePopup() {
+	document.getElementById("popup").style.display = "none";
+	var popupOverlay = document.getElementById("popupOverlay");
+	popupOverlay.style.display = "none";
+	// Remove click event listener from the overlay
+	popupOverlay.removeEventListener("click", closePopup);
+}
+// Attach click event listener to all images with the triggerImage class
+function buildPopup() {
+	var pictures = document.querySelectorAll(".triggerImage");
+	pictures.forEach(function(picture) {
+		picture.addEventListener("click", showPopup);
+	});
+}
 </script>
 
 <!-- Image Size Functions -->
