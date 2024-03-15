@@ -416,9 +416,15 @@
 
 			/* ----- Filtering ----- */
 
-			var authorSelect = document.getElementById("authorSelector"), authorIndex = authorSelect.selectedIndex, authorFilter = authorSelect.options[authorIndex].text;
-			var yearSelect = document.getElementById("yearSelector"), yearIndex = yearSelect.selectedIndex, yearFilter = yearSelect.options[yearIndex].value;
-			var seriesSelect = document.getElementById("seriesSelector"), seriesIndex = seriesSelect.selectedIndex, seriesFilter = seriesSelect.options[seriesIndex].text;
+			var authorSelect = document.getElementById("authorSelector"), 
+				authorIndex = authorSelect.selectedIndex, 
+				authorFilter = authorSelect.options[authorIndex].text;
+			var yearSelect = document.getElementById("yearSelector"), 
+				yearIndex = yearSelect.selectedIndex, 
+				yearFilter = yearSelect.options[yearIndex].value;
+			var seriesSelect = document.getElementById("seriesSelector"), 
+				seriesIndex = seriesSelect.selectedIndex, 
+				seriesFilter = seriesSelect.options[seriesIndex].text;
 			var awardFilter = document.getElementById("tableSelector");
 
 			var filteredRowsArray = rowsArray.filter(function(row) {		// Remove all rows from the array that has an empty cell in the sorted column
@@ -644,6 +650,7 @@
 	</script>
 
 	<script>
+		// Function for resizing images
 		function resizeAllImages() {
 		    var selectedSize = document.getElementById("sizeSelect").value;
 		    var newWidth = parseFloat(selectedSize);
@@ -692,17 +699,12 @@
 	            // Set the width and height of the image
 	            image.style.width = imageWidth + 'px';
 	            image.style.height = imageHeight + 'px';
-	
 	        });
 	    }
-	    // Call the function on window load
-	    window.addEventListener('load', calculateImageDimensions);
-	
 	</script>
 	
-	<script>   														
+	<script>
 		/* ----- Reset all the Dropdowns to the Default Position ----- */
-		
 	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
 		var selector = document.getElementById("authorSelector");			// Set the selected index to 0 (which is the index of the first option)
@@ -713,7 +715,6 @@
 	    selector.selectedIndex = 0;
 		var selector = document.getElementById("sizeSelect");				// Set the selected index to 0 (which is the index of the first option)
 	    selector.selectedIndex = 0;
-
 		builder()
 		calculateImageDimensions()
   	</script>
