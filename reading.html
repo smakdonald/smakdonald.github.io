@@ -297,7 +297,6 @@
 							<tr> <td>1</td> 	<td>Sanderson-Mistborn.jpg</td>					<td>Mistborn</td> 																					<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn</td> 								<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210,103</td>	<td>669</td> 	</tr>
 						</tbody>
 					</table>
-
 					<!-- Popup window that appears then an image is clicked on-->
 					<div id="popup" class="popup-container"> 
 					    <span class="close-btn" onclick="closePopup()">X</span>
@@ -379,344 +378,335 @@
 		</div><!-- End Sidebar -->
 	</div><!-- End Wrapper -->
 
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+/*
+This is the big function that constructs basically everything on the page
+*/
+function builder() {
+	// Set variables for the sorting preference
+	var sortSelect = document.getElementById("tableSelector"), 
+		sortIndex = sortSelect.selectedIndex, 
+		sortID = sortSelect.options[sortIndex].value;
+	// Get the table
+	var table = document.getElementById("myTable");			
 
-	<script>
-		function builder() {
-			// Set variables for the sorting preference
-			var sortSelect = document.getElementById("tableSelector"), sortIndex = sortSelect.selectedIndex, sortID = sortSelect.options[sortIndex].value;
-			// Get the table
-			var table = document.getElementById("myTable");			
+	/* ----- Sort the Table ----- */
 
-			/* ----- Sort the Table ----- */
+	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
+	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
 
-			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
-			var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
-
-			rowsArray.sort((a, b) => {										// Sort the table based on the sortID given above
-				var altA = a.cells[sortID].textContent.replace(/,/g, '');	// Get the first value, with commas removed for number sorting
-				var altB = b.cells[sortID].textContent.replace(/,/g, '');	// Get the second value, with commas removed for number sorting
-				if (sortID == 0 || sortID == 10 || sortID == 11) {			// Check if column should be sorted Z -> A
-        			return Number(altB) - Number(altA);						// If so, compare two values appropriately
-    			}
-				else {
-					if (!isNaN(altA) && !isNaN(altB)) {						// Check if the alt attributes are numbers
-						return Number(altA) - Number(altB); 				// If both are numbers, sort numerically
-					}
-					else {
-						return altA.localeCompare(altB); 					// Otherwise, sort alphabetically A -> Z
-					}
-				}
-		  	});
-		  	rowsArray.forEach(item => table.appendChild(item));				// Once everything is sorted, add it back to the table in the correct order
-
-			/* ----- Filtering ----- */
-
-			var authorSelect = document.getElementById("authorSelector"), 
-				authorIndex = authorSelect.selectedIndex, 
-				authorFilter = authorSelect.options[authorIndex].text;
-			var yearSelect = document.getElementById("yearSelector"), 
-				yearIndex = yearSelect.selectedIndex, 
-				yearFilter = yearSelect.options[yearIndex].value;
-			var seriesSelect = document.getElementById("seriesSelector"), 
-				seriesIndex = seriesSelect.selectedIndex, 
-				seriesFilter = seriesSelect.options[seriesIndex].text;
-			var awardFilter = document.getElementById("tableSelector");
-
-			var filteredRowsArray = rowsArray.filter(function(row) {		// Remove all rows from the array that has an empty cell in the sorted column
-				return row.cells[sortID].textContent.trim() !== '';			// E.g., removing books without word count from word count sorting
-			});
-			rowsArray = filteredRowsArray
-
-			if (authorFilter !== 'All') {									// If an author has been selected from the Author Filter dropdown
-				var filteredRowsArray = rowsArray.filter(function(row) {	
-					return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
-				});
-			}
-			rowsArray = filteredRowsArray
-
-			const yearCutoffs = [0, 12, 24, 42, 99, 100000];
-			
-			if (yearFilter !== '0') { 
-				var filteredRowsArray = rowsArray.filter(function(row) {
-					return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
-				});
-			}
-			rowsArray = filteredRowsArray
-
-			if (seriesFilter !== 'All') {
-				var filteredRowsArray = rowsArray.filter(function(row) {
-					return row.cells[6].textContent.trim() == seriesFilter;
-				});
-			}
-			rowsArray = filteredRowsArray
-			// Create separate array of novelettes and short stories to construct the short fiction table
-			var shortFictionArray = rowsArray.filter(function(row) {			
-				return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
-			});
-   			// Filter out novelettes and short stories to construct images and popups
-			var filteredRowsArray = rowsArray.filter(function(row) {
-				return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
-			});
-			rowsArray = filteredRowsArray
-
-			/* ----- Build the Container ----- */
-
-			var containerContent = ``;											// Create a blank text container that the Content will go into						
-			rowsArray.forEach(function(row) {
-				
-				/* ----- Popup Content ----- */
-				
-				var popupContent = ``;											// Create empty container that will contain the data for the popup window, <a href="#" onclick="authorClick(${row.cells[3].textContent}, ${row.cells[4].textContent})" ${row.cells[4].textContent} ${row.cells[3].textContent}</a>
-				popupContent += `
-					Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
-					<br>
-					Published: ${row.cells[5].textContent}
-				`;
-				if (row.cells[6].innerHTML.trim()) {
-					popupContent += `<br> Series: ${row.cells[6].textContent} # ${row.cells[7].textContent}`;
-				}
-				if (row.cells[11].innerHTML.trim()) {
-					popupContent += `<br> Page Count: ${row.cells[11].textContent}`;
-				}
-				if (row.cells[10].innerHTML.trim()) {
-					popupContent += `<br> Word Count: ${row.cells[10].textContent}`;
-				}
-				
-				/* ----- Image Content ----- */
-				
-				var path = row.cells[1];										// Take the first entry of each row (the path for the image file)
-				var title = row.cells[2];										// Take the second entry of each row (the title of the book)
-				var Content = '<img src="images/Book Covers/' + path.textContent 
-					+ '"alt="'+ title.textContent 
-					+ '"title="' 
-					+ path.textContent 
-					+ '"class="triggerImage" data-popup-text="'
-					+ popupContent
-					+ '"style="cursor: pointer;">';
-				// Write the content of the <img> element so that it becomes the image
-				containerContent += `
-					<div class = image-container>
-						<div class = image-item>
-							${Content}
-						</div>
-						<p style="text-align:center"><b>${title.textContent}</b></p>
-					</div>
-				`;																// Write the text that will be added to <div class=image-container> 
-				var bookContainer = document.getElementById("bookContainer");
-				bookContainer.innerHTML = containerContent;						// Find the correct <div class=image-container> and add content
-				buildPopup()
-				resizeAllImages()
-			})
-							  
-			/* ----- Short Fiction Table Content ----- */
-
-			var tableContent = `
-   				<tr>
-	  				<th> Title </th>
-	   				<th> Last </th>
-					<th> First </th>
-	 				<th> Year </th>
-	  				<th> Collection </th>
-	   				<th> Length </th>
-					<th> Words </th>
-	 				<th> Pages </th>
-	  			</tr>
-	  		`;
-			shortFictionArray.forEach(function(row) {
-				var content = row.innerHTML
-				tableContent += `
-					<tr>
-						<td>${row.cells[2].innerHTML}</td>
-						<td>${row.cells[3].innerHTML}</td>
-						<td>${row.cells[4].innerHTML}</td>
-						<td>${row.cells[5].innerHTML}</td>
-						<td>${row.cells[6].innerHTML}</td>
-						<td>${row.cells[9].innerHTML}</td>
-						<td>${row.cells[10].innerHTML}</td>
-						<td>${row.cells[11].innerHTML}</td>
-					</tr>
-				`;
-			});
-			var tableContainer = document.getElementById("tableContainer");
-			tableContainer.innerHTML = tableContent;
+	rowsArray.sort((a, b) => {										// Sort the table based on the sortID given above
+		var altA = a.cells[sortID].textContent.replace(/,/g, '');	// Get the first value, with commas removed for number sorting
+		var altB = b.cells[sortID].textContent.replace(/,/g, '');	// Get the second value, with commas removed for number sorting
+		if (sortID == 0 || sortID == 10 || sortID == 11) {			// Check if column should be sorted Z -> A
+			return Number(altB) - Number(altA);						// If so, compare two values appropriately
 		}
-
-		function authorClick(author) {
-			var authorSelect = document.getElementById("authorSelector")
-			console.log(authorSelect.options.length)
-			for (var i = 0; i < authorSelect.options.length; i++) {
-            	if (authorSelect.options[i].value == author) {
-                	authorSelect.selectedIndex = i;
-                	break;
-            	}
+		else {
+			if (!isNaN(altA) && !isNaN(altB)) {						// Check if the alt attributes are numbers
+				return Number(altA) - Number(altB); 				// If both are numbers, sort numerically
 			}
-        }
-	</script>
-	
-	<script>
-	    document.addEventListener("DOMContentLoaded", function() { 												// Function that populates the authorSelector dropdown with each author
-	        var table = document.getElementById("myTable");
-	        var authorDropdown = document.getElementById("authorSelector");
-			var seriesDropdown = document.getElementById("seriesSelector");
-	        var authorEntries = {}, seriesEntries = {};
-	
-	        // Collect entries from the table
-	        for (var i = 1; i < table.rows.length; i++) {
-	            var row = table.rows[i];
-	            var authorEntry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); 	// Concatenate cell values
-				var seriesEntry = row.cells[6].textContent.trim();
-	            authorEntries[authorEntry] = true;															 	// Add to added entries object
-				if (seriesEntry !== '') {
-					seriesEntries[seriesEntry] = true; 															// Add to added entries object
-				}
-	        }
-	
-	        // Sort entries alphabetically
-	        var authorSortedEntries = Object.keys(authorEntries).sort();
-			var seriesSortedEntries = Object.keys(seriesEntries).sort();
-	
-	        // Add sorted entries to the dropdown
-	        authorSortedEntries.forEach(function(authorEntry) {
-	            var option = document.createElement("option");
-	            option.text = authorEntry;
-	            option.value = authorEntry;
-	            authorDropdown.add(option);
-	        });
-
-			// Add sorted entries to the dropdown
-	        seriesSortedEntries.forEach(function(seriesEntry) {
-	            var option = document.createElement("option");
-	            option.text = seriesEntry;
-	            option.value = seriesEntry;
-	            seriesDropdown.add(option);
-	        });
-	    });
-	</script>
-
-	<script>
-		function clearFilter() {
-    		var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
-		    selector.selectedIndex = 0;
-			var selector = document.getElementById("authorSelector");			// Set the selected index to 0 (which is the index of the first option)
-		    selector.selectedIndex = 0;
-			var selector = document.getElementById("yearSelector");				// Set the selected index to 0 (which is the index of the first option)
-		    selector.selectedIndex = 0;
-			var selector = document.getElementById("seriesSelector");			// Set the selected index to 0 (which is the index of the first option)
-		    selector.selectedIndex = 0;
-			builder()
+			else {
+				return altA.localeCompare(altB); 					// Otherwise, sort alphabetically A -> Z
+			}
 		}
-	</script>
+	});
+	rowsArray.forEach(item => table.appendChild(item));				// Once everything is sorted, add it back to the table in the correct order
+
+	/* ----- Filtering ----- */
+
+	var authorSelect = document.getElementById("authorSelector"),	// Get the authorSelector dropdown
+		authorIndex = authorSelect.selectedIndex, 					// Get the current selected index of the dropdown
+		authorFilter = authorSelect.options[authorIndex].text;		// Get the text of the option, which is of the form 'LastName, FirstName'
+	var yearSelect = document.getElementById("yearSelector"), 
+		yearIndex = yearSelect.selectedIndex, 
+		yearFilter = yearSelect.options[yearIndex].value;
+	var seriesSelect = document.getElementById("seriesSelector"), 
+		seriesIndex = seriesSelect.selectedIndex, 
+		seriesFilter = seriesSelect.options[seriesIndex].text;
+	//var awardFilter = document.getElementById("tableSelector");
+
+	var filteredRowsArray = rowsArray.filter(function(row) {		// Remove all rows from the array that has an empty cell in the sorted column
+		return row.cells[sortID].textContent.trim() !== '';			// E.g., removing books without word count from word count sorting
+	});
+	rowsArray = filteredRowsArray									// Replace the array with the filtered array
+	// Author Filtering
+	if (authorFilter !== 'All') {									// If an author has been selected from the Author Filter dropdown
+		var filteredRowsArray = rowsArray.filter(function(row) {	
+			return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
+		});
+	}
+	rowsArray = filteredRowsArray									// Replace the array with the filtered array
+	// Year Read Filtering
+	const yearCutoffs = [0, 12, 24, 42, 99, 100000];
+	if (yearFilter !== '0') { 
+		var filteredRowsArray = rowsArray.filter(function(row) {
+			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
+		});
+	}
+	rowsArray = filteredRowsArray									// Replace the array with the filtered array
+	// Series Filtering
+	if (seriesFilter !== 'All') {
+		var filteredRowsArray = rowsArray.filter(function(row) {
+			return row.cells[6].textContent.trim() == seriesFilter;
+		});
+	}
+	rowsArray = filteredRowsArray									// Replace the array with the filtered array
+	// Create separate array of novelettes and short stories to construct the short fiction table
+	var shortFictionArray = rowsArray.filter(function(row) {			
+		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
+	});
+	// Filter out novelettes and short stories to construct images and popups
+	var filteredRowsArray = rowsArray.filter(function(row) {
+		return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
+	});
+	rowsArray = filteredRowsArray									// Replace the array with the filtered array
+	
+	/* ----- Build the container where images and popup content is stored ----- */
+	
+	var containerContent = ``;										// Create a blank text container that the Content will go into	
+	// Loop through the remaining rows
+	rowsArray.forEach(function(row) {
+		// Popup Content
+		var popupContent = ``;										// Create empty container that will contain the data for the popup window, <a href="#" onclick="authorClick(${row.cells[3].textContent}, ${row.cells[4].textContent})" ${row.cells[4].textContent} ${row.cells[3].textContent}</a>
+		// Add the author and the year published
+		popupContent += `
+			Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
+			<br>
+			Published: ${row.cells[5].textContent}
+		`;
+		// If applicable, add series
+		if (row.cells[6].innerHTML.trim()) {
+			popupContent += `<br> 
+			Series: ${row.cells[6].textContent} 
+			# ${row.cells[7].textContent}`;
+		}
+		// If applicable, add page count
+		if (row.cells[11].innerHTML.trim()) {
+			popupContent += `<br> Page Count: ${row.cells[11].textContent}`;
+		}
+		// If applicable, add word count
+		if (row.cells[10].innerHTML.trim()) {
+			popupContent += `<br> Word Count: ${row.cells[10].textContent}`;
+		}
+		// Image Content
+		var path = row.cells[1];									// The path to the image file
+		var title = row.cells[2];									// The title of the book
+		var Content = '<img src="images/Book Covers/'
+			+ path.textContent 
+			+ '"alt="'+ title.textContent 
+			+ '"title="' 
+			+ path.textContent 
+			+ '"class="triggerImage" data-popup-text="'
+			+ popupContent
+			+ '"style="cursor: pointer;">';
+		// Write the content of the <img> element so that it becomes the image
+		containerContent += `
+			<div class = image-container>
+				<div class = image-item>
+					${Content}
+				</div>
+				<p style="text-align:center"><b>${title.textContent}</b></p>
+			</div>
+		`;
+		var bookContainer = document.getElementById("bookContainer");
+		bookContainer.innerHTML = containerContent;					// Populate bookContainer division with the content we've added
+	}) 																// End of the loop through the rows of the array
+	buildPopup()													// Run popup function to attach popups to each image
+	resizeAllImages()												// Resize images depending on the 'Image Size' dropdown
+					  
+	/* ----- Short Fiction Table Content ----- */
+
+	// Create the container that the table HTML will go into, and add the title row 
+	var tableContent = `
+		<tr>
+			<th> Title </th>
+			<th> Last </th>
+			<th> First </th>
+			<th> Year </th>
+			<th> Collection </th>
+			<th> Length </th>
+			<th> Words </th>
+			<th> Pages </th>
+		</tr>
+	`;
+	// Loop through the shortFictionArray
+	shortFictionArray.forEach(function(row) {
+		var content = row.innerHTML									// Get the innerHTMl of the row, otherwise all that is returned is objectHTML
+		tableContent += `
+			<tr>
+				<td>${row.cells[2].innerHTML}</td>
+				<td>${row.cells[3].innerHTML}</td>
+				<td>${row.cells[4].innerHTML}</td>
+				<td>${row.cells[5].innerHTML}</td>
+				<td>${row.cells[6].innerHTML}</td>
+				<td>${row.cells[9].innerHTML}</td>
+				<td>${row.cells[10].innerHTML}</td>
+				<td>${row.cells[11].innerHTML}</td>
+			</tr>
+		`;
+	});
+	var tableContainer = document.getElementById("tableContainer");
+	tableContainer.innerHTML = tableContent;						// Add the content to the table
+}
+
+function authorClick(author) {
+	var authorSelect = document.getElementById("authorSelector")
+	console.log(authorSelect.options.length)
+	for (var i = 0; i < authorSelect.options.length; i++) {
+		if (authorSelect.options[i].value == author) {
+			authorSelect.selectedIndex = i;
+			break;
+		}
+	}
+}
+</script>
+	
+<script>
+	// Function that populates the authorSelector and seriesSelector dropdowns
+	document.addEventListener("DOMContentLoaded", function() { 												
+		var table = document.getElementById("myTable");
+		var authorDropdown = document.getElementById("authorSelector");
+		var seriesDropdown = document.getElementById("seriesSelector");
+		var authorEntries = {}, seriesEntries = {};
+		// Loop through the rows of the table and add authors and series to the appropriate arrays
+		for (var i = 1; i < table.rows.length; i++) {														
+			var row = table.rows[i];
+			// Concatenate cell values to get 'LastName, FirstName'
+			var authorEntry = row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim(); 	
+			var seriesEntry = row.cells[6].textContent.trim();												
+			authorEntries[authorEntry] = true;
+			// Only add series 'seriesEntries' if it is non-empty
+			if (seriesEntry !== '') {seriesEntries[seriesEntry] = true;}									
+		}
+		// Make sure the options are added in alphabetical order
+		var authorSortedEntries = Object.keys(authorEntries).sort();										
+		var seriesSortedEntries = Object.keys(seriesEntries).sort();
+		// Add sorted 'author' entries to the dropdown
+		authorSortedEntries.forEach(function(authorEntry) {
+			var option = document.createElement("option");
+			option.text = authorEntry;
+			option.value = authorEntry;
+			authorDropdown.add(option);
+		});
+		// Add sorted 'series' entries to the dropdown
+		seriesSortedEntries.forEach(function(seriesEntry) {
+			var option = document.createElement("option");
+			option.text = seriesEntry;
+			option.value = seriesEntry;
+			seriesDropdown.add(option);
+		});
+	});
+</script>
+
+<script>
+	// Clears all the filters to their default positions by making every selected index 0
+	function clearFilter() {
+		var selector = document.getElementById("tableSelector");
+		selector.selectedIndex = 0;
+		var selector = document.getElementById("authorSelector");
+		selector.selectedIndex = 0;
+		var selector = document.getElementById("yearSelector");
+		selector.selectedIndex = 0;
+		var selector = document.getElementById("seriesSelector");
+		selector.selectedIndex = 0;
+		builder()													// Run the 'builder' function again to put all the images in the default order
+	}
+</script>
 
 <!-- Popup Functions -->
-	
-	<script>
-	    // Function to show the popup
-	    function showPopup(event) {
-			var popupOverlay = document.getElementById("popupOverlay");
-	        var popup = document.getElementById("popup");
-	        var popupTitle = document.getElementById("popupTitle");
-	        var popupText = document.getElementById("popupText");
-	        
-	        // Set the title and text of the popup based on the data-popup-text attribute of the clicked image
-	        popupTitle.textContent = event.target.alt;
-	        popupText.innerHTML = event.target.getAttribute("data-popup-text");     
-			
-			popup.style.display = "block";
-			popupOverlay.style.display = "block";
-			popupOverlay.addEventListener("click", closePopup);
-	    }
-	
-	    // Function to close the popup
-	    function closePopup() {
-	        document.getElementById("popup").style.display = "none";
-			var popupOverlay = document.getElementById("popupOverlay");
-			popupOverlay.style.display = "none";
-			// Remove click event listener from the overlay
-        	popupOverlay.removeEventListener("click", closePopup);
-	    }
-	
-	    // Attach click event listener to all images with the triggerImage class
-		function buildPopup() {
-		    var pictures = document.querySelectorAll(".triggerImage");
-		    pictures.forEach(function(picture) {
-		        picture.addEventListener("click", showPopup);
-		    });
-		}
-	</script>
 
-	<script>
-		// Function for resizing images
-		function resizeAllImages() {
-		    var selectedSize = document.getElementById("sizeSelect").value;
-		    var newWidth = parseFloat(selectedSize);
+<script>
+	// Function to show the popup
+	function showPopup(event) {
+		var popupOverlay = document.getElementById("popupOverlay"),
+		var popup = document.getElementById("popup");
+		var popupTitle = document.getElementById("popupTitle");
+		var popupText = document.getElementById("popupText");
 		
-		    // Calculate the height based on the new width
-		    var newHeight = newWidth * 1.5;
+		// Set the title and text of the popup based on the 'data-popup-text' attribute of the clicked image that was created in the 'builder' function
+		popupTitle.textContent = event.target.alt;
+		popupText.innerHTML = event.target.getAttribute("data-popup-text");
 		
-		    // Update the CSS rule dynamically
-		    var styleTag = document.createElement('style');
-		    styleTag.textContent = '.image-container { width: calc(' + newWidth + '% - 10px); overflow: hidden; }';
-		    document.head.appendChild(styleTag);
-		
-		    // Apply the updated size to existing .image-container elements
-		    var images = document.querySelectorAll('.image-container');
-		    for (var i = 0; i < images.length; i++) {
-		        images[i].style.width = 'calc(' + newWidth + '% - 10px)';
-		    }
-			calculateImageDimensions()
-		}
-	</script>
+		popup.style.display = "block";
+		popupOverlay.style.display = "block";
+		popupOverlay.addEventListener("click", closePopup);
+	}
+	// Function to close the popup
+	function closePopup() {
+		document.getElementById("popup").style.display = "none";
+		var popupOverlay = document.getElementById("popupOverlay");
+		popupOverlay.style.display = "none";
+		// Remove click event listener from the overlay
+		popupOverlay.removeEventListener("click", closePopup);
+	}
+	// Attach click event listener to all images with the triggerImage class
+	function buildPopup() {
+		var pictures = document.querySelectorAll(".triggerImage");
+		pictures.forEach(function(picture) {
+			picture.addEventListener("click", showPopup);
+		});
+	}
+</script>
 
-	<script>
-    function showTable() {
-        var table = document.getElementById("tableContainer");
-        if (table.style.display == "none") {
-            table.style.display = "";
-        } else {
-            table.style.display = "none";
-        }
-    }
-	</script>
+<script>
+// Function to calculate the resized dimensions of images
+function calculateImageDimensions() {
+	var selectedSize = document.getElementById("sizeSelect").value;	// Figure out what size images are supposed to be from the 'sizeSelect' dropdown
+	var perc = parseFloat(selectedSize)								// Convert that value to a float, just to be safe
+	var widthPercentage = perc;										// Set the percentage width here
+	var innerWidth = document.querySelector('.inner').offsetWidth;	// Get the width of the webpage, not including the sidebar
+	var screenWidth = innerWidth *.8								// Make it 80% of that to make the spacing work better, 80% was chosen at random and it looked nice enough and I was tired to figure it out in terms of the CSS
+	// Get all the images in the page and loop through them
+	var images = document.querySelectorAll('img');					
+	images.forEach(function(image) {
+		var imageWidth = (screenWidth * widthPercentage) / 100;		// Determine the percentage of the screen the width of each image should be
+		var imageHeight = 1.5 * imageWidth;							// Mantain the correct aspect ratio of the images, regardless of their resolutions
+		image.style.width = imageWidth + 'px';						// Set the width
+		image.style.height = imageHeight + 'px';					// Set the height
+	});
+}
+// Function for resizing images
+function resizeAllImages() {
+	var selectedSize = document.getElementById("sizeSelect").value;
+	var newWidth = parseFloat(selectedSize);
+	// Calculate the height based on the new width
+	var newHeight = newWidth * 1.5;
+	// Update the CSS rule dynamically
+	var styleTag = document.createElement('style');
+	styleTag.textContent = '.image-container { width: calc(' + newWidth + '% - 10px); overflow: hidden; }';
+	document.head.appendChild(styleTag);
+	// Apply the updated size to existing .image-container elements
+	var images = document.querySelectorAll('.image-container');
+	for (var i = 0; i < images.length; i++) {
+		images[i].style.width = 'calc(' + newWidth + '% - 10px)';
+	}
+	calculateImageDimensions()
+}
+</script>
 
-	<script>
-	    function calculateImageDimensions() {
-	        var selectedSize = document.getElementById("sizeSelect").value;
-	        var perc = parseFloat(selectedSize)
-	        var images = document.querySelectorAll('img');
-	        var imageWidthPercentage = perc; // Set the percentage width here
-			var innerWidth = document.querySelector('.inner').offsetWidth;
-			var screenWidth = innerWidth *.8
-	
-	        images.forEach(function(image) {
-	            var imageWidth = (screenWidth * imageWidthPercentage) / 100;
-	            var imageHeight = 1.5 * imageWidth;
-	
-	            // Set the width and height of the image
-	            image.style.width = imageWidth + 'px';
-	            image.style.height = imageHeight + 'px';
-	        });
-	    }
-	</script>
-	
-	<script>
-		/* ----- Reset all the Dropdowns to the Default Position ----- */
-	    var selector = document.getElementById("tableSelector");			// Set the selected index to 0 (which is the index of the first option)
-	    selector.selectedIndex = 0;
-		var selector = document.getElementById("authorSelector");			// Set the selected index to 0 (which is the index of the first option)
-	    selector.selectedIndex = 0;
-		var selector = document.getElementById("yearSelector");				// Set the selected index to 0 (which is the index of the first option)
-	    selector.selectedIndex = 0;
-		var selector = document.getElementById("seriesSelector");			// Set the selected index to 0 (which is the index of the first option)
-	    selector.selectedIndex = 0;
-		var selector = document.getElementById("sizeSelect");				// Set the selected index to 0 (which is the index of the first option)
-	    selector.selectedIndex = 0;
-		builder()
-		calculateImageDimensions()
-  	</script>
+<script>
+function showTable() {
+	var table = document.getElementById("tableContainer");
+	if (table.style.display == "none") {
+		table.style.display = "";
+	} else {
+		table.style.display = "none";
+	}
+}
+</script>
+
+<script>
+	/* ----- Reset all the Dropdowns to the Default Position ----- */
+	var selector = document.getElementById("sizeSelect");
+	selector.selectedIndex = 0;
+	clearFilter()
+	builder()
+	calculateImageDimensions()
+</script>
 </body>
 </html>
