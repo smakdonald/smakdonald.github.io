@@ -6,6 +6,17 @@
 
 (function($) {
 
+	var menuElement = document.getElementById("menu");
+	if (menuElement !== null) {
+		$(document).ready(function() {
+			// Fetch HTML content from text file
+			$.get("menu.txt", function(data) {
+				// Insert the content into the designated div
+				$("#menu").html(data);
+			});
+		});
+	}
+
 	var	$window = $(window),
 		$head = $('head'),
 		$body = $('body');
