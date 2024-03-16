@@ -455,6 +455,7 @@ function builder() {
 		var popupContent = ``;										// Create empty container that will contain the data for the popup window, Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
 		// Add the author and the year published
 		var author = row.cells[3].textContent + ', ' + row.cells[4].textContent
+		console.log(author)
 		popupContent += `
   			Author: <a href="#" onclick="authorClick(${author})">${row.cells[4].textContent} ${row.cells[3].textContent}</a>
 			<br>
