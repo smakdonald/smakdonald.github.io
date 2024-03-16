@@ -452,12 +452,12 @@ function builder() {
 	// Loop through the remaining rows
 	rowsArray.forEach(function(row) {
 		// Popup Content
-		var popupContent = ``;										// Create empty container that will contain the data for the popup window, Author: ${row.cells[4].textContent} ${row.cells[3].textContent},,, onclick="authorClick(${author})"
+		var popupContent = ``;										// Create empty container that will contain the data for the popup window, Author: ${row.cells[4].textContent} ${row.cells[3].textContent},,, <a href="#"> onclick="authorClick(${author})" </a>
 		// Add the author and the year published
 		var author = row.cells[3].textContent + ', ' + row.cells[4].textContent
 		//console.log(author)
 		popupContent += `
-  			Author: <a href="#">${row.cells[4].textContent} ${row.cells[3].textContent}</a>
+  			Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
 			<br>
 			Published: ${row.cells[5].textContent}
 		`;
