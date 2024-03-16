@@ -524,15 +524,5 @@
 	  evt.currentTarget.className += " active";
 	}
 	</script>
-
-			<script>
-				fetch('menu.txt')
-					.then(response => response.text())
-					.then(data => {
-						// Insert the text into a specific element in the HTML
-						document.getElementById('menu').innerHTML = data;
-					})
-					.catch(error => console.error('Error fetching text file:', error));
-			</script>
 	</body>
 </html>
