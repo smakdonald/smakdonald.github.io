@@ -200,15 +200,5 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-				fetch('menu.txt')
-					.then(response => response.text())
-					.then(data => {
-						// Insert the text into a specific element in the HTML
-						document.getElementById('menu').innerHTML = data;
-					})
-					.catch(error => console.error('Error fetching text file:', error));
-			</script>
-
 	</body>
 </html>
