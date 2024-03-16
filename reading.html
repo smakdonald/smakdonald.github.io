@@ -697,7 +697,7 @@ function fictionRead2024() {
 		return row.cells[0].textContent.trim() <= 10000 && row.cells[0].textContent.trim() > cutoff;
 	});
 	var shortFictionArray = filteredRowsArray.filter(function(row) {
-		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
+		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story" || row.cells[9].textContent == "Novella*";
 	});
 	// Filter out novelettes and short stories to construct images and popups
 	var longFictionRowsArray = filteredRowsArray.filter(function(row) {
