@@ -130,27 +130,15 @@
 				}
 			);
 		</script>
-			<script>
-				window.onload = function() {
-			    // Fetch the text file asynchronously
-			    fetch('menu.txt')
-			        .then(response => response.text())
-			        .then(data => {
-			            // Insert the text into a specific element in the HTML
-			            document.getElementById('text-container').innerHTML = data;
-			
-			            // Add event listeners directly after text insertion
-			            const openerElement = document.querySelector('.opener');
-			            if (openerElement) {
-			                openerElement.addEventListener('click', function() {
-			                    // Handle click event for openerElement
-			                    console.log('Opener clicked');
-			                });
-			            }
-			        })
-			        .catch(error => console.error('Error fetching text file:', error));
-			};
-			</script>
 		
+		<script>
+			$(document).ready(function() {
+				// Fetch HTML content from text file
+				$.get("menu.txt", function(data) {
+					// Insert the content into the designated div
+					$("#menu").html(data);
+				});
+			});
+		</script>
 	</body>
 </html>
