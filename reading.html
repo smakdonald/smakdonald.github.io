@@ -452,10 +452,10 @@ function builder() {
 	// Loop through the remaining rows
 	rowsArray.forEach(function(row) {
 		// Popup Content
-		var popupContent = ``;										// Create empty container that will contain the data for the popup window, <a href="#" onclick="authorClick(${row.cells[3].textContent}, ${row.cells[4].textContent})" ${row.cells[4].textContent} ${row.cells[3].textContent}</a>
+		var popupContent = ``;										// Create empty container that will contain the data for the popup window, Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
 		// Add the author and the year published
 		popupContent += `
-			Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
+  			Author: <a href="#" onclick="authorClick(${row.cells[3].textContent}, ${row.cells[4].textContent})">${row.cells[4].textContent} ${row.cells[3].textContent}</a>
 			<br>
 			Published: ${row.cells[5].textContent}
 		`;
@@ -720,14 +720,6 @@ function fictionRead2024() {
 	calculateImageDimensions()
 	fictionRead2024()
 </script>
-			<script>
-				fetch('menu.txt')
-					.then(response => response.text())
-					.then(data => {
-						// Insert the text into a specific element in the HTML
-						document.getElementById('menu').innerHTML = data;
-					})
-					.catch(error => console.error('Error fetching text file:', error));
-			</script>
+	
 </body>
 </html>
