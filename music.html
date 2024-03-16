@@ -166,31 +166,10 @@
 						<div class="inner">
 
 							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="teaching.html">Teaching</a></li>
-										<li><a href="cv.html">Curriculum Vitae</a></li>
-										<li><a href="rj.html">Prison Education</a></li>
-										<li><a href="OERs.html">Mathematics OERs</a></li>
-										<li>
-											<span class="opener">Personal</span>
-											<ul>
-												<li><a href="about-me.html">About Me</a></li>
-												<li><a href="music.html">Music Hours (SAAM) </a></li>
-												<li><a href="climb.html">Climbing</a></li>
-												<li><a href="reading.html">Reading</a></li>
-												<li><a href="write.html">Writing</a></li>
-												<li><a href="art.html">Artwork</a></li>
-												<li><a href="cats.html">Cats</a></li>
-												<li><a href="soon.html">Storage</a></li>
-											</ul>
-										</li>
-									</ul>
-								</nav>
+								
+						<nav id="menu"><!-- Menu -->
+							<!-- Menu HTML is inserted here from the 'menu.txt' file using the script below -->
+						</nav><!-- End Menu -->
 
 							<!-- Section -->
 								<section>
@@ -223,6 +202,14 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+				fetch('menu.txt')
+					.then(response => response.text())
+					.then(data => {
+						// Insert the text into a specific element in the HTML
+						document.getElementById('menu').innerHTML = data;
+					})
+					.catch(error => console.error('Error fetching text file:', error));
+			</script>
 	</body>
 </html>
