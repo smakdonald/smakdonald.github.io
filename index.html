@@ -136,8 +136,22 @@
 					.then(data => {
 						// Insert the text into a specific element in the HTML
 						document.getElementById('menu').innerHTML = data;
+						initializeEventListeners();
 					})
 					.catch(error => console.error('Error fetching text file:', error));
+
+				function initializeEventListeners() {
+			    // Add event listeners or interactions associated with the inserted content here
+			    // For example:
+			    const openerElement = document.querySelector('.opener');
+			    if (openerElement) {
+			        openerElement.addEventListener('click', function() {
+			            // Handle click event for openerElement
+			            console.log('Opener clicked');
+        });
+    }
+}
 			</script>
+		
 	</body>
 </html>
