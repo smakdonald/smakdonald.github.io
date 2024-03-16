@@ -317,10 +317,10 @@
 		
 		<div id="sidebar"><!-- Sidedar -->
 			<div class="inner"><!-- Inner Sidebar -->
-				
-						<nav id="menu"><!-- Menu -->
-							<!-- Menu HTML is inserted here from the 'menu.txt' file using the script below -->
-						</nav><!-- End Menu -->
+		
+				<nav id="menu"><!-- Menu -->
+					<!-- Menu HTML is inserted here from the 'menu.txt' file using the script below -->
+				</nav><!-- End Menu -->
 				
 				<section><div class="mini-posts"><!-- Section -->
 						<article><header class="major"><h2>Highlights</h2></header>
@@ -438,7 +438,7 @@ function builder() {
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	// Create separate array of novelettes and short stories to construct the short fiction table
 	var shortFictionArray = rowsArray.filter(function(row) {			
-		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story";
+		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story" || row.cells[9].textContent == "Novella*";
 	});
 	// Filter out novelettes and short stories to construct images and popups
 	var filteredRowsArray = rowsArray.filter(function(row) {
