@@ -389,8 +389,8 @@ function builder() {
 	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
 
 	rowsArray.sort((a, b) => {										// Sort the table based on the sortID given above
-		var altA = a.cells[sortID].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '');	// Get the first value, with commas removed for number sorting
-		var altB = b.cells[sortID].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '');	// Get the second value, with commas removed for number sorting
+		var altA = a.cells[sortID].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');	// Get the first value, with commas removed for number sorting
+		var altB = b.cells[sortID].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');	// Get the second value, with commas removed for number sorting
 		if (sortID == 0 || sortID == 10 || sortID == 11) {			// Check if column should be sorted Z -> A
 			return Number(altB) - Number(altA);						// If so, compare two values appropriately
 		}
