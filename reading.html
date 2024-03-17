@@ -368,9 +368,11 @@
 <script src="assets/js/util.js"></script>
 <script src="assets/js/main.js"></script>
 <script>
-/*
+	
+/* --------------------------------------------–--
 This is the big function that constructs basically everything on the page
-*/
+--------------------------------------------–-- */
+	
 function builder() {
 	// Set variables for the sorting preference
 	var sortSelect = document.getElementById("tableSelector"), 
@@ -378,7 +380,9 @@ function builder() {
 		sortID = sortSelect.options[sortIndex].value;
 	var table = document.getElementById("myTable");					// Get the table	
 
-	/* ----- Sort the Table ----- */
+	/* --------------------------------------------–--
+  				Sorting the Table  
+ 	--------------------------------------------–-- */
 
 	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
@@ -400,7 +404,9 @@ function builder() {
 	});
 	rowsArray.forEach(item => table.appendChild(item));				// Once everything is sorted, add it back to the table in the correct order
 
-	/* ----- Filtering ----- */
+	/* --------------------------------------------–-----
+ 						Filtering
+ 	--------------------------------------------–----- */
 
 	var authorSelect = document.getElementById("authorSelector"),	// Get the authorSelector dropdown
 		authorIndex = authorSelect.selectedIndex, 					// Get the current selected index of the dropdown
@@ -449,7 +455,9 @@ function builder() {
 	});
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	
-	/* ----- Build the container where images and popup content is stored ----- */
+	/* --------------------------------------------–--
+	 Build the container where images and popup content is stored 
+ 	--------------------------------------------–-- */
 	
 	var containerContent = ``;										// Create a blank text container that the Content will go into	
 	// Loop through the remaining rows
@@ -504,7 +512,9 @@ function builder() {
 	buildPopup()													// Run popup function to attach popups to each image
 	resizeAllImages()												// Resize images depending on the 'Image Size' dropdown
 					  
-	/* ----- Short Fiction Table Content ----- */
+	/* --------------------------------------------–--
+ 				Short Fiction Table Content 
+ 	--------------------------------------------–-- */
 
 	// Create the container that the table HTML will go into, and add the title row 
 	var tableContent = `
