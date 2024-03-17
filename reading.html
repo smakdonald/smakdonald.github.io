@@ -333,6 +333,7 @@
 							<header class="major"><h2>Filters</h2></header>
 							<button onclick="clearFilter()">Clear Filters</button>
 							<br>
+							<br>
 							<label for="authorSelector">By Author:</label>
 							<select id="authorSelector" onchange="builder()">
 								<option value="">All</option>
@@ -440,7 +441,7 @@ function builder() {
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	// Create separate array of novelettes and short stories to construct the short fiction table
 	var shortFictionArray = rowsArray.filter(function(row) {			
-		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story" || row.cells[9].textContent == "Novella*";
+		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story" || row.cells[9].textContent == "Novella,";
 	});
 	// Filter out novelettes and short stories to construct images and popups
 	var filteredRowsArray = rowsArray.filter(function(row) {
@@ -700,7 +701,7 @@ function fictionRead2024() {
 		return row.cells[0].textContent.trim() <= 10000 && row.cells[0].textContent.trim() > cutoff;
 	});
 	var shortFictionArray = filteredRowsArray.filter(function(row) {
-		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story" || row.cells[9].textContent == "Novella*";
+		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story" || row.cells[9].textContent == "Novella,";
 	});
 	// Filter out novelettes and short stories to construct images and popups
 	var longFictionRowsArray = filteredRowsArray.filter(function(row) {
