@@ -522,7 +522,7 @@ function builder() {
 	// Loop through the shortFictionArray
 	shortFictionArray.forEach(function(row) {
 		var content = row.innerHTML									// Get the innerHTMl of the row, otherwise all that is returned is objectHTML
-		if (row.cells[14].innerHTML == '') {						// If there is no link to the story, just include the title in the table
+		if (row.cells[16].innerHTML == '') {						// If there is no link to the story, just include the title in the table
 			tableContent += `
 			<tr>
    				<td>${row.cells[2].innerHTML}</td>
@@ -530,7 +530,7 @@ function builder() {
 		} else {													// If there is a link to a page that contains the story in its entirity, make the title contain the link
 			tableContent += `
 			<tr>
-				<td><a href="${row.cells[14].innerHTML}"target="_blank">${row.cells[2].innerHTML}</a></td>
+				<td><a href="${row.cells[16].innerHTML}"target="_blank">${row.cells[2].innerHTML}</a></td>
 			`;
 		}
 		tableContent += `
