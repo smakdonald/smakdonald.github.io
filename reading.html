@@ -433,7 +433,9 @@ function builder() {
 	// Author Filtering
 	if (authorFilter !== 'All') {									// If an author has been selected from the Author Filter dropdown
 		var filteredRowsArray = rowsArray.filter(function(row) {	
-			return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter;
+			return row.cells[3].textContent.trim() 
+				+ ', ' 
+				+ row.cells[4].textContent.trim() == authorFilter;
 		});
 	}
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
@@ -441,7 +443,8 @@ function builder() {
 	const yearCutoffs = [0, 12, 24, 42, 99, 100000];
 	if (yearFilter !== '0') { 
 		var filteredRowsArray = rowsArray.filter(function(row) {
-			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
+			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && 
+				   row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
 		});
 	}
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
@@ -475,7 +478,9 @@ function builder() {
 		// Popup Content
 		var popupContent = ``;										// Create empty container that will contain the data for the popup window, Author: ${row.cells[4].textContent} ${row.cells[3].textContent},,, <a href="#"> onclick="authorClick(${author})" </a>
 		// Add the author and the year published
-		var author = row.cells[3].textContent + ', ' + row.cells[4].textContent
+		var author = row.cells[3].textContent 
+			+ ', ' 
+			+ row.cells[4].textContent
 		//console.log(author)
 		popupContent += `
   			Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
@@ -485,16 +490,18 @@ function builder() {
 		// If applicable, add series
 		if (row.cells[6].innerHTML.trim()) {
 			popupContent += `<br> 
-			Series: ${row.cells[6].textContent} 
-			# ${row.cells[7].textContent}`;
+				Series: ${row.cells[6].textContent} 
+				# ${row.cells[7].textContent}`;
 		}
 		// If applicable, add page count
 		if (row.cells[11].innerHTML.trim()) {
-			popupContent += `<br> Page Count: ${row.cells[11].textContent}`;
+			popupContent += `<br> 
+   				Page Count: ${row.cells[11].textContent}`;
 		}
 		// If applicable, add word count
 		if (row.cells[10].innerHTML.trim()) {
-			popupContent += `<br> Word Count: ${row.cells[10].textContent}`;
+			popupContent += `<br> 
+   				Word Count: ${row.cells[10].textContent}`;
 		}
 		// Image Content
 		var path = row.cells[1];									// The path to the image file
@@ -513,7 +520,9 @@ function builder() {
 				<div class = image-item>
 					${Content}
 				</div>
-				<p style="text-align:center"><b>${title.textContent}</b></p>
+				<p style="text-align:center">
+					<b>${title.textContent}</b>
+	 			</p>
 			</div>
 		`;
 		var bookContainer = document.getElementById("bookContainer");
