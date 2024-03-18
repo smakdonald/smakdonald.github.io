@@ -454,11 +454,14 @@ function builder() {
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	// Create separate array of novelettes and short stories to construct the short fiction table
 	var shortFictionArray = rowsArray.filter(function(row) {			
-		return row.cells[9].textContent == "Novelette" || row.cells[9].textContent == "Short Story" || row.cells[9].textContent == "Novella,";
+		return row.cells[9].textContent == "Novelette" || 
+			   row.cells[9].textContent == "Short Story" || 
+			   row.cells[9].textContent == "Novella,";
 	});
 	// Filter out novelettes and short stories to construct images and popups
 	var filteredRowsArray = rowsArray.filter(function(row) {
-		return row.cells[9].textContent == "Novel" || row.cells[9].textContent == "Novella";
+		return row.cells[9].textContent == "Novel" || 
+			   row.cells[9].textContent == "Novella";
 	});
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	
