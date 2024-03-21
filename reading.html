@@ -470,6 +470,7 @@ function builder() {
 			return row.cells[6].textContent.trim() == seriesFilter;
 		});
 	}
+	totalRowsArray = totalRowsArray
 	// Create separate array of novelettes and short stories to construct the short fiction table
 	var shortFictionArray = totalRowsArray.filter(function(row) {			
 		return row.cells[9].textContent == "Novelette" || 
