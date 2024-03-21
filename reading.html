@@ -600,6 +600,7 @@ function builder() {
 	var wordCount = 0,
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
+		console.log(totalRowsArray[i][10].innerText)
 		wordCount += totalRowsArray[i][10].innerText;
 		pageCount += totalRowsArray[i][11].innerText;
 	}
