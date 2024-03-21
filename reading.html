@@ -602,10 +602,10 @@ function builder() {
 		var words = totalRowsArray[i].getElementsByTagName("td")[10];
 		var pages = totalRowsArray[i].getElementsByTagName("td")[11];
 		console.log(words.textContent.replace(/,/g, ''))
-		if (words && words.textContent.trim() !== "")) {
+		if (words && words.textContent.trim() !== "") {
 	      wordCount += parseInt(words.textContent.replace(/,/g, ''));
 	    }
-		if (pages && pages.textContent.trim() !== "")) {
+		if (pages && pages.textContent.trim() !== "") {
 	      pageCount += parseInt(words.textContent.replace(/,/g, ''));
 	    }
 	}
