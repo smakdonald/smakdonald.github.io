@@ -599,7 +599,7 @@ function builder() {
 	var sums = document.getElementById("sums")
 	var wordCount = 0,
 		pageCount = 0;
-	for (var i in totalRowsArray.length; i++) {
+	for (var i = 0; i < totalRowsArray.length; i++) {
 		wordCount += row[i][10].innerText;
 		pageCount += row[i][11].innerText;
 	}
