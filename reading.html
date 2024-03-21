@@ -148,7 +148,7 @@
 							<tr> <td>169</td> 	<td></td>										<td>"I’m Alive, I Love You, I’ll See You in Reno"</td> 												<td>Kaftan</td> 	<td>Vylar</td> 			<td>2010</td> 	<td>Lightspeed Magazine Issue 1</td>				<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>2,608</td>		<td></td> 		<td></td>			<td>Nominated</td>	<td></td>				<td></td>			<td>https://www.lightspeedmagazine.com/fiction/im-alive-i-love-you/</td>												</tr> <!-- March 17th, 2024 -->
 							<tr> <td>168</td> 	<td></td>										<td>"Mantis Wives"</td> 																			<td>Johnson</td> 	<td>Kij</td> 			<td>2012</td> 	<td>Clarkesworld Magazine Issue 71</td>				<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>960</td>		<td></td> 		<td>Nominated</td>	<td></td>			<td>Nominated</td>		<td></td>			<td>https://clarkesworldmagazine.com/johnson_08_12/</td>																</tr> <!-- March 17th, 2024 -->
 							<tr> <td>167</td> 	<td></td>										<td>"Spar"</td> 																					<td>Johnson</td> 	<td>Kij</td> 			<td>2009</td> 	<td>Clarkesworld Magazine Issue 37</td>				<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>2,150</td>		<td></td> 		<td>Nominated</td>	<td>Won</td>		<td>Nominated</td>		<td></td>			<td>https://clarkesworldmagazine.com/johnson_10_09/</td>																</tr> <!-- March 17th, 2024 -->
-							<tr> <td>166</td> 	<td></td>										<td>"Proof by Induction"</td> 																		<td>Iriarte</td> 	<td>José Pablo</td> 	<td>2023</td> 	<td>Uncanny Magazine Issue Forty</td>				<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>6,296</td>		<td></td> 		<td>Nominated</td>	<td>Nominated</td>	<td>Nominated</td>		<td></td>			<td>https://www.uncannymagazine.com/article/proof-by-induction/</td>													</tr> <!-- March 17th, 2024 -->
+							<tr> <td>166</td> 	<td></td>										<td>"Proof by Induction"</td> 																		<td>Iriarte</td> 	<td>José Pablo</td> 	<td>2023</td> 	<td>Uncanny Magazine Issue Forty</td>				<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>6,296</td>		<td>27</td> 	<td>Nominated</td>	<td>Nominated</td>	<td>Nominated</td>		<td></td>			<td>https://www.uncannymagazine.com/article/proof-by-induction/</td>													</tr> <!-- March 17th, 2024 -->
 							<tr> <td>165</td> 	<td></td>										<td>"50 Things Every AI Working with Humans Should Know"</td> 										<td>Liu</td> 		<td>Ken</td> 			<td>2002</td> 	<td>Uncanny Magazine Issue Thirty-Seven</td>		<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>1,993</td>		<td></td> 		<td></td>			<td></td>			<td>Nominated</td>		<td></td>			<td>https://www.uncannymagazine.com/article/50-things-every-ai-working-with-humans-should-know/</td>					</tr> <!-- March 17th, 2024 -->
 							<tr> <td>164</td> 	<td>Liu-Paper-Menagerie.jpg</td>				<td>"The Paper Menagerie"</td> 																		<td>Liu</td> 		<td>Ken</td> 			<td>2011</td> 	<td>The Paper Menagerie</td>						<td>8</td> 	<td>Read</td> 		<td>Short Story</td> 	<td>4,940</td>		<td>15</td> 	<td>Won</td>		<td>Won</td>		<td>Nominated</td>		<td>Won</td>		<td></td>	</tr> <!-- March 17th, 2024 -->
 							<tr> <td>163</td> 	<td>Liu-Paper-Menagerie.jpg</td>				<td>The Regular</td> 																				<td>Liu</td> 		<td>Ken</td> 			<td>2014</td> 	<td>The Paper Menagerie</td>						<td>7</td> 	<td>Read</td> 		<td>Novella,</td> 		<td>17,914</td>		<td>55</td> 	<td></td>			<td>Nominated</td>	<td>Nominated</td>		<td></td>			<td></td>	</tr>
@@ -454,8 +454,7 @@ function builder() {
 		});
 	}
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
-	// Year Read Filtering
-	const yearCutoffs = [0, 12, 24, 42, 99, 100000];
+	const yearCutoffs = [0, 12, 24, 42, 99, 100000];				// Year Read Filtering
 	if (yearFilter !== '0') { 
 		var filteredRowsArray = rowsArray.filter(function(row) {
 			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && 
@@ -463,21 +462,19 @@ function builder() {
 		});
 	}
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
-	// Series Filtering
-	if (seriesFilter !== 'All') {
-		var filteredRowsArray = rowsArray.filter(function(row) {		// This is the array used below to calculate page counts and word counts
+	if (seriesFilter !== 'All') {									// Series Filtering
+		var filteredRowsArray = rowsArray.filter(function(row) {	// This is the array used below to calculate page counts and word counts
 			return row.cells[6].textContent.trim() == seriesFilter;
 		});
 	}
 	totalRowsArray = filteredRowsArray
-	// Create separate array of novelettes and short stories to construct the short fiction table
-	var shortFictionArray = totalRowsArray.filter(function(row) {			
+	
+	var shortFictionArray = totalRowsArray.filter(function(row) {	// Create separate array of novelettes and short stories to construct the short fiction table
 		return row.cells[9].textContent == "Novelette" || 
 			   row.cells[9].textContent == "Short Story" || 
 			   row.cells[9].textContent == "Novella,";
 	});
-	// Filter out novelettes and short stories to construct images and popups
-	var filteredRowsArray = totalRowsArray.filter(function(row) {
+	var filteredRowsArray = totalRowsArray.filter(function(row) {	// Filter out novelettes and short stories to construct images and popups
 		return row.cells[9].textContent == "Novel" ||
 			   row.cells[9].textContent == "Novella";
 	});
@@ -488,12 +485,9 @@ function builder() {
  	--------------------------------------------------------–-- */
 	
 	var containerContent = ``;										// Create a blank text container that the Content will go into	
-	// Loop through the remaining rows
-	rowsArray.forEach(function(row) {
-		// Popup Content
+	rowsArray.forEach(function(row) {								// Loop through the remaining rows
 		var popupContent = ``;										// Create empty container that will contain the data for the popup window, Author: ${row.cells[4].textContent} ${row.cells[3].textContent},,, <a href="#"> onclick="authorClick(${author})" </a>
-		// Add the author and the year published
-		var author = row.cells[3].textContent 
+		var author = row.cells[3].textContent 						// Add the author and the year published
 			+ ', ' 
 			+ row.cells[4].textContent
 		//console.log(author)
@@ -502,19 +496,19 @@ function builder() {
 			<br>
 			Published: ${row.cells[5].textContent}
 		`;
-		// If applicable, add series
-		if (row.cells[6].innerHTML.trim()) {
+		
+		if (row.cells[6].innerHTML.trim()) {						// If applicable, add series
 			popupContent += `<br> 
 				Series: ${row.cells[6].textContent} 
 				# ${row.cells[7].textContent}`;
 		}
-		// If applicable, add page count
-		if (row.cells[11].innerHTML.trim()) {
+		
+		if (row.cells[11].innerHTML.trim()) {						// If applicable, add page count
 			popupContent += `<br> 
    				Page Count: ${row.cells[11].textContent}`;
 		}
-		// If applicable, add word count
-		if (row.cells[10].innerHTML.trim()) {
+		
+		if (row.cells[10].innerHTML.trim()) {						// If applicable, add word count
 			popupContent += `<br> 
    				Word Count: ${row.cells[10].textContent}`;
 		}
@@ -550,9 +544,9 @@ function builder() {
  				Short Fiction Table Content 
  	--------------------------------------------–-- */
 
-	// Create the container that the table HTML will go into, and add the title row 
-	var tableContent = `
-		<tr>
+	
+	var tableContent = 												// Create the container that the table HTML will go into, and add the title row
+		`<tr>
 			<th> Title </th>
 			<th> Last </th>
 			<th> First </th>
@@ -561,19 +555,19 @@ function builder() {
 			<th> Length </th>
 			<th> Words </th>
 			<th> Pages </th>
-		</tr>
-	`;
-	// Loop through the shortFictionArray
-	shortFictionArray.forEach(function(row) {
+		</tr>`
+	;
+	
+	shortFictionArray.forEach(function(row) {						// Loop through the shortFictionArray
 		var content = row.innerHTML									// Get the innerHTMl of the row, otherwise all that is returned is objectHTML
 		if (row.cells[16].innerHTML == '') {						// If there is no link to the story, just include the title in the table
-			tableContent += `
-			<tr>
+			tableContent += 
+			`<tr>
    				<td>${row.cells[2].innerHTML}</td>
 	   		`;
 		} else {													// If there is a link to a page that contains the story in its entirity, make the title contain the link
-			tableContent += `
-			<tr>
+			tableContent += 
+			`<tr>
 				<td><a href="${row.cells[16].innerHTML}"target="_blank">${row.cells[2].innerHTML}</a></td>
 			`;
 		}
@@ -594,15 +588,15 @@ function builder() {
 	/*---------------------------------------------–--
  				   Word and Page Counts 
  	--------------------------------------------–---*/
-
+	
+	console.log(totalRowsArray)
 	var sums = document.getElementById("sums")
 	var wordCount = 0,
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
 		var words = totalRowsArray[i].getElementsByTagName("td")[10];
 		var pages = totalRowsArray[i].getElementsByTagName("td")[11];
-		console.log(words.textContent.replace(/,/g, ''))
-		if (words && words.textContent.trim() !== "") {
+		if (words && words.textContent.trim() !== "") {				
 	      wordCount += parseInt(words.textContent.replace(/,/g, ''));
 	    }
 		if (pages && pages.textContent.trim() !== "") {
