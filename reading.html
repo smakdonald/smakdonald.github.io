@@ -323,43 +323,38 @@
 					    <p id="popupText"></p>														<!-- Popup information will be put here by the 'builder()' function -->
 					</div>
 					
-					<div class="popup-overlay" id="popupOverlay"></div>
-					<div class="book-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
-					<table id="tableContainer"></table>
-
-					<p id="sums">
-						Words Read:
-						Pages Read: 
-					</p>
+					<div class="popup-overlay" id="popupOverlay"></div>								<!-- Division where all the popups will be stored by the 'builder()' function -->
+					<div class="book-container" id="bookContainer"></div> 							<!-- Division where all the images will be stored by the 'builder()' function -->
+					<table id="tableContainer"></table>												<!-- Table where short fiction will be stored by the 'builder()' function -->
+					<p id="sums"></p>																<!-- This is where the total word counts and page counts of the fiction will be displayed by the 'builder()' function -->
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
 		
 		<div id="sidebar"><!-- Sidedar -->
 			<div class="inner"><!-- Inner Sidebar -->
-
 				<nav id="menu"><!-- Menu -->
-					<!-- Menu HTML is inserted here from the 'menu.txt' file using the script below -->
+					<!-- Menu HTML is inserted here from the 'menu.txt' file using a script in the assets/js/main.js file -->
 				</nav><!-- End Menu -->
 				
 				<section><div class="mini-posts"><!-- Section -->
 						<article><header class="major"><h2>Highlights</h2></header>
-							<p id="lfRead2024"></p>
-							<p id="sfRead2024"></p>
+							<p id="lfRead2024"></p>													<!-- Total books read this year supplied from the 'fictionRead2024()' function -->
+							<p id="sfRead2024"></p>													<!-- Total short fiction read this year supplied from the 'fictionRead2024()' function -->
 						</article>
 						<article>
-							<header class="major"><h2>Filters</h2></header>
-							<button onclick="clearFilter()">Clear Filters</button>
+							<header class="major"><h2>Filters</h2></header>							<!-- Filter Dropdowns are located here -->
+							<button onclick="clearFilter()">Clear Filters</button>					<!-- Button that clears filters using the 'clearFilters()' function -->
 							<br>
 							<br>
-							<label for="authorSelector">By Author:</label>
+							<label for="authorSelector">By Author:</label>							<!-- Author Filter -->
 							<select id="authorSelector" onchange="builder()">
 								<option value="">All</option>
 							</select>
 							<br>
-							<label for="yearSelector">By Year Read:</label>
+							<label for="yearSelector">By Year Read:</label>							<!-- Year Read Filter -->
 							<select id="yearSelector" onchange="builder()">
-								<option value="0">All</option>
+								<option value="0">All</option>										<!-- Each value corresponds to an index in the 'yearCutoffs' constant in the 'builder()' function-->
 								<option value="5">2024</option>
 								<option value="4">2023</option>
 								<option value="3">2022</option>
@@ -367,11 +362,10 @@
 								<option value="1">2020</option>
 							</select>
 							<br>
-							<label for="seriesSelector">By Series:</label>
+							<label for="seriesSelector">By Series:</label>							<!-- Series Filter -->
 							<select id="seriesSelector" onchange="builder()"><option value="">All</option></select>
 						</article>
-					</div>
-				</section><!-- End Section -->
+					</div></section><!-- End Section -->
 				
 				<footer id="footer"><!-- Footer -->
 					<p class="copyright">&copy; Sam Macdonald. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
