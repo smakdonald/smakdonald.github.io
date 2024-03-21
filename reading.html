@@ -600,9 +600,15 @@ function builder() {
 	var wordCount = 0,
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
-		console.log(parseInt(totalRowsArray[i].getElementsByTagName("td")[10]))
-		wordCount += parseInt(totalRowsArray[i].getElementsByTagName("td")[10]);
-		pageCount += parseInt(totalRowsArray[i].getElementsByTagName("td")[11]);
+		var words = totalRowsArray[i].getElementsByTagName("td")[10];
+		var pages totalRowsArray[i].getElementsByTagName("td")[11];
+		console.log(words)
+		if (words) {
+	      wordCount += parseInt(words.textContent);
+	    }
+		if (pages) {
+	      pageCount += parseInt(words.textContent);
+	    }
 	}
 	sums.innerHTML = `
  		Total Words Read: ${wordCount}
