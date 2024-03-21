@@ -600,9 +600,8 @@ function builder() {
 	var wordCount = 0,
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
-		console.log(totalRowsArray[i])
-		wordCount += totalRowsArray[i][10].innerText;
-		pageCount += totalRowsArray[i][11].innerText;
+		wordCount += parseInt(totalRowsArray[i].getElementsByTagName("td")[10]);
+		pageCount += parseInt(totalRowsArray[i].getElementsByTagName("td")[11]);
 	}
 	sums.innerHTML = `
  		Total Words Read: ${wordCount}
