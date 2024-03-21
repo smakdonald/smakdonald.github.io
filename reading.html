@@ -603,10 +603,10 @@ function builder() {
 		var pages = totalRowsArray[i].getElementsByTagName("td")[11];
 		console.log(words)
 		if (words) {
-	      wordCount += parseInt(words.textContent);
+	      wordCount += parseInt(words.textContent.replace(/,/g, ''));
 	    }
 		if (pages) {
-	      pageCount += parseInt(words.textContent);
+	      pageCount += parseInt(words.textContent.replace(/,/g, ''));
 	    }
 	}
 	sums.innerHTML = `
