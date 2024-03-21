@@ -591,9 +591,9 @@ function builder() {
 	var tableContainer = document.getElementById("tableContainer");
 	tableContainer.innerHTML = tableContent;						// Add the content to the table
 
-	/* --------------------------------------------–--
+	/*---------------------------------------------–--
  				   Word and Page Counts 
- 	--------------------------------------------–-- */
+ 	--------------------------------------------–---*/
 
 	var sums = document.getElementById("sums")
 	var wordCount = 0,
@@ -606,14 +606,14 @@ function builder() {
 	      wordCount += parseInt(words.textContent.replace(/,/g, ''));
 	    }
 		if (pages && pages.textContent.trim() !== "") {
-	      pageCount += parseInt(words.textContent.replace(/,/g, ''));
+	      pageCount += parseInt(pages.textContent.replace(/,/g, ''));
 	    }
 	}
 	sums.innerHTML = `
  		Total Words Read: ${wordCount}
    		<br>
    		Total Pages Read: ${pageCount}
-	 `;
+	`;
 }
 
 function authorClick(author) {
