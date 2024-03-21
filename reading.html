@@ -483,6 +483,8 @@ function builder() {
 	/* --------------------------------------------–-------------
 	 Build the container where images and popup content is stored 
  	--------------------------------------------------------–-- */
+
+	/* -------- Popup Content -------- */
 	
 	var containerContent = ``;										// Create a blank text container that the Content will go into	
 	rowsArray.forEach(function(row) {								// Loop through the remaining rows
@@ -490,7 +492,6 @@ function builder() {
 		var author = row.cells[3].textContent 						// Add the author and the year published
 			+ ', ' 
 			+ row.cells[4].textContent
-		//console.log(author)
 		popupContent += `
   			Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
 			<br>
@@ -543,7 +544,6 @@ function builder() {
 	/* --------------------------------------------–--
  				Short Fiction Table Content 
  	--------------------------------------------–-- */
-
 	
 	var tableContent = 												// Create the container that the table HTML will go into, and add the title row
 		`<tr>
@@ -589,13 +589,14 @@ function builder() {
  				   Word and Page Counts 
  	--------------------------------------------–---*/
 	
-	console.log(totalRowsArray)
+	//console.log(totalRowsArray)
 	var sums = document.getElementById("sums")
 	var wordCount = 0,
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
 		var words = totalRowsArray[i].getElementsByTagName("td")[10];
 		var pages = totalRowsArray[i].getElementsByTagName("td")[11];
+		console.log(pages)
 		if (words && words.textContent.trim() !== "") {				
 	      wordCount += parseInt(words.textContent.replace(/,/g, ''));
 	    }
