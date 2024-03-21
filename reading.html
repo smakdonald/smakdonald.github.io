@@ -599,9 +599,9 @@ function builder() {
 	var sums = document.getElementById("sums")
 	var wordCount = 0,
 		pageCount = 0;
-	for (var row in totalRowsArray) {
-		wordCount += row.cells[10].innerText;
-		pageCount += row.cells[11].innerText;
+	for (var i in totalRowsArray.length; i++) {
+		wordCount += row[i][10].innerText;
+		pageCount += row[i][11].innerText;
 	}
 	sums.innerHTML = `
  		Total Words Read: ${wordCount}
