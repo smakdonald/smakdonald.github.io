@@ -466,11 +466,11 @@ function builder() {
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	// Series Filtering
 	if (seriesFilter !== 'All') {
-		var totalRowsArray = rowsArray.filter(function(row) {		// This is the array used below to calculate page counts and word counts
+		var filteredRowsArray = rowsArray.filter(function(row) {		// This is the array used below to calculate page counts and word counts
 			return row.cells[6].textContent.trim() == seriesFilter;
 		});
 	}
-	totalRowsArray = totalRowsArray
+	totalRowsArray = filteredRowsArray
 	// Create separate array of novelettes and short stories to construct the short fiction table
 	var shortFictionArray = totalRowsArray.filter(function(row) {			
 		return row.cells[9].textContent == "Novelette" || 
