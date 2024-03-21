@@ -600,7 +600,7 @@ function builder() {
 	var wordCount = 0,
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
-		console.log(totalRowsArray[i][10].innerText)
+		console.log(totalRowsArray[i].innerText)
 		wordCount += totalRowsArray[i][10].innerText;
 		pageCount += totalRowsArray[i][11].innerText;
 	}
@@ -675,7 +675,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 </script>
 
-<!-- Popup Functions -->
+<!------------------------
+	  Popup Functions 
+------------------------->
 
 <script>
 // Function to show the popup
@@ -709,7 +711,9 @@ function buildPopup() {
 }
 </script>
 
-<!-- Image Size Functions -->
+<!------------------------
+	Image Size Functions 
+------------------------->
 
 <script>
 // Function to calculate the resized dimensions of images
