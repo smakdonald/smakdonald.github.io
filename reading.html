@@ -600,6 +600,7 @@ function builder() {
 	var wordCount = 0,
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
+		console.log(parseInt(totalRowsArray[i].getElementsByTagName("td")[10]))
 		wordCount += parseInt(totalRowsArray[i].getElementsByTagName("td")[10]);
 		pageCount += parseInt(totalRowsArray[i].getElementsByTagName("td")[11]);
 	}
