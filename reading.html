@@ -331,6 +331,11 @@
 					<div class="book-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
 					<table id="tableContainer"></table>
 					<button onclick="showTable()">Table View</button>
+
+					<p id="sums">
+						Words Read:
+						Pages Read:
+					</p>
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
@@ -461,27 +466,26 @@ function builder() {
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	// Series Filtering
 	if (seriesFilter !== 'All') {
-		var filteredRowsArray = rowsArray.filter(function(row) {
+		var totalRowsArray = rowsArray.filter(function(row) {		// This is the array used below to calculate page counts and word counts
 			return row.cells[6].textContent.trim() == seriesFilter;
 		});
 	}
-	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	// Create separate array of novelettes and short stories to construct the short fiction table
-	var shortFictionArray = rowsArray.filter(function(row) {			
+	var shortFictionArray = totalRowsArray.filter(function(row) {			
 		return row.cells[9].textContent == "Novelette" || 
 			   row.cells[9].textContent == "Short Story" || 
 			   row.cells[9].textContent == "Novella,";
 	});
 	// Filter out novelettes and short stories to construct images and popups
-	var filteredRowsArray = rowsArray.filter(function(row) {
-		return row.cells[9].textContent == "Novel" || 
+	var filteredRowsArray = totalRowsArray.filter(function(row) {
+		return row.cells[9].textContent == "Novel" ||
 			   row.cells[9].textContent == "Novella";
 	});
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	
-	/* --------------------------------------------–--
+	/* --------------------------------------------–-------------
 	 Build the container where images and popup content is stored 
- 	--------------------------------------------–-- */
+ 	--------------------------------------------------------–-- */
 	
 	var containerContent = ``;										// Create a blank text container that the Content will go into	
 	// Loop through the remaining rows
@@ -586,11 +590,28 @@ function builder() {
 	});
 	var tableContainer = document.getElementById("tableContainer");
 	tableContainer.innerHTML = tableContent;						// Add the content to the table
+
+	/* --------------------------------------------–--
+ 				   Word and Page Counts 
+ 	--------------------------------------------–-- */
+
+	var sums = document.getElementById("sums")
+	var wordCount = 0,
+		pageCount = 0;
+	for (var row in totalRowsArray) {
+		wordCount += row.cells[10].innerText;
+		pageCount += row.cells[11].innerText;
+	}
+	sums.innerHTML = `
+ 		Total Words Read: ${wordCount}
+   		<br>
+   		Total Pages Read: ${pageCount}
+	 `;
 }
 
 function authorClick(author) {
 	var authorSelect = document.getElementById("authorSelector")
-	console.log(authorSelect.options.length)
+	//console.log(authorSelect.options.length)
 	for (var i = 0; i < authorSelect.options.length; i++) {
 		if (authorSelect.options[i].value == author) {
 			authorSelect.selectedIndex = i;
