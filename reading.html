@@ -330,7 +330,6 @@
 					<div class="popup-overlay" id="popupOverlay"></div>
 					<div class="book-container" id="bookContainer"></div> <!-- Division where all the images will be stored by the images function -->
 					<table id="tableContainer"></table>
-					<button onclick="showTable()">Table View</button>
 
 					<p id="sums">
 						Words Read:
@@ -601,7 +600,7 @@ function builder() {
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
 		var words = totalRowsArray[i].getElementsByTagName("td")[10];
-		var pages totalRowsArray[i].getElementsByTagName("td")[11];
+		var pages = totalRowsArray[i].getElementsByTagName("td")[11];
 		console.log(words)
 		if (words) {
 	      wordCount += parseInt(words.textContent);
