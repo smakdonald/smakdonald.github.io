@@ -320,7 +320,7 @@
 							<tr> <td>1</td> 	<td>Sanderson-Mistborn.jpg</td>					<td>Mistborn</td> 																					<td>Sanderson</td> 	<td>Brandon</td> 		<td>2006</td> 	<td>Mistborn</td> 									<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210,103</td>	<td>669</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>	</tr>
 						</tbody>
 					</table>
-					<!-- Popup window that appears then an image is clicked on-->
+					<!-- Popup window that appears then an image is clicked on -->
 					<div id="popup" class="popup-container"> 
 					    <span class="close-btn" onclick="closePopup()">X</span>
 					    <h2 id="popupTitle"></h2>
@@ -334,7 +334,7 @@
 
 					<p id="sums">
 						Words Read:
-						Pages Read:
+						Pages Read: 
 					</p>
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
@@ -342,7 +342,7 @@
 		
 		<div id="sidebar"><!-- Sidedar -->
 			<div class="inner"><!-- Inner Sidebar -->
-		
+
 				<nav id="menu"><!-- Menu -->
 					<!-- Menu HTML is inserted here from the 'menu.txt' file using the script below -->
 				</nav><!-- End Menu -->
@@ -600,7 +600,7 @@ function builder() {
 	var wordCount = 0,
 		pageCount = 0;
 	for (var i = 0; i < totalRowsArray.length; i++) {
-		console.log(totalRowsArray[i].innerText)
+		console.log(totalRowsArray[i])
 		wordCount += totalRowsArray[i][10].innerText;
 		pageCount += totalRowsArray[i][11].innerText;
 	}
