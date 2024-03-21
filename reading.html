@@ -601,7 +601,7 @@ function builder() {
 	for (var i = 0; i < totalRowsArray.length; i++) {
 		var words = totalRowsArray[i].getElementsByTagName("td")[10];
 		var pages = totalRowsArray[i].getElementsByTagName("td")[11];
-		console.log(words)
+		console.log(words.textContent.replace(/,/g, ''))
 		if (words) {
 	      wordCount += parseInt(words.textContent.replace(/,/g, ''));
 	    }
@@ -627,6 +627,10 @@ function authorClick(author) {
 	}
 }
 </script>
+
+<!------------------------------------
+	  Dropdown Populator Function 
+------------------------------------->
 	
 <script>
 // Function that populates the authorSelector and seriesSelector dropdowns
