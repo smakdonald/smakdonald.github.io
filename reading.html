@@ -395,7 +395,7 @@ function builder() {
 	var table = document.getElementById("myTable");					// Get the table	
 
 	/* --------------------------------------------–--
-  				Sorting the Table  
+  					Sorting the Table
  	--------------------------------------------–-- */
 
 	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
@@ -471,10 +471,8 @@ function builder() {
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	
 	/* --------------------------------------------–-------------
-	 Build the container where images and popup content is stored 
+	 					Building the Popups 
  	--------------------------------------------------------–-- */
-
-	/* -------- Popup Content -------- */
 	
 	var containerContent = ``;										// Create a blank text container that the Content will go into	
 	rowsArray.forEach(function(row) {								// Loop through the remaining rows
@@ -499,6 +497,9 @@ function builder() {
 			popupContent += `<br> 
    				Word Count: ${row.cells[10].textContent}`;
 		}
+
+		/* -------- Award Content for the Popup -------- */
+		
 		var won = []
 		var nominated = []
 		const awardTitles = ['Hugo', 'Nebula', 'Locus', 'World Fantasy']
@@ -510,6 +511,8 @@ function builder() {
 				nominated.push(awardTitles[i-12])
 			}
 		}
+		console.log(won)
+		console.log(nominated)
 		wonText = ``
 		nomText = ``
 		if (won.length != 0) {
@@ -517,11 +520,13 @@ function builder() {
 				wonText += `<b>Won:</b> ${won[i]}<br>`
 			}
 		}
+		console.log(wonText)
 		if (nominated.length != 0) {
 			for (var i = 0; i < nominated.length; i++) {
 				nomText += `Nominated: ${won[i]}<br>`
 			}
 		}
+		console.log(nomText)
 		if (wonText != `` || nomText != ``){
 			popupContent += `<br>
 				Awards: <br>
@@ -530,7 +535,9 @@ function builder() {
 			`;
 		}
 		
-		/* -------- Image Content -------- */
+	/* --------------------------------------------–-------------
+	 						Image Content 
+ 	--------------------------------------------------------–-- */
 		
 		var path = row.cells[1];									// The path to the image file
 		var title = row.cells[2];									// The title of the book
