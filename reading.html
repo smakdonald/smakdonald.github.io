@@ -501,13 +501,14 @@ function builder() {
 		}
 		var won = {}
 		var nominated = {}
+		const awardTitles = ['Hugo', 'Nebula', 'Locus', 'World Fantasy']
 		for (var i = 13; i < 17; i++) {
 			if (row.cells[i].textContent == "Won") {
-				won[row.cells[i].textContent] = true;
+				won[awardTitles[i-13]] = true;
 				console.log(won)
 			}
 			if (row.cells[i].textContent == "Nominated") {
-				nominated[row.cells[i].textContent] = true;
+				nominated[awardTitles[i-13]] = true;
 				console.log(nominated)
 			}
 			if (won.length != 0 || nominated.length != 0) {
