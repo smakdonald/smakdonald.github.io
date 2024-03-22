@@ -499,13 +499,22 @@ function builder() {
 			popupContent += `<br> 
    				Word Count: ${row.cells[10].textContent}`;
 		}
-		if (row.cells[13].innerHTML.trim() || 
-			row.cells[14].innerHTML.trim() || 
-			row.cells[15].innerHTML.trim() || 
-			row.cells[16].innerHTML.trim()) {
-			popupContent += `<br>
-   				Awards:
-	   			`;
+		var won = {}
+		var nominated = {}
+		for (var i = 13; i < 17; i++) {
+			if (row.cells[i].textContent == "Won") {
+				won[row.cells[i].textContent] = true;
+				console.log(won)
+			}
+			if (row.cells[i].textContent == "Nominated") {
+				nominated[row.cells[i].textContent] = true;
+				console.log(nominated)
+			}
+			if (won.length != 0 || nominated.length != 0) {
+				popupContent += `<br>
+	   				Awards:
+		   		`;
+			}
 		}
 		
 		/* -------- Image Content -------- */
