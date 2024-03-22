@@ -499,6 +499,13 @@ function builder() {
 			popupContent += `<br> 
    				Word Count: ${row.cells[10].textContent}`;
 		}
+		if (row.cells[13].innerHTML.trim() || 
+			row.cells[14].innerHTML.trim() || 
+			row.cells[15].innerHTML.trim() || 
+			row.cells[16].innerHTML.trim()) {
+			popupContent += `<hr class="major"/>
+   				Awards:
+	   			`;
 		
 		/* -------- Image Content -------- */
 		
