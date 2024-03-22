@@ -505,17 +505,29 @@ function builder() {
 		for (var i = 12; i < 16; i++) {
 			if (row.cells[i].textContent == "Won") {
 				won.push(awardTitles[i-12])
-				console.log(won)
 			}
 			if (row.cells[i].textContent == "Nominated") {
 				nominated.push(awardTitles[i-12])
-				console.log(nominated)
 			}
 		}
-		if (won.length != 0 || nominated.length != 0) {
+		wonText = ``
+		nomText = ``
+		if (won.length != 0) {
+			for (var i = 0; i < won.length; i++) {
+				wonText += `<b>Won:</b> ${won[i]}<br>`
+			}
+		}
+		if (nominated.length != 0) {
+			for (var i = 0; i < nominated.length; i++) {
+				nomText += `Nominated: ${won[i]}<br>`
+			}
+		}
+		if (wonText != `` || nomText != ``){
 			popupContent += `<br>
-				Awards:
-		   	`;
+				Awards: <br>
+				${wonText}
+				${nomText}
+			`;
 		}
 		
 		/* -------- Image Content -------- */
