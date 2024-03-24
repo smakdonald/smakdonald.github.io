@@ -585,8 +585,7 @@ function builder() {
 	var tableContent = 												// Create the container that the table HTML will go into, and add the title row
 		`<tr>
 			<th> Title </th>
-			<th> Last </th>
-			<th> First </th>
+			<th> Author </th>
 			<th> Year </th>
 			<th> Length </th>
 			<th> Words </th>
@@ -608,8 +607,7 @@ function builder() {
 			`;
 		}
 		tableContent += `
-				<td>${row.cells[3].innerHTML}</td>
-				<td>${row.cells[4].innerHTML}</td>
+				<td>${row.cells[4].textContent} ${row.cells[3].textContent}</td>
 				<td>${row.cells[5].innerHTML}</td>
 				<td>${row.cells[9].innerHTML.replace(/,/g, '')}</td>
 				<td>${row.cells[10].innerHTML}</td>
