@@ -610,11 +610,15 @@ function fictionRead2024() {
 
 <script>
 	$(document).ready(function() {
-	// Fetch HTML content from text file
-	$.get("bookTable.html", function(data) {
-		// Insert the content into the designated div
-		$("#myTable").html(data);
+		// Fetch HTML content from text file
+		$.get("bookTable.html", function(data) {
+			// Insert the content into the designated div
+			$("#myTable").html(data);
 		});
+		clearFilter()
+		builder()
+		calculateImageDimensions()
+		fictionRead2024()
 	});
 	
 	// Reset all the Dropdowns to the Default Position
