@@ -500,7 +500,6 @@ function builder() {
 		popupContent += 											// Add the author and the publication year to the popup
 			`Author: ${row.cells[4].textContent} ${row.cells[3].textContent}
 			<br>
-   			<a href="OERs.html">Open Educational Resources</a>
 			Published: ${row.cells[5].textContent}`;
 		if (row.cells[6].innerHTML.trim()) {						// If applicable, add series
 			popupContent += `<br> 
