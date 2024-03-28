@@ -687,7 +687,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		var authorEntry = row.cells[3].textContent.trim() 			// Concatenate cell values to get 'LastName, FirstName'
 						  + ', '
 						  + row.cells[4].textContent.trim();
-		var seriesEntry = row.cells[6].textContent.trim();
+		var seriesEntry = row.cells[6].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');
 		authorEntries[authorEntry] = true;
 		if (seriesEntry !== '') {seriesEntries[seriesEntry] = true;}// Only add series 'seriesEntries' if it is non-empty								
 	}
