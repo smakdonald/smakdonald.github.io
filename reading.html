@@ -618,6 +618,7 @@ function builder() {
 	}) 																// End of the loop through the rows of the array
 	buildPopup()													// Run popup function to attach popups to each image
 	resizeAllImages()												// Resize images depending on the 'Image Size' dropdown
+	dropdown()
 					  
 	/* --------------------------------------------–--
  				Short Fiction Table Content 
@@ -713,8 +714,8 @@ function dropdown() {
 			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && 
 				   row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
 		});
+		rowsArray = filteredRowsArray								// Replace the array with the filtered array
 	}
-	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	console.log(rowsArray)
 	var authorDropdown = document.getElementById("authorSelector");
 	var seriesDropdown = document.getElementById("seriesSelector");
