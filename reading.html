@@ -751,9 +751,9 @@ function dropdown() {
 	});
 	for (var i = 0; i < authorDropdown.options.length; i++) {
     	// Check if the current option's text matches the desired text
-    	if (dropdown.options[i].text == authorFilter) {
+    	if (authorDropdown.options[i].text == authorFilter) {
        		// Set the selected property of the matching option to true
-        	dropdown.options[i].selected = true;
+        	authorDropdown.options[i].selected = true;
         	// Break out of the loop since we found the desired option
         	break;
     	}
