@@ -695,7 +695,7 @@ function authorClick(author) {
 </script>
 
 <!------------------------------------
-	  Dropdown Populator Function 
+	  Dropdown Populator Functions 
 ------------------------------------->
 	
 <script>
@@ -715,6 +715,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		});
 	}
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
+	console.log(rowsArray)
 	var authorDropdown = document.getElementById("authorSelector");
 	var seriesDropdown = document.getElementById("seriesSelector");
 	var authorEntries = {}, 
