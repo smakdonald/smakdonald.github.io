@@ -716,7 +716,6 @@ function dropdown() {
 		});
 		rowsArray = filteredRowsArray								// Replace the array with the filtered array
 	}
-	console.log(rowsArray)
 	var authorDropdown = document.getElementById("authorSelector");
 	var seriesDropdown = document.getElementById("seriesSelector");
 	var authorEntries = {}, 
@@ -728,9 +727,10 @@ function dropdown() {
 						  + row.getElementsByTagName("td")[4].textContent.trim();
 		var seriesEntry = row.getElementsByTagName("td")[6].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');
 		authorEntries[authorEntry] = true;
-		if (seriesEntry !== '') {seriesEntries[seriesEntry] = true;}// Only add series 'seriesEntries' if it is non-empty								
+		if (seriesEntry !== '') {seriesEntries[seriesEntry] = true;}// Only add series 'seriesEntries' if it is non-empty
 	}
-	var authorSortedEntries = Object.keys(authorEntries).sort();	// Make sure the options are added in alphabetical order							
+	var authorSortedEntries = Object.keys(authorEntries).sort();	// Make sure the options are added in alphabetical order
+	console.log(authorSortedEntries)
 	var seriesSortedEntries = Object.keys(seriesEntries).sort();
 	authorSortedEntries.forEach(function(authorEntry) {				// Add sorted 'author' entries to the dropdown
 		var option = document.createElement("option");
@@ -871,7 +871,6 @@ function fictionRead2024() {
 <script>
 	// Reset all the Dropdowns to the Default Position
 	clearFilter()
-	dropdown()
 	builder()
 	calculateImageDimensions()
 	fictionRead2024()
