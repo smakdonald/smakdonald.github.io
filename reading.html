@@ -701,11 +701,14 @@ function authorClick(author) {
 	
 <script>
 // Function that populates the authorSelector and seriesSelector dropdowns
-function dropdown() {									
-	var table = document.getElementById("myTable");
+function dropdown() {								
+	//var table = document.getElementById("myTable");
 	var yearSelect = document.getElementById("yearSelector"), 		// Get the 'yearSelector' dropdown
 		yearIndex = yearSelect.selectedIndex, 						// Get the current selected index of the dropdown
 		yearFilter = yearSelect.options[yearIndex].value;			// Get the value of the dropdown, which is the index position in the 'yearCutoffs' array below
+	var authorSelect = document.getElementById("authorSelector"),	// Get the 'authorSelector' dropdown
+		authorIndex = authorSelect.selectedIndex, 					// Get the current selected index of the dropdown
+		authorFilter = authorSelect.options[authorIndex].text;		// Get the text of the option, which is of the form 'LastName, FirstName'
 	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
 	const yearCutoffs = [0, 12, 24, 42, 99, 100000];				// Year Read Filtering
@@ -746,6 +749,15 @@ function dropdown() {
 		option.value = seriesEntry;
 		seriesDropdown.add(option);
 	});
+	for (var i = 0; i < authorDropdown.options.length; i++) {
+    	// Check if the current option's text matches the desired text
+    	if (dropdown.options[i].text == authorFilter) {
+       		// Set the selected property of the matching option to true
+        	dropdown.options[i].selected = true;
+        	// Break out of the loop since we found the desired option
+        	break;
+    	}
+	}
 };
 </script>
 
