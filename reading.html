@@ -700,7 +700,7 @@ function authorClick(author) {
 	
 <script>
 // Function that populates the authorSelector and seriesSelector dropdowns
-document.addEventListener("DOMContentLoaded", function() { 												
+function dropdown() { 												
 	var table = document.getElementById("myTable");
 	var yearSelect = document.getElementById("yearSelector"), 		// Get the 'yearSelector' dropdown
 		yearIndex = yearSelect.selectedIndex, 						// Get the current selected index of the dropdown
@@ -870,6 +870,7 @@ function fictionRead2024() {
 <script>
 	// Reset all the Dropdowns to the Default Position
 	clearFilter()
+	dropdown()
 	builder()
 	calculateImageDimensions()
 	fictionRead2024()
