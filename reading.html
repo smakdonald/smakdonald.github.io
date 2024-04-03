@@ -702,16 +702,29 @@ function authorClick(author) {
 // Function that populates the authorSelector and seriesSelector dropdowns
 document.addEventListener("DOMContentLoaded", function() { 												
 	var table = document.getElementById("myTable");
+	var yearSelect = document.getElementById("yearSelector"), 		// Get the 'yearSelector' dropdown
+		yearIndex = yearSelect.selectedIndex, 						// Get the current selected index of the dropdown
+		yearFilter = yearSelect.options[yearIndex].value;			// Get the value of the dropdown, which is the index position in the 'yearCutoffs' array below
+	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
+	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
+	const yearCutoffs = [0, 12, 24, 42, 99, 100000];				// Year Read Filtering
+	if (yearFilter !== '0') {
+		var filteredRowsArray = rowsArray.filter(function(row) {
+			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && 
+				   row.cells[0].textContent.trim() > yearCutoffs[yearFilter-1];
+		});
+	}
+	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	var authorDropdown = document.getElementById("authorSelector");
 	var seriesDropdown = document.getElementById("seriesSelector");
 	var authorEntries = {}, 
-		seriesEntries = {};
-	for (var i = 1; i < table.rows.length; i++) {					// Loop through the rows of the table and add authors and series to the appropriate arrays												
-		var row = table.rows[i];
-		var authorEntry = row.cells[3].textContent.trim() 			// Concatenate cell values to get 'LastName, FirstName'
+		seriesEntries = {};	
+	for (var i = 1; i < rowsArray.length; i++) {					// Loop through the rows of the table and add authors and series to the appropriate arrays												
+		var row = rowsArray[i];
+		var authorEntry = row.getElementsByTagName("td")[3].textContent.trim() 			// Concatenate cell values to get 'LastName, FirstName'
 						  + ', '
-						  + row.cells[4].textContent.trim();
-		var seriesEntry = row.cells[6].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');
+						  + row.getElementsByTagName("td")[4].textContent.trim();
+		var seriesEntry = row.getElementsByTagName("td")[6].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');
 		authorEntries[authorEntry] = true;
 		if (seriesEntry !== '') {seriesEntries[seriesEntry] = true;}// Only add series 'seriesEntries' if it is non-empty								
 	}
