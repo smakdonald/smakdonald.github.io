@@ -717,7 +717,9 @@ function dropdown() {
 		rowsArray = filteredRowsArray								// Replace the array with the filtered array
 	}
 	var authorDropdown = document.getElementById("authorSelector");
+	authorDropdown.innerHTML = '<option value="">All</option>';
 	var seriesDropdown = document.getElementById("seriesSelector");
+	seriesDropdown.innerHTML = '<option value="">All</option>';
 	var authorEntries = {}, 
 		seriesEntries = {};	
 	for (var i = 1; i < rowsArray.length; i++) {					// Loop through the rows of the table and add authors and series to the appropriate arrays												
