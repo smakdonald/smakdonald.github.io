@@ -529,7 +529,7 @@ function builder() {
 		});
 	}
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
-	const yearCutoffs = [0, 12, 24, 42, 99, 100000];				// Year Read Filtering
+	const yearCutoffs = [0, 12, 24, 42, 103, 100000];				// Year Read Filtering
 	if (yearFilter !== '0') {
 		var filteredRowsArray = rowsArray.filter(function(row) {
 			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && 
@@ -745,7 +745,7 @@ function dropdown() {
 		seriesFilter = seriesSelect.options[seriesIndex].text;		// Get the text of the series to use for filtering below
 	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
-	const yearCutoffs = [0, 12, 24, 42, 99, 100000];				// Year Read Filtering
+	const yearCutoffs = [0, 12, 24, 42, 103, 100000];				// Year Read Filtering
 	if (yearFilter !== '0') {
 		var filteredRowsArray = rowsArray.filter(function(row) {
 			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && 
@@ -904,7 +904,7 @@ function showTable() {
 	}
 }
 function fictionRead2024() {
-	const cutoff = 99
+	const cutoff = 103
 	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
 	var filteredRowsArray = rowsArray.filter(function(row) {
