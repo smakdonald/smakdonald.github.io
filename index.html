@@ -33,7 +33,7 @@
 								<h2 id="myth" style="text-align:center">The Myth</h2>
 								<h1 id="mac" style="text-align:center">The Mac</h1>
 							</header>
-																	
+
 							<p>
 								Howdy Howdy Hello! 
 								I am currently a third year graduate student at the <a href="https://www.unl.edu/"target="_blank">University of Nebraska – Lincoln</a> pursuing a Ph.D. in mathematics. 
@@ -81,7 +81,7 @@
 							<li class="icon solid fa-school">Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a></li>
 						</ul>
 					</section><!-- End Section -->
-				
+
 					<footer id="footer"><p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p></footer>				
 				</div><!-- End Sidebar Inner -->
 			</div><!-- End Sidebar -->
@@ -130,37 +130,28 @@
 				}
 			);
 		</script>
-		
+
 		<script>
 			$(document).ready(function() {
 				// Fetch HTML content from text file
 				$.get("menu.txt", function(data) {
 					// Insert the content into the designated div
 					$("#menu").html(data);
-
 					var $menu = $('#menu'),
 						$menu_openers = $menu.children('ul').find('.opener');
-			
 					// Openers.
 						$menu_openers.each(function() {
-			
 							var $this = $(this);
-			
 							$this.on('click', function(event) {
-			
 								// Prevent default.
 									event.preventDefault();
-			
 								// Toggle.
 									$menu_openers.not($this).removeClass('active');
 									$this.toggleClass('active');
-			
 								// Trigger resize (sidebar lock).
 									$window.triggerHandler('resize.sidebar-lock');
 							});
-			
 						});
-			
 							});
 						});
 		</script>
