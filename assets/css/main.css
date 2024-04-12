@@ -107,10 +107,10 @@ body, input, select, textarea {
       font-size: 9pt; } }
 
 a {
-  -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+  -moz-transition: color 0.1s ease-in-out, border-bottom-color 0.2s ease-in-out;
+  -webkit-transition: color 0.1s ease-in-out, border-bottom-color 0.2s ease-in-out;
+  -ms-transition: color 0.1s ease-in-out, border-bottom-color 0.2s ease-in-out;
+  transition: color 0.1s ease-in-out, border-bottom-color 0.2s ease-in-out;
   border-bottom: none 0.75px;
   color: #f56a6a;
   text-decoration: none; 
@@ -122,6 +122,27 @@ a:hover {
   color: #f56a6a !important; }
 a:hover strong {
   color: inherit; }
+
+.text-link {
+    text-decoration: none;
+    position: relative; 							/* Added for positioning */
+}
+
+.text-link::after { 								  /* Added pseudo-element for the bar */
+  content: "";
+  position: absolute;
+  left: 0; 										        /* Initially hide the bar to the left */
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #f56a6a;
+  transition: width 0.3s ease; 				/* Add transition for width */
+  border-radius: 4px; 							  /* Round out the edges */
+}
+
+.text-link:hover::after {
+  width: 100%; 									      /* Expand the width on hover */
+}
 
 strong, b {
   color: #3d4449;
@@ -1213,6 +1234,24 @@ input[type="radio"] + label:before {
   .icon.brands:before {
     font-family: 'Font Awesome 5 Brands'; }
 
+  .rotate-on-hover {
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+  }
+
+  /* Define the animation */
+  .rotate-on-hover:hover {
+    animation: rotate 2s linear infinite; /* Rotate infinitely */
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 /* Image */
 .image {
   border-radius: 0.375em;
@@ -2079,8 +2118,10 @@ button,
   display: -ms-flex;
   display: flex;
   border-bottom: solid 5px #f56a6a;
+  border-radius: 4px; /* Round out the edges */
   padding: 6em 0 1em 0;
-  position: relative; }
+  position: relative; 
+  }
   #header > * {
     -moz-flex: 1;
     -webkit-flex: 1;

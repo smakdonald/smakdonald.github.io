@@ -412,7 +412,7 @@
 					    <h2 id="popupTitle"></h2>													<!-- Header where the title will go -->
 					    <p id="popupText"></p>														<!-- Popup information will be put here by the 'builder()' function -->
 					</div>
-					
+
 					<div class="popup-overlay" id="popupOverlay"></div>								<!-- Division where all the popups will be stored by the 'builder()' function -->
 					<div class="book-container" id="bookContainer"></div> 							<!-- Division where all the images will be stored by the 'builder()' function -->
 					<table id="tableContainer"></table>												<!-- Table where short fiction will be stored by the 'builder()' function -->
@@ -420,13 +420,13 @@
 				</section><!-- End Reading Section -->
 			</div><!-- End of Inner -->
 		</div><!-- End of Main -->
-		
+
 		<div id="sidebar"><!-- Sidedar -->
 			<div class="inner"><!-- Inner Sidebar -->
 				<nav id="menu"><!-- Menu -->
 					<!-- Menu HTML is inserted here from the 'menu.txt' file using a script in the assets/js/main.js file -->
 				</nav><!-- End Menu -->
-				
+
 				<section><div class="mini-posts"><!-- Section -->
 						<article><header class="major"><h2>Highlights</h2></header>
 							<p id="lfRead2024"></p>													<!-- Total books read this year supplied from the 'fictionRead2024()' function -->
@@ -456,7 +456,7 @@
 							<select id="seriesSelector" onchange="builder()"><option value="">All</option></select>
 						</article>
 					</div></section><!-- End Section -->
-				
+
 				<footer id="footer"><!-- Footer -->
 					<p class="copyright">&copy; Sam Macdonald. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 				</footer><!-- End Footer -->
@@ -680,7 +680,7 @@ function builder() {
 			tableContent += 
 			`<tr>
 				<td>
-					<a href="${row.cells[16].innerHTML}"target="_blank">${row.cells[2].innerHTML}</a>
+					<a href="${row.cells[16].innerHTML}" class="text-link" "target="_blank">${row.cells[2].innerHTML}</a>
 	 			</td>
 			`;
 		}
