@@ -12,6 +12,40 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<script src="https://unpkg.com/leader-line/leader-line.min.js"></script>
 		<script src="https://kit.fontawesome.com/9983334911.js" crossorigin="anonymous"></script>
+		<style>
+			/* CSS to hide headers initially */
+			#man, #myth, #mac {
+				opacity: 0;
+				transition: opacity 1s ease-in-out, 
+							text-shadow 0.1s ease-in-out;
+  			}
+			#man:hover{
+				text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.5); /* horizontal-offset 	vertical-offset blur-radius color */
+			}
+			#myth:hover{
+				text-shadow: 0px 2.5px 1px rgba(0, 0, 0, 0.5); /* horizontal-offset 	vertical-offset blur-radius color */
+			}
+			#mac:hover {
+				text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.5); /* horizontal-offset 	vertical-offset blur-radius color */
+			}
+			.text-link {
+				text-decoration: none;
+				position: relative; /* Added for positioning */
+			}
+			.text-link::after { /* Added pseudo-element for the bar */
+				content: "";
+				position: absolute;
+				left: 0; /* Initially hide the bar to the left */
+				bottom: 0;
+				height: 1.5px;
+				width: 0;
+				background-color: #f56a6a;
+				transition: width 0.3s ease; /* Add transition for width */
+			}
+			.text-link:hover::after {
+				width: 100%; /* Expand the width on hover */
+			}
+		</style>
 	</head>
 	<body class="is-preload"><!--style="background-color:#EDE7F6;"-->
 		<div id="wrapper"><!-- Wrapper -->
@@ -29,29 +63,29 @@
 					<section id="banner"><!-- Section -->
 						<div class="content"><!-- Content -->
 							<header>
-								<h3 id="man" style="text-align:center")>The Man</h3>
+								<h3 id="man" style="text-align:center">The Man</h3>
 								<h2 id="myth" style="text-align:center">The Myth</h2>
 								<h1 id="mac" style="text-align:center">The Mac</h1>
 							</header>
-
+																	
 							<p>
 								Howdy Howdy Hello! 
-								I am currently a third year graduate student at the <a href="https://www.unl.edu/"target="_blank">University of Nebraska – Lincoln</a> pursuing a Ph.D. in mathematics. 
-								I am advised by <a href="https://yvonnexlai.com/"target="_blank">Yvonne Lai</a>, and I received an NSF Graduate Research Fellowship in the Spring of 2023.
+								I am currently a third year graduate student at the <a href="https://www.unl.edu/" class="text-link" target="_blank">University of Nebraska – Lincoln</a> pursuing a Ph.D. in mathematics. 
+								I am advised by <a href="https://yvonnexlai.com/" class="text-link" target="_blank">Yvonne Lai</a>, and I received an NSF Graduate Research Fellowship in the Spring of 2023.
 							</p>
 							
 							<p>
 								I am primarily interested in mathematics education and expanding the accessibility of mathematics. 
 								These days, a majority of my time is split between the following three pursuits:
 								<ul>
-									<li><a href="rj.html">Prison education</a>, specifically providing college level courses for prisoners and expanding access to educational resources behind bars;</li>
-									<li>Development of <a href="OERs.html">Open Educational Resources</a> (OERs), both at the undergradaute and graduate level; and</li>
+									<li><a href="rj.html" class="text-link" >Prison education</a>, specifically providing college level courses for prisoners and expanding access to educational resources behind bars;</li>
+									<li>Development of <a href="OERs.html" class="text-link" >Open Educational Resources</a> (OERs), both at the undergradaute and graduate level; and</li>
 									<li>Shifts in mathematical self-efficacy at transitionary points in undergraduate education, such as a first calculus or proof based course.</li>
 								</ul>
 							</p>
 							
 							<p>
-								Outside of math, you will probably find me <a href="climb.html">climbing</a>, <a href="reading.html">reading</a> by the lake (weather permitting), or neglecting my <a href="cats.html">cats</a>.
+								Outside of math, you will probably find me <a href="climb.html" class="text-link">climbing</a>, <a href="reading.html" class="text-link" >reading</a> by the lake (weather permitting), or neglecting my <a href="cats.html" class="text-link">cats</a>.
 							</p>
 							
 							<p id="construction" class = "text">
@@ -81,7 +115,7 @@
 							<li class="icon solid fa-school">Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a></li>
 						</ul>
 					</section><!-- End Section -->
-
+				
 					<footer id="footer"><p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p></footer>				
 				</div><!-- End Sidebar Inner -->
 			</div><!-- End Sidebar -->
@@ -130,7 +164,6 @@
 				}
 			);
 		</script>
-
 		<script>
 			$(document).ready(function() {
 				// Fetch HTML content from text file
@@ -152,8 +185,26 @@
 									$window.triggerHandler('resize.sidebar-lock');
 							});
 						});
-							});
-						});
+					});
+				});
+		</script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {	// Function to make intro headers fade in
+				var man = document.getElementById("man"),				// Get each of the header elements
+					myth = document.getElementById("myth"),
+					mac = document.getElementById("mac");
+				var headers = [man,myth,mac]							// Make an array of the headers
+				fadeHeaders(headers, 0);								// Run the 'fadeHeaders' function, defined below
+			});
+
+			function fadeHeaders(headers, index) {
+				if (index < headers.length) {
+				setTimeout(function() {
+					headers[index].style.opacity = 1;
+					fadeHeaders(headers, index + 1);
+				}, 100*index + 500); 									// Change this value to adjust the delay between each header fade in (in milliseconds)
+				}
+			}
 		</script>
 	</body>
 </html>
