@@ -101,7 +101,7 @@
 				</header><!-- End Header -->
 				<!-- Content -->
 				<section><!-- Reading Section -->
-					<header class="main"><h1>Sam!</h1></header>
+					<header class="main"><h1>Reading</h1></header>
 					<hr class="major" />
 					<label for="tableSelector">Sorting:</label>
 					<select id="tableSelector" onchange="builder()">
@@ -757,7 +757,25 @@ function authorClick(author) {
 		}
 	}
 }
+
+function authorWords(last,first) {
+	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
+	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
+	var filteredRowsArray = rowsArray.filter(function(row) {	
+		return row.cells[3].textContent.trim() == last && row.cells[4].textContent.trim() == first;
+	});
+	var wordCount = 0;
+	for (var i = 0; i < filteredRowsArray.length; i++) {				// Loop through the 'filteredRowsArray' that was filtered up above
+		var words = filteredRowsArray[i].getElementsByTagName("td")[10];
+		if (words && words.textContent.trim() !== "") {				
+	      wordCount += parseInt(words.textContent.replace(/,/g, ''));
+	    }
+	}
+	var workCount = filteredRowsArray.length;
+}
 </script>
+
+
 
 <!------------------------------------
 	  Dropdown Populator Functions 
