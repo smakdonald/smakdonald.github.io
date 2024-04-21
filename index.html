@@ -85,16 +85,37 @@
 				<div class="inner"><!-- Sidebar Inner -->
 					
 					<nav id="menu"><!-- Menu -->
-						<!-- Menu HTML is inserted here from the 'menu.txt' file using the script below -->
+						<ul class="contact">
+							<li><a href="index.html">Homepage</a></li>
+							<li> <a href="teaching.html">Teaching</a></li>
+							<li><a href="cv.html">Curriculum Vitae</a></li>
+							<li><a href="rj.html">Prison Education</a></li>
+							<li><a href="OERs.html">Mathematics OERs</a></li>
+							<li><span class="opener">Projects</span>
+								<ul>
+									<li><a href="music.html">Music Hours (SAAM)</a></li>
+									<li><a href="reading.html">Reading</a></li>
+									<li><a href="art.html">Artwork</a></li>
+									<li><a href="testing.html">HTML Testing (enter at own risk)</a></li>
+								</ul>
+							<li><span class="opener">Personal</span>
+								<ul>
+									<li><a href="about-me.html">About Me</a></li>
+									<li><a href="climb.html">Climbing</a></li>
+									<li><a href="write.html">Writing</a></li>
+									<li><a href="cats.html">Cats</a></li>
+								</ul>
+							</li>
+						</ul>
 					</nav><!-- End Menu -->
 
-					<section><!-- Section -->
+					<section>
 						<header class="major"><h2>Get in touch</h2></header>
 						<ul class="contact">
 							<li class="icon solid fa-envelope"><a href="mailto:smacdonald5@huskers.unl.edu">smacdonald5@huskers.unl.edu</a></li>
 							<li class="icon solid fa-school">Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a></li>
 						</ul>
-					</section><!-- End Section -->
+					</section>
 				
 					<footer id="footer">
 						<p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
@@ -145,30 +166,6 @@
 				 dropShadow: true
 				}
 			);
-		</script>
-		<script>
-			$(document).ready(function() {
-				// Fetch HTML content from text file
-				$.get("menu.txt", function(data) {
-					// Insert the content into the designated div
-					$("#menu").html(data);
-					var $menu = $('#menu'),
-						$menu_openers = $menu.children('ul').find('.opener');
-					// Openers.
-						$menu_openers.each(function() {
-							var $this = $(this);
-							$this.on('click', function(event) {
-								// Prevent default.
-									event.preventDefault();
-								// Toggle.
-									$menu_openers.not($this).removeClass('active');
-									$this.toggleClass('active');
-								// Trigger resize (sidebar lock).
-									$window.triggerHandler('resize.sidebar-lock');
-							});
-						});
-					});
-				});
 		</script>
 		<script>
 			document.addEventListener("DOMContentLoaded", function() {	// Function to make intro headers fade in
