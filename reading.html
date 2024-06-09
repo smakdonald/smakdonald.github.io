@@ -116,11 +116,25 @@
 						<option value="10">Word Count</option>
 					</select>
 					<br>
-					<label for="tableSelector">Image Size:</label>
+					<label for="sizeSelect">Image Size:</label>
 					<select id="sizeSelect" onchange="resizeAllImages()">
 						<option value="33.33%">Large</option>
-						<option value="25%">Medium</option>
-						<option value="20%">Small</option>
+						<option value="20%">Medium</option>
+						<option value="10%">Small</option>
+					</select>
+					<label for="awardSelect">Award:</label>
+					<select id="awardSelect" onchange="builder()">
+						<option value="hugo">Hugo Award</option>
+						<option value="nebula">Nebula Award</option>
+						<option value="locus">Locus Award</option>
+						<option value="wfa">World Fantasy Award</option>
+						<option value="national">National Book Award</option>
+						<option value="pulitzer">Pulitzer Prize</option>
+						<option value="arthur">Arthur C. Clarke Award</option>
+						<option value="british">British Fantasy Award</option>
+						<option value="ignyte">Ignyte Award</option>
+						
+						<option value="bramstoker">Bram Stoker</option>
 					</select>
 				</section>
 
@@ -130,6 +144,12 @@
 							<!-- Books Read in 2024 -->
 							<!-- 	0 -->		<!-- 1 -->											<!-- 2 --> 																												<!-- 3 -->				<!-- 4 -->				<!-- 5 -->		<!-- 6 -->										<!-- 7 -->	<!-- 8 -->			<!-- 9 -->				<!-- 10 -->			<!-- 11 -->		<!-- 12 -->			<!-- 13 -->			<!-- 14 -->				<!-- 15 -->			<!-- 16 -->					<!-- 17 -->	
 							<!-- 	# -->		<!-- Title of Image File -->						<!-- Title -->																											<!-- Last -->			<!-- First -->			<!-- Year -->	<!-- Series / Collection -->					<!-- # -->	<!-- Format -->		<!-- Length -->			<!-- Words -->		<!-- Pages -->	<!-- Hugo -->		<!-- Nebula -->		<!-- Locus -->			<!-- WFA -->		<!-- Date -->				<!-- Link -->	
+							<tr> <td>347</td> 	<td>Weeks-Broken-Eye.jpg</td>						<td>The Broken Eye</td> 																								<td>Weeks</td> 			<td>Brent</td> 			<td>2014</td> 	<td>Lightbringer</td>							<td>3</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>303,024</td>	<td>866</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>June 7th, 2024</td>		<td></td></tr>
+							<tr> <td>346</td> 	<td>Scalzi-Ghost-Brigades.jpg</td>					<td>The Ghost Brigades</td> 																							<td>Scalzi</td> 		<td>John</td> 			<td>2006</td> 	<td>Old Man's War</td>							<td>2</td> 	<td>Book</td> 		<td>Novel</td> 			<td>95,277</td>		<td>346</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>June 5th, 2024</td>		<td></td></tr>
+							<tr> <td>345</td> 	<td>Pratchett-Sourcery.jpg</td>						<td>Sourcery</td> 																										<td>Pratchett</td> 		<td>Terry</td> 			<td>1988</td> 	<td>Discworld</td>								<td>5</td> 	<td>Book</td> 		<td>Novel</td> 			<td>68,440</td>		<td>324</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>June 4th, 2024</td>		<td></td></tr>
+							<tr> <td>344</td> 	<td>Heller-Catch-22.jpg</td>						<td>Catch-22</td> 																										<td>Heller</td> 		<td>Joseph</td> 		<td>1961</td> 	<td></td>										<td></td> 	<td>Book</td> 		<td>Novel</td> 			<td>174,269</td>	<td>453</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>June 3rd, 2024</td>		<td></td></tr>
+							<tr> <td>343</td> 	<td></td>											<td>"Mothers"</td> 																										<td>Machado</td> 		<td>Carmen Maria</td> 	<td>2017</td> 	<td>Her Body and Other Parties</td>				<td>3</td> 	<td>Book</td> 		<td>Short Story</td> 	<td>5,982</td>		<td>20</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>May 30th, 2024</td>		<td></td></tr>
+							<tr> <td>342</td> 	<td></td>											<td>"Inventory"</td> 																									<td>Machado</td> 		<td>Carmen Maria</td> 	<td>2017</td> 	<td>Her Body and Other Parties</td>				<td>2</td> 	<td>Book</td> 		<td>Short Story</td> 	<td>3,534</td>		<td>12</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>May 30th, 2024</td>		<td></td></tr>
 							<tr> <td>341</td> 	<td></td>											<td>"Sinners, Saints, Dragons, and Haints, in the City Beneath the Still Waters"</td> 									<td>Jemisin</td> 		<td>N. K.</td> 			<td>2015</td> 	<td>How Long 'Til Black Future Month?</td>		<td>22</td> <td>Book</td> 		<td>Novelette</td> 		<td>9,193</td>		<td>26</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>May 29th, 2024</td>		<td>https://www.uncannymagazine.com/article/sinners-saints-dragons-and-haints-in-the-city-beneath-the-still-waters/</td></tr>
 							<tr> <td>340</td> 	<td></td>											<td>"Non-Zero Probabilities"</td> 																						<td>Jemisin</td> 		<td>N. K.</td> 			<td>2009</td> 	<td>How Long 'Til Black Future Month?</td>		<td>21</td> <td>Book</td> 		<td>Short Story</td> 	<td>3,350</td>		<td>11</td> 	<td>Nominated</td>	<td>Nominated</td>	<td></td>				<td></td>			<td>May 29th, 2024</td>		<td>https://clarkesworldmagazine.com/jemisin_09_09/</td></tr>
 							<tr> <td>339</td> 	<td>Harrow-Mirror-Mended.jpg</td>					<td>A Mirror Mended</td> 																								<td>Harrow</td> 		<td>Alix E.</td> 		<td>2022</td> 	<td>Fractured Fables</td>						<td>2</td> 	<td>Book</td> 		<td>Novella</td> 		<td>33,510</td>		<td>128</td> 	<td>Nominated</td>	<td></td>			<td>Nominated</td>		<td></td>			<td>May 29th, 2024</td>		<td></td></tr>
@@ -197,7 +217,7 @@
 							<tr> <td>278</td> 	<td></td>											<td>"Like a River Loves the Sky"</td> 																					<td>Törzs</td> 			<td>Emma</td> 			<td>2018</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>3,902</td>		<td></td> 		<td></td>			<td></td>			<td></td>				<td>Won</td>		<td>April 16th, 2024</td>	<td>https://www.uncannymagazine.com/article/like-river-loves-sky/</td>																		</tr> <!-- April 16th, 2024 -->	 
 							<tr> <td>277</td> 	<td></td>											<td>"Don Ysidro"</td> 																									<td>Rogers</td> 		<td>Bruce Holland</td> 	<td>2003</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>1,485</td>		<td></td> 		<td></td>			<td></td>			<td></td>				<td>Won</td>		<td>April 16th, 2024</td>	<td>http://www.infinityplus.co.uk/stories/donysidro.htm</td>																				</tr> <!-- April 16th, 2024 -->
 							<tr> <td>276</td> 	<td>Dinniman-Butchers-Masquerade.jpg</td>			<td>The Butcher's Masquerade</td> 																						<td>Dinniman</td> 		<td>Matt</td> 			<td>2022</td> 	<td>Dungeon Crawler Carl</td>					<td>5</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>223,373</td>	<td>724</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>April 14th, 2024</td>	<td></td>																																	</tr>
-							<tr> <td>275</td> 	<td></td>											<td>The Surfer</td> 																									<td>Link</td> 			<td>Kelly</td> 			<td>2008</td> 	<td>Pretty Monsters</td>						<td>7</td> 	<td>Book</td> 		<td>Novella,</td> 		<td>20,361</td>		<td></td> 		<td></td>			<td></td>			<td>Nominated</td>		<td></td>			<td>April 13th, 2024</td>	<td></td>																																	</tr> <!-- April 13th, 2024 -->
+							<tr> <td>275</td> 	<td></td>											<td>"The Surfer"</td> 																									<td>Link</td> 			<td>Kelly</td> 			<td>2008</td> 	<td>Pretty Monsters</td>						<td>7</td> 	<td>Book</td> 		<td>Novella,</td> 		<td>20,361</td>		<td></td> 		<td></td>			<td></td>			<td>Nominated</td>		<td></td>			<td>April 13th, 2024</td>	<td></td>																																	</tr> <!-- April 13th, 2024 -->
 							<tr> <td>274</td> 	<td></td>											<td>"Monster"</td> 																										<td>Link</td> 			<td>Kelly</td> 			<td>2005</td> 	<td>Pretty Monsters</td>						<td>6</td> 	<td>Book</td> 		<td>Short Story</td> 	<td>6,503</td>		<td></td> 		<td></td>			<td></td>			<td>Nominated</td>		<td></td>			<td>April 13th, 2024</td>	<td></td>																																	</tr> <!-- April 13th, 2024 -->
 							<tr> <td>273</td> 	<td>Martine-Memory-Called-Empire.jpg</td>			<td>A Memory Called Empire</td> 																						<td>Martine</td> 		<td>Arkady</td> 		<td>2019</td> 	<td>Teixcalaan</td>								<td>1</td> 	<td>Book</td> 		<td>Novel</td> 			<td>136,278</td>	<td>462</td> 	<td>Won</td>		<td>Nominated</td>	<td>Nominated (1st)</td><td></td>			<td>April 13th, 2024</td>	<td></td>																																	</tr>
 							<tr> <td>272</td> 	<td></td>											<td>"Jeff Beck"</td> 																									<td>Shiner</td> 		<td>Lewis</td> 			<td>1986</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>3,358</td>		<td></td> 		<td></td>			<td></td>			<td>Nominated</td>		<td></td>			<td>April 11th, 2024</td>	<td>https://www.fictionliberationfront.net/jeffbeck.html</td>																				</tr> <!-- April 11th, 2024 -->
@@ -226,7 +246,7 @@
 							<tr> <td>249</td> 	<td></td>											<td>"Ancient Engines"</td> 																								<td>Swanwick</td> 		<td>Michael</td> 		<td>1999</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>2,820</td>		<td></td> 		<td>Nominated</td>	<td>Nominated</td>	<td>Nominated</td>		<td></td>			<td>April 5th, 2024</td>	<td>https://clarkesworldmagazine.com/swanwick_04_17_reprint/</td>																			</tr> <!-- April 5th, 2024 -->
 							<tr> <td>248</td> 	<td></td>											<td>"Light On The Water"</td> 																							<td>Valentine</td> 		<td>Genevieve</td> 		<td>2009</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>1,386</td>		<td></td> 		<td></td>			<td></td>			<td></td>				<td>Nominated</td>	<td>April 5th, 2024</td>	<td>https://www.fantasy-magazine.com/11/fiction-archive/light-on-the-water/</td>															</tr> <!-- April 5th, 2024 -->
 							<tr> <td>247</td> 	<td></td>											<td>"The Faery Handbag"</td> 																							<td>Link</td> 			<td>Kelly</td> 			<td>2004</td> 	<td>Pretty Monsters</td>						<td>4</td> 	<td>Book</td> 		<td>Novelette</td> 		<td>8,068</td>		<td>28</td> 	<td>Won</td>		<td>Won</td>		<td>Won</td>			<td>Nominated</td>	<td>April 4th, 2024</td>	<td>https://smallbeerpress.com/free-stuff-to-read/2005/07/01/the-faery-handbag-by-kelly-link/</td>											</tr> <!-- April 4th, 2024 -->
-							<tr> <td>246</td> 	<td></td>											<td>Magic for Beginners</td> 																							<td>Link</td> 			<td>Kelly</td> 			<td>2005</td> 	<td>Pretty Monsters</td>						<td>3</td> 	<td>Book</td> 		<td>Novella,</td> 		<td>18,167</td>		<td>62</td> 	<td>Nominated</td>	<td>Won</td>		<td>Won</td>			<td>Nominated</td>	<td>April 4th, 2024</td>	<td></td>																																	</tr> <!-- April 4th, 2024 -->
+							<tr> <td>246</td> 	<td></td>											<td>"Magic for Beginners"</td> 																							<td>Link</td> 			<td>Kelly</td> 			<td>2005</td> 	<td>Pretty Monsters</td>						<td>3</td> 	<td>Book</td> 		<td>Novella,</td> 		<td>18,167</td>		<td>62</td> 	<td>Nominated</td>	<td>Won</td>		<td>Won</td>			<td>Nominated</td>	<td>April 4th, 2024</td>	<td></td>																																	</tr> <!-- April 4th, 2024 -->
 							<tr> <td>245</td> 	<td>Solomon-Deep.jpg</td>							<td>The Deep</td> 																										<td>Solomon</td> 		<td>Rivers</td> 		<td>2019</td> 	<td></td>										<td></td> 	<td>Audiobook</td> 	<td>Novella</td> 		<td>40,510</td>		<td>166</td> 	<td>Nominated</td>	<td>Nominated</td>	<td>Nominated</td>		<td>Nominated</td>	<td>April 4th, 2024</td>	<td></td>																																	</tr>
 							<tr> <td>244</td> 	<td></td>											<td>"The Wizards of Perfil"</td> 																						<td>Link</td> 			<td>Kelly</td> 			<td>2006</td> 	<td>Pretty Monsters</td>						<td>2</td> 	<td>Book</td> 		<td>Novelette</td> 		<td>14,624</td>		<td>50</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>April 3rd, 2024</td>	<td></td>																																	</tr> <!-- April 3rd, 2024 -->
 							<tr> <td>243</td> 	<td>McGuire-Every-Heart-A-Doorway.jpg</td>			<td>Every Heart a Doorway</td> 																							<td>McGuire</td> 		<td>Seanan</td> 		<td>2016</td> 	<td>Wayward Children</td>						<td>1</td> 	<td>Book</td> 		<td>Novella</td> 		<td>39,239</td>		<td>175</td> 	<td>Won</td>		<td>Won</td>		<td>Won</td>			<td>Nominated</td>	<td>April 3rd, 2024</td>	<td></td>																																	</tr>
@@ -371,7 +391,7 @@
 							<tr> <td>107</td> 	<td>Anders-All-the-Birds.jpg</td>					<td>All the Birds in the Sky</td> 					                    												<td>Anders</td> 		<td>Charlie Jane</td>	<td>2016</td> 	<td></td> 										<td></td> 	<td>Read</td> 		<td>Novel</td> 			<td>106,365</td> 	<td>313</td> 	<td>Nominated</td>	<td>Won</td>		<td>Won (FA)</td>		<td></td>			<td>January 5th, 2024</td>	<td></td>	</tr>	
 							<tr> <td>106</td> 	<td>Chiang-Stories.jpeg</td>						<td>"Tower of Babylon"</td> 				            																<td>Chiang</td> 		<td>Ted</td> 		    <td>1990</td> 	<td>Stories of Your Life and Others</td> 		<td>1</td> 	<td>Book</td> 		<td>Novelette</td> 		<td>9,850</td> 		<td>28</td> 	<td>Nominated</td>	<td>Won</td>		<td>Nominated</td>		<td></td>			<td>January 3rd, 2024</td>	<td></td>	</tr>
 							<tr> <td>106</td> 	<td>Chiang-Stories.jpeg</td>						<td>Stories of Your Life and Others</td> 				            													<td>Chiang</td> 		<td>Ted</td> 		    <td>2002</td> 	<td></td> 										<td></td> 	<td>Book</td> 		<td>Collection</td> 	<td></td> 			<td></td> 		<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
-							<tr> <td>105</td> 	<td>Weeks-Blinding-Knife.jpg</td>					<td>The Blinding Knife</td> 						                    												<td>Weeks</td> 			<td>Brent</td>			<td>2012</td> 	<td>Lightbringer</td> 							<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>235,000</td>	<td>671</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>January 2nd, 2024</td>	<td></td>	</tr>
+							<tr> <td>105</td> 	<td>Weeks-Blinding-Knife.jpg</td>					<td>The Blinding Knife</td> 						                    												<td>Weeks</td> 			<td>Brent</td>			<td>2012</td> 	<td>Lightbringer</td> 							<td>2</td> 	<td>Read</td> 		<td>Novel</td> 			<td>257,286</td>	<td>671</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>January 2nd, 2024</td>	<td></td>	</tr>
 							<!-- Books Read in 2023 -->
 							<tr> <td>104</td> 	<td>Evans-Office-of-Corrections.jpg</td> 			<td>"Happily Ever After"</td> 																							<td>Evans</td> 			<td>Danielle</td> 		<td>2020</td> 	<td>The Office of Historical Corrections</td> 	<td>1</td> 	<td>Read</td> 		<td>Short Story</td> 	<td>4,347</td> 		<td></td> 		<td></td>			<td></td>			<td></td>				<td></td>			<td>December 31st, 2023</td><td></td>	</tr>
 							<tr> <td>103</td> 	<td>Evans-Office-of-Corrections.jpg</td> 			<td>"Why Won't Women Just Say What They Want"</td> 																		<td>Evans</td> 			<td>Danielle</td> 		<td>2020</td> 	<td>The Office of Historical Corrections</td> 	<td>5</td> 	<td>Read</td> 		<td>Short Story</td> 	<td>4,168</td> 		<td></td> 		<td></td>			<td></td>			<td></td>				<td></td>			<td>December 31st, 2023</td><td></td>	</tr>
@@ -379,7 +399,7 @@
 							<tr> <td>102</td> 	<td>Chambers-Psalm.jpg</td> 						<td>A Psalm for the Wild-Built</td> 																					<td>Chambers</td> 		<td>Becky</td> 			<td>2021</td> 	<td>Monk and Robot</td> 						<td>1</td> 	<td>Read</td> 		<td>Novella</td> 		<td>34,834</td> 	<td>147</td> 	<td>Won</td>		<td>Nominated</td>	<td>Nominated</td>		<td></td>			<td>December 30th, 2023</td><td></td>	</tr>	
 							<tr> <td>101</td> 	<td>Leckie-Ancillary-Justice.jpg</td> 				<td>Ancillary Justice</td> 																								<td>Leckie</td> 		<td>Ann</td> 			<td>2013</td> 	<td>Imperial Radch</td> 						<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>110,345</td> 	<td>416</td> 	<td>Won</td>		<td>Won</td>		<td>Won (1st)</td>		<td></td>			<td>December 28th, 2023</td><td></td>	</tr>	
 							<tr> <td>100</td> 	<td>Pratchett-Equal-Rites.jpg</td> 					<td>Equal Rites</td> 																									<td>Pratchett</td> 		<td>Terry</td> 			<td>1987</td> 	<td>Discworld</td> 								<td>3</td> 	<td>Read</td> 		<td>Novel</td> 			<td>66,990</td> 	<td>264</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>December 25th, 2023</td><td></td>	</tr>
-							<tr> <td>99</td> 	<td>Weeks-Black-Prism.jpg</td> 						<td>The Black Prism</td> 																								<td>Weeks</td> 			<td>Brent</td> 			<td>2010</td> 	<td>Lightbringer</td> 							<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>205,000</td> 	<td>739</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>December 23rd, 2023</td><td></td>	</tr>
+							<tr> <td>99</td> 	<td>Weeks-Black-Prism.jpg</td> 						<td>The Black Prism</td> 																								<td>Weeks</td> 			<td>Brent</td> 			<td>2010</td> 	<td>Lightbringer</td> 							<td>1</td> 	<td>Read</td> 		<td>Novel</td> 			<td>210,717</td> 	<td>739</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>December 23rd, 2023</td><td></td>	</tr>
 							<tr> <td>98</td> 	<td>LeGuin-Forest.jpg</td> 							<td>The Word for World is Forest</td> 																					<td>Le Guin</td> 		<td>Ursula K.</td> 		<td>1972</td> 	<td></td> 										<td></td> 	<td>Read</td> 		<td>Novella</td> 		<td>40,948</td> 	<td>189</td> 	<td>Won</td>		<td>Nominated</td>	<td>Nominated</td>		<td></td>			<td>December 19th, 2023</td><td></td>	</tr>	
 							<tr> <td>97</td> 	<td>Pratchett-Light-Fantastic.jpg</td> 				<td>The Light Fantastic</td> 																							<td>Pratchett</td> 		<td>Terry</td> 			<td>1986</td> 	<td>Discworld</td> 								<td>2</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>60,030</td> 	<td>277</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>December 18th, 2023</td><td></td>	</tr>
 							<tr> <td>96</td> 	<td>Novik-Last-Graduate.jpg</td> 					<td>The Last Graduate</td> 																								<td>Novik</td> 			<td>Naomi</td> 			<td>2021</td> 	<td>Scholomance Trilogy</td> 					<td>2</td> 	<td>Read</td>		<td>Novel</td> 			<td>127,947</td> 	<td>388</td> 	<td></td>			<td></td>			<td>Nominated (FA)</td>	<td></td>			<td>December 18th, 2023</td><td></td>	</tr>	
@@ -501,10 +521,10 @@
 							<tr> <td>-15</td> 	<td>Paolini-Brisingr.jpg</td>						<td>Brisingr</td> 																										<td>Paolini</td> 		<td>Christopher</td> 	<td>2008</td> 	<td>Inheritance Cycle</td> 						<td>3</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>254,629</td>	<td>763</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
 							<tr> <td>-16</td> 	<td>Paolini-Eldest.jpg</td>							<td>Eldest</td> 																										<td>Paolini</td> 		<td>Christopher</td>	<td>2005</td> 	<td>Inheritance Cycle</td> 						<td>2</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>213,516</td>	<td>681</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
 							<tr> <td>-17</td> 	<td>Paolini-Eragon.jpg</td>							<td>Eragon</td> 																										<td>Paolini</td> 		<td>Christopher</td> 	<td>2002</td> 	<td>Inheritance Cycle</td> 						<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>157,220</td>	<td>503</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
-							<tr> <td>-18</td> 	<td>Rowling-Deathly-Hallows.jpg</td>				<td>Harry Potter and the Deathly Hallows</td> 																			<td>Rowling</td> 		<td>J. K.</td> 			<td>2007</td> 	<td>Harry Potter</td> 							<td>7</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>198,227</td>	<td>652</td> 	<td></td>			<td>Won (AN)</td>	<td></td>				<td></td>			<td></td>					<td></td>	</tr>
-							<tr> <td>-19</td> 	<td>Rowling-Half-Blood-Prince.jpg</td>				<td>Harry Potter and the Half-Blood Prince</td> 																		<td>Rowling</td> 		<td>J. K.</td> 			<td>2005</td> 	<td>Harry Potter</td> 							<td>6</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>169,441</td>	<td>752</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
-							<tr> <td>-20</td> 	<td>Rowling-Order-of-the-Phoenix.jpeg</td>			<td>Harry Potter and the Order of the Phoenix</td> 																		<td>Rowling</td> 		<td>J. K.</td> 			<td>2003</td> 	<td>Harry Potter</td> 							<td>5</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>257,154</td>	<td>759</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
-							<tr> <td>-21</td> 	<td>Rowling-Goblet-of-Fire.jpg</td>					<td>Harry Potter and the Goblet of Fire</td> 																			<td>Rowling</td> 		<td>J. K.</td>			<td>2000</td> 	<td>Harry Potter</td> 							<td>4</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>190,858</td>	<td>895</td> 	<td>Won</td>		<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
+							<tr> <td>-18</td> 	<td>Rowling-Deathly-Hallows.jpg</td>				<td>Harry Potter and the Deathly Hallows</td> 																			<td>Rowling</td> 		<td>J. K.</td> 			<td>2007</td> 	<td>Harry Potter</td> 							<td>7</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>198,227</td>	<td>759</td> 	<td></td>			<td>Won (AN)</td>	<td></td>				<td></td>			<td></td>					<td></td>	</tr>
+							<tr> <td>-19</td> 	<td>Rowling-Half-Blood-Prince.jpg</td>				<td>Harry Potter and the Half-Blood Prince</td> 																		<td>Rowling</td> 		<td>J. K.</td> 			<td>2005</td> 	<td>Harry Potter</td> 							<td>6</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>169,441</td>	<td>652</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
+							<tr> <td>-20</td> 	<td>Rowling-Order-of-the-Phoenix.jpeg</td>			<td>Harry Potter and the Order of the Phoenix</td> 																		<td>Rowling</td> 		<td>J. K.</td> 			<td>2003</td> 	<td>Harry Potter</td> 							<td>5</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>257,154</td>	<td>895</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
+							<tr> <td>-21</td> 	<td>Rowling-Goblet-of-Fire.jpg</td>					<td>Harry Potter and the Goblet of Fire</td> 																			<td>Rowling</td> 		<td>J. K.</td>			<td>2000</td> 	<td>Harry Potter</td> 							<td>4</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>190,858</td>	<td>752</td> 	<td>Won</td>		<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
 							<tr> <td>-22</td> 	<td>Rowling-Prisoner-of-Azkaban.jpg</td>			<td>Harry Potter and the Prisoner of Azkaban</td> 																		<td>Rowling</td> 		<td>J. K.</td>			<td>1999</td> 	<td>Harry Potter</td> 							<td>3</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>106,821</td>	<td>435</td> 	<td>Nominated</td>	<td></td>			<td>Won (FA)</td>		<td></td>			<td></td>					<td></td>	</tr>
 							<tr> <td>-23</td> 	<td>Rowling-Chamber-of-Secrets.jpeg</td>			<td>Harry Potter and the Chamber of Secrets</td> 																		<td>Rowling</td> 		<td>J. K.</td> 			<td>1998</td> 	<td>Harry Potter</td> 							<td>2</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>84,799</td>		<td>349</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
 							<tr> <td>-24</td> 	<td>Rowling-Sorcerers-Stone.jpg</td>				<td>Harry Potter and the Sorcerer's Stone</td> 																			<td>Rowling</td> 		<td>J. K.</td> 			<td>1997</td> 	<td>Harry Potter</td> 							<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>78,792</td>		<td>309</td> 	<td></td>			<td></td>			<td>Nominated (1st)</td><td></td>			<td></td>					<td></td>	</tr>
@@ -521,7 +541,7 @@
 					<div class="book-container" id="bookContainer"></div> 							<!-- Division where all the images will be stored by the 'builder()' function -->
 				</section>
 
-				<section><header><h2>Short Fiction</h2></header>
+				<section id="sec-short-fiction"><header><h2>Short Fiction</h2></header>
 					<table id="tableContainer"></table>												<!-- Table where short fiction will be stored by the 'builder()' function -->
 					<p id="sums"></p>																<!-- This is where the total word counts and page counts of the fiction will be displayed by the 'builder()' function -->
 				</section>
@@ -607,8 +627,8 @@ This is the big function that constructs basically everything on the page
 	
 function builder() {
 	// Set variables for the sorting preference
-	var sortSelect = document.getElementById("tableSelector"), 
-		sortIndex = sortSelect.selectedIndex, 
+	var sortSelect = document.getElementById("tableSelector"),
+		sortIndex = sortSelect.selectedIndex,
 		sortID = sortSelect.options[sortIndex].value;
 	var table = document.getElementById("myTable");					// Get the table	
 
@@ -619,11 +639,11 @@ function builder() {
 	const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 	var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
 
-	rowsArray.sort((a, b) => {										// Sort the table based on the sortID given above
+	rowsArray.sort((a, b) => {																													// Sort the table based on the sortID given above
 		var altA = a.cells[sortID].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');	// Get the first value, with commas removed for number sorting
 		var altB = b.cells[sortID].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');	// Get the second value, with commas removed for number sorting
-		if (sortID == 0 || sortID == 10 || sortID == 11) {			// Check if column should be sorted Z -> A
-			return Number(altB) - Number(altA);						// If so, compare two values appropriately
+		if (sortID == 0 || sortID == 10 || sortID == 11) {																						// Check if column should be sorted Z -> A
+			return Number(altB) - Number(altA);																									// If so, compare two values appropriately
 		}
 		else {
 			if (!isNaN(altA) && !isNaN(altB)) {						// Check if the alt attributes are numbers
@@ -649,6 +669,7 @@ function builder() {
 	var seriesSelect = document.getElementById("seriesSelector"),	// Get the 'seriesSelector' dropdown
 		seriesIndex = seriesSelect.selectedIndex, 					// Get the current selected index of the dropdown
 		seriesFilter = seriesSelect.options[seriesIndex].text;		// Get the text of the series to use for filtering below
+	var selectedSize = document.getElementById("sizeSelect");
 
 	var filteredRowsArray = rowsArray.filter(function(row) {		// Remove all rows from the array that has an empty cell in the sorted column
 		return row.cells[sortID].textContent.trim() !== '';			// E.g., removing books without word count from word count sorting
@@ -656,11 +677,19 @@ function builder() {
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
 	// Author Filtering
 	if (authorFilter !== 'All') {									// If an author has been selected from the Author Filter dropdown
-		var filteredRowsArray = rowsArray.filter(function(row) {	
-			return row.cells[3].textContent.trim() 
-				+ ', ' 
-				+ row.cells[4].textContent.trim() == authorFilter;
-		});
+		if (authorFilter == 'El-Mohtar, Amal' || authorFilter == 'Gladstone, Max') {
+			var filteredRowsArray = rowsArray.filter(function(row) {
+				return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter 
+					|| row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == 'El-Mohtar & Gladstone, Amal & Max';
+			});
+		}
+		else if (authorFilter == 'Gaiman, Neil' || authorFilter == 'Pratchett, Terry') {
+			var filteredRowsArray = rowsArray.filter(function(row) {	
+				return row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == authorFilter
+					|| row.cells[3].textContent.trim() + ', ' + row.cells[4].textContent.trim() == 'Gaiman & Pratchett, Neil & Terry';
+			});
+		}
+		else {var filteredRowsArray = rowsArray.filter(function(row) {return row.cells[3].textContent.trim()+ ', '+ row.cells[4].textContent.trim() == authorFilter;});}
 	}
 	else {
 		var filteredRowsArray = rowsArray.filter(function(row) {
@@ -668,7 +697,7 @@ function builder() {
 		});
 	}
 	rowsArray = filteredRowsArray									// Replace the array with the filtered array
-	const yearCutoffs = [0, 12, 24, 42, 103, 100000];				// Year Read Filtering
+	const yearCutoffs = [0, 12, 24, 42, 104, 100000];				// Year Read Filtering
 	if (yearFilter !== '0') {
 		var filteredRowsArray = rowsArray.filter(function(row) {
 			return row.cells[0].textContent.trim() <= yearCutoffs[yearFilter] && 
@@ -777,12 +806,8 @@ function builder() {
 		// Write the content of the <img> element so that it becomes the image
 		containerContent += `
 			<div class = image-container>
-				<div class = image-item>
-					${Content}
-				</div>
-				<p style="text-align:center">
-					<b>${title.textContent}</b>
-	 			</p>
+				<div class = image-item> ${Content} </div>
+				<p style="text-align:center"> <b>${title.textContent}</b> </p>
 			</div>
 		`;
 		var bookContainer = document.getElementById("bookContainer");
@@ -795,30 +820,20 @@ function builder() {
 	/* --------------------------------------------–--
  				Short Fiction Table Content 
  	--------------------------------------------–-- */
+
+	// Create the container that the table HTML will go into, and add the title row
 	
-	var tableContent = 												// Create the container that the table HTML will go into, and add the title row
-		`<tr>
-			<th> Title </th>
-			<th> Author </th>
-			<th> Year </th>
-			<th> Words </th>
-			<th> Date Finished </th>
-		</tr>`
-	;
+	var tableContent = `<tr> <th> Title </th> <th> Author </th> <th> Year </th> <th> Words </th> <th> Date Finished </th> </tr>`;										
+	
 	shortFictionArray.forEach(function(row) {						// Loop through the shortFictionArray
 		var content = row.innerHTML									// Get the innerHTMl of the row, otherwise all that is returned is objectHTML
 		if (row.cells[17].innerHTML == '') {						// If there is no link to the story, just include the title in the table
 			tableContent += 
 			`<tr>
-   				<td>${row.cells[2].innerHTML}</td>
-	   		`;
-		} else {													// If there is a link to a page that contains the story in its entirity, make the title contain the link
-			tableContent += 
-			`<tr>
-				<td>
-					<a href="${row.cells[17].innerHTML}" class="text-link" "target="_blank">${row.cells[2].innerHTML}</a>
-	 			</td>
+				<td>${row.cells[2].innerHTML}</td>
 			`;
+		} else {													// If there is a link to a page that contains the story in its entirity, make the title contain the link
+			tableContent += `<tr> <td> <a href="${row.cells[17].innerHTML}" class="text-link" "target="_blank">${row.cells[2].innerHTML}</a> </td>`;
 		}
 		tableContent += `
 				<td>${row.cells[4].textContent} ${row.cells[3].textContent}</td>
@@ -848,11 +863,7 @@ function builder() {
 	      pageCount += parseInt(pages.textContent.replace(/,/g, ''));
 	    }
 	}
-	sums.innerHTML = `
- 		Total Words Read: ${wordCount}
-   		<br>
-   		Total Pages Read: ${pageCount}
-	`;
+	sums.innerHTML = `Total Words Read: ${wordCount} <br> Total Pages Read: ${pageCount}`;
 }
 
 function authorClick(author) {
@@ -917,11 +928,16 @@ function dropdown() {
 		seriesEntries = {};	
 	for (var i = 1; i < rowsArray.length; i++) {					// Loop through the rows of the table and add authors and series to the appropriate arrays												
 		var row = rowsArray[i];
+		
 		var authorEntry = row.getElementsByTagName("td")[3].textContent.trim() 			// Concatenate cell values to get 'LastName, FirstName'
 						  + ', '
 						  + row.getElementsByTagName("td")[4].textContent.trim();
 		var seriesEntry = row.getElementsByTagName("td")[6].textContent.replace(/,/g, '').replace(/A /g, '').replace(/An /g, '').replace(/The /g, '').replace(/"/g, '');
-		authorEntries[authorEntry] = true;
+
+		if (authorEntry != "El-Mohtar & Gladstone, Amal & Max" && authorEntry != "Gaiman & Pratchett, Neil & Terry") {
+			authorEntries[authorEntry] = true;
+		}
+		authorEntries['Gladstone, Max'] = true;
 		if (seriesEntry !== '') {
 			seriesEntries[seriesEntry] = true;
 		}															// Only add series 'seriesEntries' if it is non-empty
@@ -940,22 +956,16 @@ function dropdown() {
 		option.value = seriesEntry;
 		seriesDropdown.add(option);
 	});
-	for (var i = 0; i < authorDropdown.options.length; i++) {
-    	// Check if the current option's text matches the desired text
-    	if (authorDropdown.options[i].text == authorFilter) {
-       		// Set the selected property of the matching option to true
-        	authorDropdown.options[i].selected = true;
-        	// Break out of the loop since we found the desired option
-        	break;
+	for (var i = 0; i < authorDropdown.options.length; i++) {		
+    	if (authorDropdown.options[i].text == authorFilter) {		// Check if the current option's text matches the desired text
+        	authorDropdown.options[i].selected = true;				// Set the selected property of the matching option to true
+        	break;													// Break out of the loop since we found the desired option
     	}
 	}
-	for (var i = 0; i < seriesDropdown.options.length; i++) {
-    	// Check if the current option's text matches the desired text
-    	if (seriesDropdown.options[i].text == seriesFilter) {
-       		// Set the selected property of the matching option to true
-        	seriesDropdown.options[i].selected = true;
-        	// Break out of the loop since we found the desired option
-        	break;
+	for (var i = 0; i < seriesDropdown.options.length; i++) {		
+    	if (seriesDropdown.options[i].text == seriesFilter) {		// Check if the current option's text matches the desired text
+        	seriesDropdown.options[i].selected = true;				// Set the selected property of the matching option to true
+        	break;													// Break out of the loop since we found the desired option
     	}
 	}
 };
@@ -1053,11 +1063,8 @@ function resizeAllImages() {
 <script>
 function showTable() {
 	var table = document.getElementById("tableContainer");
-	if (table.style.display == "none") {
-		table.style.display = "";
-	} else {
-		table.style.display = "none";
-	}
+	if (table.style.display == "none") {table.style.display = "";} 
+	else {table.style.display = "none";}
 }
 function fictionRead2024() {
 	const cutoff = 103
