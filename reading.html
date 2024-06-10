@@ -928,20 +928,6 @@ function dropdown() {
 };
 </script>
 
-<script>
-	function clearFilter() {										// Clears all the filters to their default positions by making every selected index 0
-		var selector = document.getElementById("tableSelector");
-		selector.selectedIndex = 0;
-		var selector = document.getElementById("authorSelector");
-		selector.selectedIndex = 0;
-		var selector = document.getElementById("yearSelector");
-		selector.selectedIndex = 0;
-		var selector = document.getElementById("seriesSelector");
-		selector.selectedIndex = 0;
-		builder()													// Run the 'builder' function again to put all the images in the default order
-	}
-</script>
-
 <!------------------------
 	  Popup Functions 
 ------------------------->
@@ -1044,6 +1030,20 @@ function fictionRead2024() {
 	var psf2024 = document.getElementById("sfRead2024")
 	psf2024.innerHTML = shortFictionRead2024;
 }
+</script>
+
+<script>
+	function clearFilter() {										// Clears all the filters to their default positions by making every selected index 0
+		var selector = document.getElementById("tableSelector");
+		selector.selectedIndex = 0;
+		var selector = document.getElementById("authorSelector");
+		selector.selectedIndex = 0;
+		var selector = document.getElementById("yearSelector");
+		selector.selectedIndex = 0;
+		var selector = document.getElementById("seriesSelector");
+		selector.selectedIndex = 0;
+		builder()													// Run the 'builder' function again to put all the images in the default order
+	}
 </script>
 
 <script>
