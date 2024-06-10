@@ -1285,6 +1285,12 @@ input[type="radio"] + label:before {
     width: 100%; }
     .image.main img {
       width: 100%; }
+  .image.featured {
+    display: block;
+    object-fit: fill;
+    width: 100%;
+    margin: 0 0 4em 0;
+  }
 
 a.image {
   overflow: hidden; }

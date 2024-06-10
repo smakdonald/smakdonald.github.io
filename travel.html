@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Traveling!</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            .carousel {
+                margin-left: 5%;
+                margin-right: 5%;
+                margin-bottom: 2.5%;
+                margin-top: 0%;
+            }
+            ul.slides {
+                display: block;
+                position: relative;
+                height: 600px;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                list-style: none;
+            }
+            .slides * {
+                user-select: none;
+                -ms-user-select: none;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -webkit-touch-callout: none;
+            }
+            ul.slides input {
+                display: none; 
+            }
+            .slide-container { 
+                display: block; 
+            }
+            .slide-image {
+                display: block;
+                position: absolute;
+                width: 100%;                        /* Width of image fits 100% of container */
+                height: 100%;                       /* Height of image fits 100% of container */
+                top: 0;
+                opacity: 0;
+                transition: all .7s ease-in-out;
+                margin-right: -2em;
+                margin-bottom: 3em;
+            }   
+            .slide-image img {
+                border-radius: 0.375em;
+                width: auto;
+                min-width: 100%;
+                height: 100%;
+            }
+            .carousel-controls {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 999;
+                font-size: 100px;
+                line-height: 600px;
+                color: #fff;
+            }
+            .carousel-controls label {
+                display: none;
+                position: absolute;
+                padding: 0 20px;
+                opacity: 0;
+                transition: opacity .2s;
+                cursor: pointer;
+            }
+
+            .slide-image:hover + .carousel-controls label{
+                opacity: 0.5;
+            }
+
+            .carousel-controls label:hover {
+                opacity: 1;
+            }
+
+            .carousel-controls .prev-slide {
+                width: 49%;
+                text-align: left;
+                left: 0;
+            }
+
+            .carousel-controls .next-slide {
+                width: 49%;
+                text-align: right;
+                right: 0;
+            }
+
+            .carousel-dots {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 20px;
+                z-index: 999;
+                text-align: center;
+            }
+
+            .carousel-dots .carousel-dot {
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: #fff;
+                opacity: 0.5;
+                margin: 10px;
+            }
+
+            input:checked + .slide-container .slide-image {
+                opacity: 1;
+                transform: scale(1);
+                transition: opacity 1s ease-in-out;
+            }
+
+            input:checked + .slide-container .carousel-controls label {
+                display: block; 
+            }
+
+            input#img-1:checked ~ .carousel-dots label#img-dot-1,
+            input#img-2:checked ~ .carousel-dots label#img-dot-2,
+            input#img-3:checked ~ .carousel-dots label#img-dot-3,
+            input#img-4:checked ~ .carousel-dots label#img-dot-4,
+            input#img-5:checked ~ .carousel-dots label#img-dot-5,
+            input#img-6:checked ~ .carousel-dots label#img-dot-6 {
+                opacity: 1;
+            }
+
+
+            input:checked + .slide-container .nav label { display: block; }
+
+        </style>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<div id="main">
+				<div class="inner">
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Sam Macdonald</strong> Ph.D. Candidate in Mathematics</a>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin-in"><span class="label">Linked In</span></a></li>
+							<li><a href="https://github.com/smakdonald" class="icon brands fa-github"><span class="label">Github</span></a></li>
+							<li><a href="https://open.spotify.com/user/thesam.mac" class="icon brands fa-spotify"><span class="label">Spotify</span></a></li>
+							<li><a href="cats.html" class="icon solid fa-cat"><span class="label">Cat</span></a></li>
+						</ul>
+					</header>
+
+					<section>
+						<header class="main"><h1>Traveling! (Under Construction)</h1></header>
+
+						<span class="image main"><img src="images/Travel/4-24 Italy/Day5-1.jpg" alt="" /></span>
+
+						<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+						<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+						<hr class="major" />
+
+                        <section><h2>Hawai'i - June 2024</h2>
+                            <div class="carousel">
+                                <ul class="slides">
+                                    <input type="radio" name="hawaii2024-radio-buttons" id="hawaii2024-img-1" checked />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/6-24 Hawaii/Hawaii-2.jpg" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="hawaii2024-img-4" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="hawaii2024-img-2" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="hawaii2024-radio-buttons" id="hawaii2024-img-2" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/6-24 Hawaii/Hawaii-5.jpg" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="hawaii2024-img-1" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="hawaii2024-img-3" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="hawaii2024-radio-buttons" id="hawaii2024-img-3" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/6-24 Hawaii/Hawaii-1.jpg" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="hawaii2024-img-2" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="hawaii2024-img-4" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="hawaii2024-radio-buttons" id="hawaii2024-img-4" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/6-24 Hawaii/Hawaii-6.jpg" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="hawaii2024-img-3" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="hawaii2024-img-1" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <div class="carousel-dots">
+                                        <label for="hawaii2024-img-1" class="carousel-dot" id="img-dot-1"></label>
+                                        <label for="hawaii2024-img-2" class="carousel-dot" id="img-dot-2"></label>
+                                        <label for="hawaii2024-img-3" class="carousel-dot" id="img-dot-3"></label>
+                                        <label for="hawaii2024-img-4" class="carousel-dot" id="img-dot-4"></label>
+                                    </div>
+                                </ul>
+                            </div>
+
+                            <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+                            <hr class="major" />
+                        </section>
+
+                        <section><h2>Italy - April 2024</h2>
+                            <div class="carousel">
+                                <ul class="slides">
+                                    <input type="radio" name="italy2024-radio-buttons" id="italy2024-img-1" checked />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/4-24 Italy/Day3-7.jpg" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="italy2024-img-4" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="italy2024-img-2" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="italy2024-radio-buttons" id="italy2024-img-2" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/4-24 Italy/Day5-4.jpg" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="italy2024-img-1" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="italy2024-img-3" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="italy2024-radio-buttons" id="italy2024-img-3" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/4-24 Italy/Day2-1.jpg" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="italy2024-img-2" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="italy2024-img-4" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="italy2024-radio-buttons" id="italy2024-img-4" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/4-24 Italy/Day3-3.jpg" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="italy2024-img-3" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="italy2024-img-1" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <div class="carousel-dots">
+                                        <label for="italy2024-img-1" class="carousel-dot" id="img-dot-1"></label>
+                                        <label for="italy2024-img-2" class="carousel-dot" id="img-dot-2"></label>
+                                        <label for="italy2024-img-3" class="carousel-dot" id="img-dot-3"></label>
+                                        <label for="italy2024-img-4" class="carousel-dot" id="img-dot-4"></label>
+                                    </div>
+                                </ul>
+                            </div>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+                            <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+                            <hr class="major" />
+                        </section>
+
+                        <section><h2>New York City - December 2023</h2>
+                            <div class="carousel">
+                                <ul class="slides">
+                                    <input type="radio" name="nyc2023-radio-buttons" id="nyc2023-img-1" checked />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/12-23 NYC/NYC 2023 - 5 of 5.jpeg" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="nyc2023-img-4" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="nyc2023-img-2" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="nyc2023-radio-buttons" id="nyc2023-img-2" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/12-23 NYC/NYC 2023 - 3 of 5.jpeg" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="nyc2023-img-1" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="nyc2023-img-3" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="nyc2023-radio-buttons" id="nyc2023-img-3" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/12-23 NYC/NYC 2023 - 4 of 5.jpeg" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="nyc2023-img-2" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="nyc2023-img-4" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="nyc2023-radio-buttons" id="nyc2023-img-4" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/12-23 NYC/NYC 2023 - 2 of 5.jpeg" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="nyc2023-img-3" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="nyc2023-img-1" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <div class="carousel-dots">
+                                        <label for="nyc2023-img-1" class="carousel-dot" id="img-dot-1"></label>
+                                        <label for="nyc2023-img-2" class="carousel-dot" id="img-dot-2"></label>
+                                        <label for="nyc2023-img-3" class="carousel-dot" id="img-dot-3"></label>
+                                        <label for="nyc2023-img-4" class="carousel-dot" id="img-dot-4"></label>
+                                    </div>
+                                </ul>
+                            </div>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+                            <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+
+                            <hr class="major" />
+                        </section>
+
+					</section>
+                    
+				</div>
+			</div>
+
+			<div id="sidebar">
+				<div class="inner">
+					<section id="search" class="alt">
+						<form method="post" action="#">
+							<input type="text" name="query" id="query" placeholder="Search" />
+						</form>
+					</section>
+
+					<nav id="menu">
+                        <ul class="contact">
+                            <li><a href="index.html">Homepage</a></li>
+                            <li><a href="teaching.html">Teaching</a></li>
+                            <li><a href="cv.html">Curriculum Vitae</a></li>
+                            <li><a href="rj.html">Prison Education</a></li>
+                            <li><a href="OERs.html">Mathematics OERs</a></li>
+                            <li><span class="opener">Projects</span>
+                                <ul>
+                                    <li><a href="music.html">Music Hours (SAAM)</a></li>
+                                    <li><a href="reading.html">Reading</a></li>
+                                    <li><a href="art.html">Artwork</a></li>
+                                    <li><a href="testing.html">HTML Testing (enter at own risk)</a></li>
+                                </ul>
+                            <li><span class="opener">Personal</span>
+                                <ul>
+                                    <li><a href="about-me.html">About Me</a></li>
+                                    <li><a href="travel.html">Travel</a></li>
+                                    <li><a href="climb.html">Climbing</a></li>
+                                    <li><a href="write.html">Writing</a></li>
+                                    <li><a href="cats.html">Cats</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+
+					<section><header class="major"><h2>Get in touch</h2></header>
+						<ul class="contact">
+							<li class="icon solid fa-envelope"><a href="mailto:smacdonald5@huskers.unl.edu">smacdonald5@huskers.unl.edu</a></li>
+							<li class="icon solid fa-school">Avery Hall 344 <a href="https://computing.unl.edu/maps/Avery-third.png" target="_blank">(Map)</a></li>
+						</ul>
+					</section>
+
+					<footer id="footer">
+						<p class="copyright">&copy; Sam Macdonald. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+					</footer>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
