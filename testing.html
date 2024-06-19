@@ -23,6 +23,9 @@
     #typeChart {
       display: none;  /* Set display property to none to make the table invisible */
     }
+    .blurred-image {
+      filter: blur(1000px); /* Adjust the value to change the amount of blur */
+    }
   </style>
 </head>
 <body>
@@ -32,6 +35,7 @@
   <label for="firstType">Select Pokémon Types:</label>
   <select id="firstType" onchange="displayCellContent()">
     <option value="Bug">Bug</option>
+    <option value="Cosmic">Cosmic</option>
     <option value="Dark">Dark</option>
     <option value="Dragon">Dragon</option>
     <option value="Electric">Electric</option>
@@ -43,17 +47,21 @@
     <option value="Grass">Grass</option>
     <option value="Ground">Ground</option>
     <option value="Ice">Ice</option>
+    <option value="Light">Light</option>
     <option value="Normal">Normal</option>
     <option value="Poison">Poison</option>
     <option value="Psychic">Psychic</option>
     <option value="Rock">Rock</option>
+    <option value="Sound">Sound</option>
     <option value="Steel">Steel</option>
     <option value="Water">Water</option>
   </select>
   
   <label for="secondType"></label>
   <select id="secondType" onchange="displayCellContent()">
+    <option value="None">None</option>
     <option value="Bug">Bug</option>
+    <option value="Cosmic">Cosmic</option>
     <option value="Dark">Dark</option>
     <option value="Dragon">Dragon</option>
     <option value="Electric">Electric</option>
@@ -65,10 +73,12 @@
     <option value="Grass">Grass</option>
     <option value="Ground">Ground</option>
     <option value="Ice">Ice</option>
+    <option value="Light">Light</option>
     <option value="Normal">Normal</option>
     <option value="Poison">Poison</option>
     <option value="Psychic">Psychic</option>
     <option value="Rock">Rock</option>
+    <option value="Sound">Sound</option>
     <option value="Steel">Steel</option>
     <option value="Water">Water</option>
   </select>
@@ -90,9 +100,9 @@
       var columnIndex1 = getColumnIndex(firstType);
       var columnIndex2 = getColumnIndex(secondType);
       
-      var rowIndices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]; 
+      var rowIndices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]; 
       
-      var pokemonTypes = ['<img src="images/Pokemon Images/Poke-Types/bug.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/dark.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/dragon.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/electric.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/fairy.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/fighting.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/fire.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/flying.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/ghost.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/grass.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/ground.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/ice.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/normal.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/poison.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/psychic.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/rock.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/steel.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/water.gif" alt="" />'];
+      var pokemonTypes = ['<img src="images/Pokemon Images/Poke-Types/bug.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/dark.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/dragon.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/electric.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/fairy.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/fighting.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/fire.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/flying.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/ghost.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/grass.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/ground.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/ice.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/normal.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/poison.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/psychic.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/rock.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/steel.gif" alt="" />', '<img src="images/Pokemon Images/Poke-Types/water.gif" alt="" />','Cosmic','Light','Sound'];
       
       // Get the cell value in the third row and the selected column
       var table = document.getElementById("typeChart");
@@ -154,6 +164,9 @@
       <th>Rock</th>
       <th>Steel</th>
       <th>Water</th>
+      <th>Cosmic</th>
+      <th>Light</th>
+      <th>Sound</th>
     </tr>
   </thead>
   <tbody>
@@ -177,6 +190,9 @@
       <td>1</td>
       <td>0.5</td>
       <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Dark</th>
@@ -197,6 +213,9 @@
       <td>2</td>
       <td>1</td>
       <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
       <td>1</td>
     </tr>
     <tr>
@@ -219,6 +238,9 @@
       <td>1</td>
       <td>0.5</td>
       <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Electric</th>
@@ -240,6 +262,9 @@
       <td>1</td>
       <td>1</td>
       <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Fairy</th>
@@ -260,6 +285,9 @@
       <td>1</td>
       <td>1</td>
       <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -282,6 +310,9 @@
       <td>2</td>
       <td>2</td>
       <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.5</td>
     </tr>
     <tr>
       <th>Fire</th>
@@ -303,6 +334,9 @@
       <td>0.5</td>
       <td>2</td>
       <td>0.5</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Flying</th>
@@ -323,6 +357,9 @@
       <td>1</td>
       <td>0.5</td>
       <td>0.5</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -345,6 +382,9 @@
       <td>1</td>
       <td>1</td>
       <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Grass</th>
@@ -365,6 +405,9 @@
       <td>1</td>
       <td>2</td>
       <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
       <td>2</td>
     </tr>
     <tr>
@@ -387,6 +430,9 @@
       <td>2</td>
       <td>2</td>
       <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Ice</th>
@@ -408,6 +454,9 @@
       <td>1</td>
       <td>0.5</td>
       <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>Normal</th>
@@ -429,6 +478,9 @@
       <td>0.5</td>
       <td>0.5</td>
       <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Poison</th>
@@ -449,6 +501,9 @@
       <td>1</td>
       <td>0.5</td>
       <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -471,6 +526,9 @@
       <td>1</td>
       <td>0.5</td>
       <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Rock</th>
@@ -491,6 +549,9 @@
       <td>1</td>
       <td>1</td>
       <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -513,6 +574,9 @@
       <td>2</td>
       <td>0.5</td>
       <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>Water</th>
@@ -534,9 +598,186 @@
       <td>2</td>
       <td>1</td>
       <td>0.5</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Cosmic</th>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Light</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.5</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Sound</th>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.5</td>
     </tr>
   </tbody>
-</table>
+  </table>
+
+  <img src="images/Book Covers/Abercrombie-A-Little-Hatred.jpg" alt="Sample Image" class="blurred-image">
+
+
+
+    <h1>Select an Image</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <canvas id="imageCanvas" style="display: none;"></canvas>
+    <p id="hexCode">Hex Code: </p>
+
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.getElementById('imageCanvas');
+                        const context = canvas.getContext('2d');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        context.drawImage(img, 0, 0);
+
+                        // Get the top-left pixel data
+                        const pixelData = context.getImageData(0, 0, 1, 1).data;
+                        const r = pixelData[0];
+                        const g = pixelData[1];
+                        const b = pixelData[2];
+
+                        // Convert to hex
+                        const hexCode = rgbToHex(r, g, b);
+                        document.getElementById('hexCode').innerText = `Hex Code: ${hexCode}`;
+                    }
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function componentToHex(c) {
+            const hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+    </script>
+
+    <h1>Select an Image</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <canvas id="imageCanvas" style="display: none;"></canvas>
+    <div id="gradientDisplay" style="width: 500px; height: 500px; border: 1px solid #000;"></div>
+
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.getElementById('imageCanvas');
+                        const context = canvas.getContext('2d');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        context.drawImage(img, 0, 0);
+
+                        // Get the pixel data from the four corners
+                        const topLeft = getPixelColor(context, 0, 0);
+                        const topRight = getPixelColor(context, img.width - 1, 0);
+                        const bottomLeft = getPixelColor(context, 0, img.height - 1);
+                        const bottomRight = getPixelColor(context, img.width - 1, img.height - 1);
+
+                        // Generate gradient using these colors
+                        const gradientDiv = document.getElementById('gradientDisplay');
+                        gradientDiv.style.background = `linear-gradient(to bottom right, ${topLeft}, ${topRight}, ${bottomLeft}, ${bottomRight})`;
+                    }
+                    img.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function getPixelColor(context, x, y) {
+            const pixelData = context.getImageData(x, y, 1, 1).data;
+            const r = pixelData[0];
+            const g = pixelData[1];
+            const b = pixelData[2];
+            return rgbToHex(r, g, b);
+        }
+
+        function componentToHex(c) {
+            const hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+    </script>
 
 </body>
 </html>

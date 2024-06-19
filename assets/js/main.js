@@ -5,30 +5,27 @@
 */
 
 (function($) {
-
 	var	$window = $(window),
 		$head = $('head'),
 		$body = $('body');
-		settings = {
-			// Carousels
-				carousels: {
-					speed: 4,
-					fadeIn: true,
-					fadeDelay: 250
-				},
-		};
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ '361px',   '480px'  ],
-			xxsmall:  [ null,      '360px'  ],
-			'xlarge-to-max':    '(min-width: 1681px)',
-			'small-to-xlarge':  '(min-width: 481px) and (max-width: 1680px)'
-		});
+	settings = {		
+		carousels: {						// Carousels
+			speed: 4,
+			fadeIn: true,
+			fadeDelay: 250
+		},};
+	
+	breakpoints({							// Breakpoints.
+		xlarge:   [ '1281px',  '1680px' ],
+		large:    [ '981px',   '1280px' ],
+		medium:   [ '737px',   '980px'  ],
+		small:    [ '481px',   '736px'  ],
+		xsmall:   [ '361px',   '480px'  ],
+		xxsmall:  [ null,      '360px'  ],
+		'xlarge-to-max':    '(min-width: 1681px)',
+		'small-to-xlarge':  '(min-width: 481px) and (max-width: 1680px)'
+	});
 
 	// Stops animations/transitions until the page has ...
 		$window.on('load', function() {				// ... loaded.
@@ -89,23 +86,17 @@
 		// Events.
 			// Link clicks.
 				$sidebar.on('click', 'a', function(event) {
-					// >large? Bail.
-						if (breakpoints.active('>large'))
+						if (breakpoints.active('>large'))			// >large? Bail.
 							return;
-					// Vars.
-						var $a = $(this),
+						var $a = $(this),							// Vars.
 							href = $a.attr('href'),
 							target = $a.attr('target');
-					// Prevent default.
-						event.preventDefault();
+						event.preventDefault();						// Prevent default.
 						event.stopPropagation();
-					// Check URL.
-						if (!href || href == '#' || href == '')
+						if (!href || href == '#' || href == '')		// Check URL.
 							return;
-					// Hide sidebar.
-						$sidebar.addClass('inactive');
-					// Redirect to href.
-						setTimeout(function() {
+						$sidebar.addClass('inactive');				// Hide sidebar.
+						setTimeout(function() {						// Redirect to href.
 							if (target == '_blank')
 								window.open(href);
 							else

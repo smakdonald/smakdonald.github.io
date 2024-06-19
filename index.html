@@ -76,7 +76,7 @@
 								<li><a href="https://www.wikihow.com/Forget" class="button big"target="_blank">Learn Less</a></li>
 							</ul>
 						</div> <!-- End Content -->
-						<span class="image object"><img id = Sam src="images/front-cropped.jpeg" alt=""></span>
+						<span class="image object"><img id = "Sam" src="images/front-cropped.jpeg" alt=""></span>
 					</section><!-- End Section -->
 				</div><!-- End Inner -->
 			</div><!-- End Main -->
@@ -132,41 +132,51 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/leader-line.min.js"></script>
 		<script>
-			var line1 = new LeaderLine(
-			    LeaderLine.mouseHoverAnchor(man), 
-				LeaderLine.pointAnchor(Sam, {
-			    	x: 170,
-			    	y: 280
-			  	}),
-				{color: '#f56a6a',
-				 size: 8,
-				 dropShadow: true
-				}
-			);
-			line1.setOptions({startSocket: 'auto', endSocket: 'left'});
-			var line2 = new LeaderLine(
-				LeaderLine.mouseHoverAnchor(myth), 
-				LeaderLine.pointAnchor(Sam, {
-			    	x: 170,
-			    	y: 280
-			  	}),
-				{color: '#f56a6a',
-				 size: 12,
-				 dropShadow: true
-				}
-			);
-			var line3 = new LeaderLine(
-				LeaderLine.mouseHoverAnchor(mac), 
-				LeaderLine.pointAnchor(Sam, {
-			    	x: 170,
-			    	y: 280
-			  	}),
-				{color: '#f56a6a',
-				 size: 16,
-				 dropShadow: true
-				}
-			);
+			document.addEventListener('DOMContentLoaded', () => {
+				let manLine = new LeaderLine(
+					LeaderLine.pointAnchor(man, {x: '65%', y: '50%'}),
+					LeaderLine.pointAnchor (Sam, {x: 170,
+			    	y: 280}),
+					{color: '#f56a6a', size: 8, dropShadow: true}	
+					);
+				manLine.hide();
+				man.addEventListener('mouseover', () => {
+					manLine.show();
+				});
+				man.addEventListener('mouseout', () => {
+					manLine.hide();
+				});
+
+				let mythLine = new LeaderLine(
+					LeaderLine.pointAnchor(myth, {x: '70%', y: '50%'}),
+					LeaderLine.pointAnchor (Sam, {x: 170,
+			    	y: 280}),
+					{color: '#f56a6a', size: 12, dropShadow: true}	
+					);
+				mythLine.hide();
+				myth.addEventListener('mouseover', () => {
+					mythLine.show();
+				});
+				myth.addEventListener('mouseout', () => {
+					mythLine.hide();
+				});
+
+				let macLine = new LeaderLine(
+					LeaderLine.pointAnchor(mac, {x: '80%', y: '50%'}),
+					LeaderLine.pointAnchor (Sam, {x: 170,
+			    	y: 280}),
+					{color: '#f56a6a', size: 16, dropShadow: true}	
+					);
+					macLine.hide();
+				mac.addEventListener('mouseover', () => {
+					macLine.show();
+				});
+				mac.addEventListener('mouseout', () => {
+					macLine.hide();
+				});
+			});
 		</script>
+
 		<script>
 			document.addEventListener("DOMContentLoaded", function() {	// Function to make intro headers fade in
 				var man = document.getElementById("man"),				// Get each of the header elements

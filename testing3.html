@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Most Common Color in Image</title>
+<style>
+  #image-preview {
+    max-width: 300px;
+    max-height: 300px;
+  }
+</style>
+</head>
+<body>
+  <h1>Find the Most Common Color in an Image</h1>
+  
+  <img id="image-preview" src="images/Book Covers/Stroud-Amulet-of-Samarkand.jpg" alt="Image Preview">
+  <br><br>
+  
+  <canvas id="image-canvas" style="display:none;"></canvas>
+  
+  <h2>Most Common Color:</h2>
+  <div id="most-common-color"></div>
+  
+  <script>
+    var imagePath = 'images/Book Covers/Stroud-Amulet-of-Samarkand.jpg';
+
+    var img = new Image();
+    
+    img.onload = function(){
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0, img.width, img.height);
+      
+      var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      var pixels = imageData.data;
+      
+      var colorCount = {};
+      var maxCount = 0;
+      var mostCommonColor = null;
+      
+      // Iterate through pixels (each pixel has RGBA values)
+      for (var i = 0; i < pixels.length; i += 4) {
+        var rgba = pixels.slice(i, i + 4); // Get RGBA values
+        var color = rgba.join(','); // Convert to string
+        
+        if (colorCount[color] === undefined) {
+          colorCount[color] = 0;
+        }
+        colorCount[color]++;
+        
+        if (colorCount[color] > maxCount) {
+          maxCount = colorCount[color];
+          mostCommonColor = rgba;
+        }
+      }
+      console.log(maxCount)
+      
+      // Display the most common color
+      var colorHex = rgbToHex(mostCommonColor[0], mostCommonColor[1], mostCommonColor[2]);
+      var colorString = `RGB: (${mostCommonColor[0]}, ${mostCommonColor[1]}, ${mostCommonColor[2]}) Hex: ${colorHex}`;
+      document.getElementById('most-common-color').textContent = colorString;
+    };
+    
+    img.src = imagePath;
+
+    function componentToHex(c) {
+      var hex = c.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
+    
+    function rgbToHex(r, g, b) {
+      return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+  </script>
+</body>
+</html>

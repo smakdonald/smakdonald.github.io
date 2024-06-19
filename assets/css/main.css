@@ -1902,17 +1902,20 @@ button,
   -ms-flex-shrink: 1;
   flex-shrink: 1;
   width: 100%; }
-  #main > .inner {
-    padding: 0 6em 0.1em 6em ;
-    margin: 0 auto;
-    max-width: 110em; }
-    #main > .inner > section {
-      padding: 6em 0 4em 0 ;
-      border-top: solid 2px rgba(210, 215, 217, 0.75); }
-      #main > .inner > section:first-of-type {
-        border-top: 0 !important; }
+ 
+  #main > .inner {                                            /* The inner content of the main container */
+    padding: 0 6em 0.1em 6em ;                               /* Set padding inside the inner element */
+    margin: 0 auto;                                          /* Center the inner element horizontally */
+    max-width: 110em; }                                      /* Set a maximum width for the inner element */
+    #main > .inner > section {                               /* Sections inside the inner element */
+      padding: 6em 0 4em 0 ;                                 /* Set padding inside the section element */
+      border-top: solid 2px rgba(210, 215, 217, 0.75); }   /* Add a top border to the section */
+      #main > .inner > section:first-of-type {               /* The first section inside the inner element */
+        border-top: 0 !important; }                          /* Remove the top border for the first section */
+
+  /* Adjust padding for various elements depending on screen width */
   @media screen and (max-width: 1680px) {
-    #main > .inner {
+    #main > .inner {            
       padding: 0 5em 0.1em 5em ; }
       #main > .inner > section {
         padding: 5em 0 3em 0 ; } }
@@ -1928,12 +1931,12 @@ button,
         padding: 3em 0 1em 0 ; } }
 
 /* Sidebar */
-#search form {
+#search form {            
   text-decoration: none;
-  position: relative; }
+  position: relative; }                       /* Set position relative for positioning child elements absolutely */
   #search form:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;       /* Optimize font rendering for macOS (Mozilla) */
+    -webkit-font-smoothing: antialiased;      /* Optimize font rendering (Webkit) */
     display: inline-block;
     font-style: normal;
     font-variant: normal;
@@ -1943,12 +1946,12 @@ button,
     font-family: 'Font Awesome 5 Free';
     font-weight: 900; }
   #search form:before {
-    -moz-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    -ms-transform: scaleX(-1);
-    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);               
+    -webkit-transform: scaleX(-1);            
+    -ms-transform: scaleX(-1);               
+    transform: scaleX(-1);                    /* Flip the element horizontally (Standard) */
     color: #7f888f;
-    content: '\f002';
+    content: '\f002';                         /* Use Font Awesome search icon */
     cursor: default;
     display: block;
     font-size: 1.5em;
@@ -1956,9 +1959,9 @@ button,
     line-height: 2em;
     opacity: 0.325;
     position: absolute;
-    right: 0;
+    right: 0;                                   /* Align to the right */
     text-align: center;
-    top: 0;
+    top: 0;                                     /* Align to the top */
     width: 2em; }
   #search form input[type="text"] {
     padding-right: 2.75em; }
@@ -1967,25 +1970,25 @@ button,
   -moz-flex-grow: 0;
   -webkit-flex-grow: 0;
   -ms-flex-grow: 0;
-  flex-grow: 0;
+  flex-grow: 0;                                 /* Prevent the flex item from growing (Standard) */
   -moz-flex-shrink: 0;
   -webkit-flex-shrink: 0;
   -ms-flex-shrink: 0;
-  flex-shrink: 0;
+  flex-shrink: 0;                               /* Prevent the flex item from shrinking (Standard) */
   -moz-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
   -webkit-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
   -ms-transition: margin-left 0.5s ease, box-shadow 0.5s ease;
-  transition: margin-left 0.5s ease, box-shadow 0.5s ease;
+  transition: margin-left 0.5s ease, box-shadow 0.5s ease;   /* Transition effects for margin-left and box-shadow (Standard) */
   background-color: #f5f6f7;
   font-size: 0.9em;
   position: relative;
   width: 26em; }
-  #sidebar h2 {
+  #sidebar h2 {                                 /* Set font size for h2 elements inside the sidebar */
     font-size: 1.38889em; }
-  #sidebar > .inner {
-    padding: 2.22222em 2.22222em 2.44444em 2.22222em ;
+  #sidebar > .inner {                           /* Inner container of the sidebar */
+    padding: 2.22222em 2.22222em 2.44444em 2.22222em ;  /* Set padding inside the inner container */
     position: relative;
-    width: 26em; }
+    width: 26em; }                              /* Set width of the inner container */
     #sidebar > .inner > * {
       border-bottom: solid 2px rgba(210, 215, 217, 0.75);
       margin: 0 0 3.5em 0;
@@ -2048,7 +2051,7 @@ button,
     margin-left: -26em; }
   @media screen and (max-width: 1680px) {
     #sidebar {
-      width: 24em; }
+      width: 24em; }                              /* Adjust width of the sidebar */
       #sidebar > .inner {
         padding: 1.66667em 1.66667em 1.33333em 1.66667em ;
         width: 24em; }
