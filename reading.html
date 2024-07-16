@@ -124,44 +124,29 @@
 				
 				<section id="longFiction">
 					<header class="main"><h1>Reading</h1></header>
-
-					<h2 id="readingGoal">Sam's 2024 Reading Goal</h2>
-
-					<div id="myProgress"><div id="myBar">0%</div></div>
+						<h3 id="readingGoal">Sam's 2024 Reading Goal</h3>
+						<div id="myProgress"><div id="myBar">0%</div></div>
 				</section>
 
 				<section id="books"><header><h2>Books</h2></header>
-					<blockquote id="firstLineQuote"></blockquote>
-					<div class="book-container">
-						<div class="sort-container">
-							<label for="tableSelector">Sorting:</label>
-							<select id="tableSelector" class="sorter" onchange="builder()">
-								<option value="0">Select an option</option>
-								<option value="0">Chronologically</option>
-								<option value="2">Title</option>
-								<option value="3">Author Last Name</option>
-								<option value="4">Author First Name</option>
-								<option value="5">Publication Date</option>
-								<option value="6">Series</option>
-								<option value="11">Page Count</option>
-								<option value="10">Word Count</option>
-							</select>
-						</div>
-						<div class="sort-container">
-							<label for="sizeSelect">Image Size:</label>
-							<select id="sizeSelect" class="sorter" onchange="resizeAllImages()">
-								<option value="33.33%">Large</option>
-								<option value="20%">Medium</option>
-								<option value="10%">Small</option>
-							</select>
-						</div>
-					</div>
-					<hr class="major"/>
+					
 					<table id="myTable"> <!--Table where all the data about the fiction is stored -->
 						<tbody>
 							<!-- Books Read in 2024 -->
 							<!-- 	0 -->		<!-- 1 -->											<!-- 2 --> 																												<!-- 3 -->				<!-- 4 -->				<!-- 5 -->		<!-- 6 -->										<!-- 7 -->	<!-- 8 -->			<!-- 9 -->				<!-- 10 -->			<!-- 11 -->		<!-- 12 -->			<!-- 13 -->			<!-- 14 -->				<!-- 15 -->			<!-- 16 -->					<!-- 17 -->	
-							<!-- 	# -->		<!-- Title of Image File -->						<!-- Title -->																											<!-- Last -->			<!-- First -->			<!-- Year -->	<!-- Series / Collection -->					<!-- # -->	<!-- Format -->		<!-- Length -->			<!-- Words -->		<!-- Pages -->	<!-- Hugo -->		<!-- Nebula -->		<!-- Locus -->			<!-- WFA -->		<!-- Date -->				<!-- First Line -->																																						<!-- Link -->
+							<!-- 	# -->		<!-- Title of Image File -->						<!-- Title -->																											<!-- Last -->			<!-- First -->			<!-- Year -->	<!-- Series / Collection -->					<!-- # -->	<!-- Format -->		<!-- Length -->			<!-- Words -->		<!-- Pages -->	<!-- Hugo -->		<!-- Nebula -->		<!-- Locus -->			<!-- WFA -->		<!-- Date -->				<!-- First Line -->																																									<!-- Link -->
+							<tr> <td>392</td> 	<td>Liu-Veiled-Throne.jpg</td>						<td>The Veiled Throne</td> 																								<td>Liu</td> 			<td>Ken</td> 			<td>2021</td> 	<td>The Dandelion Dynasty</td> 					<td>3</td> 	<td>Book</td> 		<td>Novel</td> 			<td>347,615</td>	<td>988</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 15th, 2024</td>	<td>The stars pulsed in the firmament like glowing jellies in a dark sea.</td> 																																			<td>https://www.nightmare-magazine.com/fiction/skitterdead/</td>	</tr>
+							<tr> <td>391</td> 	<td></td>											<td>"Skitterdead"</td> 																									<td>Kassel</td> 		<td>Mel</td> 			<td>2022</td> 	<td></td> 										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>580</td>		<td></td> 		<td></td>			<td></td>			<td></td>				<td></td>			<td>July 15th, 2024</td>	<td>Skitterdead, ghost-in-the-legs.</td> 																																			<td>https://www.nightmare-magazine.com/fiction/skitterdead/</td>	</tr>
+							<tr> <td>390</td> 	<td>Collins-Marks-of-Secret.jpg</td>				<td>Gregor and the Marks of Secret</td> 																				<td>Collins</td> 		<td>Suzanne</td> 		<td>2006</td> 	<td>The Underland Chronicles</td> 				<td>4</td> 	<td>Book</td> 		<td>Novel</td> 			<td>61,525</td>		<td>343</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 14th, 2024</td>	<td>Gregor sat on his bed tracing the scars with his fingertips.</td> 																												<td></td>	</tr>
+							<tr> <td>389</td> 	<td></td>											<td>"The Light of Distant Stars"</td> 																					<td>Martin</td> 		<td>George R. R.</td>  	<td>2003</td> 	<td>Dreamsongs, Volume I</td> 					<td>7.5</td><td>Book</td> 		<td>Essay</td> 			<td>4,735</td>		<td></td> 		<td></td>			<td></td>			<td></td>				<td></td>			<td>July 14th, 2024</td>	<td></td>																																											<td></td></tr>
+							<tr> <td>388</td> 	<td></td>											<td>"With Morning Comes Mistfall"</td> 																					<td>Martin</td> 		<td>George R. R.</td>  	<td>1973</td> 	<td>Dreamsongs, Volume I</td> 					<td>7</td>	<td>Book</td> 		<td>Short Story</td> 	<td>6,600</td>		<td>18</td> 	<td>Nominated</td>	<td>Nominated</td>	<td>Nominated</td>		<td></td>			<td>July 14th, 2024</td>	<td>I was early to breakfast that morning, the first day after landing.</td>																										<td></td></tr>
+							<tr> <td>387</td> 	<td></td>											<td>"The Second Kind of Lonliness"</td> 																				<td>Martin</td> 		<td>George R. R.</td>  	<td>1972</td> 	<td>Dreamsongs, Volume I</td> 					<td>6</td>	<td>Book</td> 		<td>Short Story</td> 	<td>5,473</td>		<td>18</td> 	<td></td>			<td></td>			<td>Nominated</td>		<td></td>			<td>July 13th, 2024</td>	<td>My relief left Earth today.</td>																																				<td></td></tr>
+							<tr> <td>386</td> 	<td></td>											<td>"The Exit to San Breta"</td> 																						<td>Martin</td> 		<td>George R. R.</td>  	<td>1972</td> 	<td>Dreamsongs, Volume I</td> 					<td>5</td>	<td>Book</td> 		<td>Short Story</td> 	<td>3,519</td>		<td>14</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 13th, 2024</td>	<td>It was the highway that first caught my attention.</td>																															<td></td></tr>
+							<tr> <td>385</td> 	<td></td>											<td>"The Filthy Pro"</td> 																								<td>Martin</td> 		<td>George R. R.</td>  	<td>2003</td> 	<td>Dreamsongs, Volume I</td> 					<td>3.5</td><td>Digital</td> 	<td>Essay</td> 			<td>3,519</td>		<td>12</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 12th, 2024</td>	<td></td>																																											<td></td></tr>
+							<tr> <td>384</td> 	<td></td>											<td>"The Hero"</td> 																									<td>Martin</td> 		<td>George R. R.</td>  	<td>1971</td> 	<td>Dreamsongs, Volume I</td> 					<td>4</td> 	<td>Book</td> 		<td>Short Story</td> 	<td>4,576</td>		<td>14</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 12th, 2024</td>	<td>The city was dead and the flames of its passing spread a red stain across the green-gray sky.</td>																				<td></td></tr>
+							<tr> <td>383</td> 	<td></td>											<td>"A Four-Color Fanboy"</td> 																							<td>Martin</td> 		<td>George R. R.</td>  	<td>2003</td> 	<td>Dreamsongs, Volume I</td> 					<td>0.5</td><td>Digital</td> 	<td>Essay</td> 			<td>5,232</td>		<td>16</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 12th, 2024</td>	<td></td>																																											<td></td></tr>
+							<tr> <td>382</td> 	<td></td>											<td>"Only Kids Are Afraid of the Dark"</td> 																			<td>Martin</td> 		<td>George R. R.</td>  	<td>1967</td> 	<td>Dreamsongs, Volume I</td> 					<td>1</td> 	<td>Book</td> 		<td>Short Story</td> 	<td>5,347</td>		<td>16</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 12th, 2024</td>	<td>Darkness. Everywhere there was darkness. Grim, foreboding, omnipresent; it hung over the plain like a great stifling mantle.</td>												<td></td></tr>
+							<tr> <td>382</td> 	<td>Martin-Dreamsongs-I.jpg</td> 					<td>Dreamsongs, Volume I</td> 																							<td>Martin</td> 		<td>George R. R.</td> 	<td>2003</td> 	<td>Dreamsongs, Volume I</td> 					<td></td> 	<td>Read</td> 		<td>Collection,</td> 	<td></td> 			<td></td> 		<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>																																											<td></td></tr>
 							<tr> <td>381</td> 	<td>Polk-Even-Though-I-Knew-the-End.jpg</td>		<td>Even Though I Knew the End</td> 																					<td>Polk</td> 			<td>C. L.</td>  		<td>2022</td> 	<td></td> 										<td></td> 	<td>Audiobook</td> 	<td>Novella</td> 		<td>35,352</td>		<td>133</td> 	<td>Nominated</td>	<td>Won</td>		<td>Nominated</td>		<td>Nominated</td>	<td>July 11th, 2024</td>	<td>Marlowe had offered me fifty dollars to stand out here in the freezing Chicago cold and do an augury, and like a damn greedy fool, I'd said yes.</td>							<td></td></tr>
 							<tr> <td>380</td> 	<td>Collins-Curse-of-the-Warmbloods.jpg</td>		<td>Gregor and the Curse of the Warmbloods</td> 																		<td>Collins</td> 		<td>Suzanne</td>  		<td>2005</td> 	<td>The Underland Chronicles</td> 				<td>3</td> 	<td>Book</td> 		<td>Novel</td> 			<td>67,923</td>		<td>358</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 9th, 2024</td>		<td>Gregor stared in the bathroom mirror for a minute, steeling himself.</td> 																										<td></td></tr>
 							<tr> <td>379</td> 	<td>Weeks-Blood-Mirror.jpg</td>						<td>The Blood Mirror</td> 																								<td>Weeks</td> 			<td>Brent</td> 			<td>2016</td> 	<td>Lightbringer</td>							<td>4</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>210,167</td>	<td>704</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td>July 8th, 2024</td>		<td>Like a house slave sweeping dirt into a pile, Orholam had heaped together all the earth's horrors and sin.</td>																	<td></td></tr>
@@ -373,7 +358,7 @@
 							<tr> <td>177</td> 	<td></td>											<td>"Rabbit Test"</td> 																									<td>Mills</td> 			<td>Samantha</td> 		<td>2022</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>7,067</td>		<td></td> 		<td>Won</td>		<td>Won</td>		<td>Won</td>			<td></td>			<td>March 18th, 2024</td>	<td>It is 2091, and Grace is staring at the rabbit in the corner of her visual overlay.</td>																			<td>https://www.uncannymagazine.com/article/rabbit-test/</td></tr> <!-- March 18th, 2024 -->
 							<tr> <td>176</td> 	<td></td>											<td>"The Secret Lives of the Nine Negro Teeth of George Washington"</td> 												<td>Clark</td> 			<td>P. Djèlí</td> 		<td>2018</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>3,656</td>		<td></td> 		<td>Nominated</td>	<td>Won</td>		<td>Won</td>			<td></td>			<td>March 18th, 2024</td>	<td>The first Negro tooth purchased for George Washington came from a blacksmith, who died that very year at Mount Vernon of the flux.</td>								<td>https://firesidefiction.com/the-secret-lives-of-the-nine-negro-teeth-of-george-washington</td></tr> <!-- March 18th, 2024 -->
 							<tr> <td>175</td> 	<td></td>											<td>"Cat Pictures Please"</td> 																							<td>Kritzer</td> 		<td>Naomi</td> 			<td>2015</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>3,420</td>		<td></td> 		<td>Won</td>		<td>Nominated</td>	<td>Won</td>			<td></td>			<td>March 18th, 2024</td>	<td>I don't want to be evil.</td>																																		<td>https://clarkesworldmagazine.com/kritzer_01_15/</td></tr> <!--  -->
-							<tr> <td>174</td> 	<td></td>											<td>"Our Talons Can Crush Galaxies"</td> 																				<td>Bolander</td> 		<td>Brooke</td> 		<td>2016</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>1,296</td>		<td></td> 		<td>Nominated</td>	<td>Nominated</td>	<td>Nominated</td>		<td>Nominated</td>	<td>March 17th, 2024</td>	<td>You want that kind of horseshit, you don't have to look far; half of modern human media revolves around it, lovingly detailed descriptions of sobbing women violated, victimized, left for the loam to cradle.</td>	<td>https://www.uncannymagazine.com/article/talons-can-crush-galaxies/</td></tr> <!-- March 17th, 2024 -->
+							<tr> <td>174</td> 	<td></td>											<td>"Our Talons Can Crush Galaxies"</td> 																				<td>Bolander</td> 		<td>Brooke</td> 		<td>2016</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>1,296</td>		<td></td> 		<td>Nominated</td>	<td>Nominated</td>	<td>Nominated</td>		<td>Nominated</td>	<td>March 17th, 2024</td>	<td>This is not the story of how he killed me, thank fuck.</td>																											<td>https://www.uncannymagazine.com/article/talons-can-crush-galaxies/</td></tr> <!-- March 17th, 2024 -->
 							<tr> <td>173</td> 	<td></td>											<td>"I'm Alive, I Love You, I'll See You in Reno"</td> 																	<td>Kaftan</td> 		<td>Vylar</td> 			<td>2010</td> 	<td></td>										<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>2,608</td>		<td></td> 		<td></td>			<td>Nominated</td>	<td></td>				<td></td>			<td>March 17th, 2024</td>	<td>We have a history of missed connections, you and I.</td>																											<td>https://www.lightspeedmagazine.com/fiction/im-alive-i-love-you/</td></tr> <!-- March 17th, 2024 -->
 							<tr> <td>172</td> 	<td></td>											<td>"Mantis Wives"</td> 																								<td>Johnson</td> 		<td>Kij</td> 			<td>2012</td> 	<td>The Privilege of the Happy Ending</td>		<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>960</td>		<td></td> 		<td>Nominated</td>	<td></td>			<td>Nominated</td>		<td></td>			<td>March 17th, 2024</td>	<td>Eventually, the mantis women discovered that killing their husbands was not inseparable from the getting of young.</td>												<td>https://clarkesworldmagazine.com/johnson_08_12/</td></tr> <!-- March 17th, 2024 -->
 							<tr> <td>171</td> 	<td></td>											<td>"Spar"</td> 																										<td>Johnson</td> 		<td>Kij</td> 			<td>2009</td> 	<td>At the Mouth of the River of Bees</td>		<td></td> 	<td>Digital</td> 	<td>Short Story</td> 	<td>2,150</td>		<td></td> 		<td>Nominated</td>	<td>Won</td>		<td>Nominated</td>		<td></td>			<td>March 17th, 2024</td>	<td>In the tiny lifeboat, she and the alien fuck endlessly, relentlessly.</td>																							<td>https://clarkesworldmagazine.com/johnson_10_09/</td></tr> <!-- March 17th, 2024 -->
@@ -561,8 +546,7 @@
 							<tr> <td>-2</td> 	<td>Collins-Catching-Fire.jpg</td>					<td>Catching Fire</td> 																									<td>Collins</td> 		<td>Suzanne</td> 		<td>2009</td> 	<td>The Hunger Games</td> 						<td>2</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>101,564</td>	<td>391</td> 	<td></td>			<td></td>			<td>Nominated (YA)</td>	<td></td>			<td></td>					<td>I clasp the flask between my hands even though the warmth from the tea has long since leached into the frozen air.</td>												<td></td></tr>
 							<tr> <td>-3</td> 	<td>Collins-Hunger-Games.jpg</td>					<td>The Hunger Games</td> 																								<td>Collins</td> 		<td>Suzanne</td>  		<td>2008</td> 	<td>The Hunger Games</td> 						<td>1</td> 	<td>Audiobook</td> 	<td>Novel</td> 			<td>99,750</td>		<td>374</td> 	<td></td>			<td></td>			<td>Nominated (YA)</td>	<td></td>			<td></td>					<td>When I wake up, the other side of the bed is cold.</td>																												<td></td></tr>
 							<!--
-							<tr> <td>-4</td> 	<td>Collins-Code-of-Claw.jpg</td>					<td>Gregor and the Code of Claw</td> 																					<td>Collins</td> 		<td>Suzanne</td>  		<td>2007</td> 	<td>The Underland Chronicles</td> 				<td>5</td> 	<td>Book</td> 		<td>Novel</td> 			<td>78,959</td>		<td>328</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
-							<tr> <td>-5</td> 	<td>Collins-Marks-of-Secret.jpg</td>				<td>Gregor and the Marks of Secret</td> 																				<td>Collins</td> 		<td>Suzanne</td> 		<td>2006</td> 	<td>The Underland Chronicles</td> 				<td>4</td> 	<td>Book</td> 		<td>Novel</td> 			<td>61,548</td>		<td>343</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
+							<tr> <td>-4</td> 	<td>Collins-Code-of-Claw.jpg</td>					<td>Gregor and the Code of Claw</td> 																					<td>Collins</td> 		<td>Suzanne</td>  		<td>2007</td> 	<td>The Underland Chronicles</td> 				<td>5</td> 	<td>Book</td> 		<td>Novel</td> 			<td>78,959</td>		<td>412</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td></td>	</tr>
 							-->
 							<tr> <td>-9</td> 	<td>King-Drawing-of-Three.jpg</td>					<td>The Drawing of Three</td> 																							<td>King</td> 			<td>Stephen</td> 		<td>1987</td> 	<td>The Dark Tower</td> 						<td>2</td> 	<td>Book</td> 		<td>Novel</td> 			<td>115,420</td>	<td>461</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td>The gunslinger came awake from a confused dream which seemed to consist of a single image: that of the Sailor in the Tarot deck from which the man in black had dealt (or purported to deal) the gunslinger's own moaning future.</td>	<td></td></tr>
 							<tr> <td>-10</td> 	<td>King-Gunslinger.jpg</td>						<td>The Gunslinger</td> 																								<td>King</td> 			<td>Stephen</td> 		<td>1982</td> 	<td>The Dark Tower</td> 						<td>1</td> 	<td>Book</td> 		<td>Novel</td> 			<td>56,583</td>		<td>251</td> 	<td></td>			<td></td>			<td></td>				<td></td>			<td></td>					<td>The man in black fled across the desert, and the gunslinger followed.</td>																							<td></td></tr>
@@ -630,6 +614,32 @@
 
 				<section>
 					<div class="mini-posts">
+						<article><header class="major"><h2>Random First Line</h2></header>
+							<blockquote id="firstLineQuote"></blockquote>
+						</article>
+
+						<article><header class="major"><h2>Format</h2></header>
+							<label for="sizeSelect">Image Size:</label>
+							<select id="sizeSelect" class="sorter" onchange="resizeAllImages()">
+								<option value="33.33%">Large</option>
+								<option value="20%">Medium</option>
+								<option value="10%">Small</option>
+							</select>
+							<br>
+							<br>
+							<label for="tableSelector">Sorting:</label>
+							<select id="tableSelector" class="sorter" onchange="builder()">
+								<option value="0">Select an option</option>
+								<option value="0">Chronologically</option>
+								<option value="2">Title</option>
+								<option value="3">Author Last Name</option>
+								<option value="4">Author First Name</option>
+								<option value="5">Publication Date</option>
+								<option value="6">Series</option>
+								<option value="11">Page Count</option>
+								<option value="10">Word Count</option>
+							</select>
+						</article>
 						<article><header class="major"><h2>Highlights</h2></header>
 							<p id="lfRead2024"></p>													<!-- Total books read this year supplied from the 'fictionRead2024()' function -->
 							<p id="sfRead2024"></p>													<!-- Total short fiction read this year supplied from the 'fictionRead2024()' function -->

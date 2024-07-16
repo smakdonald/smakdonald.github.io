@@ -258,8 +258,9 @@ hr {
   flex-wrap: wrap;
   box-sizing: border-box;
   align-items: stretch; }
+  /* Applies box-sizing to all direct children of .row */
   .row > * {
-    box-sizing: border-box; }
+    box-sizing: border-box; } /* Includes padding and border in the element's total width and height */
   .row.gtr-uniform > * > :last-child {
     margin-bottom: 0; }
   .row.aln-left {
