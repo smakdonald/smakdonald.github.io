@@ -260,6 +260,7 @@
 
 							<select id="quoteSelector" onchange="quoteFilter()">
 								<option value="0">Select a Semester</option>
+								<option value="8">Fall 2024</option>
 								<option value="7">Fall 2023</option>
 								<option value="6">Summer 2023</option>
 								<option value="5">Spring 2023</option>
@@ -275,6 +276,14 @@
 								<tbody>
 									<!-- 	0 -->		<!-- 1 -->			<!-- 2 --> 						<!-- 3 -->
 									<!-- 	# -->		<!-- Semester -->	<!-- Course -->					<!-- Quote -->	
+									<tr> <td>31</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td>I don't think there is a better classes than this, I understand the some negative feedback is required to improve the class. But I believe <b>if all my classes were like this one collage would be "easy".</b></td></tr>
+									<tr> <td>30</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td>The instructor is very relatable and <b>treats us like colleges rather than just students.</b> It's a nice change of flow compared to the big lecture halls.</td></tr>
+									<tr> <td>29</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td><b>He always helps as much as he can.</b> He tries to be as available as possible so we can get help when needed. He gives us helpful advice and study guides.</td></tr>
+									<tr> <td>28</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td><b>Mr. Macdonald is an amazing teacher and really cares about if his students grasp the content.</b> He typically has office hours everyday and if any questions come up outside of them I am able to email and get an email back explaining to me what it is I was struggling with.</td></tr>
+									<tr> <td>27</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td>The size of the class along with <b>the personality of the professor welcomes an open and free environment where you're not afraid to ask questions and get help if it's needed.</b> This class was the easiest of all my classes to connect with other students to work together on problems.</td> </tr>
+									<tr> <td>26</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td><b>He takes time to help students with all of their questions and needs.</b> He has many resources and office hours, to help students to preform better. Very good teacher!</td> </tr>
+									<tr> <td>25</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td><b>Sam is really good with communicating with students,</b> I often saw him helping out around the room making sure everyone understood. He's very understanding with everything and I really appreciate that.</td> </tr>
+									<tr> <td>24</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td>I don't think he has any flaws!</td> </tr>
 									<tr> <td>23</td> 	<td>Fall 2023</td>	<td>Calculus III</td>			<td><b>Best math recitation teacher I've ever had</b> and I feel like I won the lottery in math reci teachers.</td> </tr>
 									<tr> <td>22</td> 	<td>Fall 2023</td>	<td>Calculus III</td>			<td>Sam always came with a positive but honest attitude, was very understanding, and <b>truly cared about our success</b>.</td> </tr>
 									<tr> <td>21</td> 	<td>Fall 2023</td>	<td>Calculus III</td>			<td>Sam is very approachable. He makes the recitation more focused on actually understanding the material.</td> </tr>
@@ -382,18 +391,18 @@
 			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
 			var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
 
-			if (sortText !== 'Select a Semester') {
-				var filteredRowsArray = rowsArray.filter(function(row) {
-					return row.cells[1].textContent.trim() == sortText;
+			if (sortText !== 'Select a Semester') {							// If a semester was selected from the dropdown
+				var filteredRowsArray = rowsArray.filter(function(row) {	// Filter the array of rows
+					return row.cells[1].textContent.trim() == sortText;		// Such that the only rows remaining in the array are those from the selected semester
 				});
 			}
 			rowsArray = filteredRowsArray	
 			
-			var containerContent = ``;
-			var length = rowsArray.length;
-			if (length % 3 == 0) {var newWidth = 33.33;}
-			else if (length % 2 == 0) {var newWidth = 50;}
-			else var newWidth = 100;
+			var containerContent = ``;										// Create an empty container
+			var length = rowsArray.length;									// Set length variable equal to the number of quotes
+			if (length % 3 == 0) {var newWidth = 33.33;}					// If the number of quotes is divisible by 3, have 3 columns of quotes
+			else if (length % 2 == 0) {var newWidth = 50;}					// Otherwise, if divisible by 2, have 2 columns
+			else var newWidth = 100;										// Otherwise, just one column
 			
 			var styleTag = document.createElement('style');
 			styleTag.textContent = '.quote-container { width: calc(' + newWidth + '% - 10px); overflow: hidden; }';
