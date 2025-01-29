@@ -134,10 +134,9 @@
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
 				let manLine = new LeaderLine(
-					LeaderLine.pointAnchor(man, {x: '65%', y: '50%'}),
-					LeaderLine.pointAnchor (Sam, {x: 170,
-			    	y: 280}),
-					{color: '#f56a6a', size: 8, dropShadow: true}	
+					LeaderLine.pointAnchor(man, {x: '65%', y: '50%'}), 	// Beginning of the arrow set to the word 'Man' on the page: x=65%, y=50%
+					LeaderLine.pointAnchor (Sam, {x: 170, y: 280}),		// End of the arrow set to the my face  on the page: x=170, y=280
+					{color: '#f56a6a', size: 8, dropShadow: true}		// Set the color, size (8=thinnest of the 3), dropshadow
 					);
 				manLine.hide();
 				man.addEventListener('mouseover', () => {
@@ -149,8 +148,7 @@
 
 				let mythLine = new LeaderLine(
 					LeaderLine.pointAnchor(myth, {x: '70%', y: '50%'}),
-					LeaderLine.pointAnchor (Sam, {x: 170,
-			    	y: 280}),
+					LeaderLine.pointAnchor (Sam, {x: 170, y: 280}),
 					{color: '#f56a6a', size: 12, dropShadow: true}	
 					);
 				mythLine.hide();
@@ -194,6 +192,7 @@
 				}, 100*index + 500); 									// Change this value to adjust the delay between each header fade in (in milliseconds)
 				}
 			}
+
 		</script>
 	</body>
 </html>

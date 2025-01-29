@@ -71,27 +71,22 @@
                 transition: opacity .2s;
                 cursor: pointer;
             }
-
             .slide-image:hover + .carousel-controls label{
                 opacity: 0.5;
             }
-
             .carousel-controls label:hover {
                 opacity: 1;
             }
-
             .carousel-controls .prev-slide {
                 width: 49%;
                 text-align: left;
                 left: 0;
             }
-
             .carousel-controls .next-slide {
                 width: 49%;
                 text-align: right;
                 right: 0;
             }
-
             .carousel-dots {
                 position: absolute;
                 left: 0;
@@ -100,7 +95,6 @@
                 z-index: 999;
                 text-align: center;
             }
-
             .carousel-dots .carousel-dot {
                 display: inline-block;
                 width: 30px;
@@ -110,17 +104,19 @@
                 opacity: 0.5;
                 margin: 10px;
             }
-
             input:checked + .slide-container .slide-image {
                 opacity: 1;
                 transform: scale(1);
                 transition: opacity 1s ease-in-out;
             }
-
             input:checked + .slide-container .carousel-controls label {
                 display: block; 
             }
-
+            /* This is what syncs up what carousel dot is filled in */
+            input#hoodriver2024-img-1:checked ~ .carousel-dots label#hoodriver2024-img-dot-1,
+            input#hoodriver2024-img-2:checked ~ .carousel-dots label#hoodriver2024-img-dot-2,
+            input#hoodriver2024-img-3:checked ~ .carousel-dots label#hoodriver2024-img-dot-3,
+            input#hoodriver2024-img-4:checked ~ .carousel-dots label#hoodriver2024-img-dot-4,
             input#hawaii2024-img-1:checked ~ .carousel-dots label#hawaii2024-img-dot-1,
             input#hawaii2024-img-2:checked ~ .carousel-dots label#hawaii2024-img-dot-2,
             input#hawaii2024-img-3:checked ~ .carousel-dots label#hawaii2024-img-dot-3,
@@ -132,7 +128,11 @@
             input#nyc2023-img-1:checked ~ .carousel-dots label#nyc2023-img-dot-1,
             input#nyc2023-img-2:checked ~ .carousel-dots label#nyc2023-img-dot-2,
             input#nyc2023-img-3:checked ~ .carousel-dots label#nyc2023-img-dot-3,
-            input#nyc2023-img-4:checked ~ .carousel-dots label#nyc2023-img-dot-4 {
+            input#nyc2023-img-4:checked ~ .carousel-dots label#nyc2023-img-dot-4,
+            input#desolation-img-1:checked ~ .carousel-dots label#desolation-img-dot-1,
+            input#desolation-img-2:checked ~ .carousel-dots label#desolation-img-dot-2,
+            input#desolation-img-3:checked ~ .carousel-dots label#desolation-img-dot-3,
+            input#desolation-img-4:checked ~ .carousel-dots label#desolation-img-dot-4 {
                 opacity: 1;
             }
             input:checked + .slide-container .nav label { display: block; }
@@ -158,11 +158,66 @@
 
 						<span class="image main"><img src="images/Travel/4-24 Italy/Day5-1.jpg" alt="" /></span>
 
-						<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-						<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+						<p>Despite a carnal dislike for planes, I seem to find myself upon them quite a lot.</p>
 
 						<hr class="major" />
+
+                        <section><h2>Hood River - December 2024</h2>
+                            <div class="carousel">
+                                <ul class="slides">
+                                    <input type="radio" name="hoodriver2024-radio-buttons" id="hoodriver2024-img-1" checked />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/12-24 Hood River/HoodRiver-1.png" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="hoodriver2024-img-7" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="hoodriver2024-img-2" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="hoodriver2024-radio-buttons" id="hoodriver2024-img-2" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/12-24 Hood River/HoodRiver-2.png" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="hoodriver2024-img-1" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="hoodriver2024-img-3" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="hoodriver2024-radio-buttons" id="hoodriver2024-img-3" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/12-24 Hood River/HoodRiver-3.png" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="hoodriver2024-img-2" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="hoodriver2024-img-4" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="hoodriver2024-radio-buttons" id="hoodriver2024-img-4" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/12-24 Hood River/HoodRiver-7.png" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="hoodriver2024-img-3" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="hoodriver2024-img-1" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <div class="carousel-dots">
+                                        <label for="hoodriver2024-img-1" class="carousel-dot" id="hoodriver2024-img-dot-1"></label>
+                                        <label for="hoodriver2024-img-2" class="carousel-dot" id="hoodriver2024-img-dot-2"></label>
+                                        <label for="hoodriver2024-img-3" class="carousel-dot" id="hoodriver2024-img-dot-3"></label>
+                                        <label for="hoodriver2024-img-4" class="carousel-dot" id="hoodriver2024-img-dot-4"></label>
+                                    </div>
+                                </ul>
+                            </div>
+
+                            <p>Description coming at some point!</p>
+
+                            <hr class="major" />
+                        </section>
 
                         <section><h2>Hawai'i - June 2024</h2>
                             <div class="carousel">
@@ -216,8 +271,8 @@
                                 </ul>
                             </div>
 
-                            <p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+                            <p>Description coming at some point!</p>
+
                             <hr class="major" />
                         </section>
 
@@ -273,8 +328,7 @@
                                 </ul>
                             </div>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-                            <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+                            <p>Description coming at some point!</p>
 
                             <hr class="major" />
                         </section>
@@ -331,8 +385,64 @@
                                 </ul>
                             </div>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-                            <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+                            <p>Description coming at some point!</p>
+
+                            <hr class="major" />
+                        </section>
+
+                        <section><h2>Desolation Wilderness - August 2017</h2>
+                            <div class="carousel">
+                                <ul class="slides">
+                                    <input type="radio" name="desolation-radio-buttons" id="desolation-img-1" checked />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/8-17 Desolation/Desolation Wilderness - 1 of 4.png" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="desolation-img-4" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="desolation-img-2" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="desolation-radio-buttons" id="desolation-img-2" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/8-17 Desolation/Desolation Wilderness - 2 of 4.png" alt="" />
+                                        </div>
+                                        <div class="carousel-controls">
+                                            <label for="desolation-img-1" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="desolation-img-3" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="desolation-radio-buttons" id="desolation-img-3" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/8-17 Desolation/Desolation Wilderness - 3 of 4.png" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="desolation-img-2" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="desolation-img-4" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <input type="radio" name="desolation-radio-buttons" id="desolation-img-4" />
+                                    <li class="slide-container">
+                                        <div class="slide-image">
+                                            <img src="images/Travel/8-17 Desolation/Desolation Wilderness - 4 of 4.png" alt="" />
+                                        </div>
+                                            <div class="carousel-controls">
+                                            <label for="desolation-img-3" class="prev-slide"><span>&lsaquo;</span></label>
+                                            <label for="desolation-img-1" class="next-slide"><span>&rsaquo;</span></label>
+                                        </div>
+                                    </li>
+                                    <div class="carousel-dots">
+                                        <label for="desolation-img-1" class="carousel-dot" id="desolation-img-dot-1"></label>
+                                        <label for="desolation-img-2" class="carousel-dot" id="desolation-img-dot-2"></label>
+                                        <label for="desolation-img-3" class="carousel-dot" id="desolation-img-dot-3"></label>
+                                        <label for="desolation-img-4" class="carousel-dot" id="desolation-img-dot-4"></label>
+                                    </div>
+                                </ul>
+                            </div>
+
+                            <p>Description coming at some point!</p>
 
                             <hr class="major" />
                         </section>
