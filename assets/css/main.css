@@ -672,7 +672,7 @@ form {
   margin: 0 0 2em 0; }
 
 label {
-  color: #f56a6a;
+  color: #3d4449;
   display: block;
   font-size: 0.9em;
   font-weight: 600;
@@ -1513,6 +1513,115 @@ button,
           .posts article:last-child:after {
             display: none; } }
 
+.carousel {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 2.5%;
+  margin-top: 0%;
+}
+ul.slides {
+  display: block;
+  position: relative;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+}
+.slides * {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+ul.slides input {
+  display: none; 
+}
+.slide-container { 
+  display: block; 
+}
+.slide-image {
+  display: block;
+  position: absolute;
+  width: 100%;                        /* Width of image fits 100% of container */
+  height: 100%;                       /* Height of image fits 100% of container */
+  top: 0;
+  opacity: 0;
+  transition: all .7s ease-in-out;
+  margin-right: -2em;
+  margin-bottom: 3em;
+}   
+.slide-image img {
+  border-radius: 0.375em;             /* Round the edges of images */
+  width: auto;
+  min-width: 100%;
+  height: 100%;
+}
+.carousel-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  font-size: 100px;
+  line-height: 600px;
+  color: #f56a6a;
+}
+.carousel-controls label {
+  display: none;
+  position: absolute;
+  padding: 0 20px;
+  opacity: 0;
+  transition: opacity .2s;
+  cursor: pointer;
+}
+.slide-image:hover + .carousel-controls label{
+  opacity: 0.5;
+}
+.carousel-controls label:hover {
+  opacity: 1;
+}
+.carousel-controls .prev-slide {
+  width: 49%;
+  text-align: left;
+  left: 0;
+}
+.carousel-controls .next-slide {
+  width: 49%;
+  text-align: right;
+  right: 0;
+}
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 999;
+  text-align: center;
+}
+.carousel-dots .carousel-dot {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  opacity: 0.5;
+  margin: 10px;
+}
+input:checked + .slide-container .slide-image {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease-in-out;
+}
+input:checked + .slide-container .carousel-controls label {
+  display: block; 
+}
+input:checked + .slide-container .nav label { 
+  display: block; 
+}
+
 /* Wrapper */
 #wrapper {
   display: -moz-flex;
@@ -1537,13 +1646,13 @@ button,
   flex-shrink: 1;
   width: 100%; }
  
-  #main > .inner {                                            /* The inner content of the main container */
+  #main > .inner {                                           /* The inner content of the main container */
     padding: 0 6em 0.1em 6em ;                               /* Set padding inside the inner element */
     margin: 0 auto;                                          /* Center the inner element horizontally */
-    max-width: 110em; }                                      /* Set a maximum width for the inner element */
+    max-width: 110em; }                                      
     #main > .inner > section {                               /* Sections inside the inner element */
-      padding: 6em 0 4em 0 ;                                 /* Set padding inside the section element */
-      border-top: solid 2px rgba(210, 215, 217, 0.75); }   /* Add a top border to the section */
+      padding: 6em 0 4em 0 ;                                 
+      border-top: solid 2px rgba(210, 215, 217, 0.75); }   
       #main > .inner > section:first-of-type {               /* The first section inside the inner element */
         border-top: 0 !important; }                          /* Remove the top border for the first section */
 
@@ -1958,5 +2067,3 @@ button,
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
-
-    

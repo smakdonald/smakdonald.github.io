@@ -7,111 +7,6 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
-            .carousel {
-                margin-left: 5%;
-                margin-right: 5%;
-                margin-bottom: 2.5%;
-                margin-top: 0%;
-            }
-            ul.slides {
-                display: block;
-                position: relative;
-                height: 600px;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                list-style: none;
-            }
-            .slides * {
-                user-select: none;
-                -ms-user-select: none;
-                -moz-user-select: none;
-                -khtml-user-select: none;
-                -webkit-user-select: none;
-                -webkit-touch-callout: none;
-            }
-            ul.slides input {
-                display: none; 
-            }
-            .slide-container { 
-                display: block; 
-            }
-            .slide-image {
-                display: block;
-                position: absolute;
-                width: 100%;                        /* Width of image fits 100% of container */
-                height: 100%;                       /* Height of image fits 100% of container */
-                top: 0;
-                opacity: 0;
-                transition: all .7s ease-in-out;
-                margin-right: -2em;
-                margin-bottom: 3em;
-            }   
-            .slide-image img {
-                border-radius: 0.375em;             /* Round the edges of images */
-                width: auto;
-                min-width: 100%;
-                height: 100%;
-            }
-            .carousel-controls {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 999;
-                font-size: 100px;
-                line-height: 600px;
-                color: #f56a6a;
-            }
-            .carousel-controls label {
-                display: none;
-                position: absolute;
-                padding: 0 20px;
-                opacity: 0;
-                transition: opacity .2s;
-                cursor: pointer;
-            }
-            .slide-image:hover + .carousel-controls label{
-                opacity: 0.5;
-            }
-            .carousel-controls label:hover {
-                opacity: 1;
-            }
-            .carousel-controls .prev-slide {
-                width: 49%;
-                text-align: left;
-                left: 0;
-            }
-            .carousel-controls .next-slide {
-                width: 49%;
-                text-align: right;
-                right: 0;
-            }
-            .carousel-dots {
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: 20px;
-                z-index: 999;
-                text-align: center;
-            }
-            .carousel-dots .carousel-dot {
-                display: inline-block;
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                background-color: #ffffff;
-                opacity: 0.5;
-                margin: 10px;
-            }
-            input:checked + .slide-container .slide-image {
-                opacity: 1;
-                transform: scale(1);
-                transition: opacity 1s ease-in-out;
-            }
-            input:checked + .slide-container .carousel-controls label {
-                display: block; 
-            }
             /* This is what syncs up what carousel dot is filled in */
             input#hoodriver2024-img-1:checked ~ .carousel-dots label#hoodriver2024-img-dot-1,
             input#hoodriver2024-img-2:checked ~ .carousel-dots label#hoodriver2024-img-dot-2,
@@ -135,8 +30,6 @@
             input#desolation-img-4:checked ~ .carousel-dots label#desolation-img-dot-4 {
                 opacity: 1;
             }
-            input:checked + .slide-container .nav label { display: block; }
-
         </style>
 	</head>
 	<body class="is-preload">
