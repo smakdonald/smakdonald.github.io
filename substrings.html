@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordle</title>
+    <title>Substrings</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -20,55 +20,67 @@ h1 {
     }
 
 .letter-box {
-border: 2px solid gray;
-border-radius: 3px;
-margin: 2px;
-font-size: 2.5rem;
-font-weight: 700;
-height: 3rem;
-width: 3rem;
-display: flex;
-justify-content: center;
-align-items: center;
-text-transform: uppercase;
+    border: 2px solid gray;
+    border-radius: 3px;
+    margin: 2px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    height: 3rem;
+    width: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
 }
 
 .filled-box {
-border: 2px solid black;
+    border: 2px solid black;
 }
 
 .letter-row {
-display: flex;
+    display: flex;
 }
 
 #keyboard-cont {
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #keyboard-cont div {
-  display: flex;
+    display: flex;
 }
 
 .second-row {
-  margin: 0.5rem 0;
+    margin: 0.5rem 0;
 }
 
 .keyboard-button {
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.5rem;
-  margin: 0 2px;
-  cursor: pointer;
-  text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    margin: 0 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.fixed-input {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    font-size: 16px;
+    width: 10%;
 }
 
 
 </style>
 <body>
-    <h1> Wordle Clone </h1>
+    <h1> Substrings </h1>
+
+    <input type="text" class="fixed-input" placeholder="Enter text here...">
 
     <div id="game-board">
 
@@ -111,15 +123,13 @@ display: flex;
         </div>
     </div>
 
-
-
 <script
 src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<script src="assets/js/substrings.js" type="module"></script>
+<script src="assets/js/substrings.js"></script>
 
 </body>
 </html>
