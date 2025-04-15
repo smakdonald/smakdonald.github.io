@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Courier New';
+      background: #f8f8f8;
+      padding: 20px;
+    }
+
+    .scene {
+      display: none;
+      opacity: 1;
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      background-color: white;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .scene.highlight {
+      background-color: #fff8cc;
+    }
+
+    button {
+      margin: 5px 10px 0 0;
+      padding: 8px 12px;
+      font-size: 1em;
+      font-family: 'Courier New'
+    }
+  </style>
+</head>
+<body>
+
+  <!-- <button onclick="location.reload()">Restart Story</button> -->
+
+  <div id="0" class="scene">
+    <p>(0) You open your eyes to a brand new day. Morning dew coats your window, the birds are chirping in the trees, and you're gripped with a most unnatural sense of deja vu.</p>
+    <p>You've been here before.</p>
+    <p>If this is your first repeated day, proceed to (A).</p>
+    <p>If this isn't your first rodeo, proceed to (B).</p>
+
+
+    <button onclick="showScene('A')">(A)</button>
+    <button onclick="showScene('B')">(B)</button>
+  </div>
+
+  <div id="A" class="scene">
+    <p>Nobody expects to end up in a time loop. Its not, typically, something one seeks out with any degree of success. And yet, here we are.</p>
+    <p>Yes, I said 'we'. Who am I, you ask? Don't worry about that just now. I'm sure there will be plenty of time for it later.</p>
+    <p>Perhaps congratulations are in order. Or possibly condolences. It really depends on whether or not this was something you'd had penned in on your calendar. If it was, chances are you'll soon run out of ink. Regardless, now that we're here we should probably try to make the best of it.</p>
+    <p>If all of this seems pretty straight forward, proceed to (C).</p>
+    <p>If you really do feel like insisting on getting to know me better, proceed to (K).</p>
+    <p>If this already feels worryingly familiar... proceed to (Z).</p>
+    <button onclick="showScene('C')">(C)</button>
+    <button onclick="showScene('K')">(K)</button>
+    <button onclick="showScene('Z')">(Z)</button>
+
+  </div>
+
+  <div id="B" class="scene">
+    <p>Welcome back. If feels like only yesterday we were first getting to know each other.</p>
+    <p>How are you feeling about being stuck in a time loop today?</p>
+    <p>If you are enjoying your current stint in the time loop, proceed to (L).</p>
+    <p>If you are trying to escape the time loop, proceed to (Esc).</p>
+    <p>If you lash out at me in a fit of sheer frustration, desperation, rage, boredom, or some combination thereof, proceed to (K).</p>
+    <p>If it doesn't matter, if nothing matters, proceed to (N).</p>
+
+    <button onclick="showScene('L')">(L)</button>
+    <button onclick="showScene('Esc')">(Esc)</button>
+    <button onclick="showScene('K')">(K)</button>
+    <button onclick="showScene('N')">(N)</button>
+  </div>
+
+  <div id="C" class="scene">
+    <p>A dragon lumbers past. You hold your breath...</p>
+  </div>
+
+  <div id="H" class="scene">
+    <p>A dragon lumbers past. You hold your breath...</p>
+  </div>
+
+  <div id="L" class="scene">
+    <p>The cave rumbles — something woke up.</p>
+    <button onclick="showScene('scene5')">Hide behind rocks</button>
+  </div>
+
+  <div id="K" class="scene">
+    <p>A dragon lumbers past. You hold your breath...</p>
+  </div>
+
+  <div id="N" class="scene">
+    <p>A dragon lumbers past. You hold your breath...</p>
+  </div>
+
+  <div id="Q" class="scene">
+    <p>A dragon lumbers past. You hold your breath...</p>
+  </div>
+
+  <div id="R" class="scene">
+    <p>A dragon lumbers past. You hold your breath...</p>
+  </div>
+
+  <div id="T" class="scene">
+    <p>A dragon lumbers past. You hold your breath...</p>
+  </div>
+
+  <div id="Z" class="scene">
+    <p>A dragon lumbers past. You hold your breath...</p>
+  </div>
+
+
+
+  <div id="timeoutModal" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+">
+  <div style="
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  ">
+    <h2>Oops! You took too long.</h2>
+    <p>That's the thing about time loops. They loop.</p>
+    <p>Proceed to (0).</p>
+    <button onclick="location.reload()" style="
+      padding: 10px 20px;
+      font-size: 1em;
+      margin-top: 10px;
+    ">(0)</button>
+  </div>
+</div>
+
+  <script>
+    function showScene(id) {
+      // Remove highlight from previous
+      const oldHighlight = document.querySelector('.scene.highlight');
+      if (oldHighlight) oldHighlight.classList.remove('highlight');
+
+      // Show new scene
+      const newScene = document.getElementById(id);
+      newScene.style.display = 'block';
+      newScene.classList.add('highlight');
+      newScene.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Start the story on page load
+    window.onload = () => {
+      const start = document.getElementById('0');
+      start.style.display = 'block';
+      start.classList.add('highlight');
+    };
+
+    // Show modal after 3 minutes (180,000 milliseconds)
+    setTimeout(() => {
+    document.getElementById('timeoutModal').style.display = 'flex';
+    }, 180000); // 3 minutes in milliseconds
+  </script>
+</body>
+</html>
