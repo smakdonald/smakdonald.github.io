@@ -87,7 +87,7 @@
     <option value="Water">Water</option>
   </select>
 
-  <label for="thirdType"></label>
+  <!--<label for="thirdType"></label>
   <select id="thirdType" onchange="displayCellContent()">
     <option value="None">None</option>
     <option value="Bug">Bug</option>
@@ -110,7 +110,7 @@
     <option value="Sound">Sound</option>
     <option value="Steel">Steel</option>
     <option value="Water">Water</option>
-  </select>
+  </select>-->
   
   <br>
 
@@ -614,12 +614,12 @@
     // Get the selected type from the dropdown
     var firstType = document.getElementById("firstType").value;     // Value of first type
     var secondType = document.getElementById("secondType").value;   // Value of second type (could be None)
-    var thirdType = document.getElementById("thirdType").value;   // Value of third type (could be None)
+    //var thirdType = document.getElementById("thirdType").value;   // Value of third type (could be None)
 
     // Get the column index based on the selected type
     var columnIndex1 = getColumnIndex(firstType);
     var columnIndex2 = getColumnIndex(secondType);
-    var columnIndex3 = getColumnIndex(thirdType);
+    //var columnIndex3 = getColumnIndex(thirdType);
     
     var rowIndices = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]; 
     
@@ -636,11 +636,11 @@
       var row = table.rows[rowIndices[i]];                          
       var cell1 = row.cells[columnIndex1];                          // Get the modifyer for the first type
       var cell2 = row.cells[columnIndex2];                          // Get the modifyer for the second type
-      var cell3 = row.cells[columnIndex3];                          // Get the modifyer for the third type
+      //var cell3 = row.cells[columnIndex3];                          // Get the modifyer for the third type
       if (columnIndex1 == columnIndex2) {
         var cellValue = parseFloat(cell1.innerHTML);
       }
-      else {var cellValue = parseFloat(cell1.innerHTML) * parseFloat(cell2.innerHTML) * parseFloat(cell3.innerHTML)}
+      else {var cellValue = parseFloat(cell1.innerHTML) * parseFloat(cell2.innerHTML)} // * parseFloat(cell3.innerHTML)
 
       tableContent += `
         <tr>
