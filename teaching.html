@@ -90,8 +90,9 @@
 					<section><header class="main"><h1>Teaching</h1></header>
 						<hr class="major" />
 
-						<button type="button" class="collapsible" onload="activate()">Teaching Experience</button>
-						<div class="content"><header class="major"><h2>Teaching Experience</h2></header>
+                        <header class="major"><h2 id="experience">Teaching Experience</h2></header>
+						<button type="button" class="collapsible">Collapse</button>
+						<div class="content">
 							<ul>
 								<li>
 									<p>
@@ -182,10 +183,12 @@
 									</p>
 								</li>
 							</ul>
+                            <hr class="major"/>
 						</div> 
 
-						<button type="button" class="collapsible">Teaching Philosophy</button>
-						<div class="content"><header class="major"><h2>Teaching Philosophy</h2></header>
+                        <header class="major"><h2 id="experience">Teaching Philosophy</h2></header>
+						<button type="button" class="collapsible">Collapse</button>
+						<div class="content">
 							<p>
 								Learning, by its very nature, is a vulnerable endeavor. 
 								The window in which our students are least confident in their abilities is precisely when they are receiving feedback from their instructors.
@@ -259,13 +262,13 @@
 								In courses where a MBG system is not feasible, I still aim to promote growth by allowing students to make revisions on assignments in order to reward improvement rather than perfection. 
 								I aim to make the classroom reflect this philosophy well: I thank students for sharing their responses, even when they are incorrect, and make a point to find value in these errors so that everyone can learn from them together.
 							</p>
-	
+                            <hr class="major"/>
 						</div> 
 
-						<hr class="major" />
-
-						<header class="major"><h2 id="quotes">Student Quotes</h2></header>
-
+                        <header class="major"><h2 id="quotes">Selected Student Quotes</h2></header>
+                        <button type="button" id="toggleQuotes" class="collapsible">Collapse</button>
+                        <div class="content">
+                          
 							<select id="quoteSelector" onchange="quoteFilter()">
 								<option value="0">Select a Semester</option>
 								<option value="8">Fall 2024</option>
@@ -278,9 +281,9 @@
 								<option value="1">Fall 2021</option>
 							</select>
 
-							<div class="total-container" id="totalContainer"></div>
+							<div class="total-container" id="totalContainer">
 
-							<table id="myTable"> <!--Table where all the data about the fiction is stored -->
+							<table id="myTable"> <!--Table where all the data about the quotes is stored -->
 								<tbody>
 									<!-- 	0 -->		<!-- 1 -->			<!-- 2 --> 						<!-- 3 -->
 									<!-- 	# -->		<!-- Semester -->	<!-- Course -->					<!-- Quote -->	
@@ -318,6 +321,8 @@
 									<tr> <td>0</td> 	<td>Fall 2021</td>	<td>Calculus I</td>				<td>There is nothing Sam can improve upon, and the very notion of it would be an affront to God. In all seriousness he was <b>my favorite instructor this semester</b> and I don't have any complaints at all.</td> </tr>
 								</tbody>
 							</table>
+                            </div>
+                        </div>
 
 						<hr class="major" />
 						<header class="major">
@@ -392,19 +397,21 @@
 	<script src="assets/js/main.js"></script>
 	<script>
 		function quoteFilter() {
+			// Code for filtering the correct quotes depending on what semester is selected from the dropdown menu
 			var sortSelect = document.getElementById("quoteSelector"),
 				sortIndex = sortSelect.selectedIndex
 				sortText = sortSelect.options[sortIndex].text;
-			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table
-			var rowsArray = Array.from(tableRows);							// Creates an array with each row as an element
-
+				console.log(sortIndex)
+			const tableRows = document.querySelectorAll("#myTable tr");  	// Get all rows of the table as a constant
+			var rowsArray = Array.from(tableRows);							// Takes the constant 'tableRows' and creates an array with each row as an element
 			if (sortText !== 'Select a Semester') {							// If a semester was selected from the dropdown
 				var filteredRowsArray = rowsArray.filter(function(row) {	// Filter the array of rows
 					return row.cells[1].textContent.trim() == sortText;		// Such that the only rows remaining in the array are those from the selected semester
 				});
 			}
-			rowsArray = filteredRowsArray	
-			
+			rowsArray = filteredRowsArray
+
+			// Code for determining dimensions of the containers for each quote, depending on the total number of quotes
 			var containerContent = ``;										// Create an empty container
 			var length = rowsArray.length;									// Set length variable equal to the number of quotes
 			if (length % 3 == 0) {var newWidth = 33.33;}					// If the number of quotes is divisible by 3, have 3 columns of quotes
@@ -434,7 +441,6 @@
 			totalContainer.innerHTML = containerContent;	
 		}
 
-
 		var coll = document.getElementsByClassName("collapsible");
 		var i;
 		
@@ -442,17 +448,28 @@
 			coll[i].addEventListener("click", function() {
 				this.classList.toggle("active");
 				var content = this.nextElementSibling;
-				if (content.style.maxHeight){
-					content.style.maxHeight = null;
-				} else {
-					content.style.maxHeight = content.scrollHeight + "px";
-				} 
-			});
+				if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    this.textContent = "Expand";  // Change button text to 'Expand'
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    this.textContent = "Collapse"; // Change button text to 'Collapse'
+                }
+            });
 		}
-	</script>
-	<script>
-		var selector = document.getElementById("quoteSelector");
-		selector.selectedIndex = 0;
+
+        var selector = document.getElementById("quoteSelector");				// Makes the most recent semester's quotes load automatically when the page loads
+		selector.selectedIndex = 1;
+		document.addEventListener("DOMContentLoaded", function () {
+      		quoteFilter();
+
+            // Automatically expand all collapsible sections on load
+            for (var i = 0; i < coll.length; i++) {
+                var content = coll[i].nextElementSibling;
+                coll[i].classList.add("active"); // Add active class to show it's expanded
+                content.style.maxHeight = content.scrollHeight + "px"; // Set maxHeight to expand
+            }
+		});
 	</script>
 	</body>
 </html>
