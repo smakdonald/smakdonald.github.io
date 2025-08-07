@@ -75,7 +75,7 @@
 							</p>
 							
 							<p>
-								Outside of math, you will probably find me <a href="climb.html" class="text-link">climbing</a>, <a href="reading.html" class="text-link" >reading</a>, or neglecting my <a href="cats.html" class="text-link">cats</a>.
+								Outside of math (but often intersecting it) I write speclulative fiction under the name Sam E. Sutin. When I'm not writing, you can probably find me <a href="climb.html" class="text-link">climbing</a>, <a href="reading.html" class="text-link" >reading</a>, or neglecting my <a href="cats.html" class="text-link">cats</a>.
 							</p>
 							
 							<ul class="actions">
@@ -140,6 +140,7 @@
 		<script src="assets/js/leader-line.min.js"></script>
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
+				replaceHexColor('#f56a6a', '#007474');  // Replace red with blue
 				let manLine = new LeaderLine(
 					LeaderLine.pointAnchor(man, {x: '65%', y: '50%'}), 	// Beginning of the arrow set to the word 'Man' on the page: x=65%, y=50%
 					LeaderLine.pointAnchor (Sam, {x: 170, y: 280}),		// End of the arrow set to the my face  on the page: x=170, y=280
@@ -200,6 +201,56 @@
 				}
 			}
 
+		</script>
+
+		<script>
+			function replaceHexColor(oldHex, newHex) {
+  function normalizeHex(hex) {
+    hex = hex.trim().toLowerCase();
+    if (hex.length === 4) {
+      hex = '#' + [...hex.slice(1)].map(c => c + c).join('');
+    }
+    return hex;
+  }
+
+  function toHex(color) {
+    const ctx = document.createElement('canvas').getContext('2d');
+    ctx.fillStyle = color;
+    const computed = ctx.fillStyle;
+
+    const rgb = computed.match(/\d+/g);
+    if (!rgb) return null;
+    return (
+      '#' +
+      rgb
+        .slice(0, 3)
+        .map(x => {
+          const hex = parseInt(x).toString(16);
+          return hex.length === 1 ? '0' + hex : hex;
+        })
+        .join('')
+    );
+  }
+
+  const oldColorHex = normalizeHex(oldHex);
+  const newColorHex = normalizeHex(newHex);
+
+  const allElements = document.querySelectorAll('*');
+
+  allElements.forEach(el => {
+    const computedStyle = getComputedStyle(el);
+
+    ['color', 'backgroundColor', 'borderColor'].forEach(prop => {
+      const colorValue = computedStyle[prop];
+      const colorHex = toHex(colorValue);
+      if (colorHex && colorHex.toLowerCase() === oldColorHex) {
+        el.style[prop] = newColorHex;
+      }
+    });
+  });
+}
+
+			
 		</script>
 	</body>
 </html>
