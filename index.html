@@ -45,9 +45,19 @@
 					<header id="header"><!-- Header -->
 						<a href="index.html" class="logo"><strong>Sam Macdonald</strong> NSF Graduate Research Fellow</a>
 						<ul class="icons">
+							<li class="theme-selector">
+								<a href="#" class="icon solid fa-palette">
+								  <span class="label">Theme</span>
+								</a>
+								<ul class="theme-menu">
+									<li data-theme="cherry"    style="--swatch-color: #cf0234;"></li>
+									<li data-theme="skobeloff" style="--swatch-color: #007474;"></li>
+									<li data-theme="indigo"    style="--swatch-color: #4b0082;"></li>
+									<li data-theme="goldenrod" style="--swatch-color: #daa520;"></li>
+								</ul>
+							  </li>
 							<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin"><span class="label">Linked In</span></a></li>
 							<li><a href="https://github.com/smakdonald" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="https://open.spotify.com/user/thesam.mac" class="icon brands fa-spotify"><span class="label">Spotify</span></a></li>
 							<li><a href="cats.html" class="icon solid fa-cat"><span class="label">Cat</span></a></li>
 						</ul>
 					</header><!-- End Header -->
@@ -139,12 +149,14 @@
 		<script src="assets/js/main.js"></script>
 		<script src="assets/js/leader-line.min.js"></script>
 		<script>
+			const textColor = getComputedStyle(document.documentElement)
+				.getPropertyValue('--color-default')
+				.trim();
 			document.addEventListener('DOMContentLoaded', () => {
-				replaceHexColor('#f56a6a', '#007474');  // Replace red with blue
 				let manLine = new LeaderLine(
 					LeaderLine.pointAnchor(man, {x: '65%', y: '50%'}), 	// Beginning of the arrow set to the word 'Man' on the page: x=65%, y=50%
 					LeaderLine.pointAnchor (Sam, {x: 170, y: 280}),		// End of the arrow set to the my face  on the page: x=170, y=280
-					{color: '#f56a6a', size: 8, dropShadow: true}		// Set the color, size (8=thinnest of the 3), dropshadow
+					{color: textColor, size: 8, dropShadow: true}		// Set the color, size (8=thinnest of the 3), dropshadow
 					);
 				manLine.hide();
 				man.addEventListener('mouseover', () => {
@@ -157,7 +169,7 @@
 				let mythLine = new LeaderLine(
 					LeaderLine.pointAnchor(myth, {x: '70%', y: '50%'}),
 					LeaderLine.pointAnchor (Sam, {x: 170, y: 280}),
-					{color: '#f56a6a', size: 12, dropShadow: true}	
+					{color: textColor, size: 12, dropShadow: true}	
 					);
 				mythLine.hide();
 				myth.addEventListener('mouseover', () => {
@@ -171,7 +183,7 @@
 					LeaderLine.pointAnchor(mac, {x: '80%', y: '50%'}),
 					LeaderLine.pointAnchor (Sam, {x: 170,
 			    	y: 280}),
-					{color: '#f56a6a', size: 16, dropShadow: true}	
+					{color: textColor, size: 16, dropShadow: true}	
 					);
 					macLine.hide();
 				mac.addEventListener('mouseover', () => {
@@ -204,53 +216,40 @@
 		</script>
 
 		<script>
-			function replaceHexColor(oldHex, newHex) {
-  function normalizeHex(hex) {
-    hex = hex.trim().toLowerCase();
-    if (hex.length === 4) {
-      hex = '#' + [...hex.slice(1)].map(c => c + c).join('');
-    }
-    return hex;
-  }
+			// ===== Theme persistence =====
+			const savedTheme = localStorage.getItem('theme') || 'cherry';
+			document.documentElement.setAttribute('data-theme', savedTheme);
 
-  function toHex(color) {
-    const ctx = document.createElement('canvas').getContext('2d');
-    ctx.fillStyle = color;
-    const computed = ctx.fillStyle;
+			// ===== Theme menu logic =====
+			const themeSelector = document.querySelector('.theme-selector');
+			const themeMenuItems = document.querySelectorAll('.theme-menu li');
 
-    const rgb = computed.match(/\d+/g);
-    if (!rgb) return null;
-    return (
-      '#' +
-      rgb
-        .slice(0, 3)
-        .map(x => {
-          const hex = parseInt(x).toString(16);
-          return hex.length === 1 ? '0' + hex : hex;
-        })
-        .join('')
-    );
-  }
+			// Apply initial selection border
+			themeMenuItems.forEach(item => {
+				if (item.getAttribute('data-theme') === savedTheme) {
+					item.classList.add('selected');
+				}
+			});
 
-  const oldColorHex = normalizeHex(oldHex);
-  const newColorHex = normalizeHex(newHex);
+			themeSelector.querySelector('a').addEventListener('click', (e) => {
+				e.preventDefault();
+				themeSelector.classList.toggle('open');
+			});
 
-  const allElements = document.querySelectorAll('*');
+			themeMenuItems.forEach(item => {
+				item.addEventListener('click', () => {
+					const theme = item.getAttribute('data-theme');
+					document.documentElement.setAttribute('data-theme', theme);
+					localStorage.setItem('theme', theme);
 
-  allElements.forEach(el => {
-    const computedStyle = getComputedStyle(el);
+					// Update selected border
+					themeMenuItems.forEach(i => i.classList.remove('selected'));
+					item.classList.add('selected');
 
-    ['color', 'backgroundColor', 'borderColor'].forEach(prop => {
-      const colorValue = computedStyle[prop];
-      const colorHex = toHex(colorValue);
-      if (colorHex && colorHex.toLowerCase() === oldColorHex) {
-        el.style[prop] = newColorHex;
-      }
-    });
-  });
-}
-
-			
+					themeSelector.classList.remove('open');
+					updateAllLineColors();
+				});
+			});
 		</script>
 	</body>
 </html>

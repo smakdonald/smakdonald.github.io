@@ -321,3 +321,38 @@ $(document).ready(function() {
 		});
 	});
 });
+
+			// ===== Theme persistence =====
+			const savedTheme = localStorage.getItem('theme') || 'cherry';
+			document.documentElement.setAttribute('data-theme', savedTheme);
+
+			// ===== Theme menu logic =====
+			const themeSelector = document.querySelector('.theme-selector');
+			const themeMenuItems = document.querySelectorAll('.theme-menu li');
+
+			// Apply initial selection border
+			themeMenuItems.forEach(item => {
+				if (item.getAttribute('data-theme') === savedTheme) {
+					item.classList.add('selected');
+				}
+			});
+
+			themeSelector.querySelector('a').addEventListener('click', (e) => {
+				e.preventDefault();
+				themeSelector.classList.toggle('open');
+			});
+
+			themeMenuItems.forEach(item => {
+				item.addEventListener('click', () => {
+					const theme = item.getAttribute('data-theme');
+					document.documentElement.setAttribute('data-theme', theme);
+					localStorage.setItem('theme', theme);
+
+					// Update selected border
+					themeMenuItems.forEach(i => i.classList.remove('selected'));
+					item.classList.add('selected');
+
+					themeSelector.classList.remove('open');
+					updateAllLineColors();
+				});
+			});
