@@ -151,26 +151,20 @@ a:hover {
 a:hover strong {
   color: inherit; }
 
+
 .text-link {
-    text-decoration: none;
-    position: relative; 							/* Added for positioning */
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-default), var(--color-default));
+  background-size: 0% 2px;        /* Start hidden */
+  background-repeat: no-repeat;
+  background-position: 0 100%;    /* Position at bottom */
+  transition: background-size 0.3s ease;
 }
 
-.text-link::after { 								  /* Added pseudo-element for the bar */
-  content: "";
-  position: absolute;
-  left: 0; 										        /* Initially hide the bar to the left */
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background-color: var(--color-default);
-  transition: width 0.3s ease; 				/* Add transition for width */
-  border-radius: 4px; 							  /* Round out the edges */
+.text-link:hover {
+  background-size: 100% 2px;      /* Expand underline across all wrapped lines */
 }
 
-.text-link:hover::after {
-  width: 100%; 									      /* Expand the width on hover */
-}
 
 strong, b {
   color: var(--bold-text-color);

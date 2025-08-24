@@ -95,3 +95,14 @@
 							<iframe width="400" height="225" src="https://www.youtube.com/embed/zuoPZkFcLVs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 							<iframe width="400" height="225" src="https://www.youtube.com/embed/BnC6IABJXOI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 						</div> 
+
+
+
+
+                        These days, a majority of my time is split between the following three pursuits:
+								<ul>
+									<li><a href="rj.html" class="text-link" >Prison education</a>, specifically providing college level courses for prisoners and expanding access to educational resources behind bars;</li>
+									<li>Development of <a href="OERs.html" class="text-link" >Open Educational Resources</a> (OERs), both at the undergradaute and graduate level; and</li>
+									<li>Shifts in mathematical identity at transitionary points in undergraduate education, such as a first calculus or proof based course.</li>
+									<li>Intersections of mathematics and other fields of study, such as fiction, gerrymandering, and history.</li>
+								</ul>

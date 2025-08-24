@@ -58,7 +58,7 @@
 							<li><a href="https://www.linkedin.com/in/sam-macdonald-58311a280/" class="icon brands fa-linkedin"><span class="label">Linked In</span></a></li>
 							<li><a href="https://github.com/smakdonald" class="icon brands fa-github"><span class="label">Github</span></a></li>
 							<li><a href="cats.html" class="icon solid fa-cat"><span class="label">Cat</span></a></li>
-							<li><a href="cats.html" class="icon solid fa-users"><span class="label">Friends</span></a></li>
+							<li><a href="friends.html" class="icon solid fa-users"><span class="label">Friends</span></a></li>
 						</ul>
 					</header><!-- End Header -->
 					<section id="banner"><!-- Section -->
@@ -70,22 +70,17 @@
 							</header>
 																	
 							<p>
-								Sam Macdonald is a fifth year doctoral candidate at the <a href="https://www.unl.edu/" class="text-link" target="_blank">University of Nebraska – Lincoln</a> pursuing a Ph.D. in mathematics.
-								He is advised by <a href="https://yvonnexlai.com/" class="text-link" target="_blank">Yvonne Lai</a>, received an NSF Graduate Research Fellowship in the Spring of 2023, and would prefer to refer to himself in the first person, moving forward.
+								I'm Sam Macdonald, a fifth year doctoral candidate at the <a href="https://www.unl.edu/" class="text-link" target="_blank">University of Nebraska – Lincoln</a> pursuing a Ph.D. in mathematics.
+								I'm advised by <a href="https://yvonnexlai.com/" class="text-link" target="_blank">Yvonne Lai</a>, received an NSF Graduate Research Fellowship in the Spring of 2023, and am on the job market this year!
 							</p>
 							
 							<p>
-								I am primarily interested in mathematics education and expanding the accessibility of mathematics. 
-								These days, a majority of my time is split between the following three pursuits:
-								<ul>
-									<li><a href="rj.html" class="text-link" >Prison education</a>, specifically providing college level courses for prisoners and expanding access to educational resources behind bars;</li>
-									<li>Development of <a href="OERs.html" class="text-link" >Open Educational Resources</a> (OERs), both at the undergradaute and graduate level; and</li>
-									<li>Shifts in mathematical identity at transitionary points in undergraduate education, such as a first calculus or proof based course.</li>
-								</ul>
+								My research is centered in undergraduate mathematics education, specifically in the areas of mathematical identity and equity gaps at transitional points in undergraduate education, such as a first calculus or proof writing course. 
+								Additionally, I am active in the prison education community, and work to expand access to mathematics education behind bars.
 							</p>
 							
 							<p>
-								Outside of math (but often intersecting it) I <a href="write.html" class="text-link">write</a> speclulative fiction under the name Sam E. Sutin. When I'm not writing, you can probably find me <a href="climb.html" class="text-link">climbing</a>, <a href="reading.html" class="text-link" >reading</a>, or neglecting my <a href="cats.html" class="text-link">cats</a>.
+								Outside of math (but often intersecting it) I <a href="write.html" class="text-link">write speclulative fiction</a> under the name Sam E. Sutin. When I'm not writing, you can probably find me <a href="climb.html" class="text-link">climbing</a>, <a href="reading.html" class="text-link" >reading</a>, or neglecting my <a href="cats.html" class="text-link">cats</a>.
 							</p>
 							
 							<ul class="actions">
@@ -151,47 +146,58 @@
 			const textColor = getComputedStyle(document.documentElement)
 				.getPropertyValue('--color-default')
 				.trim();
-			document.addEventListener('DOMContentLoaded', () => {
-				let manLine = new LeaderLine(
-					LeaderLine.pointAnchor(man, {x: '65%', y: '50%'}), 	// Beginning of the arrow set to the word 'Man' on the page: x=65%, y=50%
-					LeaderLine.pointAnchor (Sam, {x: 170, y: 280}),		// End of the arrow set to the my face  on the page: x=170, y=280
-					{color: textColor, size: 8, dropShadow: true}		// Set the color, size (8=thinnest of the 3), dropshadow
-					);
-				manLine.hide();
-				man.addEventListener('mouseover', () => {
-					manLine.show();
-				});
-				man.addEventListener('mouseout', () => {
-					manLine.hide();
-				});
+                document.addEventListener('DOMContentLoaded', () => {
+                    const man = document.getElementById('man');
+                    const myth = document.getElementById('myth');
+                    const mac = document.getElementById('mac');
+                    const Sam = document.getElementById('Sam');
 
-				let mythLine = new LeaderLine(
-					LeaderLine.pointAnchor(myth, {x: '70%', y: '50%'}),
-					LeaderLine.pointAnchor (Sam, {x: 170, y: 280}),
-					{color: textColor, size: 12, dropShadow: true}	
-					);
-				mythLine.hide();
-				myth.addEventListener('mouseover', () => {
-					mythLine.show();
-				});
-				myth.addEventListener('mouseout', () => {
-					mythLine.hide();
-				});
+                    if (!man || !myth || !mac || !Sam) return;
 
-				let macLine = new LeaderLine(
-					LeaderLine.pointAnchor(mac, {x: '80%', y: '50%'}),
-					LeaderLine.pointAnchor (Sam, {x: 170,
-			    	y: 280}),
-					{color: textColor, size: 16, dropShadow: true}	
-					);
-					macLine.hide();
-				mac.addEventListener('mouseover', () => {
-					macLine.show();
-				});
-				mac.addEventListener('mouseout', () => {
-					macLine.hide();
-				});
-			});
+                    const getCurrentTextColor = () =>
+                        getComputedStyle(document.documentElement)
+                        .getPropertyValue('--color-default')
+                        .trim();
+
+                    const commonOpts = { dropShadow: true, hide: true };
+
+                    window.manLine = new LeaderLine(
+                        LeaderLine.pointAnchor(man, { x: '65%', y: '50%' }),
+                        LeaderLine.pointAnchor(Sam, { x: '37.5%', y: '32.5%' }),
+                        { ...commonOpts, size: 8, color: getCurrentTextColor() }
+                    );
+
+                    window.mythLine = new LeaderLine(
+                        LeaderLine.pointAnchor(myth, { x: '70%', y: '50%' }),
+                        LeaderLine.pointAnchor(Sam, { x: '37.5%', y: '32.5%' }),
+                        { ...commonOpts, size: 12, color: getCurrentTextColor() }
+                    );
+
+                    window.macLine = new LeaderLine(
+                        LeaderLine.pointAnchor(mac, { x: '80%', y: '50%' }),
+                        LeaderLine.pointAnchor(Sam, { x: '37.5%', y: '32.5%' }),
+                        { ...commonOpts, size: 16, color: getCurrentTextColor() }
+                    );
+
+                    // hover events
+                    man.addEventListener('mouseover', () => window.manLine.show());
+                    man.addEventListener('mouseout', () => window.manLine.hide());
+
+                    myth.addEventListener('mouseover', () => window.mythLine.show());
+                    myth.addEventListener('mouseout', () => window.mythLine.hide());
+
+                    mac.addEventListener('mouseover', () => window.macLine.show());
+                    mac.addEventListener('mouseout', () => window.macLine.hide());
+
+                    // updater for theme changes
+                    window.updateAllLineColors = function () {
+                        const newColor = getCurrentTextColor();
+                        [window.manLine, window.mythLine, window.macLine]
+                        .forEach(line => line.setOptions({ color: newColor }));
+                    };
+                });
+
+
 		</script>
 
 		<script>
@@ -215,40 +221,23 @@
 		</script>
 
 		<script>
-			// ===== Theme persistence =====
-			const savedTheme = localStorage.getItem('theme') || 'cherry';
-			document.documentElement.setAttribute('data-theme', savedTheme);
 
-			// ===== Theme menu logic =====
-			const themeSelector = document.querySelector('.theme-selector');
-			const themeMenuItems = document.querySelectorAll('.theme-menu li');
+            // Grab current theme color from CSS variable
+            function getCurrentTextColor() {
+            return getComputedStyle(document.documentElement)
+                    .getPropertyValue('--color-default')
+                    .trim();
+            }
 
-			// Apply initial selection border
-			themeMenuItems.forEach(item => {
-				if (item.getAttribute('data-theme') === savedTheme) {
-					item.classList.add('selected');
-				}
-			});
+            // After you create manLine, mythLine, macLine
+            window.updateAllLineColors = function () {
+            const newColor = getComputedStyle(document.documentElement)
+                                .getPropertyValue('--color-default')
+                                .trim();
+            [manLine, mythLine, macLine].forEach(line => line.setOptions({ color: newColor }));
+            };
 
-			themeSelector.querySelector('a').addEventListener('click', (e) => {
-				e.preventDefault();
-				themeSelector.classList.toggle('open');
-			});
 
-			themeMenuItems.forEach(item => {
-				item.addEventListener('click', () => {
-					const theme = item.getAttribute('data-theme');
-					document.documentElement.setAttribute('data-theme', theme);
-					localStorage.setItem('theme', theme);
-
-					// Update selected border
-					themeMenuItems.forEach(i => i.classList.remove('selected'));
-					item.classList.add('selected');
-
-					themeSelector.classList.remove('open');
-					updateAllLineColors();
-				});
-			});
 		</script>
 	</body>
 </html>
