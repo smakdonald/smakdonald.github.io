@@ -106,3 +106,36 @@
 									<li>Shifts in mathematical identity at transitionary points in undergraduate education, such as a first calculus or proof based course.</li>
 									<li>Intersections of mathematics and other fields of study, such as fiction, gerrymandering, and history.</li>
 								</ul>
+
+
+
+						<p>
+									That being said, I have an increasing number of hobbies that I really would like to dedicate more time to, which I will list here (more to remind myself what I want to do than for any other reason):
+									<ul>
+										<li>
+											Photography: 
+											Following the IFSC Boulder Worldcup I attended in May 2022 I realized that all the pictures I took on my phone were, shall we say, not good. 
+											I have since gotten my hands on a camera and would like to hone my skills as a photographer. 
+											So far that has manifested in several dozen pictures of my cats and a few dead batteries, but I remain optimistic.
+										</li>
+										
+										<li>
+											Spanish: 
+											I hated languages in school. 
+											I took four years of French in high school before placing into the lowest possible course offered at Willamette.
+											I'd only taken French in the first place because Italian wasn't offered and I thought my brother would be able to help me with my homework (he did not), so I decided to give Spanish a shot instead.
+											After a semester I was convinced that languages were just not for me, and the language requirement at Willamette soon became one of my least favorite parts about college.
+											Now that several years have passed and I have learned a little more about learning itself, I think I am ready to give Spanish another shot. 
+											I no longer say that I am 'not a language person,' opting instead for the kinder 'the way languages are taught in educational settings does not mesh well with my learning style'. 
+											A lot wordier, yes, but it is no longer a statement about who I am as a person, merely the circumstances I find myself in.
+										</li>
+										
+										<li>
+											Guitar: 
+											I considered buying a guitar during the pandemic before ultimately deciding against it. 
+											I've always wanted to learn, but I recognized that I wasn't in a place where I could dedicate the time and energy needed to practice.
+											Absolutely none of that has changed, but due to unforseen circumstances I am now in posession of a very nice accoustic guitar and would like to learn a few songs. 
+											Wonderwall, here I come.
+										</li>
+									</ul>
+								</p>				
