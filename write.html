@@ -11,6 +11,95 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+	<style>
+
+	.pub-list{
+        background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+        border-radius:12px;                           /* How much the edges are curved */
+        padding:20px;                                 /* Padding from the outside of the environment to the text */
+        box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    }
+
+	.pub-item{padding:14px 0;border-bottom:1px dashed var(--color-default-15)}
+    .pub-item:last-child{border-bottom:none}
+
+
+	.pub-meta {
+		display: flex;
+		align-items: baseline;
+		gap: 12px;
+		flex-wrap: nowrap;         /* Keep title + year on the same flex line */
+	}
+
+	.pub-title {
+		font-weight: 600;
+		font-size: 1.0rem;
+		margin: 0;
+		flex: 1 1 auto;            /* Title can shrink + wrap */
+		min-width: 0;              /* REQUIRED for wrapping in flexbox */
+		white-space: normal;       /* Allow wrapping */
+	}
+
+	.pub-year {
+		background: var(--color-default-15);
+		padding: 4px 8px;
+		border-radius: 8px;
+		font-weight: 600;
+		color: var(--bold-text-color);
+		font-size: 0.85rem;
+		flex: 0 0 auto;            /* Year CANNOT shrink or wrap */
+		white-space: nowrap;       /* Keep it on one line */
+	}
+
+
+	.covers{
+        position:relative;
+        align-self:start;
+    }
+
+	.covers-inner {
+        position:sticky;top:28px;
+        display:grid;
+        gap:14px;
+        grid-auto-rows: auto;
+        justify-items:center;
+    }
+
+    .cover-card{
+        width:var(--cover-width);
+        border-radius:8px;
+        overflow:hidden;
+        background:var(--color-default-15);                       /* color of the area for pub covers */
+        box-shadow:0 8px 22px rgba(2,6,23,0.55);
+        text-align:center;
+    }
+    .cover-card img{display:block;width:100%;height:auto}
+    .cover-caption{padding:8px;font-size:0.86rem;color:var(--bold-text-color)}
+
+	/* small screen: stack */
+    @media (max-width:900px){
+        .publications{grid-template-columns:1fr;}
+        .covers-inner{position:relative;top:0;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));}
+        .cover-card{width:100%;}
+    }
+
+	/*
+	#main > .inner > section.pub-list {
+		background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+        border-radius:12px;                          	
+        box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+	}
+
+	
+	#inner {
+    display: grid;
+    grid-template-columns: 1fr minmax(220px, var(--cover-width));
+    gap: var(--gap);
+    align-items: start;
+	}
+	*/
+
+	</style>
 	 <!-- Google tag (gtag.js) -->
 	 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PFQWWH5GLN"></script>
 	 <script>
@@ -43,6 +132,14 @@
 						</ul>
 					</header>
 
+					<section>
+						<div>
+						<h1>Creative Writing — Publications</h1>
+						</div>
+					</section>
+
+								<p class="muted">Selected fiction. (Hint: I selected all of them) </p>
+					<!--
 					<section>
 						<header class="main">
 							<h1>Creative Writing</h1>
@@ -152,10 +249,188 @@
 							<br>
 						</p>
 
-
-						
-
 					</section>
+					-->
+					
+					<div class="row gtr-uniform">
+
+						<div class="col-9 col-12-narrower">
+
+							<!-- LEFT COLUMN: text/list -->
+							<section class="pub-list" aria-label="Publications list">
+
+							<article class="pub-item" id="pub-10">
+								<div class="pub-meta">
+								<h2 class="pub-title">"The New 911 Automatic Caller Menu Options"</h2>
+								<div style="flex:1"></div>
+								<div class="pub-year">(forthcoming)</div>
+								</div>
+								<div class="pub-venue muted">Humor Article — <em>McSweeney's Internet Tendency</em></div>
+							</article>
+							
+							<article class="pub-item" id="pub-9">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"Another Night in the Concrete Jungle"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">(forthcoming)</div>
+								</div>
+								<div class="pub-venue muted">Short Story — <em>
+									If There's Anyone Left, Volume 6
+								</em></div>
+							</article>
+
+							<article class="pub-item" id="pub-8">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"Remembering Dodem Ansibar"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">(forthcoming)</div>
+								</div>
+								<div class="pub-venue muted">
+									Short Story — 
+									<em>Flash Fiction Online</em>
+								</div>
+							</article>
+
+							<article class="pub-item" id="pub-7">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"<a href="https://www.neonandsmoke.com/issue-1/the-teething-god" class="text-link" target="_blank">The Teething God</a>"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">October 2025</div>
+								</div>
+								<div class="pub-venue muted">
+									Short Story — 
+									<em>Neon & Smoke, Issue 1</em>
+								</div>
+							</article>
+
+								<article class="pub-item" id="pub-7">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"<a href="https://www.pointsincase.com/articles/your-campsite-report-card-as-written-by-the-bear-about-to-eat-you" class="text-link" target="_blank">Your Campsite Report Card, as Written by the Bear About to Eat You</a>"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">September 2025</div>
+								</div>
+								<div class="pub-venue muted">
+									Humor Article — 
+									<em>Points in Case</em>
+								</div>
+							</article>
+
+								<article class="pub-item" id="pub-7">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"A Mathematician's Guide to Being Normal"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">August 2025</div>
+								</div>
+								<div class="pub-venue muted">
+									Short Story — 
+									<em>This Exquisite Topology: A Collection of Happy Abstractions</em>
+								</div>
+							</article>
+
+							<article class="pub-item" id="pub-7">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"Chicken Little"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">July 2025</div>
+								</div>
+								<div class="pub-venue muted">
+									Short Story — 
+									<em>The Colored Lens, Issue 56</em>
+								</div>
+							</article>
+
+							<article class="pub-item" id="pub-7">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"<a href="https://suburbanwitchcraft.com/issue8" class="text-link" target="_blank">Gone, But Not Forgotten</a>"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">March 2025</div>
+								</div>
+								<div class="pub-venue muted">
+									Short Story — 
+									<em>Suburban Witchcraft, Issue 8</em>
+								</div>
+							</article>
+
+							<article class="pub-item" id="pub-7">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"<a href="https://365tomorrows.com/2025/02/09/artificial/" class="text-link" target="_blank">Artificial</a>"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">February 2025</div>
+								</div>
+								<div class="pub-venue muted">
+									Short Story — 
+									<em>365 Tomorrows</em>
+								</div>
+							</article>
+
+							<article class="pub-item" id="pub-7">
+								<div class="pub-meta">
+									<h2 class="pub-title">
+										"<a href="https://www.killernashville.com/short-stories/the-abodale-hotel-and-suites" class="text-link" target="_blank">The Abodale Hotel and Suites</a>"
+									</h2>
+									<div style="flex:1"></div>
+									<div class="pub-year">February 2025</div>
+								</div>
+								<div class="pub-venue muted">
+									Short Story — 
+									<em>Killer Nashville</em>
+								</div>
+							</article>
+							</section>
+						</div>
+
+						<div class="col-3 col-12-narrower">
+
+							<!-- RIGHT COLUMN: covers -->
+							<aside class="covers" aria-label="Cover images">
+							<div class="covers-inner">
+
+								<figure class="cover-card">
+								<img src="images/publication_covers/NeonSmokeVol1.avif" alt="Cover: The Long Blue Night">
+								<figcaption class="cover-caption"></figcaption>
+								</figure>
+
+								<figure class="cover-card">
+								<img src="images/publication_covers/This-Exquisite-Topology.jpg" alt="Cover: On the Edge of Ink">
+								<figcaption class="cover-caption"></figcaption>
+								</figure>
+
+								<figure class="cover-card">
+								<img src="images/publication_covers/Colored-Lens-56.jpg" alt="Cover: On the Edge of Ink">
+								<figcaption class="cover-caption"></figcaption>
+								</figure>
+
+								<figure class="cover-card">
+								<img src="images/publication_covers/Suburban-Witchcraft-8.jpg" alt="Cover: On the Edge of Ink">
+								<figcaption class="cover-caption"></figcaption>
+								</figure>
+
+								<figure class="cover-card">
+								<img src="images/publication_covers/Killer-Nashville.jpg" alt="Cover: On the Edge of Ink">
+								<figcaption class="cover-caption"></figcaption>
+								</figure>
+
+							</div>
+							</aside>
+						</div>
+							
+				</div>
 				</div>
 			</div>
 
