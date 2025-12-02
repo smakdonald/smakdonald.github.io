@@ -70,6 +70,13 @@
 			.quote figcaption, .quote blockquote {
 				margin: 1em;
 			}
+
+			#collapse {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				cursor: pointer;
+			}
 		</style>
 	</head>
 	 <!-- Google tag (gtag.js) -->
@@ -107,7 +114,9 @@
 					<section><header class="main"><h1>Teaching</h1></header>
 						<hr class="major"/>
 
-                        <header class="major"><h2 id="experience">Teaching Experience</h2></header>
+                        <header class="major" id="collapse">
+							<h2 id="experience">Teaching Experience <i class="icon solid fa-angle-right"></i></h2>
+						</header>
 						<button type="button" class="collapsible">Collapse</button>
 						<div class="content">
 							<ul>
