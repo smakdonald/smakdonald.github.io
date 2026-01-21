@@ -228,6 +228,7 @@
                         <div class="content">
 							<select id="quoteSelector" onchange="quoteFilter()">
 								<option value="0">Select a Semester</option>
+								<option value="9">Fall 2025</option>
 								<option value="8">Fall 2024</option>
 								<option value="7">Fall 2023</option>
 								<option value="6">Summer 2023</option>
@@ -243,6 +244,12 @@
 								<tbody>
 									<!-- 	0 -->		<!-- 1 -->			<!-- 2 --> 						<!-- 3 -->
 									<!-- 	# -->		<!-- Semester -->	<!-- Course -->					<!-- Quote -->	
+									<tr> <td>43</td> 	<td>Fall 2025</td>	<td>Applied Calculus</td>		<td>[Sam] always invites everyone to learn and takes into consideration everyone's learning speed</td></tr>
+									<tr> <td>42</td> 	<td>Fall 2025</td>	<td>Applied Calculus</td>		<td>I love Sam Macdonald.</td></tr>
+									<tr> <td>41</td> 	<td>Fall 2025</td>	<td>Applied Calculus</td>		<td>Sam was so great with helping with things I didn't understand and helped clarify, or teach extra to help. I never felt like it was hopeless because of his commitment to helping.</td></tr>
+									<tr> <td>40</td> 	<td>Fall 2025</td>	<td>Applied Calculus</td>		<td>Whenever I am struggling with something in Sam's class, he offers so much office hours and is always available to help you when you need it. His responses to how I can improve or what I am missing is always really good and overall just appreciate the time he puts in.</td></tr>
+									<tr> <td>39</td> 	<td>Fall 2025</td>	<td>Applied Calculus</td>		<td>It's just a welcoming environment that doesn't make the class unbearable. Very grateful for our professor as well! He's amazing :)</td></tr>
+									<tr> <td>38</td> 	<td>Fall 2025</td>	<td>Applied Calculus</td>		<td>Sam is a fun teacher to be around. When I find myself in an inviting environment it compels me to learn more out of respect of the instructor. Sam does a great job at this.</td></tr>
 									<tr> <td>37</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td>I don't think there is a better classes than this, I understand the some negative feedback is required to improve the class. But I believe <b>if all my classes were like this one collage would be 'easy'.</b></td></tr>
 									<tr> <td>36</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td>The instructor is very relatable and <b>treats us like colleagues rather than just students.</b> It's a nice change of flow compared to the big lecture halls.</td></tr>
 									<tr> <td>35</td> 	<td>Fall 2024</td>	<td>Calculus I</td>				<td><b>He always helps as much as he can.</b> He tries to be as available as possible so we can get help when needed. He gives us helpful advice and study guides.</td></tr>
@@ -369,7 +376,7 @@
 			}
 			rowsArray.forEach(function(row) {										// Loop through each row of the array (which contains just the quotes from the selected semester)
 				var quoteContent = '"' + row.cells[3].innerHTML + '"';				// Get the text for the quote and surround it by quotes
-				var speakerContent = '-' + row.cells[2].textContent + " Student";	// Get the text for the attribution (with the correct course)
+				var speakerContent = '-' + row.cells[2].textContent + " student";	// Get the text for the attribution (with the correct course)
 				containerContent += `
 				<div class = quote-container>
 					<div class = quote-item>
