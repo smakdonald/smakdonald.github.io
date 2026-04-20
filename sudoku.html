@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Variant Sudoku Puzzles</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.sudoku-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #3498db;
+}
+
+.sudoku-card img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.2s ease;
+}
+
+.sudoku-card img:hover {
+    transform: scale(1.03);
+}
+
+.sudoku-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.rule {
+    margin-top: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: bold;
+}
+
+.rule:hover {
+    color: #3498db;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.arrow.open {
+    transform: rotate(90deg);
+}
+
+.rule-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+}
+
+.rule-content.open {
+    max-height: 100px;
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Variant Sudoku Puzzles</h1>
+
+<div class="grid-container" id="grid"></div>
+
+<script>
+/* ---------------- RULE DATABASE ---------------- */
+const RULES = {
+    standard: {
+        name: "Standard 9x9 Sudoku",
+        description: "The digits 1 through 9 appear in every row, column, and box without repetition."
+    },
+    anti_king: {
+        name: "Anti-King",
+        description: "Cells that are a chess king's move apart do not contain the same digit."
+    },
+    anti_knight: {
+        name: "Anti-Knight",
+        description: "Cells that are a chess knight's move apart do not contain the same digit."
+    },
+    arrows: {
+        name: "Arrows",
+        description: "Digits along an arrow must sum to the number indicated in the circle from which the arrow emerges. Digits may repeat along arrows if allowed by other rules."
+    },
+    between_lines: {
+        name: "Between Lines",
+        description: "Digits placed on the line must be strictly between the digits placed in the circles at the ends of the line."
+    },
+
+    cages: {
+        name: "Killer Cages",
+        description: "Digits in cages cannot repeat and must sum to the value shown in the upper left corner of the cage."
+    },
+
+    clone_regions: {
+        name: "Clone regions",
+        description: "Each clone region contains the same digits in the same relative positions as its clone."
+    },
+
+    consecutive_pairs: {
+        name: "Consecutive pairs",
+        description: "Digits separated by a white dot are consecutive. Not all possible dots are necessarily given."
+    },
+
+    consecutive_pairs_negative: {
+        name: "Consecutive pairs (Negative constraint)",
+        description: "Digits are separated by a white dot if and only if they are consecutive. All possible dots are necessarily given."
+    },
+
+    diagonal: {
+        name: "Diagonal",
+        description: "Digits along a marked diagonal cannot repeat."
+    },
+
+    diagonal_sums: {
+        name: "Diagonal Sums",
+        description: "Clues outside the grid are the sum of the digits along the indicated diagonal. Digits may repeat if allowed by other rules."
+    },
+
+    difference_dots: {
+        name: "Difference dots",
+        description: "Digits separated by a white dot differ by the amount shown in the dot. If no value is given in the dot, the digits differ by 1."
+    },
+
+    disjoint_groups: {
+        name: "Disjoint Groups",
+        description: "Each position in the 3x3 boxes contains a full set of the digits 1 to 9. That is, no digit can show up in the same position in two different 3x3 boxes."
+    },
+
+    double_arrows: {
+        name: "Double Arrows",
+        description: "Digits along a line sum to same total as the digits in the circles connected to the line."
+    },
+
+    entropic_lines: {
+        name: "Entropic lines",
+        description: "Any set of three adjacent cells along an entropic line must contain a low digit (123), a middle digit (456), and a high digit (789)."
+    },
+
+    even: {
+        name: "Even",
+        description: "Cells marked with a grey square contain even digits."
+    },
+
+    even_odd: {
+        name: "Even/Odd",
+        description: "Cells marked with a grey square contain even digits. Cells marked with a grey circle contain odd digits."
+    },
+
+    global_entropy: {
+        name: "Global Entropy",
+        description: "Each 2x2 area must contain a low digit (123), a middle digit (456), and a high digit (789)."
+    },
+
+    global_modularity: {
+        name: "Global Entropy",
+        description: "Each 2x2 area must contain digits with three different remainders when divided by 3; that is, a remainder-0 digit (369), a remainder-1 digit (147), and a remainder-2 digit (258)."
+    },
+
+    kropki: {
+        name: "Kropki pairs",
+        description: "Digits in cells separated by a black dot are in a 2:1 ratio. Digits in cells separated by a white dot are consecutive. Not all dots are necessarily given."
+    },
+
+    little_killers: {
+        name: "Little Killers",
+        description: "Clues outside the grid are the sum of the digits along the indicated diagonal. Digits may repeat if allowed by other rules."
+    },
+
+    lockout_lines: {
+        name: "Lockout lines",
+        description: "Digits in the diamonds at the ends of a lockout line must differ by at least 4. Digits on a line must fall outside the range defined by their attached diamonds and may repeat if allowed by other rules. A diamond terminates a line segment."
+    },
+
+    min_max: {
+        name: "Minimum/maximum cells",
+        description: "Digits placed in blue cells with arrows pointing in must be smaller than all orthogonally adjacent cells. Digits placed in yellow cells with arrows pointing out must be larger than all orthogonally adjacent cells."
+    },
+
+    modular_lines: {
+        name: "Modular lines",
+        description: "Any set of three adjacent digits along a modular line has three different remainders when divided by 3."
+    },
+
+    nabner_lines: {
+        name: "Nabner lines",
+        description: "Digits on a Nabner line cannot repeat. If a digit appears on the line, then the digits consecutive with it must not appear."
+    },
+
+    nonconsecutive: {
+        name: "Nonconsecutive",
+        description: "Any two orthogonally adjacent cells cannot contain consecutive digits."
+    },
+
+    numbered_rooms: {
+        name: "Numbered rooms",
+        description: "A clue outside the grid indicates the digit which has to be placed in the Nth cell in the corresponding direction, where N is the digit placed in the first cell in that direction."
+    },
+
+    odd: {
+        name: "Odd",
+        description: "Cells marked with a grey circle contain odd digits."
+    },
+
+    palindrome_lines: {
+        name: "Palindrome lines",
+        description: "Digits along a palindrome line read the same forwards as backwards along the line."
+    },
+
+    parity_lines: {
+        name: "Parity lines",
+        description: "Digits along a parity line alternate odd/even."
+    },
+
+    quadruples: {
+        name: "Quadruples",
+        description: "Digits in a Quadruple circle must be placed at least once in the four cells touching that circle."
+    },
+
+    ratio_dots: {
+        name: "Ratio dots",
+        description: "Digits in cells separated by a black dot are in a 2:1 ratio."
+    },
+
+    region_sum_lines: {
+        name: "Region sum lines",
+        description: "The sum of the digits on a region sum line within a particular region must be the same for all of the regions the line passes through."
+    },
+
+    renban_lines: {
+        name: "Renban lines",
+        description: "Digits along a Renban line must form a set of non-repeating consecutive digits in some order."
+    },
+
+    row_column_indexing: {
+        name: "Row and Column Indexing",
+        description: "Digits placed in red cells indicate the position of the corresponding column number in that row. Digits placed in blue cells indicate the position of the corresponding row number in that column."
+    },
+
+    row_indexing: {
+        name: "Row Indexing",
+        description: "Digits placed in blue cells indicate the position of the corresponding row number in that column."
+    },
+
+    row_indexing_negative: {
+        name: "Row Indexing (Negative constraint)",
+        description: "Digits are placed in blue cells if and only if the digit is equal to the position of the corresponding row number in that column. Thus, all blue cells are necessarily given."
+    },
+    
+    sandwich_sums: {
+        name: "Sandwich sums",
+        description: "Clues outside the grid indicate the sum of the digits between 1 and 9 in that row or column."
+    },
+
+    sequence_lines: {
+        name: "Sequence lines",
+        description: "sequence lines contain digits in order with a constant difference. E.g. 1-2-3, 2-5-8, or even 3-3-3..."
+    },
+
+    skyscrapers: {
+        name: "Skyscrapers",
+        description: "Each cell represents a 'skyscraper' whose height is the digit in that cell. Taller skyscrapers obscure the view of smaller ones. Clues outside the grid tell how many skyscrapers are visible looking across the row or column from the direction of the clue."
+    },
+
+    thermometers: {
+        name: "Thermometers",
+        description: "Digits on thermometers are strictly increasing from bulb to tip."
+    },
+
+    thermometers_merge: {
+        name: "Thermometers",
+        description: "Digits on thermometers are strictly increasing from bulb to tip. If two thermometers merge, the largest digit is equidistant between the two bulbs."
+    },
+
+    german_whisper_lines: {
+        name: "German Whisper lines",
+        description: "Adjacent digits along a German Whisper line must differ by at least five."
+    },
+
+    dutch_whisper_lines: {
+        name: "Dutch Whisper lines",
+        description: "Adjacent digits along a Dutch Whisper line must differ by at least four."
+    },
+
+    v: {
+        name: "V pairs",
+        description: "Digits in cells separated by a V sum to 5. Not all possible Xs or Vs are necessarily given."
+    },
+
+    v_negative: {
+        name: "V pairs (Negative constraint)",
+        description: "Digits are separated by a V if and only if they sum to 5. All possible Vs are necessarily given."
+    },
+
+     x: {
+        name: "X pairs",
+        description: "Digits in cells connected by a X sum to 10. Not all possible Xs are necessarily given."
+    },
+    
+    xv: {
+        name: "X and V pairs",
+        description: "Digits in cells separated by a V sum to 5. Digits in cells connected by a X sum to 10. Not all possible Xs or Vs are necessarily given."
+    },
+
+    xv_negative: {
+        name: "X and V pairs (Negative constraint)",
+        description: "Digits are separated by a V if and only if they sum to 5. Digits are separated by a X if and only if they sum to 10. All possible Xs and Vs are necessarily given."
+    },
+    
+    x_sums: {
+        name: "X-Sums",
+        description: "Clues outside the grid give the sum of the first X numbers placed in the corresponding row or column, where X is digit in the cell next to the X-sum clue."
+    },
+
+    zipper_lines: {
+        name: "Zipper lines",
+        description: "Along Zipper lines, pairs of digits equidistant from the center of the line have the same sum. For Zipper lines of odd length, that sum is the central digit on the line."
+    }
+    
+};
+
+/* ---------------- PUZZLE LIST ---------------- */
+const PUZZLES = [
+    {
+        title: "Code Name: Locked and Loaded",
+        image: "images/Sudoku/Locked and Loaded.png",
+        link: "https://sudokupad.app/ggrwskq24q",
+        rules: ["cages", "kropki", "sequence_lines"]
+    },
+    {
+        title: "Code Name: Daytime Slingshot",
+        image: "images/Sudoku/Daytime Slingshot.png",
+        link: "https://sudokupad.app/3pmm6bhj6d",
+        rules: ["anti_knight", "diagonal", "german_whisper_lines", "odd", "xv"]
+    },
+    {
+        title: "Code Name: Neon Spider",
+        image: "images/Sudoku/Neon Spider.png",
+        link: "https://sudokupad.app/krndv7752g",
+        rules: ["cages", "german_whisper_lines", "parity_lines", "renban_lines", "thermometers"]
+    },
+    {
+        title: "Code Name: VOX",
+        image: "images/Sudoku/VOX.png",
+        link: "https://sudokupad.app/4kvrwf8n2u",
+        rules: ["even_odd", "min_max", "v"]
+    },
+    {
+        title: "Code Name: One Foot in Front of the Other",
+        image: "images/Sudoku/One Foot in Front of the Other.png",
+        link: "https://sudokupad.app/fivbgzujb4",
+        rules: ["anti_king", "diagonal", "german_whisper_lines", "global_entropy", "nonconsecutive"]
+    },
+    {
+        title: "Code Name: Twenty Three and Me",
+        image: "images/Sudoku/Twenty Three and Me.png",
+        link: "https://sudokupad.app/4nwty19x45",
+        rules: ["little_killers", "xv_negative"]
+    },
+    {
+        title: "Code Name: Skyline",
+        image: "images/Sudoku/Skyline.png",
+        link: "https://sudokupad.app/res1bixist",
+        rules: ["skyscrapers"]
+    },
+    {
+        title: "Code Name: The Roman Miracle",
+        image: "images/Sudoku/The Roman Miracle.png",
+        link: "https://sudokupad.app/jnq9lanwe4",
+        rules: ["anti_knight", "anti_king", "nonconsecutive", "xv"]
+    },
+    {
+        title: "Code Name: Quartus Demise",
+        image: "images/Sudoku/Quartus Demise.png",
+        link: "https://sudokupad.app/9iwxj8m107",
+        rules: ["cages", "quadruples", "xv"]
+    },
+    {
+        title: "Code Name: Death by Flüstern",
+        image: "images/Sudoku/Death by Flüstern.png",
+        link: "https://sudokupad.app/sgh8a13lpp",
+        rules: ["cages", "german_whisper_lines"]
+    },
+    {
+        title: "Code Name: Death by yb htaeD",
+        image: "images/Sudoku/Death by yb htaeD.png",
+        link: "https://sudokupad.app/juvk731u9e",
+        rules: ["cages", "palindrome_lines"]
+    },
+    {
+        title: "Code Name: Nabner? Barely Know'er!",
+        image: "images/Sudoku/Nabner_ Barely Know'er!.png",
+        link: "https://sudokupad.app/1zmya1pzs8",
+        rules: ["arrows", "consecutive_pairs", "nabner_lines"]
+    },
+    {
+        title: "Code Name: Migraine",
+        image: "images/Sudoku/Migraine.png",
+        link: "https://sudokupad.app/0y3gel1ve0",
+        rules: ["nonconsecutive", "row_indexing_negative"]
+    },
+    {
+        title: "Code Name: Three Lefts Make a Right",
+        image: "images/Sudoku/Three Lefts Make a Right.png",
+        link: "https://sudokupad.app/j3bk86sdc4",
+        rules: ["arrows", "parity_lines", "thermometers_merge"]
+    },
+    {
+        title: "Code Name: Democratic Unknown",
+        image: "images/Sudoku/Democratic Unknown.png",
+        link: "https://sudokupad.app/eg7rzwnp7z",
+        rules: ["anti_king", "nabner_lines"]
+    },
+    {
+        title: "Code Name: Amethyst Overpass",
+        image: "images/Sudoku/Amethyst Overpass.png",
+        link: "https://sudokupad.app/kkk07aktuw",
+        rules: ["palindrome_lines", "zipper_lines"]
+    },
+    {
+        title: "Code Name: Careless Whisper",
+        image: "images/Sudoku/Careless Whisper.png",
+        link: "https://sudokupad.app/7y7gg5vktz",
+        rules: ["diagonal", "dutch_whisper_lines", "entropic_lines", "german_whisper_lines", "modular_lines", "parity_lines"]
+    },
+    {
+        title: "Code Name: Island Hopper",
+        image: "images/Sudoku/Island Hopper.png",
+        link: "https://sudokupad.app/of84cywuuh",
+        rules: ["clone_regions", "lockout_lines"]
+    },
+    {
+        title: "Code Name: Hilbert Motel",
+        image: "images/Sudoku/Hilbert Motel.png",
+        link: "https://sudokupad.app/mquhp7vcgb",
+        rules: ["even", "kropki", "numbered_rooms", "renban_lines"]
+    },
+    {
+        title: "Code Name: Sammies to Die Four",
+        image: "images/Sudoku/Sammies to Die Four.png",
+        link: "https://sudokupad.app/63bta5i8yz",
+        rules: ["cages", "diagonal", "quadruples", "sandwich_sums"]
+    },
+    {
+        title: "Code Name: Pessimistic Optimization",
+        image: "images/Sudoku/Pessimistic Optimization.png",
+        link: "https://sudokupad.app/4ge3pmaseo",
+        rules: ["lockout_lines", "min_max", "v_negative"]
+    },
+    {
+        title: "Code Name: Heat Index",
+        image: "images/Sudoku/Heat Index.png",
+        link: "https://sudokupad.app/cz26i52qt4",
+        rules: ["row_column_indexing", "thermometers"]
+    },
+    {
+        title: "Code Name: Ordered Chaos",
+        image: "images/Sudoku/Ordered Chaos.png",
+        link: "https://sudokupad.app/ogqxkxhye9",
+        rules: ["consecutive_pairs", "renban_lines"]
+    },
+    {
+        title: "Code Name: Democratic Turnstile",
+        image: "images/Sudoku/Democratic Turnstile.png",
+        link: "https://sudokupad.app/4q1hnfv30h",
+        rules: ["anti_king", "arrows", "cages", "x_sums"]
+    },
+    {
+        title: "Code Name: Box Fan",
+        image: "images/Sudoku/Box Fan.png",
+        link: "https://sudokupad.app/12hglyfn1g",
+        rules: ["between_lines", "global_entropy", "thermometers"]
+    },
+    {
+        title: "Code Name: River Walk",
+        image: "images/Sudoku/River Walk.png",
+        link: "https://sudokupad.app/s7p60o310j",
+        rules: ["between_lines", "difference_dots", "row_indexing"]
+    },
+    {
+        title: "Code Name: Robert Sponge",
+        image: "images/Sudoku/Robert Sponge.png",
+        link: "https://sudokupad.app/ccsa2fi3lk",
+        rules: ["consecutive_pairs", "entropic_lines", "global_modularity", "thermometers"]
+    },
+    {
+        title: "Code Name: Gravity's Sumwich",
+        image: "images/Sudoku/Gravity's Sumwich.png",
+        link: "https://sudokupad.app/c6b51ehnuo",
+        rules: ["double_arrows", "entropic_lines", "sandwich_sums", "x"]
+    },
+    {
+        title: "Code Name: Global Warming",
+        image: "images/Sudoku/Global Warming.png",
+        link: "https://sudokupad.app/g58aedkssb",
+        rules: ["global_entropy", "modular_lines", "thermometers"]
+    },
+    {
+        title: "Code Name: Roman Exclusive",
+        image: "images/Sudoku/Roman Exclusive.png",
+        link: "https://sudokupad.app/tztmlggp96",
+        rules: ["consecutive_pairs", "renban_lines", "xv_negative"]
+    },
+    {
+        title: "Code Name: Parity Playground",
+        image: "images/Sudoku/Parity Playground.png",
+        link: "https://sudokupad.app/togrzkioeu",
+        rules: ["kropki", "parity_lines"]
+    },
+    {
+        title: "Code Name: Sum Plumbing",
+        image: "images/Sudoku/Sum Plumbing.png",
+        link: "https://sudokupad.app/53crqo3itz",
+        rules: ["double_arrows", "x_sums"]
+    },
+    {
+        title: "Code Name: Pucker Up",
+        image: "images/Sudoku/Pucker Up.png",
+        link: "https://sudokupad.app/x7fbkil74o",
+        rules: ["cages", "disjoint_groups", "renban_lines", "thermometers"]
+    },
+    {
+        title: "Code Name: Ins and Outs",
+        image: "images/Sudoku/Ins and Outs.png",
+        link: "https://sudokupad.app/kdzozt33gj",
+        rules: ["between_lines", "disjoint_groups", "lockout_lines", "row_indexing", "xv"]
+    },
+    {
+        title: "Code Name: Pessimistic Crosshairs",
+        image: "images/Sudoku/Pessimistic Crosshairs.png",
+        link: "https://sudokupad.app/isjhion8o5",
+        rules: ["consecutive_pairs_negative", "dutch_whisper_lines"]
+    },
+    {
+        title: "Code Name: Mancala",
+        image: "images/Sudoku/Mancala.png",
+        link: "https://sudokupad.app/9jentueakd",
+        rules: ["kropki"]
+    },
+    {
+        title: "Code Name: Repetetive Patterns",
+        image: "images/Sudoku/Repetetive Patterns.png",
+        link: "https://sudokupad.app/2wf4neht0z",
+        rules: ["disjoint_groups", "dutch_whisper_lines", "palindrome_lines", "parity_lines"]
+    },
+    {
+        title: "Code Name: Divisive Parity",
+        image: "images/Sudoku/Divisive Parity.png",
+        link: "https://sudokupad.app/d0qlv29n2h",
+        rules: ["diagonal", "kropki", "parity_lines"]
+    },
+    {
+        title: "Code Name: Midday Heat",
+        image: "images/Sudoku/Midday Heat.png",
+        link: "https://sudokupad.app/y82zvqfldq",
+        rules: ["anti_knight", "thermometers"]
+    },
+    {
+        title: "Code Name: Shutterstock",
+        image: "images/Sudoku/Shutterstock.png",
+        link: "https://sudokupad.app/8xjmb0g42e",
+        rules: ["diagonal", "thermometers"]
+    },
+    {
+        title: "Code Name: Modern Perspectives",
+        image: "images/Sudoku/Modern Perspectives.png",
+        link: "https://sudokupad.app/0sganwxgau",
+        rules: ["entropic_lines", "modular_lines", "nonconsecutive", "ratio_dots"]
+    },
+    {
+        title: "Code Name: Cutting Corners",
+        image: "images/Sudoku/Cutting Corners.png",
+        link: "https://sudokupad.app/9ldpd5p4l9",
+        rules: ["little_killers", "ratio_dots"]
+    },
+];
+
+/* ---------------- RENDER FUNCTION ---------------- */
+const grid = document.getElementById("grid");
+
+PUZZLES.forEach(puzzle => {
+    const card = document.createElement("div");
+    card.className = "sudoku-card";
+
+    let rulesHTML = "";
+
+    puzzle.rules.forEach(ruleKey => {
+        const rule = RULES[ruleKey];
+
+        rulesHTML += `
+            <div class="rule" onclick="toggleRule(this)">
+                <span class="arrow">></span>
+                ${rule.name}
+            </div>
+            <div class="rule-content">
+                ${rule.description}
+            </div>
+        `;
+    });
+
+    card.innerHTML = `
+        <a href="${puzzle.link}" target="_blank">
+            <div class="sudoku-title">${puzzle.title}</div>
+            <img src="${puzzle.image}" alt="${puzzle.title}">
+        </a>
+        ${rulesHTML}
+    `;
+
+    grid.appendChild(card);
+});
+
+/* ---------------- INTERACTION ---------------- */
+function toggleRule(element) {
+    const arrow = element.querySelector(".arrow");
+    const content = element.nextElementSibling;
+
+    arrow.classList.toggle("open");
+    content.classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
