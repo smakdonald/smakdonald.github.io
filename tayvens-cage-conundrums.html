@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Variant Sudoku Puzzles</title>
+<title>Tayven's Cage Conundrums</title>
 
 <style>
 body {
@@ -20,7 +20,7 @@ h1 {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -113,9 +113,17 @@ a:hover {
 
 <body>
 
-<h1>Variant Sudoku Puzzles</h1>
+<h1>Tayven's Cage Conundrums</h1>
+
+<h3 style="text-align:center">Click on each of the puzzles below to try them out!</h3>
 
 <div class="grid-container" id="grid"></div>
+
+<h1>Miscellaneous Puzzles and Problems</h1>
+
+<div class="grid-container" id="grid2"></div>
+
+
 
 <script>
 /* ---------------- RULE DATABASE ---------------- */
@@ -374,6 +382,11 @@ const RULES = {
     zipper_lines: {
         name: "Zipper lines",
         description: "Along purple Zipper lines, pairs of digits equidistant from the center of the line have the same sum. For Zipper lines of odd length, that sum is the central digit on the line."
+    },
+
+    product_cages: {
+        name: "Product cages",
+        description: "Digits in red cages cannot repeat and must multiply to the value shown in the upper left corner of the cage."
     }
     
 };
@@ -381,280 +394,64 @@ const RULES = {
 /* ---------------- PUZZLE LIST ---------------- */
 const PUZZLES = [
     {
-        title: "Code Name: Locked and Loaded",
-        image: "images/Sudoku/Locked and Loaded.png",
-        link: "https://sudokupad.app/ggrwskq24q",
-        rules: ["cages", "kropki", "sequence_lines"]
+        title: "Beginner #1",
+        image: "images/Sudoku/beg-1.png",
+        link: "https://sudokupad.app/whqkgs3h4p",
+        rules: []
     },
     {
-        title: "Code Name: Daytime Slingshot",
-        image: "images/Sudoku/Daytime Slingshot.png",
-        link: "https://sudokupad.app/3pmm6bhj6d",
-        rules: ["anti_knight", "diagonal", "german_whisper_lines", "odd", "xv"]
+        title: "Beginner #2",
+        image: "images/Sudoku/beg-2.png",
+        link: "https://sudokupad.app/48ixn95l4w",
+        rules: []
     },
     {
-        title: "Code Name: Neon Spider",
-        image: "images/Sudoku/Neon Spider.png",
-        link: "https://sudokupad.app/krndv7752g",
-        rules: ["cages", "german_whisper_lines", "parity_lines", "renban_lines", "thermometers"]
+        title: "Beginner #3",
+        image: "images/Sudoku/beg-3.png",
+        link: "https://sudokupad.app/d1kkudt6vq",
+        rules: []
     },
     {
-        title: "Code Name: VOX",
-        image: "images/Sudoku/VOX.png",
-        link: "https://sudokupad.app/4kvrwf8n2u",
-        rules: ["even_odd", "min_max", "v"]
+        title: "Easy #1",
+        image: "images/Sudoku/easy-1.png",
+        link: "https://sudokupad.app/kmmab8gibp",
+        rules: []
     },
     {
-        title: "Code Name: One Foot in Front of the Other",
-        image: "images/Sudoku/One Foot in Front of the Other.png",
-        link: "https://sudokupad.app/fivbgzujb4",
-        rules: ["anti_king", "diagonal", "german_whisper_lines", "global_entropy", "nonconsecutive"]
+        title: "Easy #2",
+        image: "images/Sudoku/easy-2.png",
+        link: "https://sudokupad.app/4lg363bjeu",
+        rules: []
     },
     {
-        title: "Code Name: Twenty Three and Me",
-        image: "images/Sudoku/Twenty Three and Me.png",
-        link: "https://sudokupad.app/4nwty19x45",
-        rules: ["little_killers", "xv_negative"]
+        title: "Easy #3",
+        image: "images/Sudoku/easy-3.png",
+        link: "https://sudokupad.app/edzzk82kmq",
+        rules: []
     },
     {
-        title: "Code Name: Skyline",
-        image: "images/Sudoku/Skyline.png",
-        link: "https://sudokupad.app/res1bixist",
-        rules: ["skyscrapers"]
+        title: "Medium #1",
+        image: "images/Sudoku/med-1.png",
+        link: "https://sudokupad.app/c0yxd7pvaq",
+        rules: []
     },
     {
-        title: "Code Name: The Roman Miracle",
-        image: "images/Sudoku/The Roman Miracle.png",
-        link: "https://sudokupad.app/jnq9lanwe4",
-        rules: ["anti_knight", "anti_king", "nonconsecutive", "xv"]
+        title: "Medium #2",
+        image: "images/Sudoku/med-2.png",
+        link: "https://sudokupad.app/x7kbp60396",
+        rules: []
     },
     {
-        title: "Code Name: Quartus Demise",
-        image: "images/Sudoku/Quartus Demise.png",
-        link: "https://sudokupad.app/9iwxj8m107",
-        rules: ["cages", "quadruples", "xv"]
+        title: "Medium #3",
+        image: "images/Sudoku/med-3.png",
+        link: "https://sudokupad.app/k7isrs9fc3",
+        rules: []
     },
     {
-        title: "Code Name: Death by Flüstern",
-        image: "images/Sudoku/Death by Flüstern.png",
-        link: "https://sudokupad.app/sgh8a13lpp",
-        rules: ["cages", "german_whisper_lines"]
-    },
-    {
-        title: "Code Name: Death by yb htaeD",
-        image: "images/Sudoku/Death by yb htaeD.png",
-        link: "https://sudokupad.app/juvk731u9e",
-        rules: ["cages", "palindrome_lines"]
-    },
-    {
-        title: "Code Name: Nabner? Barely Know'er!",
-        image: "images/Sudoku/Nabner_ Barely Know'er!.png",
-        link: "https://sudokupad.app/1zmya1pzs8",
-        rules: ["arrows", "consecutive_pairs", "nabner_lines"]
-    },
-    {
-        title: "Code Name: Migraine",
-        image: "images/Sudoku/Migraine.png",
-        link: "https://sudokupad.app/0y3gel1ve0",
-        rules: ["nonconsecutive", "row_indexing_negative"]
-    },
-    {
-        title: "Code Name: Three Lefts Make a Right",
-        image: "images/Sudoku/Three Lefts Make a Right.png",
-        link: "https://sudokupad.app/j3bk86sdc4",
-        rules: ["arrows", "parity_lines", "thermometers_merge"]
-    },
-    {
-        title: "Code Name: Democratic Unknown",
-        image: "images/Sudoku/Democratic Unknown.png",
-        link: "https://sudokupad.app/eg7rzwnp7z",
-        rules: ["anti_king", "nabner_lines"]
-    },
-    {
-        title: "Code Name: Amethyst Overpass",
-        image: "images/Sudoku/Amethyst Overpass.png",
-        link: "https://sudokupad.app/kkk07aktuw",
-        rules: ["palindrome_lines", "zipper_lines"]
-    },
-    {
-        title: "Code Name: Careless Whisper",
-        image: "images/Sudoku/Careless Whisper.png",
-        link: "https://sudokupad.app/7y7gg5vktz",
-        rules: ["diagonal", "dutch_whisper_lines", "entropic_lines", "german_whisper_lines", "modular_lines", "parity_lines"]
-    },
-    {
-        title: "Code Name: Island Hopper",
-        image: "images/Sudoku/Island Hopper.png",
-        link: "https://sudokupad.app/of84cywuuh",
-        rules: ["clone_regions", "lockout_lines"]
-    },
-    {
-        title: "Code Name: Hilbert Motel",
-        image: "images/Sudoku/Hilbert Motel.png",
-        link: "https://sudokupad.app/mquhp7vcgb",
-        rules: ["even", "kropki", "numbered_rooms", "renban_lines"]
-    },
-    {
-        title: "Code Name: Sammies to Die Four",
-        image: "images/Sudoku/Sammies to Die Four.png",
-        link: "https://sudokupad.app/63bta5i8yz",
-        rules: ["cages", "diagonal", "quadruples", "sandwich_sums"]
-    },
-    {
-        title: "Code Name: Pessimistic Optimization",
-        image: "images/Sudoku/Pessimistic Optimization.png",
-        link: "https://sudokupad.app/4ge3pmaseo",
-        rules: ["lockout_lines", "min_max", "v_negative"]
-    },
-    {
-        title: "Code Name: Heat Index",
-        image: "images/Sudoku/Heat Index.png",
-        link: "https://sudokupad.app/cz26i52qt4",
-        rules: ["row_column_indexing", "thermometers"]
-    },
-    {
-        title: "Code Name: Ordered Chaos",
-        image: "images/Sudoku/Ordered Chaos.png",
-        link: "https://sudokupad.app/ogqxkxhye9",
-        rules: ["consecutive_pairs", "renban_lines"]
-    },
-    {
-        title: "Code Name: Democratic Turnstile",
-        image: "images/Sudoku/Democratic Turnstile.png",
-        link: "https://sudokupad.app/4q1hnfv30h",
-        rules: ["anti_king", "arrows", "cages", "x_sums"]
-    },
-    {
-        title: "Code Name: Box Fan",
-        image: "images/Sudoku/Box Fan.png",
-        link: "https://sudokupad.app/12hglyfn1g",
-        rules: ["between_lines", "global_entropy", "thermometers"]
-    },
-    {
-        title: "Code Name: River Walk",
-        image: "images/Sudoku/River Walk.png",
-        link: "https://sudokupad.app/s7p60o310j",
-        rules: ["between_lines", "difference_dots", "row_indexing"]
-    },
-    {
-        title: "Code Name: Robert Sponge",
-        image: "images/Sudoku/Robert Sponge.png",
-        link: "https://sudokupad.app/ccsa2fi3lk",
-        rules: ["consecutive_pairs", "entropic_lines", "global_modularity", "thermometers"]
-    },
-    {
-        title: "Code Name: Gravity's Sumwich",
-        image: "images/Sudoku/Gravity's Sumwich.png",
-        link: "https://sudokupad.app/c6b51ehnuo",
-        rules: ["double_arrows", "entropic_lines", "sandwich_sums", "x"]
-    },
-    {
-        title: "Code Name: Global Warming",
-        image: "images/Sudoku/Global Warming.png",
-        link: "https://sudokupad.app/g58aedkssb",
-        rules: ["global_entropy", "modular_lines", "thermometers"]
-    },
-    {
-        title: "Code Name: Roman Exclusive",
-        image: "images/Sudoku/Roman Exclusive.png",
-        link: "https://sudokupad.app/tztmlggp96",
-        rules: ["consecutive_pairs", "renban_lines", "xv_negative"]
-    },
-    {
-        title: "Code Name: Parity Playground",
-        image: "images/Sudoku/Parity Playground.png",
-        link: "https://sudokupad.app/togrzkioeu",
-        rules: ["kropki", "parity_lines"]
-    },
-    {
-        title: "Code Name: Sum Plumbing",
-        image: "images/Sudoku/Sum Plumbing.png",
-        link: "https://sudokupad.app/53crqo3itz",
-        rules: ["double_arrows", "x_sums"]
-    },
-    {
-        title: "Code Name: Pucker Up",
-        image: "images/Sudoku/Pucker Up.png",
-        link: "https://sudokupad.app/x7fbkil74o",
-        rules: ["cages", "disjoint_groups", "renban_lines", "thermometers"]
-    },
-    {
-        title: "Code Name: Ins and Outs",
-        image: "images/Sudoku/Ins and Outs.png",
-        link: "https://sudokupad.app/kdzozt33gj",
-        rules: ["between_lines", "disjoint_groups", "lockout_lines", "row_indexing", "xv"]
-    },
-    {
-        title: "Code Name: Pessimistic Crosshairs",
-        image: "images/Sudoku/Pessimistic Crosshairs.png",
-        link: "https://sudokupad.app/isjhion8o5",
-        rules: ["consecutive_pairs_negative", "dutch_whisper_lines"]
-    },
-    {
-        title: "Code Name: Mancala",
-        image: "images/Sudoku/Mancala.png",
-        link: "https://sudokupad.app/9jentueakd",
-        rules: ["kropki"]
-    },
-    {
-        title: "Code Name: Repetetive Patterns",
-        image: "images/Sudoku/Repetetive Patterns.png",
-        link: "https://sudokupad.app/2wf4neht0z",
-        rules: ["disjoint_groups", "dutch_whisper_lines", "palindrome_lines", "parity_lines"]
-    },
-    {
-        title: "Code Name: Divisive Parity",
-        image: "images/Sudoku/Divisive Parity.png",
-        link: "https://sudokupad.app/d0qlv29n2h",
-        rules: ["diagonal", "kropki", "parity_lines"]
-    },
-    {
-        title: "Code Name: Midday Heat",
-        image: "images/Sudoku/Midday Heat.png",
-        link: "https://sudokupad.app/y82zvqfldq",
-        rules: ["anti_knight", "thermometers"]
-    },
-    {
-        title: "Code Name: Shutterstock",
-        image: "images/Sudoku/Shutterstock.png",
-        link: "https://sudokupad.app/8xjmb0g42e",
-        rules: ["diagonal", "thermometers"]
-    },
-    {
-        title: "Code Name: Modern Perspectives",
-        image: "images/Sudoku/Modern Perspectives.png",
-        link: "https://sudokupad.app/0sganwxgau",
-        rules: ["entropic_lines", "modular_lines", "nonconsecutive", "ratio_dots"]
-    },
-    {
-        title: "Code Name: Cutting Corners",
-        image: "images/Sudoku/Cutting Corners.png",
-        link: "https://sudokupad.app/9ldpd5p4l9",
-        rules: ["little_killers", "ratio_dots"]
-    },
-    {
-        title: "Code Name: Ceiling Fans",
-        image: "images/Sudoku/Ceiling Fans.png",
-        link: "https://sudokupad.app/yd07dfp0tb",
-        rules: ["arrows", "thermometers"]
-    },
-    {
-        title: "Code Name: Red Cross",
-        image: "images/Sudoku/Red Cross.png",
-        link: "https://sudokupad.app/rdi72z3cf8",
-        rules: ["column_indexing", "kropki"]
-    },
-    {
-        title: "Code Name: Christmas Crosshairs",
-        image: "images/Sudoku/Christmas Crosshairs.png",
-        link: "https://sudokupad.app/15t7r71ygt",
-        rules: ["german_whisper_lines", "parity_lines"]
-    },
-    {
-        title: "Code Name: Daytime Linearity",
-        image: "images/Sudoku/Daytime Linearity.png",
-        link: "https://sudokupad.app/15t7r71ygt",
-        rules: ["anti_knight", "region_sum_lines", "renban_lines", "zipper_lines"]
+        title: "Final Challenge",
+        image: "images/Sudoku/final.png",
+        link: "https://sudokupad.app/kajzx4dpx4",
+        rules: []
     },
 ];
 
@@ -701,6 +498,105 @@ function toggleRule(element) {
     content.classList.toggle("open");
 }
 </script>
+
+<script>
+/* ---------------- PUZZLE LIST ---------------- */
+const PUZZLES2 = [
+    {
+        title: "Couplets",
+        image: "images/Sudoku/tay-1.png",
+        link: "https://sudokupad.app/job3w586n0",
+        rules: ["cages"]
+    },
+    {
+        title: "Chain Reaction",
+        image: "images/Sudoku/tay-2.png",
+        link: "https://sudokupad.app/cnuqxpsy0e",
+        rules: ["nonconsecutive", "cages", "sequence_lines"]
+    },
+    {
+        title: "Whirlpool",
+        image: "images/Sudoku/tay-3.png",
+        link: "https://sudokupad.app/5btd1crfqn",
+        rules: ["cages", "nonconsecutive", "row_indexing"]
+    },
+    {
+        title: "Product Caged",
+        image: "images/Sudoku/tay-4.png",
+        link: "https://sudokupad.app/uka22e4d2f",
+        rules: ["cages", "product_cages"]
+    },
+    {
+        title: "Applesauce",
+        image: "images/Sudoku/tay-5.png",
+        link: "https://sudokupad.app/2ehbmq6mem",
+        rules: ["xv"]
+    },
+    {
+        title: "Pointer",
+        image: "images/Sudoku/tay-6.png",
+        link: "https://sudokupad.app/b73tjdcpjy",
+        rules: ["cages"]
+    },
+    {
+        title: "Crosshair",
+        image: "images/Sudoku/tay-7.png",
+        link: "https://sudokupad.app/xtdy5x3dmi",
+        rules: ["cages", "parity_lines"]
+    },
+    {
+        title: "Cups",
+        image: "images/Sudoku/tay-8.png",
+        link: "https://sudokupad.app/mb7fng91o6",
+        rules: ["region_sum_lines"]
+    },
+];
+
+/* ---------------- RENDER FUNCTION ---------------- */
+const grid2 = document.getElementById("grid2");
+
+PUZZLES2.forEach(puzzle => {
+    const card2 = document.createElement("div");
+    card2.className = "sudoku-card";
+
+    let rulesHTML = "";
+
+    puzzle.rules.forEach(ruleKey => {
+        const rule = RULES[ruleKey];
+
+        rulesHTML += `
+            <div class="rule" onclick="toggleRule(this)">
+                ${rule.name}
+                <span class="arrow">></span>
+            </div>
+            <div class="rule-content">
+                ${rule.description}
+            </div>
+        `;
+    });
+
+    card2.innerHTML = `
+        <a href="${puzzle.link}" target="_blank">
+            <div class="sudoku-title">${puzzle.title}</div>
+            <img src="${puzzle.image}" alt="${puzzle.title}">
+        </a>
+        ${rulesHTML}
+    `;
+
+    grid2.appendChild(card2);
+});
+
+/* ---------------- INTERACTION ---------------- */
+function toggleRule(element) {
+    const arrow = element.querySelector(".arrow");
+    const content = element.nextElementSibling;
+
+    arrow.classList.toggle("open");
+    content.classList.toggle("open");
+}
+</script>
+
+
 
 </body>
 </html>
