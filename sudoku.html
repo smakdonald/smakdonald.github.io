@@ -365,6 +365,11 @@ const RULES = {
         name: "X and V pairs (Negative constraint)",
         description: "Digits are separated by a V if and only if they sum to 5. Digits are separated by a X if and only if they sum to 10. All possible Xs and Vs are necessarily given."
     },
+
+    xvxv_negative: {
+        name: "X, V, and XV pairs (Negative constraint)",
+        description: "Digits are separated by a V if and only if they sum to 5, an X if and only if they sum to 10, and an XV if and only if they sum to 15. All possible Xs, Vs, and XVs are necessarily given."
+    },
     
     x_sums: {
         name: "X-Sums",
@@ -661,6 +666,12 @@ const PUZZLES = [
         image: "images/Sudoku/Little League.png",
         link: "https://sudokupad.app/0iul3oj7e0",
         rules: ["lockout_lines", "nabner_lines", "v_negative"]
+    },
+    {
+        title: "Code Name: Roman Expansion",
+        image: "images/Sudoku/Roman Expansion.png",
+        link: "https://sudokupad.app/5ip8bs1at5",
+        rules: ["xvxv_negative"]
     },
 ];
 
