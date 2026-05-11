@@ -137,12 +137,12 @@ const RULES = {
         description: "Digits along an arrow must sum to the number indicated in the circle from which the arrow emerges. Digits may repeat along arrows if allowed by other rules."
     },
     between_lines: {
-        name: "Between Lines",
+        name: "Between lines",
         description: "Digits placed on the line must be strictly between the digits placed in the circles at the ends of the line."
     },
 
     cages: {
-        name: "Killer Cages",
+        name: "Killer cages",
         description: "Digits in cages cannot repeat and must sum to the value shown in the upper left corner of the cage."
     },
 
@@ -167,7 +167,7 @@ const RULES = {
     },
 
     diagonal_sums: {
-        name: "Diagonal Sums",
+        name: "Diagonal sums",
         description: "Clues outside the grid are the sum of the digits along the indicated diagonal. Digits may repeat if allowed by other rules."
     },
 
@@ -177,12 +177,12 @@ const RULES = {
     },
 
     disjoint_groups: {
-        name: "Disjoint Groups",
+        name: "Disjoint groups",
         description: "Each position in the 3x3 boxes contains a full set of the digits 1 to 9. That is, no digit can show up in the same position in two different 3x3 boxes."
     },
 
     double_arrows: {
-        name: "Double Arrows",
+        name: "Double arrows",
         description: "Digits along a line sum to same total as the digits in the circles connected to the line."
     },
 
@@ -202,12 +202,12 @@ const RULES = {
     },
 
     global_entropy: {
-        name: "Global Entropy",
+        name: "Global entropy",
         description: "Each 2x2 area must contain a low digit (123), a middle digit (456), and a high digit (789)."
     },
 
     global_modularity: {
-        name: "Global Entropy",
+        name: "Global entropy",
         description: "Each 2x2 area must contain digits with three different remainders when divided by 3; that is, a remainder-0 digit (369), a remainder-1 digit (147), and a remainder-2 digit (258)."
     },
 
@@ -217,7 +217,7 @@ const RULES = {
     },
 
     little_killers: {
-        name: "Little Killers",
+        name: "Little killers",
         description: "Clues outside the grid are the sum of the digits along the indicated diagonal. Digits may repeat if allowed by other rules."
     },
 
@@ -287,22 +287,22 @@ const RULES = {
     },
 
     row_column_indexing: {
-        name: "Row and Column Indexing",
+        name: "Row and column indexing",
         description: "Digits placed in red cells indicate the position of the corresponding column number in that row. Digits placed in blue cells indicate the position of the corresponding row number in that column."
     },
 
     row_indexing: {
-        name: "Row Indexing",
+        name: "Row indexing",
         description: "Digits placed in blue cells indicate the position of the corresponding row number in that column."
     },
 
      column_indexing: {
-        name: "Column Indexing",
+        name: "Column indexing",
         description: "Digits placed in red cells indicate the position of the corresponding column number in that row."
     },
 
     row_indexing_negative: {
-        name: "Row Indexing (Negative constraint)",
+        name: "Row indexing (Negative constraint)",
         description: "Digits are placed in blue cells if and only if the digit is equal to the position of the corresponding row number in that column. Thus, all blue cells are necessarily given."
     },
     
@@ -332,12 +332,12 @@ const RULES = {
     },
 
     german_whisper_lines: {
-        name: "German Whisper lines",
+        name: "German whisper lines",
         description: "Adjacent digits along a green German Whisper line must differ by at least five."
     },
 
     dutch_whisper_lines: {
-        name: "Dutch Whisper lines",
+        name: "Dutch whisper lines",
         description: "Adjacent digits along an orange Dutch Whisper line must differ by at least four."
     },
 
@@ -672,6 +672,48 @@ const PUZZLES = [
         image: "images/Sudoku/Roman Expansion.png",
         link: "https://sudokupad.app/5ip8bs1at5",
         rules: ["xvxv_negative"]
+    },
+    {
+        title: "Code Name: Lonely Tylenol",
+        image: "images/Sudoku/Lonely Tylenol.png",
+        link: "https://sudokupad.app/w3o68jr3ht",
+        rules: ["cages", "even_odd", "palindrome_lines"]
+    },
+    {
+        title: "Code Name: Purples and Pinks",
+        image: "images/Sudoku/Purples and Pinks.png",
+        link: "https://sudokupad.app/ct75abaa78",
+        rules: ["anti_king", "renban_lines", "zipper_lines"]
+    },
+    {
+        title: "Code Name: Downtown Plaza",
+        image: "images/Sudoku/Downtown Plaza.png",
+        link: "https://sudokupad.app/hxi4nbc4xb",
+        rules: ["between_lines", "row_column_indexing", "skyscrapers"]
+    },
+    {
+        title: "Code Name: Sewage Lines",
+        image: "images/Sudoku/Sewage Lines.png",
+        link: "https://sudokupad.app/96r9dgi51t",
+        rules: ["german_whisper_lines", "thermometers"]
+    },
+    {
+        title: "Code Name: Garden Hose",
+        image: "images/Sudoku/Garden Hose.png",
+        link: "https://sudokupad.app/yf5vbvtbwn",
+        rules: ["entropic_lines", "modular_lines", "ratio_dots"]
+    },
+    {
+        title: "Code Name: Out of Order",
+        image: "images/Sudoku/Out of Order.png",
+        link: "https://sudokupad.app/nte2no30w9",
+        rules: ["min_max", "nonconsecutive", "renban_lines"]
+    },
+    {
+        title: "Code Name: Back to Front",
+        image: "images/Sudoku/Back to Front.png",
+        link: "https://sudokupad.app/15d5cr2b59",
+        rules: ["consecutive_pairs","disjoint_groups","palindrome_lines"]
     },
 ];
 
