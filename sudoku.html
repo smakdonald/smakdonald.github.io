@@ -138,7 +138,7 @@ const RULES = {
     },
     between_lines: {
         name: "Between lines",
-        description: "Digits placed on the line must be strictly between the digits placed in the circles at the ends of the line."
+        description: "Digits placed on the gray line must be strictly between the digits placed in the circles at the ends of the line."
     },
 
     cages: {
@@ -166,14 +166,14 @@ const RULES = {
         description: "Digits along a marked diagonal cannot repeat."
     },
 
-    diagonal_sums: {
-        name: "Diagonal sums",
-        description: "Clues outside the grid are the sum of the digits along the indicated diagonal. Digits may repeat if allowed by other rules."
-    },
-
     difference_dots: {
         name: "Difference dots",
         description: "Digits separated by a white dot differ by the amount shown in the dot. If no value is given in the dot, the digits differ by 1."
+    },
+
+    two_difference_dots_negative: {
+        name: "2-Difference dots (Negative constraint)",
+        description: "Digits are separated by a white dot containing a '2' if and only if they differ by exactly 2. All possible dots are necessarily given."
     },
 
     disjoint_groups: {
@@ -228,7 +228,7 @@ const RULES = {
 
     min_max: {
         name: "Minimum/maximum cells",
-        description: "Digits placed in blue cells with arrows pointing in must be smaller than all orthogonally adjacent cells. Digits placed in yellow cells with arrows pointing out must be larger than all orthogonally adjacent cells."
+        description: "Digits placed in cells with arrows pointing in must be smaller than all orthogonally adjacent cells. Digits placed in cells with arrows pointing out must be larger than all orthogonally adjacent cells."
     },
 
     modular_lines: {
@@ -278,7 +278,7 @@ const RULES = {
 
     region_sum_lines: {
         name: "Region sum lines",
-        description: "The sum of the digits on a blue region sum line within a particular region must be the same for all of the regions the line passes through."
+        description: "The sum of the digits on a turquoise region sum line within a particular region must be the same for all of the regions the line passes through."
     },
 
     renban_lines: {
@@ -343,7 +343,7 @@ const RULES = {
 
     v: {
         name: "V pairs",
-        description: "Digits in cells separated by a V sum to 5. Not all possible Xs or Vs are necessarily given."
+        description: "Digits in cells separated by a V sum to 5."
     },
 
     v_negative: {
@@ -418,7 +418,7 @@ const PUZZLES = [
     {
         title: "Code Name: Twenty Three and Me",
         image: "images/Sudoku/Twenty Three and Me.png",
-        link: "https://sudokupad.app/4nwty19x45",
+        link: "https://sudokupad.app/1mroul4u5u",
         rules: ["little_killers", "xv_negative"]
     },
     {
@@ -714,6 +714,60 @@ const PUZZLES = [
         image: "images/Sudoku/Back to Front.png",
         link: "https://sudokupad.app/15d5cr2b59",
         rules: ["consecutive_pairs","disjoint_groups","palindrome_lines"]
+    },
+    {
+        title: "Code Name: Sloppy Notation",
+        image: "images/Sudoku/Sloppy Notation.png",
+        link: "https://sudokupad.app/4gb1kk0c19",
+        rules: ["kropki","parity_lines"]
+    },
+    {
+        title: "Code Name: Bishop's Square",
+        image: "images/Sudoku/Bishop's Square.png",
+        link: "https://sudokupad.app/u8l1abim41",
+        rules: ["diagonal","entropic_lines","little_killers"]
+    },
+    {
+        title: "Code Name: Temperature Fluctuations",
+        image: "images/Sudoku/Temperature Fluctuations.png",
+        link: "https://sudokupad.app/nu262rau8f",
+        rules: ["ratio_dots","thermometers"]
+    },
+    {
+        title: "Code Name: Strange Reflections",
+        image: "images/Sudoku/Strange Reflections.png",
+        link: "https://sudokupad.app/r5564leq2g",
+        rules: ["arrows","thermometers"]
+    },
+    {
+        title: "Code Name: Tell Me Y",
+        image: "images/Sudoku/Tell Me Y.png",
+        link: "https://sudokupad.app/gng0wu2d2t",
+        rules: ["entropic_lines","region_sum_lines"]
+    },
+    {
+        title: "Code Name: Keeping Distance",
+        image: "images/Sudoku/Keeping Distance.png",
+        link: "https://sudokupad.app/34tgzki8fv",
+        rules: ["two_difference_dots_negative","nonconsecutive","renban_lines"]
+    },
+    {
+        title: "Code Name: Sunset Parity",
+        image: "images/Sudoku/Sunset Parity.png",
+        link: "https://sudokupad.app/34tgzki8fv",
+        rules: ["consecutive_pairs","nabner_lines","parity_lines"]
+    },
+    {
+        title: "Code Name: Sunset Parity II",
+        image: "images/Sudoku/Sunset Parity II.png",
+        link: "https://sudokupad.app/py6pszyb6n",
+        rules: ["consecutive_pairs","nabner_lines","parity_lines"]
+    },
+    {
+        title: "Code Name: Fever Pitch",
+        image: "images/Sudoku/Fever Pitch.png",
+        link: "https://sudokupad.app/slbjpeybgo",
+        rules: ["parity_lines", "thermometers"]
     },
 ];
 
