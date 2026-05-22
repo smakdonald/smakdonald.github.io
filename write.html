@@ -21,8 +21,14 @@
 		margin-bottom: 50px
     }
 
-	.pub-item{padding:14px 0;border-bottom:1px dashed var(--color-default-15)}
-    .pub-item:last-child{border-bottom:none}
+	.pub-item{
+		padding:14px 0;
+		border-bottom:1px dashed var(--color-default-15)
+	}
+
+    .pub-item:last-child{
+		border-bottom:none
+	}
 
 	.pub-meta {
 		display: flex;
@@ -85,6 +91,10 @@
 		color:var(--bold-text-color)
 	}
 
+	a:visited {													/* For whatever reason the links appear in black when not hovered over without this */
+  		color: var(--color-default);
+	}
+
 	/* small screen: stack */
     @media (max-width:900px){
         .publications{grid-template-columns:1fr;}
@@ -98,7 +108,9 @@
 	
 	<script>
 		 window.dataLayer = window.dataLayer || [];
-		 function gtag(){dataLayer.push(arguments);}
+		 function gtag(){
+			dataLayer.push(arguments);
+		 }
 		 gtag('js', new Date());
 		 gtag('config', 'G-PFQWWH5GLN');
 	</script>
@@ -133,13 +145,10 @@
 					</section>
 
 					<p class="muted">Selected fiction. (Hint: I selected all of them)</p>
-
-					
+		
 					<div class="row gtr-uniform">
 
 						<div class="col-9 col-12-narrower">
-
-
 
 							<!-- LEFT COLUMN: text/list -->
 							<section class="pub-list" aria-label="Publications list">
@@ -295,11 +304,14 @@
 										<em>Killer Nashville</em>
 									</div>
 								</article>
+
 							</section>
 
 							<section style="margin-top: 50px;" class="pub-list" aria-label="Humor list">
 
 								<h2 style="text-align: center">Humor Pieces</h2>
+
+								<!--
 
 								<article class="pub-item" id="pub-9">
 									<div class="pub-meta">
@@ -322,6 +334,8 @@
 									</div>
 									<div class="pub-venue muted">Humor Article — <em>Jane Austen's Wastebasket</em></div>
 								</article>
+
+								-->
 
 								<article class="pub-item" id="pub-9">
 									<div class="pub-meta">
@@ -377,45 +391,47 @@
 
 							<!-- RIGHT COLUMN: covers -->
 							<aside class="covers" aria-label="Cover images">
-							<div class="covers-inner">
+								<div class="covers-inner">
 
-								<figure class="cover-card">
-								<img src="images/publication_covers/FFO-151.jpg" alt="Cover: Flash Fiction Online Issue 151; April 2026">
-								<figcaption class="cover-caption"></figcaption>
-								</figure>
+									
 
-								<figure class="cover-card">
-								<img src="images/publication_covers/NeonSmokeVol1.avif" alt="Cover: Neon and Smoke Volume 1; October 2025">
-								<figcaption class="cover-caption"></figcaption>
-								</figure>
+									<figure class="cover-card">
+									<img src="images/publication_covers/FFO-151.jpg" alt="Cover: Flash Fiction Online Issue 151; April 2026">
+									<figcaption class="cover-caption"></figcaption>
+									</figure>
 
-								<figure class="cover-card">
-								<img src="images/publication_covers/This-Exquisite-Topology.jpg">
-								<figcaption class="cover-caption"></figcaption>
-								</figure>
+									<figure class="cover-card">
+									<img src="images/publication_covers/NeonSmokeVol1.avif" alt="Cover: Neon and Smoke Volume 1; October 2025">
+									<figcaption class="cover-caption"></figcaption>
+									</figure>
 
-								<figure class="cover-card">
-								<img src="images/publication_covers/Colored-Lens-56.jpg">
-								<figcaption class="cover-caption"></figcaption>
-								</figure>
+									<figure class="cover-card">
+									<img src="images/publication_covers/This-Exquisite-Topology.jpg">
+									<figcaption class="cover-caption"></figcaption>
+									</figure>
 
-								<figure class="cover-card">
-								<img src="images/publication_covers/Suburban-Witchcraft-8.jpg">
-								<figcaption class="cover-caption"></figcaption>
-								</figure>
+									<figure class="cover-card">
+									<img src="images/publication_covers/Colored-Lens-56.jpg">
+									<figcaption class="cover-caption"></figcaption>
+									</figure>
 
-								<figure class="cover-card">
-								<img src="images/publication_covers/Killer-Nashville.jpg">
-								<figcaption class="cover-caption"></figcaption>
-								</figure>
+									<figure class="cover-card">
+									<img src="images/publication_covers/Suburban-Witchcraft-8.jpg">
+									<figcaption class="cover-caption"></figcaption>
+									</figure>
 
-							</div>
+									<figure class="cover-card">
+									<img src="images/publication_covers/Killer-Nashville.jpg">
+									<figcaption class="cover-caption"></figcaption>
+									</figure>
+
+								</div>
 							</aside>
 						</div>
 							
 				</div>
-				</div>
 			</div>
+		</div>
 
 			<div id="sidebar">
 				<div class="inner">
