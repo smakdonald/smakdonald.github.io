@@ -187,15 +187,15 @@
                         { ...commonOpts, size: 16, color: getCurrentTextColor() }
                     );
 
-                    // hover events
-                    man.addEventListener('mouseover', () => window.manLine.show());
-                    man.addEventListener('mouseout', () => window.manLine.hide());
+                    // hover events - Commented out until I can figure out what's wrong with them
+                    //man.addEventListener('mouseover', () => window.manLine.show());
+                    //man.addEventListener('mouseout', () => window.manLine.hide());
 
-                    myth.addEventListener('mouseover', () => window.mythLine.show());
-                    myth.addEventListener('mouseout', () => window.mythLine.hide());
+                    //myth.addEventListener('mouseover', () => window.mythLine.show());
+                    //myth.addEventListener('mouseout', () => window.mythLine.hide());
 
-                    mac.addEventListener('mouseover', () => window.macLine.show());
-                    mac.addEventListener('mouseout', () => window.macLine.hide());
+                    //mac.addEventListener('mouseover', () => window.macLine.show());
+                    //mac.addEventListener('mouseout', () => window.macLine.hide());
 
                     // updater for theme changes
                     window.updateAllLineColors = function () {
