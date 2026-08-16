@@ -385,6 +385,7 @@ const RULES = {
 
 /* ---------------- PUZZLE LIST ---------------- */
 const PUZZLES = [
+    
     {
         title: "Code Name: Locked and Loaded",
         image: "images/Sudoku/Locked and Loaded.png",
@@ -811,16 +812,41 @@ const PUZZLES = [
         link: "https://sudokupad.app/gh3ybp1xxg",
         rules: ["consecutive_pairs", "dutch_whisper_lines"]
     },
+    {
+        title: "Code Name: Nervous System",
+        image: "images/Sudoku/Nervous System.png",
+        link: "https://sudokupad.app/tq0877g8qb",
+        rules: ["dutch_whisper_lines", "thermometers"]
+    },
+    {
+        title: "Code Name: Neural Network",
+        image: "images/Sudoku/Neural Network.png",
+        link: "https://sudokupad.app/pj4bm2gycl",
+        rules: ["german_whisper_lines", "thermometers"]
+    },
+    {
+        title: "Code Name: Paddleboard",
+        image: "images/Sudoku/Paddleboard.png",
+        link: "https://sudokupad.app/2se4b2zkuq",
+        rules: ["parity_lines", "quadruples"]
+    },
+    {
+        title: "Code Name: One Way Traffic",
+        image: "images/Sudoku/One Way Traffic.png",
+        link: "https://sudokupad.app/zcjmrssy3p",
+        rules: ["arrows", "renban_lines"]
+    },
 ];
 
 /* ---------------- RENDER FUNCTION ---------------- */
 const grid = document.getElementById("grid");
 
-PUZZLES.forEach(puzzle => {
+PUZZLES.slice().reverse().forEach(puzzle => {
     const card = document.createElement("div");
     card.className = "sudoku-card";
 
     let rulesHTML = "";
+
 
     puzzle.rules.forEach(ruleKey => {
         const rule = RULES[ruleKey];
