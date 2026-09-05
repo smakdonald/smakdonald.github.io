@@ -341,6 +341,11 @@ const RULES = {
         description: "Adjacent digits along an orange Dutch Whisper line must differ by at least four."
     },
 
+    two_whisper_lines: {
+        name: "2-whisper lines",
+        description: "Adjacent digits along a blue 2-Whisper line must differ by at least two."
+    },
+
     v: {
         name: "V pairs",
         description: "Digits in cells separated by a V sum to 5."
@@ -835,6 +840,18 @@ const PUZZLES = [
         image: "images/Sudoku/One Way Traffic.png",
         link: "https://sudokupad.app/zcjmrssy3p",
         rules: ["arrows", "renban_lines"]
+    },
+    {
+        title: "Code Name: Split Ends",
+        image: "images/Sudoku/Split Ends.png",
+        link: "https://sudokupad.app/pyqtutf49i",
+        rules: ["consecutive_pairs", "two_whisper_lines", "renban_lines"]
+    },
+    {
+        title: "Code Name: Separation",
+        image: "images/Sudoku/Separation.png",
+        link: "https://sudokupad.app/md8u8842it",
+        rules: ["dutch_whisper_lines", "region_sum_lines"]
     },
 ];
 
